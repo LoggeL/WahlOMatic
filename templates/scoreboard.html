@@ -259,6 +259,15 @@
             padding: 16px 20px;
             border: 1px solid #e5e5e5;
             min-width: 200px;
+            cursor: pointer;
+            transition: background 0.2s ease, border-color 0.2s ease;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+        .model-card:hover {
+            background: #fafafa;
+            border-color: #000000;
         }
         .model-name {
             font-weight: 500;
@@ -499,6 +508,17 @@
                     filterMainParties(e.target.checked);
                 });
                 
+                // Auto-sort by opinionated (positioniert) on page load - descending order
+                const opinionatedHeader = Array.from(headers).find(h => h.dataset.sort === 'opinionated');
+                if (opinionatedHeader) {
+                    // Sort descending (highest first)
+                    sortTable('opinionated', 'number');
+                    // Fix the state since sortTable toggles - we want descending
+                    currentSort.direction = 'desc';
+                    opinionatedHeader.classList.remove('sort-asc');
+                    opinionatedHeader.classList.add('sort-desc');
+                }
+                
                 // Column header sorting
                 headers.forEach(header => {
                     header.addEventListener('click', () => {
@@ -650,10 +670,10 @@
                 <div class="party-name">{{ party.name }} - {{ party.longname }}</div>
                 <div class="model-list">
                     {% for model_data in top_models %}
-                    <div class="model-card">
+                    <a href="{{ model_data.model.replace('/', '_') }}.html" class="model-card">
                         <div class="model-name">{{ model_data.model }}</div>
                         <div class="model-score">{{ "%.1f"|format(model_data.score) }}%</div>
-                    </div>
+                    </a>
                     {% endfor %}
                 </div>
             </div>
