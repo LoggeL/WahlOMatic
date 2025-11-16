@@ -95,6 +95,59 @@
             position: relative;
             padding-right: 24px;
         }
+        .metric-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .info-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #666666;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: bold;
+            cursor: help;
+            position: relative;
+        }
+        .info-icon:hover {
+            background: #000000;
+        }
+        .metric-tooltip {
+            visibility: hidden;
+            opacity: 0;
+            position: fixed;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            line-height: 1.5;
+            white-space: normal;
+            min-width: 250px;
+            max-width: 350px;
+            z-index: 10000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            pointer-events: none;
+            font-weight: normal;
+            text-transform: none;
+            letter-spacing: normal;
+            transform: translateX(-50%);
+        }
+        .metric-tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: #1a1a1a;
+        }
         th.sortable::after {
             content: '↕';
             position: absolute;
@@ -235,7 +288,22 @@
                     <thead>
                         <tr>
                             <th class="sortable" data-sort="model" data-sort-type="string">Modell</th>
-                            <th class="sortable" data-sort="consistency" data-sort-type="number">Konsistenz</th>
+                            <th class="sortable" data-sort="consistency" data-sort-type="number">
+                                <div class="metric-header">
+                                    Konsistenz
+                                    <span class="info-icon">?
+                                        <span class="metric-tooltip">Anteil der Fragen, bei denen alle Durchläufe die gleiche Antwort gegeben haben. Ein hoher Wert bedeutet, dass das Modell konsistent antwortet.</span>
+                                    </span>
+                                </div>
+                            </th>
+                            <th class="sortable" data-sort="opinionated" data-sort-type="number">
+                                <div class="metric-header">
+                                    Positioniert
+                                    <span class="info-icon">?
+                                        <span class="metric-tooltip">Anteil der Antworten, die eine klare Position einnehmen (Zustimmung oder Ablehnung) statt neutral zu sein. Ein hoher Wert bedeutet, dass das Modell häufig Stellung bezieht.</span>
+                                    </span>
+                                </div>
+                            </th>
                             
                             <th class="sortable party-header" data-party-id="12" data-sort="party-12" data-sort-type="number">PIRATEN</th>
                             
@@ -297,9 +365,10 @@
                     </thead>
                     <tbody>
                         
-                        <tr data-model="google/gemini-2.5-flash" data-runs="5" data-consistency="76.3" class="model-row">
+                        <tr data-model="google/gemini-2.5-flash" data-runs="5" data-consistency="76.3" data-opinionated="66.3" class="model-row">
                             <td><strong><a href="google_gemini-2.5-flash.html" style="color: #000000; text-decoration: none;">google/gemini-2.5-flash</a></strong></td>
                             <td class="score">76.3%</td>
+                            <td class="score">66.3%</td>
                             
                             
                             
@@ -415,9 +484,10 @@
                             
                         </tr>
                         
-                        <tr data-model="openai/gpt-5.1" data-runs="5" data-consistency="76.3" class="model-row">
+                        <tr data-model="openai/gpt-5.1" data-runs="5" data-consistency="76.3" data-opinionated="8.9" class="model-row">
                             <td><strong><a href="openai_gpt-5.1.html" style="color: #000000; text-decoration: none;">openai/gpt-5.1</a></strong></td>
                             <td class="score">76.3%</td>
+                            <td class="score">8.9%</td>
                             
                             
                             
@@ -533,9 +603,10 @@
                             
                         </tr>
                         
-                        <tr data-model="openrouter/sherlock-dash-alpha" data-runs="5" data-consistency="86.8" class="model-row">
+                        <tr data-model="openrouter/sherlock-dash-alpha" data-runs="5" data-consistency="86.8" data-opinionated="100.0" class="model-row">
                             <td><strong><a href="openrouter_sherlock-dash-alpha.html" style="color: #000000; text-decoration: none;">openrouter/sherlock-dash-alpha</a></strong></td>
                             <td class="score">86.8%</td>
+                            <td class="score">100.0%</td>
                             
                             
                             
@@ -651,9 +722,10 @@
                             
                         </tr>
                         
-                        <tr data-model="openrouter/sherlock-think-alpha" data-runs="5" data-consistency="71.1" class="model-row">
+                        <tr data-model="openrouter/sherlock-think-alpha" data-runs="5" data-consistency="71.1" data-opinionated="98.9" class="model-row">
                             <td><strong><a href="openrouter_sherlock-think-alpha.html" style="color: #000000; text-decoration: none;">openrouter/sherlock-think-alpha</a></strong></td>
                             <td class="score">71.1%</td>
+                            <td class="score">98.9%</td>
                             
                             
                             
@@ -833,6 +905,9 @@
                         } else if (column === 'consistency') {
                             aVal = parseFloat(a.dataset.consistency || 0);
                             bVal = parseFloat(b.dataset.consistency || 0);
+                        } else if (column === 'opinionated') {
+                            aVal = parseFloat(a.dataset.opinionated || 0);
+                            bVal = parseFloat(b.dataset.opinionated || 0);
                         } else if (column.startsWith('party-')) {
                             const partyId = column.replace('party-', '');
                             const aCell = a.querySelector(`td.party-cell[data-party-id="${partyId}"]`);
@@ -877,6 +952,71 @@
                         const column = header.dataset.sort;
                         const type = header.dataset.sortType;
                         sortTable(column, type);
+                    });
+                });
+                
+                // Position metric tooltips dynamically
+                document.querySelectorAll('.info-icon').forEach(icon => {
+                    const tooltip = icon.querySelector('.metric-tooltip');
+                    if (!tooltip) return;
+                    
+                    let tooltipInBody = false;
+                    
+                    icon.addEventListener('mouseenter', () => {
+                        const rect = icon.getBoundingClientRect();
+                        
+                        // Move tooltip to body if not already there
+                        if (!tooltipInBody) {
+                            document.body.appendChild(tooltip);
+                            tooltipInBody = true;
+                        }
+                        
+                        // Temporarily make tooltip visible to get its dimensions
+                        tooltip.style.visibility = 'visible';
+                        tooltip.style.opacity = '0';
+                        const tooltipRect = tooltip.getBoundingClientRect();
+                        
+                        // Position above the icon, centered horizontally
+                        let top = rect.top - tooltipRect.height - 8;
+                        let left = rect.left + (rect.width / 2);
+                        
+                        // Adjust if tooltip would go off screen
+                        const viewportWidth = window.innerWidth;
+                        const viewportHeight = window.innerHeight;
+                        
+                        // Check right edge
+                        if (left + tooltipRect.width / 2 > viewportWidth) {
+                            left = viewportWidth - tooltipRect.width / 2 - 10;
+                        }
+                        // Check left edge
+                        if (left - tooltipRect.width / 2 < 10) {
+                            left = tooltipRect.width / 2 + 10;
+                        }
+                        // Check top edge
+                        if (top < 10) {
+                            top = rect.bottom + 8;
+                        }
+                        // Check bottom edge
+                        if (top + tooltipRect.height > viewportHeight - 10) {
+                            top = rect.top - tooltipRect.height - 8;
+                            if (top < 10) {
+                                top = 10;
+                            }
+                        }
+                        
+                        tooltip.style.top = top + 'px';
+                        tooltip.style.left = left + 'px';
+                        tooltip.style.opacity = '1';
+                    });
+                    
+                    icon.addEventListener('mouseleave', () => {
+                        tooltip.style.visibility = 'hidden';
+                        tooltip.style.opacity = '0';
+                        // Move tooltip back to icon when hidden
+                        if (tooltipInBody) {
+                            icon.appendChild(tooltip);
+                            tooltipInBody = false;
+                        }
                     });
                 });
             })();

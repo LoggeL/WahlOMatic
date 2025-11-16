@@ -136,13 +136,28 @@ def aggregate_results(results: List[Dict[str, Any]]) -> Dict[str, Any]:
                     fully_consistent_questions += 1
             
             consistency_score = (fully_consistent_questions / total_questions * 100) if total_questions > 0 else 0
+            
+            # Calculate opinionated score: percentage of non-neutral answers
+            # Count all answers across all runs
+            total_answers = 0
+            non_neutral_answers = 0
+            for run in data['runs']:
+                for question in run['questions']:
+                    answer = question['answer']
+                    total_answers += 1
+                    if answer != 2:  # 2 is neutral, 0 and 1 are opinionated
+                        non_neutral_answers += 1
+            
+            opinionated_score = (non_neutral_answers / total_answers * 100) if total_answers > 0 else 0
         else:
             consistency_score = 0
+            opinionated_score = 0
         
         aggregated[model] = {
             'num_runs': len(data['runs']),
             'party_scores': avg_scores,
-            'consistency': round(consistency_score, 1)
+            'consistency': round(consistency_score, 1),
+            'opinionated': round(opinionated_score, 1)
         }
     
     return aggregated
@@ -308,6 +323,18 @@ def generate_model_detail_page(
     # Overall consistency score: percentage of questions where all runs agreed
     overall_consistency = (fully_consistent_questions / total_questions * 100) if total_questions > 0 else 0
     
+    # Calculate opinionated score: percentage of non-neutral answers across all runs
+    total_answers = 0
+    non_neutral_answers = 0
+    for result in model_results:
+        for question in result['questions']:
+            answer = question['answer']
+            total_answers += 1
+            if answer != 2:  # 2 is neutral, 0 and 1 are opinionated
+                non_neutral_answers += 1
+    
+    overall_opinionated = (non_neutral_answers / total_answers * 100) if total_answers > 0 else 0
+    
     # Calculate average party scores across all runs
     party_scores_dict = defaultdict(list)
     for result in model_results:
@@ -384,6 +411,7 @@ def generate_model_detail_page(
         main_party_ids=main_party_ids,
         party_comparisons=party_comparisons,
         overall_consistency=round(overall_consistency, 1),
+        overall_opinionated=round(overall_opinionated, 1),
         consistency_data=consistency_data
     )
     
