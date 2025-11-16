@@ -35,10 +35,23 @@
         .subtitle {
             color: #666666;
             text-align: left;
-            margin-bottom: 48px;
+            margin-bottom: 24px;
             font-size: 15px;
+        }
+        .nav {
+            margin: 0 0 48px 0;
             padding-bottom: 24px;
             border-bottom: 1px solid #e5e5e5;
+        }
+        .nav a {
+            color: #666666;
+            text-decoration: none;
+            font-size: 14px;
+            margin-right: 16px;
+        }
+        .nav a:hover {
+            color: #000000;
+            text-decoration: underline;
         }
         .election-list {
             list-style: none;
@@ -98,6 +111,10 @@
     <div class="container">
         <h1>WahlOMat LLM Evaluation</h1>
         <p class="subtitle">Vergleich von Large Language Models mit deutschen Parteipositionen</p>
+        
+        <div class="nav">
+            <a href="about.html">Über</a>
+        </div>
         
         <ul class="election-list" id="electionList">
             <li class="empty-state">

@@ -294,6 +294,19 @@ def generate_scoreboard_html(
     return html
 
 
+def generate_about_page() -> str:
+    """
+    Generate the about page HTML.
+    
+    Returns:
+        HTML string for the about page
+    """
+    env = get_jinja_env()
+    template = env.get_template('about.html')
+    html = template.render()
+    return html
+
+
 def generate_model_detail_page(
     model_name: str,
     model_results: List[Dict[str, Any]],
@@ -560,6 +573,15 @@ def generate_scoreboard(
             with open(model_output_file, 'w', encoding='utf-8') as f:
                 f.write(model_html)
             print(f"Model page saved to {model_output_file}")
+    
+    # Generate about page in docs root
+    print("Generating about page...")
+    docs_root = Path(docs_path)
+    about_html = generate_about_page()
+    about_output_file = docs_root / "about.html"
+    with open(about_output_file, 'w', encoding='utf-8') as f:
+        f.write(about_html)
+    print(f"About page saved to {about_output_file}")
 
 
 if __name__ == "__main__":
