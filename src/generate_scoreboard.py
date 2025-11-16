@@ -333,6 +333,7 @@ def generate_model_detail_page(
             if answer != 2:  # 2 is neutral, 0 and 1 are opinionated
                 non_neutral_answers += 1
     
+    neutral_answers = total_answers - non_neutral_answers
     overall_opinionated = (non_neutral_answers / total_answers * 100) if total_answers > 0 else 0
     
     # Calculate average party scores across all runs
@@ -412,7 +413,10 @@ def generate_model_detail_page(
         party_comparisons=party_comparisons,
         overall_consistency=round(overall_consistency, 1),
         overall_opinionated=round(overall_opinionated, 1),
-        consistency_data=consistency_data
+        consistency_data=consistency_data,
+        total_answers=total_answers,
+        neutral_answers=neutral_answers,
+        non_neutral_answers=non_neutral_answers
     )
     
     return html

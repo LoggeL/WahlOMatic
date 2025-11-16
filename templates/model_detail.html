@@ -208,6 +208,17 @@
             border: 6px solid transparent;
             border-top-color: #1a1a1a;
         }
+        .warning-banner {
+            width: 100%;
+            background-color: #ff9800;
+            color: #ffffff;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            line-height: 1.6;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
         .party-ranking {
             margin-bottom: 40px;
         }
@@ -416,6 +427,13 @@
                 {{ election_info.get('title', election_slug) }} • {{ model_results|length }} Durchläufe
             </div>
         </div>
+        
+        {% if overall_opinionated < 50 %}
+        <div class="warning-banner">
+            Dieses Modell möchte die Fragen nicht beantworten. Es gibt häufig neutrale Antworten statt eine klare Position zu beziehen.
+            Von {{ total_answers }} Antworten über {{ model_results|length }} Durchläufe waren {{ neutral_answers }} neutral ({{ "%.1f"|format((neutral_answers / total_answers * 100) if total_answers > 0 else 0) }}%) und nur {{ non_neutral_answers }} positioniert ({{ "%.1f"|format(overall_opinionated) }}%).
+        </div>
+        {% endif %}
         
         <div class="stats">
             <div class="stat-card">
@@ -700,6 +718,7 @@
                 tooltip.style.opacity = '0';
             });
         });
+        
     </script>
 </body>
 </html>
