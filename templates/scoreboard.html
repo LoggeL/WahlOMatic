@@ -169,6 +169,70 @@
         tbody tr:last-child td {
             border-bottom: none;
         }
+        .model-row.low-opinionated {
+            opacity: 0.5;
+            color: #999999;
+        }
+        .model-row.low-opinionated:hover {
+            background: #f5f5f5;
+        }
+        .model-row.low-opinionated td {
+            color: #999999;
+        }
+        .model-row.low-opinionated td a {
+            color: #999999 !important;
+        }
+        .model-row.low-opinionated td.score {
+            color: #999999;
+        }
+        .warning-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #ff9800;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: help;
+            position: relative;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+        .warning-icon:hover {
+            background: #f57c00;
+        }
+        .warning-tooltip {
+            visibility: hidden;
+            opacity: 0;
+            position: fixed;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            line-height: 1.5;
+            white-space: normal;
+            min-width: 250px;
+            max-width: 350px;
+            z-index: 10000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            pointer-events: none;
+            font-weight: normal;
+            transform: translateX(-50%);
+        }
+        .warning-tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: #1a1a1a;
+        }
         .score {
             font-weight: 500;
             color: #1a1a1a;
@@ -311,8 +375,16 @@
                     </thead>
                     <tbody>
                         {% for model in models %}
-                        <tr data-model="{{ model }}" data-runs="{{ aggregated[model].num_runs }}" data-consistency="{{ aggregated[model].consistency }}" data-opinionated="{{ aggregated[model].opinionated }}" class="model-row">
-                            <td><strong><a href="{{ model.replace('/', '_') }}.html" style="color: #000000; text-decoration: none;">{{ model }}</a></strong></td>
+                        {% set is_low_opinionated = aggregated[model].opinionated < 50 %}
+                        <tr data-model="{{ model }}" data-runs="{{ aggregated[model].num_runs }}" data-consistency="{{ aggregated[model].consistency }}" data-opinionated="{{ aggregated[model].opinionated }}" class="model-row {% if is_low_opinionated %}low-opinionated{% endif %}">
+                            <td>
+                                <strong><a href="{{ model.replace('/', '_') }}.html" style="color: #000000; text-decoration: none;">{{ model }}</a></strong>
+                                {% if is_low_opinionated %}
+                                <span class="warning-icon">!
+                                    <span class="warning-tooltip">Dieses Modell möchte die Fragen nicht beantworten. Es gibt häufig neutrale Antworten statt eine klare Position zu beziehen.</span>
+                                </span>
+                                {% endif %}
+                            </td>
                             <td class="score">{{ "%.1f"|format(aggregated[model].consistency) }}%</td>
                             <td class="score">{{ "%.1f"|format(aggregated[model].opinionated) }}%</td>
                             {% for party in parties_sorted %}
@@ -439,6 +511,71 @@
                 // Position metric tooltips dynamically
                 document.querySelectorAll('.info-icon').forEach(icon => {
                     const tooltip = icon.querySelector('.metric-tooltip');
+                    if (!tooltip) return;
+                    
+                    let tooltipInBody = false;
+                    
+                    icon.addEventListener('mouseenter', () => {
+                        const rect = icon.getBoundingClientRect();
+                        
+                        // Move tooltip to body if not already there
+                        if (!tooltipInBody) {
+                            document.body.appendChild(tooltip);
+                            tooltipInBody = true;
+                        }
+                        
+                        // Temporarily make tooltip visible to get its dimensions
+                        tooltip.style.visibility = 'visible';
+                        tooltip.style.opacity = '0';
+                        const tooltipRect = tooltip.getBoundingClientRect();
+                        
+                        // Position above the icon, centered horizontally
+                        let top = rect.top - tooltipRect.height - 8;
+                        let left = rect.left + (rect.width / 2);
+                        
+                        // Adjust if tooltip would go off screen
+                        const viewportWidth = window.innerWidth;
+                        const viewportHeight = window.innerHeight;
+                        
+                        // Check right edge
+                        if (left + tooltipRect.width / 2 > viewportWidth) {
+                            left = viewportWidth - tooltipRect.width / 2 - 10;
+                        }
+                        // Check left edge
+                        if (left - tooltipRect.width / 2 < 10) {
+                            left = tooltipRect.width / 2 + 10;
+                        }
+                        // Check top edge
+                        if (top < 10) {
+                            top = rect.bottom + 8;
+                        }
+                        // Check bottom edge
+                        if (top + tooltipRect.height > viewportHeight - 10) {
+                            top = rect.top - tooltipRect.height - 8;
+                            if (top < 10) {
+                                top = 10;
+                            }
+                        }
+                        
+                        tooltip.style.top = top + 'px';
+                        tooltip.style.left = left + 'px';
+                        tooltip.style.opacity = '1';
+                    });
+                    
+                    icon.addEventListener('mouseleave', () => {
+                        tooltip.style.visibility = 'hidden';
+                        tooltip.style.opacity = '0';
+                        // Move tooltip back to icon when hidden
+                        if (tooltipInBody) {
+                            icon.appendChild(tooltip);
+                            tooltipInBody = false;
+                        }
+                    });
+                });
+                
+                // Warning icon tooltips dynamically
+                document.querySelectorAll('.warning-icon').forEach(icon => {
+                    const tooltip = icon.querySelector('.warning-tooltip');
                     if (!tooltip) return;
                     
                     let tooltipInBody = false;
