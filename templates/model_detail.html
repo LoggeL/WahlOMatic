@@ -137,6 +137,155 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
+        .party-ranking {
+            margin-bottom: 40px;
+        }
+        .party-ranking-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            user-select: none;
+            transition: background 0.2s ease;
+        }
+        .party-ranking-header:hover {
+            background: #f0f0f0;
+        }
+        .party-ranking-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #000000;
+        }
+        .party-ranking-toggle {
+            font-size: 20px;
+            color: #666666;
+            transition: transform 0.2s ease;
+        }
+        .party-ranking-toggle.expanded {
+            transform: rotate(180deg);
+        }
+        .party-ranking-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            border-left: 1px solid #e5e5e5;
+            border-right: 1px solid #e5e5e5;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .party-ranking-content.expanded {
+            max-height: 2000px;
+        }
+        .party-ranking-list {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .party-ranking-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid #e5e5e5;
+            background: #ffffff;
+        }
+        .party-ranking-item:last-child {
+            border-bottom: none;
+        }
+        .party-ranking-item:hover {
+            background: #fafafa;
+        }
+        .party-info {
+            flex: 1;
+        }
+        .party-name {
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 4px;
+        }
+        .party-longname {
+            font-size: 13px;
+            color: #666666;
+        }
+        .party-score {
+            font-size: 24px;
+            font-weight: 600;
+            color: #000000;
+            min-width: 80px;
+            text-align: right;
+        }
+        .comparison-scale {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #e5e5e5;
+        }
+        .comparison-scale-label {
+            font-size: 11px;
+            color: #666666;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .comparison-boxes {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 4px;
+            width: 100%;
+        }
+        .comparison-pair {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            position: relative;
+        }
+        .comparison-box {
+            width: 12px;
+            height: 16px;
+            flex-shrink: 0;
+            position: relative;
+            cursor: help;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, z-index 0.2s ease;
+            border-radius: 0;
+        }
+        .comparison-boxes > .comparison-pair:first-child .comparison-box:first-child {
+            border-top-left-radius: 3px;
+        }
+        .comparison-boxes > .comparison-pair:first-child .comparison-box:last-child {
+            border-bottom-left-radius: 3px;
+        }
+        .comparison-boxes > .comparison-pair:last-child .comparison-box:first-child {
+            border-top-right-radius: 3px;
+        }
+        .comparison-boxes > .comparison-pair:last-child .comparison-box:last-child {
+            border-bottom-right-radius: 3px;
+        }
+        .comparison-pair:hover .comparison-box {
+            transform: scale(1.3);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+        /* Unified colors for both model and party answers */
+        .comparison-box.model-agree,
+        .comparison-box.party-agree {
+            background: #2ecc71 !important; /* Green for agree */
+        }
+        .comparison-box.model-disagree,
+        .comparison-box.party-disagree {
+            background: #e74c3c !important; /* Red for disagree */
+        }
+        .comparison-box.model-neutral,
+        .comparison-box.party-neutral {
+            background: #95a5a6 !important; /* Gray for neutral */
+        }
+        .comparison-box.match {
+            opacity: 1;
+            box-shadow: 0 0 0 1px #000000;
+        }
+        .comparison-box.no-match {
+            opacity: 0.6;
+        }
         @media (max-width: 768px) {
             body {
                 padding: 20px 12px;
@@ -171,6 +320,68 @@
             </div>
         </div>
         
+        <div class="party-ranking">
+            <div class="party-ranking-header">
+                <div class="party-ranking-title" onclick="togglePartyRanking()" style="flex: 1; cursor: pointer;">Parteien nach Übereinstimmung</div>
+                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; margin-right: 8px;" onclick="event.stopPropagation();">
+                    <input type="checkbox" id="mainPartiesFilterModel" checked style="cursor: pointer;">
+                    <span>Nur Hauptparteien</span>
+                </label>
+                <div class="party-ranking-toggle" id="partyRankingToggle" onclick="togglePartyRanking()">▼</div>
+            </div>
+            <div class="party-ranking-content" id="partyRankingContent">
+                <ul class="party-ranking-list">
+                    {% for party in ranked_parties %}
+                    {% set is_main = party.party_id in main_party_ids %}
+                    <li class="party-ranking-item" data-party-id="{{ party.party_id }}" data-is-main="{{ is_main|lower }}">
+                        <div class="party-info" style="flex: 1;">
+                            <div class="party-name">{{ party.party_name }}</div>
+                            {% if party.party_longname %}
+                            <div class="party-longname">{{ party.party_longname }}</div>
+                            {% endif %}
+                            {% if party.party_id in party_comparisons %}
+                            <div class="comparison-scale">
+                                <div class="comparison-scale-label">Vergleich: Modell vs. Partei</div>
+                                <div class="comparison-boxes">
+                                    {% for comp in party_comparisons[party.party_id] %}
+                                    {% if comp.model_answer|int == 0 %}
+                                        {% set model_class = 'model-agree' %}
+                                        {% set model_answer_text = 'Stimme zu' %}
+                                    {% elif comp.model_answer|int == 1 %}
+                                        {% set model_class = 'model-disagree' %}
+                                        {% set model_answer_text = 'Stimme nicht zu' %}
+                                    {% else %}
+                                        {% set model_class = 'model-neutral' %}
+                                        {% set model_answer_text = 'Neutral' %}
+                                    {% endif %}
+                                    {% if comp.party_answer|int == 0 %}
+                                        {% set party_class = 'party-agree' %}
+                                        {% set party_answer_text = 'Stimme zu' %}
+                                    {% elif comp.party_answer|int == 1 %}
+                                        {% set party_class = 'party-disagree' %}
+                                        {% set party_answer_text = 'Stimme nicht zu' %}
+                                    {% else %}
+                                        {% set party_class = 'party-neutral' %}
+                                        {% set party_answer_text = 'Neutral' %}
+                                    {% endif %}
+                                    {% set is_match = comp.model_answer|int == comp.party_answer|int %}
+                                    {% set tooltip_text = "Frage " ~ (comp.statement_id + 1) ~ ": " ~ comp.question_text ~ "&#10;&#10;Modell (" ~ model_answer_text ~ "):&#10;" ~ comp.model_reasoning ~ "&#10;&#10;Partei (" ~ party_answer_text ~ "):&#10;" ~ (comp.party_reasoning if comp.party_reasoning else 'Keine Begründung verfügbar') %}
+                                    <div class="comparison-pair" title="{{ tooltip_text }}">
+                                        <div class="comparison-box {{ model_class }} {% if is_match %}match{% else %}no-match{% endif %}"></div>
+                                        <div class="comparison-box {{ party_class }} {% if is_match %}match{% else %}no-match{% endif %}"></div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="party-score">{{ "%.1f"|format(party.score) }}%</div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        
         <div class="question-list">
             {% for question in questions %}
             {% if question.answer == 0 %}
@@ -201,6 +412,46 @@
             {% endfor %}
         </div>
     </div>
+    
+    <script>
+        const mainPartyIds = new Set(['0', '1', '2', '3', '4', '5', '25']);
+        
+        function togglePartyRanking() {
+            const content = document.getElementById('partyRankingContent');
+            const toggle = document.getElementById('partyRankingToggle');
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                toggle.classList.remove('expanded');
+            } else {
+                content.classList.add('expanded');
+                toggle.classList.add('expanded');
+            }
+        }
+        
+        function filterMainParties(showMainOnly) {
+            const partyItems = document.querySelectorAll('.party-ranking-item');
+            
+            partyItems.forEach(item => {
+                const partyId = item.dataset.partyId;
+                if (showMainOnly && !mainPartyIds.has(partyId)) {
+                    item.style.display = 'none';
+                } else {
+                    item.style.display = 'flex';
+                }
+            });
+        }
+        
+        // Initialize filter on page load
+        const mainPartiesFilter = document.getElementById('mainPartiesFilterModel');
+        if (mainPartiesFilter) {
+            filterMainParties(mainPartiesFilter.checked);
+            mainPartiesFilter.addEventListener('change', (e) => {
+                filterMainParties(e.target.checked);
+            });
+        }
+    </script>
 </body>
 </html>
+
 

@@ -98,4 +98,31 @@ class DataLoader:
             if answer['id'] == answer_id:
                 return answer['message']
         raise ValueError(f"Invalid answer ID: {answer_id}")
+    
+    def get_party_comment(self, party_id: int, statement_id: int) -> str:
+        """
+        Get a party's comment/reasoning for a statement.
+        
+        Args:
+            party_id: Party ID
+            statement_id: Statement ID
+            
+        Returns:
+            Comment text, or empty string if not found
+        """
+        # Find the opinion to get the comment ID
+        for opinion in self.opinions:
+            if opinion['party'] == party_id and opinion['statement'] == statement_id:
+                comment_id = opinion.get('comment')
+                if comment_id is not None:
+                    # Find the comment text
+                    for comment in self.comments:
+                        if comment.get('id') == comment_id:
+                            comment_text = comment.get('text', '')
+                            # Remove surrounding quotes if present
+                            if comment_text.startswith('"') and comment_text.endswith('"'):
+                                comment_text = comment_text[1:-1]
+                            return comment_text
+        return ''
+
 

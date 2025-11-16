@@ -225,6 +225,67 @@ def generate_model_detail_page(
     # Use the first run's questions (they should be the same across runs)
     questions = model_results[0]['questions']
     
+    # Calculate average party scores across all runs
+    party_scores_dict = defaultdict(list)
+    for result in model_results:
+        for party_score in result['party_scores']:
+            party_scores_dict[party_score['party_id']].append(party_score['score'])
+    
+    # Calculate averages and sort by score
+    ranked_parties = []
+    for party_id, scores in party_scores_dict.items():
+        avg_score = sum(scores) / len(scores)
+        # Get party name from first run
+        party_name = None
+        party_longname = None
+        for ps in model_results[0]['party_scores']:
+            if ps['party_id'] == party_id:
+                party_name = ps['party_name']
+                party_longname = ps.get('party_longname', '')
+                break
+        
+        ranked_parties.append({
+            'party_id': party_id,
+            'party_name': party_name,
+            'party_longname': party_longname,
+            'score': round(avg_score, 2)
+        })
+    
+    # Sort by score descending
+    ranked_parties.sort(key=lambda x: x['score'], reverse=True)
+    
+    # Define main parties (SPD, CDU/CSU, GRÜNE, FDP, AfD, Die Linke, BSW)
+    main_party_ids = {0, 1, 2, 3, 4, 5, 25}  # Based on 2025 party.json
+    
+    # Get model answers (use first run's answers, they should be the same)
+    model_answers = {q['statement_id']: q['answer'] for q in questions}
+    
+    # For each party, get comparison data (model answer vs party answer for each statement)
+    party_comparisons = {}
+    for party in ranked_parties:
+        party_id = party['party_id']
+        comparisons = []
+        for question in questions:
+            statement_id = question['statement_id']
+            model_answer = model_answers[statement_id]
+            model_reasoning = question.get('reasoning', '')
+            try:
+                party_answer = data_loader.get_party_opinion(party_id, statement_id)
+                party_reasoning = data_loader.get_party_comment(party_id, statement_id)
+            except ValueError:
+                # Skip if party doesn't have an answer for this statement
+                continue
+            
+            comparisons.append({
+                'statement_id': statement_id,
+                'question_text': question['text'],
+                'model_answer': model_answer,
+                'model_reasoning': model_reasoning,
+                'party_answer': party_answer,
+                'party_reasoning': party_reasoning
+            })
+        party_comparisons[party_id] = comparisons
+    
     # Render template
     env = get_jinja_env()
     template = env.get_template('model_detail.html')
@@ -235,7 +296,10 @@ def generate_model_detail_page(
         model_results=model_results,
         election_info=election_info,
         election_slug=election_slug,
-        questions=questions
+        questions=questions,
+        ranked_parties=ranked_parties,
+        main_party_ids=main_party_ids,
+        party_comparisons=party_comparisons
     )
     
     return html
