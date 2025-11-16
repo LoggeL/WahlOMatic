@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WahlOMat LLM Evaluation - Bundestagswahl</title>
+    <title>WahlOMatic - Bundestagswahl</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../logo.svg">
+    <link rel="alternate icon" href="../logo.svg">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://loggel.github.io/WahlOMatic/bundestagswahl2025/">
+    <meta property="og:title" content="WahlOMatic - Bundestagswahl">
+    <meta property="og:description" content="Evaluating Large Language Models against German WahlOMat political quiz data. See how well different LLMs align with German political party positions.">
+    <meta property="og:image" content="https://loggel.github.io/WahlOMatic/logo.svg">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="WahlOMatic - Bundestagswahl">
+    <meta name="twitter:description" content="Evaluating Large Language Models against German WahlOMat political quiz data.">
+    <meta name="twitter:image" content="https://loggel.github.io/WahlOMatic/logo.svg">
     <style>
         * {
             margin: 0;
@@ -23,12 +40,29 @@
             margin: 0 auto;
             background: #ffffff;
         }
+        .header-with-logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 4px;
+        }
+        .logo {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+        }
         h1 {
             font-size: 32px;
             font-weight: 600;
             color: #000000;
-            margin-bottom: 8px;
+            margin: 0;
             letter-spacing: -0.5px;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: #666666;
+            margin: 0 0 8px 64px;
+            font-weight: 400;
         }
         .election-info {
             color: #666666;
@@ -328,6 +362,14 @@
             h1 {
                 font-size: 24px;
             }
+            .logo {
+                width: 36px;
+                height: 36px;
+            }
+            .subtitle {
+                font-size: 16px;
+                margin-left: 52px;
+            }
             table {
                 font-size: 12px;
             }
@@ -342,10 +384,17 @@
 </head>
 <body>
     <div class="container">
-        <h1>WahlOMat LLM Evaluation</h1>
+        <div class="header-with-logo">
+            <img src="../logo.svg" alt="WahlOMatic Logo" class="logo">
+            <h1>WahlOMatic</h1>
+        </div>
+        <div class="subtitle">WahlOMat LLM Evaluation</div>
         <div class="election-info">
             <h2>Bundestagswahl</h2>
             <p>Datum: 2025-02-23</p>
+            
+            <p>Durchführung: 16.11.2025</p>
+            
             <p>Quelle: <a href="https://www.wahl-o-mat.de/bundestagswahl2025/" target="_blank">https://www.wahl-o-mat.de/bundestagswahl2025/</a></p>
         </div>
         

@@ -199,7 +199,8 @@ def generate_scoreboard_html(
     top_models_per_party: Dict[int, List[Dict[str, Any]]],
     data_loader: DataLoader,
     election_slug: str,
-    election_info: Dict[str, Any]
+    election_info: Dict[str, Any],
+    results: List[Dict[str, Any]]
 ) -> str:
     """
     Generate HTML scoreboard page.
@@ -248,6 +249,28 @@ def generate_scoreboard_html(
     avg_consistency = sum(agg['consistency'] for agg in aggregated.values()) / len(models) if models else 0
     avg_opinionated = sum(agg['opinionated'] for agg in aggregated.values()) / len(models) if models else 0
     
+    # Extract run dates from all results
+    run_dates = []
+    for result in results:
+        if 'timestamp' in result:
+            try:
+                from datetime import datetime
+                timestamp = datetime.fromisoformat(result['timestamp'])
+                run_dates.append(timestamp.date())
+            except (ValueError, TypeError):
+                pass
+    
+    # Calculate date range
+    if run_dates:
+        earliest_date = min(run_dates)
+        latest_date = max(run_dates)
+        if earliest_date == latest_date:
+            run_date_range = earliest_date.strftime('%d.%m.%Y')
+        else:
+            run_date_range = f"{earliest_date.strftime('%d.%m.%Y')} - {latest_date.strftime('%d.%m.%Y')}"
+    else:
+        run_date_range = None
+    
     # Render template
     env = get_jinja_env()
     template = env.get_template('scoreboard.html')
@@ -264,7 +287,8 @@ def generate_scoreboard_html(
         top_models_per_party=top_models_per_party,
         party_avg_scores=party_avg_scores,
         avg_consistency=avg_consistency,
-        avg_opinionated=avg_opinionated
+        avg_opinionated=avg_opinionated,
+        run_date_range=run_date_range
     )
     
     return html
@@ -404,6 +428,35 @@ def generate_model_detail_page(
             })
         party_comparisons[party_id] = comparisons
     
+    # Extract and format run dates for this model
+    model_run_dates = []
+    for result in model_results:
+        if 'timestamp' in result:
+            try:
+                from datetime import datetime
+                timestamp = datetime.fromisoformat(result['timestamp'])
+                model_run_dates.append({
+                    'run_id': result.get('run_id', 0),
+                    'date': timestamp.date(),
+                    'datetime': timestamp
+                })
+            except (ValueError, TypeError):
+                pass
+    
+    # Sort by run_id
+    model_run_dates.sort(key=lambda x: x['run_id'])
+    
+    # Calculate date range for this model
+    if model_run_dates:
+        earliest_date = min(rd['date'] for rd in model_run_dates)
+        latest_date = max(rd['date'] for rd in model_run_dates)
+        if earliest_date == latest_date:
+            model_run_date_range = earliest_date.strftime('%d.%m.%Y')
+        else:
+            model_run_date_range = f"{earliest_date.strftime('%d.%m.%Y')} - {latest_date.strftime('%d.%m.%Y')}"
+    else:
+        model_run_date_range = None
+    
     # Render template
     env = get_jinja_env()
     template = env.get_template('model_detail.html')
@@ -423,7 +476,9 @@ def generate_model_detail_page(
         consistency_data=consistency_data,
         total_answers=total_answers,
         neutral_answers=neutral_answers,
-        non_neutral_answers=non_neutral_answers
+        non_neutral_answers=non_neutral_answers,
+        model_run_date_range=model_run_date_range,
+        model_run_dates=model_run_dates
     )
     
     return html
@@ -476,7 +531,8 @@ def generate_scoreboard(
         top_models_per_party,
         data_loader,
         election_slug,
-        data_loader.overview
+        data_loader.overview,
+        results
     )
     
     # Save HTML

@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>openai/gpt-5.1 - WahlOMat LLM Evaluation</title>
+    <title>openai/gpt-5.1 - WahlOMatic</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../logo.svg">
+    <link rel="alternate icon" href="../logo.svg">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://loggel.github.io/WahlOMatic/bundestagswahl2025/openai_gpt-5.1.html">
+    <meta property="og:title" content="openai/gpt-5.1 - WahlOMatic">
+    <meta property="og:description" content="Detailed evaluation of openai/gpt-5.1 against German WahlOMat political quiz data. See how this LLM aligns with German political party positions.">
+    <meta property="og:image" content="https://loggel.github.io/WahlOMatic/logo.svg">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="openai/gpt-5.1 - WahlOMatic">
+    <meta name="twitter:description" content="Detailed evaluation of openai/gpt-5.1 against German WahlOMat political quiz data.">
+    <meta name="twitter:image" content="https://loggel.github.io/WahlOMatic/logo.svg">
     <style>
         * {
             margin: 0;
@@ -28,12 +45,29 @@
             padding-bottom: 24px;
             border-bottom: 1px solid #e5e5e5;
         }
+        .header-with-logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 4px;
+        }
+        .logo {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
         h1 {
             font-size: 28px;
             font-weight: 600;
             color: #000000;
-            margin-bottom: 8px;
+            margin: 0;
             letter-spacing: -0.5px;
+        }
+        .subtitle {
+            font-size: 16px;
+            color: #666666;
+            margin: 0 0 8px 56px;
+            font-weight: 400;
         }
         .back-link {
             display: inline-block;
@@ -505,6 +539,14 @@
             h1 {
                 font-size: 24px;
             }
+            .logo {
+                width: 32px;
+                height: 32px;
+            }
+            .subtitle {
+                font-size: 14px;
+                margin-left: 48px;
+            }
             .question-header {
                 flex-direction: column;
             }
@@ -521,9 +563,14 @@
     <div class="container">
         <div class="header">
             <a href="index.html" class="back-link">← Zurück zur Übersicht</a>
-            <h1>openai/gpt-5.1</h1>
+            <div class="header-with-logo">
+                <img src="../logo.svg" alt="WahlOMatic Logo" class="logo">
+                <h1>openai/gpt-5.1</h1>
+            </div>
+            <div class="subtitle">WahlOMat LLM Evaluation</div>
             <div class="model-info">
                 Bundestagswahl • 5 Durchläufe
+                 • 16.11.2025
             </div>
         </div>
         
