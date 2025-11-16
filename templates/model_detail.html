@@ -96,7 +96,6 @@
             color: #ffffff;
             font-size: 13px;
             font-weight: 600;
-            margin-bottom: 12px;
         }
         .answer-badge.agree {
             background: #4a90e2;
@@ -107,10 +106,31 @@
         .answer-badge.neutral {
             background: #95a5a6;
         }
+        .model-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 600;
+            background: #7f8c8d;
+            white-space: nowrap;
+        }
         .reasoning {
             font-size: 14px;
             color: #1a1a1a;
             line-height: 1.6;
+        }
+        .reasoning-header {
+            font-size: 13px;
+            color: #666666;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .reasoning-text {
+            color: #1a1a1a;
+            line-height: 1.7;
         }
         .stats {
             display: flex;
@@ -347,16 +367,15 @@
             position: fixed;
             background-color: #1a1a1a;
             color: #ffffff;
-            padding: 12px 16px;
-            border-radius: 6px;
-            font-size: 13px;
+            padding: 10px 14px;
+            border-radius: 4px;
+            font-size: 12px;
             line-height: 1.5;
             white-space: pre-line;
-            min-width: 300px;
-            max-width: 500px;
+            max-width: 400px;
             z-index: 10000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            transition: opacity 0.2s ease, visibility 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.15s ease, visibility 0.15s ease;
             pointer-events: none;
             transform: translateX(-50%);
         }
@@ -475,7 +494,7 @@
                                     {% set decoded_model_reasoning = comp.model_reasoning|decode_html %}
                                     {% set decoded_party_reasoning = (comp.party_reasoning|decode_html) if comp.party_reasoning else 'Keine Begründung verfügbar' %}
                                     {% set decoded_question_text = comp.question_text|decode_html %}
-                                    {% set tooltip_text = "Frage " ~ (comp.statement_id + 1) ~ ": " ~ decoded_question_text ~ "\n\nModell (" ~ model_answer_text ~ "):\n" ~ decoded_model_reasoning ~ "\n\nPartei (" ~ party_answer_text ~ "):\n" ~ decoded_party_reasoning %}
+                                    {% set tooltip_text = "Frage " ~ (comp.statement_id + 1) ~ ": " ~ decoded_question_text ~ "\n\n" ~ model_name ~ " (" ~ model_answer_text ~ "):\n" ~ decoded_model_reasoning ~ "\n\n" ~ party.party_name ~ " (" ~ party_answer_text ~ "):\n" ~ decoded_party_reasoning %}
                                     <div class="comparison-pair tooltip-container">
                                         <div class="tooltip">{{ tooltip_text|safe }}</div>
                                         <div class="comparison-box {{ model_class }} {% if is_match %}match{% else %}no-match{% endif %}"></div>
@@ -516,8 +535,14 @@
                     </div>
                 </div>
                 <div class="answer-section">
-                    <div class="answer-badge {{ badge_class }}">{{ answer_label }}</div>
-                    <div class="reasoning">{{ question.reasoning or 'Keine Begründung verfügbar.' }}</div>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                        <div class="answer-badge {{ badge_class }}">{{ answer_label }}</div>
+                        <div class="model-badge">{{ model_name }}</div>
+                    </div>
+                    <div class="reasoning">
+                        <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• {{ model_name }}</span></div>
+                        <div class="reasoning-text">{{ question.reasoning or 'Keine Begründung verfügbar.' }}</div>
+                    </div>
                 </div>
             </div>
             {% endfor %}
@@ -634,32 +659,35 @@
             
             pair.addEventListener('mouseenter', (e) => {
                 const rect = pair.getBoundingClientRect();
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
                 
                 // Temporarily make tooltip visible to get its dimensions
                 tooltip.style.visibility = 'visible';
                 tooltip.style.opacity = '0';
                 const tooltipRect = tooltip.getBoundingClientRect();
                 
-                // Position above the element, centered horizontally
-                let top = rect.top + scrollTop - tooltipRect.height - 8;
-                let left = rect.left + scrollLeft + (rect.width / 2);
+                // Position above the element, centered horizontally (using fixed positioning)
+                let top = rect.top - tooltipRect.height - 8;
+                let left = rect.left + (rect.width / 2);
                 
                 // Adjust if tooltip would go off screen
                 const viewportWidth = window.innerWidth;
+                const viewportHeight = window.innerHeight;
                 
                 // Check right edge
-                if (left + tooltipRect.width / 2 > viewportWidth) {
+                if (left + tooltipRect.width / 2 > viewportWidth - 10) {
                     left = viewportWidth - tooltipRect.width / 2 - 10;
                 }
                 // Check left edge
                 if (left - tooltipRect.width / 2 < 10) {
                     left = tooltipRect.width / 2 + 10;
                 }
-                // Check top edge
-                if (top < scrollTop + 10) {
-                    top = rect.bottom + scrollTop + 8;
+                // Check top edge - if not enough space above, show below
+                if (top < 10) {
+                    top = rect.bottom + 8;
+                }
+                // Check bottom edge
+                if (top + tooltipRect.height > viewportHeight - 10) {
+                    top = viewportHeight - tooltipRect.height - 10;
                 }
                 
                 tooltip.style.top = top + 'px';
