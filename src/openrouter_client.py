@@ -52,7 +52,7 @@ class OpenRouterClient:
         headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json",
-            "HTTP-Referer": "https://github.com/logge/WahlOMatic",
+            "HTTP-Referer": "https://github.com/LoggeL/WahlOMatic",
             "X-Title": "WahlOMat LLM Evaluation"
         }
         
