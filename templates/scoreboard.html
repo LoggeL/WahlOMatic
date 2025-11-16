@@ -235,6 +235,7 @@
                     <thead>
                         <tr>
                             <th class="sortable" data-sort="model" data-sort-type="string">Modell</th>
+                            <th class="sortable" data-sort="consistency" data-sort-type="number">Konsistenz</th>
                             {% for party in parties_sorted %}
                             <th class="sortable party-header" data-party-id="{{ party.id }}" data-sort="party-{{ party.id }}" data-sort-type="number">{{ party.name }}</th>
                             {% endfor %}
@@ -242,8 +243,9 @@
                     </thead>
                     <tbody>
                         {% for model in models %}
-                        <tr data-model="{{ model }}" data-runs="{{ aggregated[model].num_runs }}" class="model-row">
+                        <tr data-model="{{ model }}" data-runs="{{ aggregated[model].num_runs }}" data-consistency="{{ aggregated[model].consistency }}" class="model-row">
                             <td><strong><a href="{{ model.replace('/', '_') }}.html" style="color: #000000; text-decoration: none;">{{ model }}</a></strong></td>
+                            <td class="score">{{ "%.1f"|format(aggregated[model].consistency) }}%</td>
                             {% for party in parties_sorted %}
                             {% set score = score_lookups[model].get(party.id, 0) %}
                             {% set is_main = party.id in main_party_ids %}
@@ -312,6 +314,9 @@
                         } else if (column === 'runs') {
                             aVal = parseInt(a.dataset.runs);
                             bVal = parseInt(b.dataset.runs);
+                        } else if (column === 'consistency') {
+                            aVal = parseFloat(a.dataset.consistency || 0);
+                            bVal = parseFloat(b.dataset.consistency || 0);
                         } else if (column.startsWith('party-')) {
                             const partyId = column.replace('party-', '');
                             const aCell = a.querySelector(`td.party-cell[data-party-id="${partyId}"]`);

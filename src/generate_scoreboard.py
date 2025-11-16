@@ -1,5 +1,6 @@
 """Scoreboard generator for aggregating and displaying evaluation results."""
 import json
+import html
 from pathlib import Path
 from typing import Dict, List, Any
 from collections import defaultdict
@@ -7,13 +8,25 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from .data_loader import DataLoader
 
 
+def decode_html_entities(text: str) -> str:
+    """Decode HTML entities in text (e.g., &#10; -> newline, &amp;#10; -> newline)."""
+    if not text:
+        return text
+    text_str = str(text)
+    # First unescape any double-escaped entities (e.g., &amp;#10; -> &#10;)
+    # Then unescape the actual entities (e.g., &#10; -> newline)
+    return html.unescape(html.unescape(text_str))
+
+
 def get_jinja_env() -> Environment:
     """Get Jinja2 environment for template rendering."""
     template_dir = Path(__file__).parent.parent / "templates"
-    return Environment(
+    env = Environment(
         loader=FileSystemLoader(str(template_dir)),
         autoescape=select_autoescape(['html', 'xml'])
     )
+    env.filters['decode_html'] = decode_html_entities
+    return env
 
 
 def load_all_results(results_dir: Path) -> List[Dict[str, Any]]:
@@ -94,9 +107,42 @@ def aggregate_results(results: List[Dict[str, Any]]) -> Dict[str, Any]:
         # Sort by average score descending
         avg_scores.sort(key=lambda x: x['avg_score'], reverse=True)
         
+        # Calculate consistency score for this model
+        # Get all questions from all runs
+        if data['runs']:
+            # Use first run's questions as reference (they should all have same statement_ids)
+            reference_questions = data['runs'][0]['questions']
+            total_questions = len(reference_questions)
+            fully_consistent_questions = 0
+            
+            for ref_question in reference_questions:
+                statement_id = ref_question['statement_id']
+                # Get answers for this statement across all runs
+                answers_by_run = []
+                for run in data['runs']:
+                    for q in run['questions']:
+                        if q['statement_id'] == statement_id:
+                            answers_by_run.append(q['answer'])
+                            break
+                
+                # Count how many runs gave the most common answer
+                answer_counts = defaultdict(int)
+                for answer in answers_by_run:
+                    answer_counts[answer] += 1
+                most_common_count = max(answer_counts.values()) if answer_counts else 0
+                
+                # Check if all runs gave the same answer
+                if most_common_count == len(answers_by_run) and len(answers_by_run) > 0:
+                    fully_consistent_questions += 1
+            
+            consistency_score = (fully_consistent_questions / total_questions * 100) if total_questions > 0 else 0
+        else:
+            consistency_score = 0
+        
         aggregated[model] = {
             'num_runs': len(data['runs']),
-            'party_scores': avg_scores
+            'party_scores': avg_scores,
+            'consistency': round(consistency_score, 1)
         }
     
     return aggregated
@@ -225,6 +271,43 @@ def generate_model_detail_page(
     # Use the first run's questions (they should be the same across runs)
     questions = model_results[0]['questions']
     
+    # Calculate consistency score across runs
+    # For each question, check how many runs gave the same answer
+    consistency_data = []
+    total_questions = len(questions)
+    fully_consistent_questions = 0
+    
+    for question in questions:
+        statement_id = question['statement_id']
+        # Get answers for this statement across all runs
+        answers_by_run = []
+        for result in model_results:
+            for q in result['questions']:
+                if q['statement_id'] == statement_id:
+                    answers_by_run.append(q['answer'])
+                    break
+        
+        # Count how many runs gave the most common answer
+        answer_counts = defaultdict(int)
+        for answer in answers_by_run:
+            answer_counts[answer] += 1
+        most_common_answer = max(answer_counts.items(), key=lambda x: x[1])[0] if answer_counts else None
+        most_common_count = answer_counts[most_common_answer] if most_common_answer is not None else 0
+        consistency_ratio = most_common_count / len(answers_by_run) if answers_by_run else 0
+        
+        if consistency_ratio == 1.0:
+            fully_consistent_questions += 1
+        
+        consistency_data.append({
+            'statement_id': statement_id,
+            'consistency_ratio': consistency_ratio,
+            'consistent_runs': most_common_count,
+            'total_runs': len(answers_by_run)
+        })
+    
+    # Overall consistency score: percentage of questions where all runs agreed
+    overall_consistency = (fully_consistent_questions / total_questions * 100) if total_questions > 0 else 0
+    
     # Calculate average party scores across all runs
     party_scores_dict = defaultdict(list)
     for result in model_results:
@@ -299,7 +382,9 @@ def generate_model_detail_page(
         questions=questions,
         ranked_parties=ranked_parties,
         main_party_ids=main_party_ids,
-        party_comparisons=party_comparisons
+        party_comparisons=party_comparisons,
+        overall_consistency=round(overall_consistency, 1),
+        consistency_data=consistency_data
     )
     
     return html

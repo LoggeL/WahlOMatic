@@ -286,6 +286,38 @@
         .comparison-box.no-match {
             opacity: 0.6;
         }
+        .tooltip-container {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            position: fixed;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            line-height: 1.5;
+            white-space: pre-line;
+            min-width: 300px;
+            max-width: 500px;
+            z-index: 10000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            pointer-events: none;
+            transform: translateX(-50%);
+        }
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: #1a1a1a;
+        }
         @media (max-width: 768px) {
             body {
                 padding: 20px 12px;
@@ -295,6 +327,12 @@
             }
             .question-header {
                 flex-direction: column;
+            }
+            .tooltip {
+                min-width: 250px;
+                max-width: calc(100vw - 40px);
+                font-size: 12px;
+                padding: 10px 12px;
             }
         }
     </style>
@@ -317,6 +355,10 @@
             <div class="stat-card">
                 <div class="stat-value">{{ model_results|length }}</div>
                 <div class="stat-label">Durchläufe</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">{{ "%.1f"|format(overall_consistency) }}%</div>
+                <div class="stat-label">Konsistenz</div>
             </div>
         </div>
         
@@ -365,8 +407,12 @@
                                         {% set party_answer_text = 'Neutral' %}
                                     {% endif %}
                                     {% set is_match = comp.model_answer|int == comp.party_answer|int %}
-                                    {% set tooltip_text = "Frage " ~ (comp.statement_id + 1) ~ ": " ~ comp.question_text ~ "&#10;&#10;Modell (" ~ model_answer_text ~ "):&#10;" ~ comp.model_reasoning ~ "&#10;&#10;Partei (" ~ party_answer_text ~ "):&#10;" ~ (comp.party_reasoning if comp.party_reasoning else 'Keine Begründung verfügbar') %}
-                                    <div class="comparison-pair" title="{{ tooltip_text }}">
+                                    {% set decoded_model_reasoning = comp.model_reasoning|decode_html %}
+                                    {% set decoded_party_reasoning = (comp.party_reasoning|decode_html) if comp.party_reasoning else 'Keine Begründung verfügbar' %}
+                                    {% set decoded_question_text = comp.question_text|decode_html %}
+                                    {% set tooltip_text = "Frage " ~ (comp.statement_id + 1) ~ ": " ~ decoded_question_text ~ "\n\nModell (" ~ model_answer_text ~ "):\n" ~ decoded_model_reasoning ~ "\n\nPartei (" ~ party_answer_text ~ "):\n" ~ decoded_party_reasoning %}
+                                    <div class="comparison-pair tooltip-container">
+                                        <div class="tooltip">{{ tooltip_text|safe }}</div>
                                         <div class="comparison-box {{ model_class }} {% if is_match %}match{% else %}no-match{% endif %}"></div>
                                         <div class="comparison-box {{ party_class }} {% if is_match %}match{% else %}no-match{% endif %}"></div>
                                     </div>
@@ -450,6 +496,52 @@
                 filterMainParties(e.target.checked);
             });
         }
+        
+        // Position tooltips dynamically
+        document.querySelectorAll('.comparison-pair').forEach(pair => {
+            const tooltip = pair.querySelector('.tooltip');
+            if (!tooltip) return;
+            
+            pair.addEventListener('mouseenter', (e) => {
+                const rect = pair.getBoundingClientRect();
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+                
+                // Temporarily make tooltip visible to get its dimensions
+                tooltip.style.visibility = 'visible';
+                tooltip.style.opacity = '0';
+                const tooltipRect = tooltip.getBoundingClientRect();
+                
+                // Position above the element, centered horizontally
+                let top = rect.top + scrollTop - tooltipRect.height - 8;
+                let left = rect.left + scrollLeft + (rect.width / 2);
+                
+                // Adjust if tooltip would go off screen
+                const viewportWidth = window.innerWidth;
+                
+                // Check right edge
+                if (left + tooltipRect.width / 2 > viewportWidth) {
+                    left = viewportWidth - tooltipRect.width / 2 - 10;
+                }
+                // Check left edge
+                if (left - tooltipRect.width / 2 < 10) {
+                    left = tooltipRect.width / 2 + 10;
+                }
+                // Check top edge
+                if (top < scrollTop + 10) {
+                    top = rect.bottom + scrollTop + 8;
+                }
+                
+                tooltip.style.top = top + 'px';
+                tooltip.style.left = left + 'px';
+                tooltip.style.opacity = '1';
+            });
+            
+            pair.addEventListener('mouseleave', () => {
+                tooltip.style.visibility = 'hidden';
+                tooltip.style.opacity = '0';
+            });
+        });
     </script>
 </body>
 </html>
