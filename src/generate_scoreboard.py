@@ -1,6 +1,5 @@
 """Scoreboard generator for aggregating and displaying evaluation results."""
 import json
-import os
 from pathlib import Path
 from typing import Dict, List, Any
 from collections import defaultdict
@@ -326,13 +325,13 @@ if __name__ == "__main__":
     parser.add_argument(
         "--results-path",
         type=str,
-        default=os.getenv("RESULTS_PATH", "results"),
+        default="results",
         help="Path to results directory"
     )
     parser.add_argument(
         "--docs-path",
         type=str,
-        default=os.getenv("DOCS_PATH", "docs"),
+        default="docs",
         help="Path to docs directory"
     )
     parser.add_argument(
@@ -344,7 +343,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--data-path",
         type=str,
-        default=os.getenv("DATA_PATH", "data/2025/deutschland"),
+        default="data/2025/deutschland",
         help="Path to WahlOMat data directory"
     )
     

@@ -1,5 +1,4 @@
 """Main evaluation runner for LLM evaluation."""
-import os
 import json
 import time
 from datetime import datetime
@@ -213,13 +212,13 @@ if __name__ == "__main__":
     parser.add_argument(
         "--data-path",
         type=str,
-        default=os.getenv("DATA_PATH", "data/2025/deutschland"),
+        default="data/2025/deutschland",
         help="Path to WahlOMat data directory"
     )
     parser.add_argument(
         "--results-path",
         type=str,
-        default=os.getenv("RESULTS_PATH", "results"),
+        default="results",
         help="Path to results directory"
     )
     parser.add_argument(

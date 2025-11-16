@@ -17,14 +17,14 @@ class OpenRouterClient:
         
         Args:
             api_key: Ignored - API key is only read from .env file
-            model: Model name (defaults to DEFAULT_MODEL env var)
+            model: Model name (defaults to 'openai/gpt-4o')
         """
         # Only use API key from .env file
         self.api_key = os.getenv('OPENROUTER_API_KEY')
         if not self.api_key:
             raise ValueError("OpenRouter API key not found. Set OPENROUTER_API_KEY in .env file.")
         
-        self.model = model or os.getenv('DEFAULT_MODEL', 'openai/gpt-4o')
+        self.model = model or 'openai/gpt-4o'
         self.base_url = "https://openrouter.ai/api/v1/chat/completions"
         self.max_retries = 3
         self.retry_delay = 2  # seconds
