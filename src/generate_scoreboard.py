@@ -244,6 +244,10 @@ def generate_scoreboard_html(
     # Calculate total runs
     total_runs = sum(agg['num_runs'] for agg in aggregated.values())
     
+    # Calculate average metrics across all models
+    avg_consistency = sum(agg['consistency'] for agg in aggregated.values()) / len(models) if models else 0
+    avg_opinionated = sum(agg['opinionated'] for agg in aggregated.values()) / len(models) if models else 0
+    
     # Render template
     env = get_jinja_env()
     template = env.get_template('scoreboard.html')
@@ -257,7 +261,10 @@ def generate_scoreboard_html(
         aggregated=aggregated,
         score_lookups=score_lookups,
         main_party_ids=main_party_ids,
-        top_models_per_party=top_models_per_party
+        top_models_per_party=top_models_per_party,
+        party_avg_scores=party_avg_scores,
+        avg_consistency=avg_consistency,
+        avg_opinionated=avg_opinionated
     )
     
     return html

@@ -169,6 +169,22 @@
         tbody tr:last-child td {
             border-bottom: none;
         }
+        tfoot {
+            border-top: 2px solid #000000;
+        }
+        tfoot tr {
+            background: #fafafa;
+            font-weight: 600;
+        }
+        tfoot td {
+            padding: 12px 16px;
+            border-top: 2px solid #000000;
+            border-bottom: none;
+        }
+        th:nth-child(3),
+        td:nth-child(3) {
+            border-right: 2px solid #000000;
+        }
         .model-row.low-opinionated {
             opacity: 0.5;
             color: #999999;
@@ -404,6 +420,18 @@
                         </tr>
                         {% endfor %}
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td><strong>Durchschnitt</strong></td>
+                            <td class="score"><strong>{{ "%.1f"|format(avg_consistency) }}%</strong></td>
+                            <td class="score"><strong>{{ "%.1f"|format(avg_opinionated) }}%</strong></td>
+                            {% for party in parties_sorted %}
+                            {% set avg_score = party_avg_scores.get(party.id, 0) %}
+                            {% set is_main = party.id in main_party_ids %}
+                            <td class="score party-cell" data-party-id="{{ party.id }}" data-is-main="{{ is_main|lower }}"><strong>{{ "%.1f"|format(avg_score) }}%</strong></td>
+                            {% endfor %}
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>
@@ -502,14 +530,71 @@
                     });
                 }
                 
+                // Function to sort columns by footer average values
+                function sortColumnsByFooter() {
+                    const tfoot = table.querySelector('tfoot');
+                    if (!tfoot) return;
+                    
+                    const footerRow = tfoot.querySelector('tr');
+                    if (!footerRow) return;
+                    
+                    const footerCells = Array.from(footerRow.querySelectorAll('td'));
+                    if (footerCells.length === 0) return;
+                    
+                    // Get footer values (skip first 3 cells: "Durchschnitt", Konsistenz, Positioniert)
+                    // Index 0 = Durchschnitt, 1 = Konsistenz, 2 = Positioniert, 3+ = Party columns
+                    const footerValues = footerCells.slice(3).map(cell => {
+                        const text = cell.textContent.trim().replace('%', '');
+                        return parseFloat(text) || 0;
+                    });
+                    
+                    // Create array of column indices with their footer values
+                    // Only sort party columns (starting from index 3)
+                    const columnData = footerValues.map((value, index) => ({
+                        index: index + 3, // +3 because we skip model, konsistenz, positioniert columns
+                        value: value
+                    }));
+                    
+                    // Sort by value descending
+                    columnData.sort((a, b) => b.value - a.value);
+                    
+                    // Get all rows (thead, tbody, tfoot)
+                    const theadRow = table.querySelector('thead tr');
+                    const tbodyRows = Array.from(tbody.querySelectorAll('tr'));
+                    const tfootRow = tfoot.querySelector('tr');
+                    
+                    // Reorder cells in each row by moving DOM elements
+                    [theadRow, ...tbodyRows, tfootRow].forEach(row => {
+                        const cells = Array.from(row.querySelectorAll('th, td'));
+                        if (cells.length === 0) return;
+                        
+                        // Keep first 3 cells (model name, konsistenz, positioniert) in place
+                        const fixedCells = cells.slice(0, 3);
+                        const partyCells = cells.slice(3);
+                        
+                        // Reorder party cells based on sorted column data
+                        const reorderedPartyCells = columnData.map(col => partyCells[col.index - 3]);
+                        
+                        // Remove all party cells, then append reordered ones
+                        partyCells.forEach(cell => cell.remove());
+                        reorderedPartyCells.forEach(cell => row.appendChild(cell));
+                    });
+                }
+                
                 // Filter toggle - apply filter on page load since checkbox is checked by default
                 filterMainParties(mainPartiesFilter.checked);
                 mainPartiesFilter.addEventListener('change', (e) => {
                     filterMainParties(e.target.checked);
                 });
                 
+                // Sort columns by footer averages on page load
+                sortColumnsByFooter();
+                
+                // Update headers reference after column reordering
+                const updatedHeaders = table.querySelectorAll('th.sortable');
+                
                 // Auto-sort by opinionated (positioniert) on page load - descending order
-                const opinionatedHeader = Array.from(headers).find(h => h.dataset.sort === 'opinionated');
+                const opinionatedHeader = Array.from(updatedHeaders).find(h => h.dataset.sort === 'opinionated');
                 if (opinionatedHeader) {
                     // Sort descending (highest first)
                     sortTable('opinionated', 'number');
@@ -519,8 +604,8 @@
                     opinionatedHeader.classList.add('sort-desc');
                 }
                 
-                // Column header sorting
-                headers.forEach(header => {
+                // Column header sorting - reattach listeners after column reordering
+                updatedHeaders.forEach(header => {
                     header.addEventListener('click', () => {
                         const column = header.dataset.sort;
                         const type = header.dataset.sortType;
