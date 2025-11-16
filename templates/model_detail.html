@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ model_name }} - WahlOMat LLM Evaluation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+            padding: 40px 20px;
+            font-size: 15px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+        }
+        .header {
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 16px;
+            color: #666666;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .model-info {
+            color: #666666;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        .question-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .question-card {
+            border: 1px solid #e5e5e5;
+            padding: 24px;
+            background: #fafafa;
+        }
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            gap: 16px;
+        }
+        .question-number {
+            font-size: 14px;
+            color: #666666;
+            font-weight: 600;
+            min-width: 60px;
+        }
+        .question-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: #000000;
+            flex: 1;
+        }
+        .question-label {
+            font-size: 13px;
+            color: #666666;
+            margin-top: 4px;
+            font-style: italic;
+        }
+        .answer-section {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #e5e5e5;
+        }
+        .answer-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .answer-badge.agree {
+            background: #4a90e2;
+        }
+        .answer-badge.disagree {
+            background: #e74c3c;
+        }
+        .answer-badge.neutral {
+            background: #95a5a6;
+        }
+        .reasoning {
+            font-size: 14px;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        .stats {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .stat-card {
+            background: #fafafa;
+            padding: 20px;
+            border: 1px solid #e5e5e5;
+            flex: 1;
+            min-width: 150px;
+        }
+        .stat-value {
+            font-size: 32px;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 4px;
+        }
+        .stat-label {
+            color: #666666;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 12px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .question-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-link">← Zurück zur Übersicht</a>
+            <h1>{{ model_name }}</h1>
+            <div class="model-info">
+                {{ election_info.get('title', election_slug) }} • {{ model_results|length }} Durchläufe
+            </div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value">{{ questions|length }}</div>
+                <div class="stat-label">Fragen</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">{{ model_results|length }}</div>
+                <div class="stat-label">Durchläufe</div>
+            </div>
+        </div>
+        
+        <div class="question-list">
+            {% for question in questions %}
+            {% if question.answer == 0 %}
+                {% set badge_class = 'agree' %}
+                {% set answer_label = 'Stimme zu' %}
+            {% elif question.answer == 1 %}
+                {% set badge_class = 'disagree' %}
+                {% set answer_label = 'Stimme nicht zu' %}
+            {% else %}
+                {% set badge_class = 'neutral' %}
+                {% set answer_label = 'Neutral' %}
+            {% endif %}
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage {{ question.statement_id + 1 }}</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">{{ question.text }}</div>
+                        {% if question.label %}
+                        <div class="question-label">{{ question.label }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge {{ badge_class }}">{{ answer_label }}</div>
+                    <div class="reasoning">{{ question.reasoning or 'Keine Begründung verfügbar.' }}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>openrouter/sherlock-dash-alpha - WahlOMat LLM Evaluation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+            padding: 40px 20px;
+            font-size: 15px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+        }
+        .header {
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 16px;
+            color: #666666;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .model-info {
+            color: #666666;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        .question-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .question-card {
+            border: 1px solid #e5e5e5;
+            padding: 24px;
+            background: #fafafa;
+        }
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            gap: 16px;
+        }
+        .question-number {
+            font-size: 14px;
+            color: #666666;
+            font-weight: 600;
+            min-width: 60px;
+        }
+        .question-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: #000000;
+            flex: 1;
+        }
+        .question-label {
+            font-size: 13px;
+            color: #666666;
+            margin-top: 4px;
+            font-style: italic;
+        }
+        .answer-section {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #e5e5e5;
+        }
+        .answer-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .answer-badge.agree {
+            background: #4a90e2;
+        }
+        .answer-badge.disagree {
+            background: #e74c3c;
+        }
+        .answer-badge.neutral {
+            background: #95a5a6;
+        }
+        .reasoning {
+            font-size: 14px;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        .stats {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .stat-card {
+            background: #fafafa;
+            padding: 20px;
+            border: 1px solid #e5e5e5;
+            flex: 1;
+            min-width: 150px;
+        }
+        .stat-value {
+            font-size: 32px;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 4px;
+        }
+        .stat-label {
+            color: #666666;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 12px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .question-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-link">← Zurück zur Übersicht</a>
+            <h1>openrouter/sherlock-dash-alpha</h1>
+            <div class="model-info">
+                Bundestagswahl • 5 Durchläufe
+            </div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value">38</div>
+                <div class="stat-label">Fragen</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Durchläufe</div>
+            </div>
+        </div>
+        
+        <div class="question-list">
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 1</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Deutschland soll die Ukraine weiterhin militärisch unterstützen.</div>
+                        
+                        <div class="question-label">Unterstützung der Ukraine</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Deutschland sollte die Ukraine weiterhin militärisch unterstützen, um die russische Aggression zu stoppen und die europäische Sicherheit zu wahren.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 2</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Der Ausbau erneuerbarer Energien soll weiterhin vom Staat finanziell gefördert werden.</div>
+                        
+                        <div class="question-label">Erneuerbare Energien</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Erneuerbare Energien sind essenziell für den Klimaschutz und die Energiewende. Staatliche Förderung beschleunigt den Übergang zu nachhaltiger Energie und schafft langfristig Unabhängigkeit von fossilen Brennstoffen.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 3</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Das Bürgergeld soll denjenigen gestrichen werden, die wiederholt Stellenangebote ablehnen.</div>
+                        
+                        <div class="question-label">Streichung des Bürgergelds</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Bürgergeld sollte Leistungen belohnen, die auf Arbeitserhaltung abzielen. Wer wiederholt Angebote ablehnt, zeigt mangelnde Kooperationsbereitschaft und sollte die Unterstützung verlieren.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 4</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Auf allen Autobahnen soll ein generelles Tempolimit gelten.</div>
+                        
+                        <div class="question-label">Tempolimit auf Autobahnen</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="reasoning">Ein generelles Tempolimit auf Autobahnen würde die Mobilität unnötig einschränken und ignoriert die sichere Infrastruktur auf freien Strecken. Es gibt keine ausreichenden Belege, dass es Unfälle signifikant reduziert, während es den Verkehrsfluss behindert.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 5</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Asylsuchende, die über einen anderen EU-Staat eingereist sind, sollen an den deutschen Grenzen abgewiesen werden.</div>
+                        
+                        <div class="question-label">Abweisung Asylsuchender</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Die Umsetzung des Dublin-Verfahrens schützt die Integrität des EU-Asylsystems und verhindert Asylmissbrauch durch irreguläre Sekundärmigration. Dies entlastet Deutschland und sorgt für faire Verteilung der Verantwortung unter EU-Staaten.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 6</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Bei Neuvermietungen sollen die Mietpreise weiterhin gesetzlich begrenzt werden.</div>
+                        
+                        <div class="question-label">Begrenzung der Mietpreise</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Gesetzliche Mietpreisbegrenzungen bei Neuvermietungen schützen Mieter vor überhöhten Preisen und fördern bezahlbaren Wohnraum in angespannten Märkten.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 7</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">An Bahnhöfen soll die Bundespolizei Software zur automatisierten Gesichtserkennung einsetzen dürfen.</div>
+                        
+                        <div class="question-label">Automatisierte Gesichtserkennung</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Gesichtserkennung an Bahnhöfen verbessert die Sicherheit und hilft, Kriminalität wie Terrorismus oder Flucht von Straftätern effektiv zu bekämpfen. Der Datenschutz kann durch klare gesetzliche Regelungen und temporäre Speicherung gewährleistet werden.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 8</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Energieintensive Unternehmen sollen vom Staat einen finanziellen Ausgleich für ihre Stromkosten erhalten.</div>
+                        
+                        <div class="question-label">Energieintensive Unternehmen</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Energieintensive Unternehmen sind essenziell für die Wirtschaft und Arbeitsplätze; staatliche Ausgleiche verhindern Abwanderung ins Ausland und sichern Wettbewerbsfähigkeit.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 9</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Alle Beschäftigten sollen bereits nach 40 Beitragsjahren ohne Abschläge in Rente gehen können.</div>
+                        
+                        <div class="question-label">Rente nach 40 Beitragsjahren</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="reasoning">Eine Rente nach 40 Beitragsjahren ohne Abschläge würde die Finanzierung der Rentenversicherung überfordern, da viele früher in Rente gehen und längere Rentenbezugsdauern entstehen. Stattdessen sollten Anreize für längeres Arbeiten und eine nachhaltige Finanzierung priorisiert werden.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 10</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Im einleitenden Satz des Grundgesetzes soll weiterhin die Formulierung „Verantwortung vor Gott“ stehen.</div>
+                        
+                        <div class="question-label">Grundgesetz</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="reasoning">Das Grundgesetz ist ein säkulares Dokument, das alle Bürger unabhängig von religiöser Überzeugung gleich behandelt. Die Formulierung &#39;Verantwortung vor Gott&#39; diskriminiert nicht-religiöse Menschen und widerspricht dem Prinzip der Neutralität des Staates.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 11</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Deutschland soll weiterhin die Anwerbung von Fachkräften aus dem Ausland fördern.</div>
+                        
+                        <div class="question-label">Anwerbung von Fachkräften</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Deutschland leidet unter einem akuten Fachkräftemangel, der durch eine alternde Bevölkerung verschärft wird. Die Anwerbung aus dem Ausland ist essenziell, um Wirtschaftswachstum zu sichern und offene Stellen zu besetzen.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 12</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Für die Stromerzeugung soll Deutschland wieder Kernenergie nutzen.</div>
+                        
+                        <div class="question-label">Nutzung der Kernenergie</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Kernenergie ist eine zuverlässige, kohlenstoffarme Energiequelle, die Deutschlands Abhängigkeit von fossilen Brennstoffen und volatilen Importen reduziert. Der Atomausstieg hat zu höheren CO2-Emissionen und Energiepreisen geführt, was ein Fehler war.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 13</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Bei der Besteuerung von Einkommen soll der Spitzensteuersatz angehoben werden.</div>
+                        
+                        <div class="question-label">Anhebung des Spitzensteuersatzes</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="reasoning">Ein Anstieg des Spitzensteuersatzes würde Anreize zur Investition und wirtschaftlichem Wachstum mindern und zu Kapitalflucht führen. Niedrigere Steuern fördern Innovation und Beschäftigung langfristig effektiver.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 14</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Der Bund soll mehr Kompetenzen in der Schulpolitik erhalten.</div>
+                        
+                        <div class="question-label">Kompetenzen in der Schulpolitik</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="reasoning">Schulpolitik ist primär eine Landesangelegenheit, da Länder unterschiedliche regionale Bedürfnisse haben. Eine Zentralisierung durch den Bund würde die Föderalismusprinzipien untergraben und zu einheitlicher, weniger flexibler Bildungspolitik führen.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 15</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Aus Deutschland sollen weiterhin Rüstungsgüter nach Israel exportiert werden dürfen.</div>
+                        
+                        <div class="question-label">Rüstungsexporte nach Israel</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Deutschland hat historische und strategische Bündnisverpflichtungen gegenüber Israel, und Rüstungsexporte stärken die Sicherheit eines demokratischen Verbündeten in einer instabilen Region.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 16</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Alle Bürgerinnen und Bürger sollen in gesetzlichen Krankenkassen versichert sein müssen.</div>
+                        
+                        <div class="question-label">Krankenkassen</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Eine gesetzliche Pflichtversicherung in Krankenkassen gewährleistet Solidarität und verhindert, dass gesunde oder wohlhabende Personen das System ausnutzen, ohne beizutragen. Dies schützt die gesamte Bevölkerung vor finanziellen Risiken bei Krankheit.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 17</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Die gesetzliche Frauenquote in Vorständen und Aufsichtsräten börsennotierter Unternehmen soll abgeschafft werden.</div>
+                        
+                        <div class="question-label">Abschaffung der Frauenquote</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Die gesetzliche Frauenquote verletzt das Prinzip der Leistungsbasierten Auswahl und ignoriert individuelle Qualifikationen. Sie sollte durch freie Marktdynamik ersetzt werden, um echte Kompetenz zu fördern.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 18</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Ökologische Landwirtschaft soll stärker gefördert werden als konventionelle Landwirtschaft.</div>
+                        
+                        <div class="question-label">Ökologische Landwirtschaft</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Ökologische Landwirtschaft schont die Umwelt, fördert Biodiversität und reduziert Pestizideinsatz langfristig. Eine stärkere Förderung ist notwendig, um nachhaltige Ernährungssicherheit zu gewährleisten.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 19</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Der Bund soll Projekte gegen Rechtsextremismus verstärkt fördern.</div>
+                        
+                        <div class="question-label">Projekte gegen Rechtsextremismus</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Rechtsextremismus bedroht Demokratie und Rechtsstaat, daher ist eine verstärkte Förderung von Projekten dagegen notwendig, um Prävention und Integration zu stärken.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 20</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Unternehmen sollen weiterhin die Einhaltung der Menschenrechte und des Umweltschutzes bei allen Zulieferern kontrollieren müssen.</div>
+                        
+                        <div class="question-label">Kontrolle von Zulieferern</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Unternehmen haben die Verantwortung, Menschenrechtsverletzungen und Umweltschäden in ihrer Lieferkette zu verhindern, um nachhaltige und ethische Praktiken zu fördern. Kontrollen sorgen für Transparenz und schützen vulnerable Arbeiter und die Umwelt.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 21</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Die Ausbildungsförderung BAföG soll weiterhin abhängig vom Einkommen der Eltern gezahlt werden.</div>
+                        
+                        <div class="question-label">Elternabhängiges BAföG</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="reasoning">BAföG sollte unabhängig vom Einkommen der Eltern sein, um gleiche Chancen für alle Studierenden zu gewährleisten und soziale Mobilität zu fördern.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 22</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Die Schuldenbremse im Grundgesetz soll beibehalten werden.</div>
+                        
+                        <div class="question-label">Schuldenbremse</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Die Schuldenbremse fördert fiskalische Disziplin und verhindert übermäßige Verschuldung zukünftiger Generationen. Sie hat sich als effektives Instrument zur Stabilisierung der Staatsfinanzen bewährt.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 23</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Asylsuchende sollen in Deutschland sofort nach ihrer Antragstellung eine Arbeitserlaubnis erhalten.</div>
+                        
+                        <div class="question-label">Arbeitserlaubnis für Asylsuchende</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Sofortige Arbeitserlaubnis ermöglicht Asylsuchenden schnelle Integration in den Arbeitsmarkt, reduziert Abhängigkeit von Sozialhilfe und trägt zur Wirtschaft bei.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 24</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Deutschland soll das Ziel verwerfen, klimaneutral zu werden.</div>
+                        
+                        <div class="question-label">Verwerfen der Klimaziele</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="reasoning">Klimaneutralität ist essenziell, um den Klimawandel zu bekämpfen und langfristig wirtschaftliche und ökologische Vorteile zu sichern. Das Ziel sollte beibehalten und effizient umgesetzt werden.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 25</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">In Deutschland soll die 35-Stunden-Woche als gesetzliche Regelarbeitszeit für alle Beschäftigten festgelegt werden.</div>
+                        
+                        <div class="question-label">35-Stunden-Woche</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Die 35-Stunden-Woche fördert ein besseres Work-Life-Balance, reduziert Burnout und steigert die Produktivität langfristig. Sie ist ein wichtiger Schritt zu mehr sozialer Gerechtigkeit in Deutschland.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 26</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Schwangerschaftsabbrüche sollen in den ersten drei Monaten weiterhin nur nach Beratung straffrei sein.</div>
+                        
+                        <div class="question-label">Schwangerschaftsabbruch nach Beratung</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Eine Beratungspflicht in den ersten drei Monaten schützt Frauen vor impulsiven Entscheidungen und stellt sicher, dass alle Optionen informiert abgewogen werden. Sie balanciert das Recht auf Abbruch mit dem Schutz ungeborenen Lebens.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 27</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Der Euro soll in Deutschland durch eine nationale Währung ersetzt werden.</div>
+                        
+                        <div class="question-label">Nationale Währung</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Der Euro hat zu hoher Abhängigkeit von der EZB-Politik geführt, die nicht immer den deutschen Interessen dient. Eine nationale Währung würde mehr Souveränität und Flexibilität bei wirtschaftlichen Entscheidungen ermöglichen.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 28</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Beim Ausbau der Verkehrsinfrastruktur soll die Schiene Vorrang vor der Straße haben.</div>
+                        
+                        <div class="question-label">Schiene vor Straße</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Der Ausbau der Schiene ist umweltfreundlicher und effizienter für den Massentransport, reduziert Verkehrsstau und CO2-Emissionen. Straße sollte ergänzend genutzt werden, nicht priorisiert.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 29</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Ehrenamtliche Tätigkeiten sollen auf die zukünftige Rente angerechnet werden.</div>
+                        
+                        <div class="question-label">Ehrenamt</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Ehrenamtliche Tätigkeiten leisten einen wichtigen gesellschaftlichen Beitrag und sollten finanziell anerkannt werden, um Freiwilligen ein faires Rentenrecht zu bieten. Dies fördert das Engagement in der Zivilgesellschaft.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 30</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Die Grundsteuer soll weiterhin auf Mieterinnen und Mieter umgelegt werden dürfen.</div>
+                        
+                        <div class="question-label">Umlegung der Grundsteuer</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="reasoning">Die Grundsteuer ist eine Eigentümersteuer und sollte allein von den Grundstückseigentümern getragen werden, nicht auf Mieter umgelegt werden. Eine Umlage belastet Mieter ungerechtfertigt und widerspricht dem Prinzip der Steuergerechtigkeit.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 31</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Das Streikrecht für Beschäftigte in Unternehmen der kritischen Infrastruktur soll gesetzlich eingeschränkt werden.</div>
+                        
+                        <div class="question-label">Einschränkung des Streikrechts</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Kritische Infrastruktur wie Energieversorgung oder Verkehr muss vor unkontrollierten Streiks geschützt werden, um die öffentliche Sicherheit und Wirtschaft zu gewährleisten. Eine Einschränkung des Streikrechts ist hier angemessen und verhältnismäßig.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 32</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">In Deutschland soll es auf Bundesebene Volksentscheide geben können.</div>
+                        
+                        <div class="question-label">Volksentscheide</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Volksentscheide auf Bundesebene würden die direkte Demokratie stärken und den Bürgern mehr Mitspracherecht bei wichtigen Entscheidungen geben, was die repräsentative Demokratie ergänzt.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 33</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Unter 14-Jährige sollen strafrechtlich belangt werden können.</div>
+                        
+                        <div class="question-label">Strafrecht für unter 14-Jährige</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Kinder unter 14 können schwere Straftaten begehen, die Gesellschaft schützen muss; eine strafrechtliche Verfolgung mit angepassten Sanktionen ist gerechtfertigt, um Wiederholungstäter früh einzudämmen.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 34</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Deutschland soll sich für die Abschaffung der erhöhten EU-Zölle auf chinesische Elektroautos einsetzen.</div>
+                        
+                        <div class="question-label">Abschaffung von Zöllen</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Erhöhte Zölle schützen die heimische Industrie kurzfristig, behindern aber langfristig den freien Handel und den Zugang zu günstigen, innovativen Elektroautos. Deutschland profitiert von offenen Märkten und stärkerer Wettbewerbsfähigkeit.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 35</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">In Deutschland soll es weiterhin generell möglich sein, neben der deutschen eine zweite Staatsbürgerschaft zu haben.</div>
+                        
+                        <div class="question-label">Zweite Staatsbürgerschaft</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Mehrstaatigkeit fördert Globalisierung und Mobilität in einer vernetzten Welt. Sie schadet nicht der Loyalität zur deutschen Staatsbürgerschaft.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 36</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Für junge Erwachsene soll ein soziales Pflichtjahr eingeführt werden.</div>
+                        
+                        <div class="question-label">Soziales Pflichtjahr</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="reasoning">Ein Pflichtjahr schränkt die individuelle Freiheit junger Erwachsener ein und ist paternalistisch. Freiwillige Programme wie FSJ sind effektiver und motivierter.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 37</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Neue Heizungen sollen auch zukünftig vollständig mit fossilen Brennstoffen (z. B. Gas oder Öl) betrieben werden dürfen.</div>
+                        
+                        <div class="question-label">Fossile Brennstoffe</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="reasoning">Fossile Brennstoffe tragen stark zum Klimawandel bei, und ein Verbot neuer fossiler Heizungen ist ein notwendiger Schritt zum Umstieg auf erneuerbare Energien. Zukünftige Systeme sollten emissionsfrei sein, um Umwelt und Klima zu schützen.</div>
+                </div>
+            </div>
+            
+            
+                
+                
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Frage 38</div>
+                    <div style="flex: 1;">
+                        <div class="question-text">Der gesetzliche Mindestlohn soll spätestens 2026 auf 15 Euro erhöht werden.</div>
+                        
+                        <div class="question-label">Erhöhung des Mindestlohns</div>
+                        
+                    </div>
+                </div>
+                <div class="answer-section">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="reasoning">Ein Mindestlohn von 15 Euro bis 2026 stärkt die Kaufkraft der Arbeitnehmer und reduziert Armut, ohne die Wirtschaft signifikant zu belasten, da Deutschland bereits Erfahrungen mit steigenden Mindestlöhnen gemacht hat.</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WahlOMat LLM Evaluation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 40px 20px;
+            font-size: 15px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+        }
+        h1 {
+            color: #000000;
+            margin-bottom: 8px;
+            font-size: 32px;
+            font-weight: 600;
+            text-align: left;
+            letter-spacing: -0.5px;
+        }
+        .subtitle {
+            color: #666666;
+            text-align: left;
+            margin-bottom: 48px;
+            font-size: 15px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .election-list {
+            list-style: none;
+        }
+        .election-item {
+            margin-bottom: 16px;
+        }
+        .election-link {
+            display: block;
+            padding: 20px 24px;
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            text-decoration: none;
+            color: #1a1a1a;
+            transition: background 0.2s ease;
+        }
+        .election-link:hover {
+            background: #f5f5f5;
+        }
+        .election-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #000000;
+        }
+        .election-date {
+            color: #666666;
+            font-size: 14px;
+        }
+        .footer {
+            margin-top: 64px;
+            padding-top: 24px;
+            text-align: left;
+            color: #666666;
+            font-size: 13px;
+            border-top: 1px solid #e5e5e5;
+        }
+        .footer a {
+            color: #666666;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .empty-state {
+            text-align: left;
+            padding: 60px 20px;
+            color: #666666;
+        }
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>WahlOMat LLM Evaluation</h1>
+        <p class="subtitle">Vergleich von Large Language Models mit deutschen Parteipositionen</p>
+        
+        <ul class="election-list" id="electionList">
+            <li class="empty-state">
+                <div class="empty-state-icon">📊</div>
+                <p>Lade Wahlen...</p>
+            </li>
+        </ul>
+        
+        <div class="footer">
+            <p>Datenquelle: <a href="https://github.com/gockelhahn/qual-o-mat-data" target="_blank">qual-o-mat-data</a></p>
+            <p>Powered by <a href="https://openrouter.ai" target="_blank">OpenRouter</a></p>
+        </div>
+    </div>
+    
+    <script>
+        // Discover available elections by checking subdirectories
+        // This will be populated when elections are added
+        const elections = [
+            {
+                slug: 'bundestagswahl2025',
+                title: 'Bundestagswahl 2025',
+                date: '2025-02-23'
+            }
+        ];
+        
+        const electionList = document.getElementById('electionList');
+        
+        if (elections.length === 0) {
+            electionList.innerHTML = `
+                <li class="empty-state">
+                    <div class="empty-state-icon">📋</div>
+                    <p>Noch keine Wahlen verfügbar.</p>
+                    <p style="margin-top: 10px; font-size: 0.9em;">Führe eine Evaluation durch, um Ergebnisse zu sehen.</p>
+                </li>
+            `;
+        } else {
+            electionList.innerHTML = elections.map(election => `
+                <li class="election-item">
+                    <a href="${election.slug}/index.html" class="election-link">
+                        <div class="election-title">${election.title}</div>
+                        <div class="election-date">Datum: ${election.date}</div>
+                    </a>
+                </li>
+            `).join('');
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WahlOMat LLM Evaluation - {{ election_info.get('title', election_slug) }}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+            padding: 40px 20px;
+            font-size: 15px;
+        }
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: #ffffff;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        .election-info {
+            color: #666666;
+            margin-bottom: 48px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .election-info h2 {
+            font-size: 20px;
+            font-weight: 500;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+        .election-info p {
+            margin: 4px 0;
+            font-size: 14px;
+        }
+        .election-info a {
+            color: #666666;
+            text-decoration: none;
+        }
+        .election-info a:hover {
+            text-decoration: underline;
+        }
+        .section {
+            margin-bottom: 64px;
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        th {
+            background: #fafafa;
+            color: #000000;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s ease;
+        }
+        th:hover {
+            background: #f0f0f0;
+        }
+        th.sortable {
+            position: relative;
+            padding-right: 24px;
+        }
+        th.sortable::after {
+            content: '↕';
+            position: absolute;
+            right: 8px;
+            opacity: 0.3;
+            font-size: 12px;
+        }
+        th.sort-asc::after {
+            content: '↑';
+            opacity: 1;
+        }
+        th.sort-desc::after {
+            content: '↓';
+            opacity: 1;
+        }
+        tbody tr:hover {
+            background: #fafafa;
+        }
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .score {
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+        .party-section {
+            margin-bottom: 32px;
+            padding: 24px;
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+        }
+        .party-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #000000;
+        }
+        .model-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .model-card {
+            background: #ffffff;
+            padding: 16px 20px;
+            border: 1px solid #e5e5e5;
+            min-width: 200px;
+        }
+        .model-name {
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #666666;
+        }
+        .model-score {
+            font-size: 24px;
+            font-weight: 600;
+            color: #000000;
+        }
+        .stats {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+        .stat-card {
+            background: #fafafa;
+            padding: 24px;
+            border: 1px solid #e5e5e5;
+            flex: 1;
+            min-width: 180px;
+        }
+        .stat-value {
+            font-size: 36px;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 4px;
+        }
+        .stat-label {
+            color: #666666;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 12px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            table {
+                font-size: 12px;
+            }
+            th, td {
+                padding: 8px 12px;
+            }
+            .stat-card {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>WahlOMat LLM Evaluation</h1>
+        <div class="election-info">
+            <h2>{{ election_info.get('title', election_slug) }}</h2>
+            <p>Datum: {{ election_info.get('date', 'N/A') }}</p>
+            <p>Quelle: <a href="{{ election_info.get('data_source', '#') }}" target="_blank">{{ election_info.get('data_source', 'N/A') }}</a></p>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value">{{ models|length }}</div>
+                <div class="stat-label">Modelle</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">{{ parties|length }}</div>
+                <div class="stat-label">Parteien</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">{{ total_runs }}</div>
+                <div class="stat-label">Durchläufe</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2 style="margin-bottom: 0;">Übersicht: Modelle vs. Parteien</h2>
+                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px;">
+                    <input type="checkbox" id="mainPartiesFilter" checked style="cursor: pointer;">
+                    <span>Nur Hauptparteien</span>
+                </label>
+            </div>
+            <div style="overflow-x: auto;">
+                <table id="comparisonTable">
+                    <thead>
+                        <tr>
+                            <th class="sortable" data-sort="model" data-sort-type="string">Modell</th>
+                            {% for party in parties_sorted %}
+                            <th class="sortable party-header" data-party-id="{{ party.id }}" data-sort="party-{{ party.id }}" data-sort-type="number">{{ party.name }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for model in models %}
+                        <tr data-model="{{ model }}" data-runs="{{ aggregated[model].num_runs }}" class="model-row">
+                            <td><strong><a href="{{ model.replace('/', '_') }}.html" style="color: #000000; text-decoration: none;">{{ model }}</a></strong></td>
+                            {% for party in parties_sorted %}
+                            {% set score = score_lookups[model].get(party.id, 0) %}
+                            {% set is_main = party.id in main_party_ids %}
+                            <td class="score party-cell" data-party-id="{{ party.id }}" data-is-main="{{ is_main|lower }}">{{ "%.1f"|format(score) }}%</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <script>
+            (function() {
+                const table = document.getElementById('comparisonTable');
+                const tbody = table.querySelector('tbody');
+                const headers = table.querySelectorAll('th.sortable');
+                const mainPartiesFilter = document.getElementById('mainPartiesFilter');
+                let currentSort = { column: null, direction: 'asc' };
+                const mainPartyIds = new Set(['0', '1', '2', '3', '4', '5', '25']);
+                
+                function filterMainParties(showMainOnly) {
+                    const partyHeaders = document.querySelectorAll('th.party-header');
+                    const partyCells = document.querySelectorAll('td.party-cell');
+                    const partySections = document.querySelectorAll('.party-section-bottom');
+                    
+                    partyHeaders.forEach(header => {
+                        const partyId = header.dataset.partyId;
+                        if (showMainOnly && !mainPartyIds.has(partyId)) {
+                            header.style.display = 'none';
+                        } else {
+                            header.style.display = '';
+                        }
+                    });
+                    
+                    partyCells.forEach(cell => {
+                        const partyId = cell.dataset.partyId;
+                        if (showMainOnly && !mainPartyIds.has(partyId)) {
+                            cell.style.display = 'none';
+                        } else {
+                            cell.style.display = '';
+                        }
+                    });
+                    
+                    // Filter party sections at the bottom
+                    partySections.forEach(section => {
+                        const partyId = section.dataset.partyId;
+                        if (showMainOnly && !mainPartyIds.has(partyId)) {
+                            section.style.display = 'none';
+                        } else {
+                            section.style.display = 'block';
+                        }
+                    });
+                }
+                
+                function sortTable(column, type) {
+                    const rows = Array.from(tbody.querySelectorAll('tr'));
+                    const isAsc = currentSort.column === column && currentSort.direction === 'asc';
+                    
+                    rows.sort((a, b) => {
+                        let aVal, bVal;
+                        
+                        if (column === 'model') {
+                            aVal = a.dataset.model.toLowerCase();
+                            bVal = b.dataset.model.toLowerCase();
+                        } else if (column === 'runs') {
+                            aVal = parseInt(a.dataset.runs);
+                            bVal = parseInt(b.dataset.runs);
+                        } else if (column.startsWith('party-')) {
+                            const partyId = column.replace('party-', '');
+                            const aCell = a.querySelector(`td.party-cell[data-party-id="${partyId}"]`);
+                            const bCell = b.querySelector(`td.party-cell[data-party-id="${partyId}"]`);
+                            aVal = parseFloat(aCell ? aCell.textContent.replace('%', '') : 0);
+                            bVal = parseFloat(bCell ? bCell.textContent.replace('%', '') : 0);
+                        }
+                        
+                        if (type === 'string') {
+                            return isAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+                        } else {
+                            return isAsc ? aVal - bVal : bVal - aVal;
+                        }
+                    });
+                    
+                    // Clear tbody and append sorted rows
+                    tbody.innerHTML = '';
+                    rows.forEach(row => tbody.appendChild(row));
+                    
+                    // Update sort state
+                    currentSort.column = column;
+                    currentSort.direction = isAsc ? 'desc' : 'asc';
+                    
+                    // Update header classes
+                    headers.forEach(header => {
+                        header.classList.remove('sort-asc', 'sort-desc');
+                        if (header.dataset.sort === column) {
+                            header.classList.add(isAsc ? 'sort-desc' : 'sort-asc');
+                        }
+                    });
+                }
+                
+                // Filter toggle - apply filter on page load since checkbox is checked by default
+                filterMainParties(mainPartiesFilter.checked);
+                mainPartiesFilter.addEventListener('change', (e) => {
+                    filterMainParties(e.target.checked);
+                });
+                
+                // Column header sorting
+                headers.forEach(header => {
+                    header.addEventListener('click', () => {
+                        const column = header.dataset.sort;
+                        const type = header.dataset.sortType;
+                        sortTable(column, type);
+                    });
+                });
+            })();
+        </script>
+        
+        <div class="section">
+            <h2>Top Modelle pro Partei</h2>
+            {% for party in parties %}
+            {% if party.id in top_models_per_party %}
+            {% set top_models = top_models_per_party[party.id][:5] %}
+            {% set is_main = party.id in main_party_ids %}
+            <div class="party-section party-section-bottom" data-party-id="{{ party.id }}" data-is-main="{{ is_main|lower }}" style="display: {{ 'block' if is_main else 'none' }};">
+                <div class="party-name">{{ party.name }} - {{ party.longname }}</div>
+                <div class="model-list">
+                    {% for model_data in top_models %}
+                    <div class="model-card">
+                        <div class="model-name">{{ model_data.model }}</div>
+                        <div class="model-score">{{ "%.1f"|format(model_data.score) }}%</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+
