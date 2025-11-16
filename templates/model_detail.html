@@ -219,6 +219,105 @@
             line-height: 1.6;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
+        .bar-chart-container {
+            margin-bottom: 40px;
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            padding: 24px;
+        }
+        .bar-chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .bar-chart-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #000000;
+        }
+        .bar-chart-filter {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .bar-chart-filter input {
+            cursor: pointer;
+        }
+        .bar-chart-wrapper {
+            position: relative;
+            width: 100%;
+            overflow-x: auto;
+        }
+        .bar-chart {
+            min-width: 100%;
+        }
+        .bar-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            gap: 12px;
+            transition: opacity 0.2s ease;
+        }
+        .bar-row.hidden {
+            display: none;
+        }
+        .bar-label {
+            min-width: 150px;
+            max-width: 150px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #000000;
+            text-align: right;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .bar-container {
+            flex: 1;
+            position: relative;
+            height: 24px;
+            background: #e5e5e5;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .bar-fill {
+            height: 100%;
+            transition: width 0.3s ease, background 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 8px;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .bar-fill.score-high {
+            background: linear-gradient(90deg, #2ecc71 0%, #27ae60 100%);
+        }
+        .bar-fill.score-medium {
+            background: linear-gradient(90deg, #4a90e2 0%, #5ba0f2 100%);
+        }
+        .bar-fill.score-low {
+            background: linear-gradient(90deg, #95a5a6 0%, #7f8c8d 100%);
+        }
+        .bar-value {
+            min-width: 60px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #000000;
+            text-align: right;
+        }
+        .bar-chart-legend {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e5e5;
+            font-size: 12px;
+            color: #666666;
+            text-align: center;
+        }
         .party-ranking {
             margin-bottom: 40px;
         }
@@ -464,6 +563,42 @@
             </div>
         </div>
         
+        <div class="bar-chart-container">
+            <div class="bar-chart-header">
+                <div class="bar-chart-title">Parteien-Übereinstimmung</div>
+                <label class="bar-chart-filter">
+                    <input type="checkbox" id="barChartMainPartiesFilter" checked>
+                    <span>Nur Hauptparteien</span>
+                </label>
+            </div>
+            <div class="bar-chart-wrapper">
+                <div class="bar-chart" id="partyBarChart">
+                    {% for party in ranked_parties %}
+                    {% set is_main = party.party_id in main_party_ids %}
+                    {% if party.score >= 60 %}
+                        {% set score_class = 'score-high' %}
+                    {% elif party.score >= 40 %}
+                        {% set score_class = 'score-medium' %}
+                    {% else %}
+                        {% set score_class = 'score-low' %}
+                    {% endif %}
+                    <div class="bar-row" data-party-id="{{ party.party_id }}" data-is-main="{{ is_main|lower }}">
+                        <div class="bar-label">{{ party.party_name }}</div>
+                        <div class="bar-container">
+                            <div class="bar-fill {{ score_class }}" style="width: {{ party.score }}%;">
+                                {% if party.score >= 5 %}{{ "%.1f"|format(party.score) }}%{% endif %}
+                            </div>
+                        </div>
+                        <div class="bar-value">{{ "%.1f"|format(party.score) }}%</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="bar-chart-legend">
+                Höhere Werte zeigen größere Übereinstimmung mit der Partei
+            </div>
+        </div>
+        
         <div class="party-ranking">
             <div class="party-ranking-header">
                 <div class="party-ranking-title" onclick="togglePartyRanking()" style="flex: 1; cursor: pointer;">Parteien nach Übereinstimmung</div>
@@ -602,6 +737,28 @@
             filterMainParties(mainPartiesFilter.checked);
             mainPartiesFilter.addEventListener('change', (e) => {
                 filterMainParties(e.target.checked);
+            });
+        }
+        
+        // Bar chart filter
+        function filterBarChartMainParties(showMainOnly) {
+            const barRows = document.querySelectorAll('#partyBarChart .bar-row');
+            
+            barRows.forEach(row => {
+                const isMain = row.dataset.isMain === 'true';
+                if (showMainOnly && !isMain) {
+                    row.classList.add('hidden');
+                } else {
+                    row.classList.remove('hidden');
+                }
+            });
+        }
+        
+        const barChartFilter = document.getElementById('barChartMainPartiesFilter');
+        if (barChartFilter) {
+            filterBarChartMainParties(barChartFilter.checked);
+            barChartFilter.addEventListener('change', (e) => {
+                filterBarChartMainParties(e.target.checked);
             });
         }
         

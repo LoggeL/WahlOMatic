@@ -219,6 +219,105 @@
             line-height: 1.6;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
+        .bar-chart-container {
+            margin-bottom: 40px;
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            padding: 24px;
+        }
+        .bar-chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .bar-chart-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #000000;
+        }
+        .bar-chart-filter {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .bar-chart-filter input {
+            cursor: pointer;
+        }
+        .bar-chart-wrapper {
+            position: relative;
+            width: 100%;
+            overflow-x: auto;
+        }
+        .bar-chart {
+            min-width: 100%;
+        }
+        .bar-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            gap: 12px;
+            transition: opacity 0.2s ease;
+        }
+        .bar-row.hidden {
+            display: none;
+        }
+        .bar-label {
+            min-width: 150px;
+            max-width: 150px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #000000;
+            text-align: right;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .bar-container {
+            flex: 1;
+            position: relative;
+            height: 24px;
+            background: #e5e5e5;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .bar-fill {
+            height: 100%;
+            transition: width 0.3s ease, background 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 8px;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .bar-fill.score-high {
+            background: linear-gradient(90deg, #2ecc71 0%, #27ae60 100%);
+        }
+        .bar-fill.score-medium {
+            background: linear-gradient(90deg, #4a90e2 0%, #5ba0f2 100%);
+        }
+        .bar-fill.score-low {
+            background: linear-gradient(90deg, #95a5a6 0%, #7f8c8d 100%);
+        }
+        .bar-value {
+            min-width: 60px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #000000;
+            text-align: right;
+        }
+        .bar-chart-legend {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e5e5;
+            font-size: 12px;
+            color: #666666;
+            text-align: center;
+        }
         .party-ranking {
             margin-bottom: 40px;
         }
@@ -461,6 +560,416 @@
                         <span class="stat-tooltip">Anteil der Antworten, die eine klare Position einnehmen (Zustimmung oder Ablehnung) statt neutral zu sein. Ein hoher Wert bedeutet, dass das Modell häufig Stellung bezieht.</span>
                     </span>
                 </div>
+            </div>
+        </div>
+        
+        <div class="bar-chart-container">
+            <div class="bar-chart-header">
+                <div class="bar-chart-title">Parteien-Übereinstimmung</div>
+                <label class="bar-chart-filter">
+                    <input type="checkbox" id="barChartMainPartiesFilter" checked>
+                    <span>Nur Hauptparteien</span>
+                </label>
+            </div>
+            <div class="bar-chart-wrapper">
+                <div class="bar-chart" id="partyBarChart">
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="15" data-is-main="false">
+                        <div class="bar-label">Verjüngungsforschung</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-high" style="width: 92.37%;">
+                                92.4%
+                            </div>
+                        </div>
+                        <div class="bar-value">92.4%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="16" data-is-main="false">
+                        <div class="bar-label">PdH</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-medium" style="width: 50.0%;">
+                                50.0%
+                            </div>
+                        </div>
+                        <div class="bar-value">50.0%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="3" data-is-main="true">
+                        <div class="bar-label">FDP</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-medium" style="width: 40.79%;">
+                                40.8%
+                            </div>
+                        </div>
+                        <div class="bar-value">40.8%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="9" data-is-main="false">
+                        <div class="bar-label">dieBasis</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 39.21%;">
+                                39.2%
+                            </div>
+                        </div>
+                        <div class="bar-value">39.2%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="19" data-is-main="false">
+                        <div class="bar-label">MLPD</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 38.42%;">
+                                38.4%
+                            </div>
+                        </div>
+                        <div class="bar-value">38.4%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="6" data-is-main="false">
+                        <div class="bar-label">SSW</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 37.37%;">
+                                37.4%
+                            </div>
+                        </div>
+                        <div class="bar-value">37.4%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="18" data-is-main="false">
+                        <div class="bar-label">BP</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 37.37%;">
+                                37.4%
+                            </div>
+                        </div>
+                        <div class="bar-value">37.4%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="20" data-is-main="false">
+                        <div class="bar-label">MENSCHLICHE WELT</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 37.1%;">
+                                37.1%
+                            </div>
+                        </div>
+                        <div class="bar-value">37.1%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="25" data-is-main="true">
+                        <div class="bar-label">BSW</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 37.1%;">
+                                37.1%
+                            </div>
+                        </div>
+                        <div class="bar-value">37.1%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="4" data-is-main="true">
+                        <div class="bar-label">AfD</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 36.32%;">
+                                36.3%
+                            </div>
+                        </div>
+                        <div class="bar-value">36.3%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="26" data-is-main="false">
+                        <div class="bar-label">MERA25</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 35.0%;">
+                                35.0%
+                            </div>
+                        </div>
+                        <div class="bar-value">35.0%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="0" data-is-main="true">
+                        <div class="bar-label">SPD</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 34.74%;">
+                                34.7%
+                            </div>
+                        </div>
+                        <div class="bar-value">34.7%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="8" data-is-main="false">
+                        <div class="bar-label">Tierschutzpartei</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 34.74%;">
+                                34.7%
+                            </div>
+                        </div>
+                        <div class="bar-value">34.7%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="13" data-is-main="false">
+                        <div class="bar-label">Volt</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 34.74%;">
+                                34.7%
+                            </div>
+                        </div>
+                        <div class="bar-value">34.7%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="5" data-is-main="true">
+                        <div class="bar-label">Die Linke</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 33.95%;">
+                                34.0%
+                            </div>
+                        </div>
+                        <div class="bar-value">34.0%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="10" data-is-main="false">
+                        <div class="bar-label">Die PARTEI</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 33.42%;">
+                                33.4%
+                            </div>
+                        </div>
+                        <div class="bar-value">33.4%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="12" data-is-main="false">
+                        <div class="bar-label">PIRATEN</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 33.42%;">
+                                33.4%
+                            </div>
+                        </div>
+                        <div class="bar-value">33.4%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="21" data-is-main="false">
+                        <div class="bar-label">PdF</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 33.42%;">
+                                33.4%
+                            </div>
+                        </div>
+                        <div class="bar-value">33.4%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="1" data-is-main="true">
+                        <div class="bar-label">CDU / CSU</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 32.37%;">
+                                32.4%
+                            </div>
+                        </div>
+                        <div class="bar-value">32.4%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="2" data-is-main="true">
+                        <div class="bar-label">GRÜNE</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 32.1%;">
+                                32.1%
+                            </div>
+                        </div>
+                        <div class="bar-value">32.1%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="17" data-is-main="false">
+                        <div class="bar-label">Bündnis C</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 32.1%;">
+                                32.1%
+                            </div>
+                        </div>
+                        <div class="bar-value">32.1%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="24" data-is-main="false">
+                        <div class="bar-label">BÜNDNIS DEUTSCHLAND</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 31.84%;">
+                                31.8%
+                            </div>
+                        </div>
+                        <div class="bar-value">31.8%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="27" data-is-main="false">
+                        <div class="bar-label">WerteUnion</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 31.84%;">
+                                31.8%
+                            </div>
+                        </div>
+                        <div class="bar-value">31.8%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="14" data-is-main="false">
+                        <div class="bar-label">ÖDP</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 31.58%;">
+                                31.6%
+                            </div>
+                        </div>
+                        <div class="bar-value">31.6%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="22" data-is-main="false">
+                        <div class="bar-label">SGP</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 29.74%;">
+                                29.7%
+                            </div>
+                        </div>
+                        <div class="bar-value">29.7%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="11" data-is-main="false">
+                        <div class="bar-label">Die Gerechtigkeitspartei - Team Todenhöfer</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 29.47%;">
+                                29.5%
+                            </div>
+                        </div>
+                        <div class="bar-value">29.5%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="7" data-is-main="false">
+                        <div class="bar-label">FREIE WÄHLER</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 24.74%;">
+                                24.7%
+                            </div>
+                        </div>
+                        <div class="bar-value">24.7%</div>
+                    </div>
+                    
+                    
+                    
+                        
+                    
+                    <div class="bar-row" data-party-id="23" data-is-main="false">
+                        <div class="bar-label">BüSo</div>
+                        <div class="bar-container">
+                            <div class="bar-fill score-low" style="width: 23.95%;">
+                                23.9%
+                            </div>
+                        </div>
+                        <div class="bar-value">23.9%</div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="bar-chart-legend">
+                Höhere Werte zeigen größere Übereinstimmung mit der Partei
             </div>
         </div>
         
@@ -28640,6 +29149,28 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
             filterMainParties(mainPartiesFilter.checked);
             mainPartiesFilter.addEventListener('change', (e) => {
                 filterMainParties(e.target.checked);
+            });
+        }
+        
+        // Bar chart filter
+        function filterBarChartMainParties(showMainOnly) {
+            const barRows = document.querySelectorAll('#partyBarChart .bar-row');
+            
+            barRows.forEach(row => {
+                const isMain = row.dataset.isMain === 'true';
+                if (showMainOnly && !isMain) {
+                    row.classList.add('hidden');
+                } else {
+                    row.classList.remove('hidden');
+                }
+            });
+        }
+        
+        const barChartFilter = document.getElementById('barChartMainPartiesFilter');
+        if (barChartFilter) {
+            filterBarChartMainParties(barChartFilter.checked);
+            barChartFilter.addEventListener('change', (e) => {
+                filterBarChartMainParties(e.target.checked);
             });
         }
         
