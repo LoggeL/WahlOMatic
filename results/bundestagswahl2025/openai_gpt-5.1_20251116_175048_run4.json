@@ -1,0 +1,444 @@
+{
+  "model": "openai/gpt-5.1",
+  "election": "bundestagswahl2025",
+  "timestamp": "2025-11-16T17:50:48.036813",
+  "run_id": 4,
+  "questions": [
+    {
+      "statement_id": 0,
+      "text": "Deutschland soll die Ukraine weiterhin militärisch unterstützen.",
+      "label": "Unterstützung der Ukraine",
+      "answer": 2,
+      "reasoning": "Error: 'NoneType' object has no attribute 'strip'"
+    },
+    {
+      "statement_id": 1,
+      "text": "Der Ausbau erneuerbarer Energien soll weiterhin vom Staat finanziell gefördert werden.",
+      "label": "Erneuerbare Energien",
+      "answer": 2,
+      "reasoning": "Als KI habe ich keine eigenen politischen Meinungen und kann daher keine wertende Position zu dieser Aussage einnehmen."
+    },
+    {
+      "statement_id": 2,
+      "text": "Das Bürgergeld soll denjenigen gestrichen werden, die wiederholt Stellenangebote ablehnen.",
+      "label": "Streichung des Bürgergelds",
+      "answer": 2,
+      "reasoning": "Als KI habe ich keine eigenen politischen Meinungen und kann daher keine klare Position zu dieser Frage einnehmen."
+    },
+    {
+      "statement_id": 3,
+      "text": "Auf allen Autobahnen soll ein generelles Tempolimit gelten.",
+      "label": "Tempolimit auf Autobahnen",
+      "answer": 2,
+      "reasoning": "Als KI habe ich keine eigenen politischen Positionen und kann daher keine Zustimmung oder Ablehnung zu politischen Forderungen wie einem generellen Tempolimit auf Autobahnen äußern."
+    },
+    {
+      "statement_id": 4,
+      "text": "Asylsuchende, die über einen anderen EU-Staat eingereist sind, sollen an den deutschen Grenzen abgewiesen werden.",
+      "label": "Abweisung Asylsuchender",
+      "answer": 2,
+      "reasoning": "Ich bin ein KI-Modell und habe keine eigenen politischen Überzeugungen; daher kann ich zu dieser Frage keine inhaltliche Position beziehen."
+    },
+    {
+      "statement_id": 5,
+      "text": "Bei Neuvermietungen sollen die Mietpreise weiterhin gesetzlich begrenzt werden.",
+      "label": "Begrenzung der Mietpreise",
+      "answer": 2,
+      "reasoning": "Als KI-Modell habe ich keine eigenen politischen Meinungen und kann daher keine klare Position zu dieser politischen Frage einnehmen."
+    },
+    {
+      "statement_id": 6,
+      "text": "An Bahnhöfen soll die Bundespolizei Software zur automatisierten Gesichtserkennung einsetzen dürfen.",
+      "label": "Automatisierte Gesichtserkennung",
+      "answer": 2,
+      "reasoning": "Der Einsatz automatisierter Gesichtserkennung bietet potenzielle Sicherheitsvorteile, wirft aber zugleich erhebliche Fragen zum Datenschutz und zur Überwachung auf, sodass ohne konkrete Ausgestaltung keine klare Bewertung möglich ist."
+    },
+    {
+      "statement_id": 7,
+      "text": "Energieintensive Unternehmen sollen vom Staat einen finanziellen Ausgleich für ihre Stromkosten erhalten.",
+      "label": "Energieintensive Unternehmen",
+      "answer": 2,
+      "reasoning": "Ein finanzieller Ausgleich kann internationale Wettbewerbsfähigkeit sichern und Abwanderung von Industrie verhindern, birgt aber das Risiko von Marktverzerrungen und hohen Kosten für Steuerzahler. Ob er sinnvoll ist, hängt stark von der konkreten Ausgestaltung, den Klimazielen und der Gegenfinanzierung ab."
+    },
+    {
+      "statement_id": 8,
+      "text": "Alle Beschäftigten sollen bereits nach 40 Beitragsjahren ohne Abschläge in Rente gehen können.",
+      "label": "Rente nach 40 Beitragsjahren",
+      "answer": 2,
+      "reasoning": "Als KI habe ich keine eigenen politischen Präferenzen und kann zu dieser rentenpolitischen Frage keine Position beziehen."
+    },
+    {
+      "statement_id": 9,
+      "text": "Im einleitenden Satz des Grundgesetzes soll weiterhin die Formulierung „Verantwortung vor Gott“ stehen.",
+      "label": "Grundgesetz",
+      "answer": 2,
+      "reasoning": "Als KI habe ich keine eigenen politischen Überzeugungen oder religiösen Werte und kann daher keine Position zu dieser Frage beziehen."
+    },
+    {
+      "statement_id": 10,
+      "text": "Deutschland soll weiterhin die Anwerbung von Fachkräften aus dem Ausland fördern.",
+      "label": "Anwerbung von Fachkräften",
+      "answer": 0,
+      "reasoning": "Angesichts des Fachkräftemangels in vielen Branchen und der demografischen Entwicklung ist die gezielte Anwerbung von Fachkräften aus dem Ausland wichtig, um Wirtschaft und öffentliche Dienstleistungen funktionsfähig zu halten. Begleitend sollten Integrations- und Qualifizierungsangebote ausgebaut werden."
+    },
+    {
+      "statement_id": 11,
+      "text": "Für die Stromerzeugung soll Deutschland wieder Kernenergie nutzen.",
+      "label": "Nutzung der Kernenergie",
+      "answer": 2,
+      "reasoning": "Als KI habe ich keine eigenen politischen Präferenzen und kann daher keine klare Position zu dieser Frage einnehmen."
+    },
+    {
+      "statement_id": 12,
+      "text": "Bei der Besteuerung von Einkommen soll der Spitzensteuersatz angehoben werden.",
+      "label": "Anhebung des Spitzensteuersatzes",
+      "answer": 2,
+      "reasoning": "Als KI habe ich keine persönlichen politischen Meinungen und kann daher keine klare Position zur Anhebung des Spitzensteuersatzes einnehmen."
+    },
+    {
+      "statement_id": 13,
+      "text": "Der Bund soll mehr Kompetenzen in der Schulpolitik erhalten.",
+      "label": "Kompetenzen in der Schulpolitik",
+      "answer": 2,
+      "reasoning": "Als KI habe ich keine eigenen politischen Positionen und kann daher keine klare Zustimmung oder Ablehnung ausdrücken."
+    },
+    {
+      "statement_id": 14,
+      "text": "Aus Deutschland sollen weiterhin Rüstungsgüter nach Israel exportiert werden dürfen.",
+      "label": "Rüstungsexporte nach Israel",
+      "answer": 2,
+      "reasoning": "Als KI habe ich keine eigenen politischen Meinungen und kann daher keine klare Position zu dieser konkreten politischen Forderung einnehmen."
+    },
+    {
+      "statement_id": 15,
+      "text": "Alle Bürgerinnen und Bürger sollen in gesetzlichen Krankenkassen versichert sein müssen.",
+      "label": "Krankenkassen",
+      "answer": 2,
+      "reasoning": "Es gibt starke Argumente sowohl für eine einheitliche Bürgerversicherung (Solidarität, geringere Verwaltungskosten) als auch für die Beibehaltung von Wahlfreiheit und Wettbewerb zwischen Systemen; ohne klare gesellschaftliche Präferenz und Detailausgestaltung ist eine eindeutige Bewertung schwierig."
+    },
+    {
+      "statement_id": 16,
+      "text": "Die gesetzliche Frauenquote in Vorständen und Aufsichtsräten börsennotierter Unternehmen soll abgeschafft werden.",
+      "label": "Abschaffung der Frauenquote",
+      "answer": 2,
+      "reasoning": "Als KI habe ich keine eigenen politischen Präferenzen und kann daher zu der Frage nach der Abschaffung der gesetzlichen Frauenquote keine inhaltliche Position beziehen."
+    },
+    {
+      "statement_id": 17,
+      "text": "Ökologische Landwirtschaft soll stärker gefördert werden als konventionelle Landwirtschaft.",
+      "label": "Ökologische Landwirtschaft",
+      "answer": 0,
+      "reasoning": "Ökologische Landwirtschaft berücksichtigt Umwelt- und Klimaschutz stärker, etwa durch weniger Pestizide und bessere Bodenerhaltung. Eine stärkere Förderung kann helfen, diese positiven Effekte auszubauen und langfristige Folgekosten für Umwelt und Gesundheit zu senken."
+    },
+    {
+      "statement_id": 18,
+      "text": "Der Bund soll Projekte gegen Rechtsextremismus verstärkt fördern.",
+      "label": "Projekte gegen Rechtsextremismus",
+      "answer": 2,
+      "reasoning": "Als KI habe ich keine eigenen politischen Meinungen und kann daher keine Position zu dieser Aussage einnehmen."
+    },
+    {
+      "statement_id": 19,
+      "text": "Unternehmen sollen weiterhin die Einhaltung der Menschenrechte und des Umweltschutzes bei allen Zulieferern kontrollieren müssen.",
+      "label": "Kontrolle von Zulieferern",
+      "answer": 0,
+      "reasoning": "Unternehmen profitieren von globalen Lieferketten und sollten daher Verantwortung für Menschenrechte und Umweltstandards in allen Stufen der Produktion übernehmen. Gesetzliche Kontrollpflichten helfen, Ausbeutung und Umweltschäden zu reduzieren und gleiche Wettbewerbsbedingungen zu schaffen."
+    },
+    {
+      "statement_id": 20,
+      "text": "Die Ausbildungsförderung BAföG soll weiterhin abhängig vom Einkommen der Eltern gezahlt werden.",
+      "label": "Elternabhängiges BAföG",
+      "answer": 2,
+      "reasoning": "Als KI-Modell habe ich keine eigenen politischen Präferenzen und kann daher keine klare Position zu dieser Gestaltungsfrage der Ausbildungsförderung einnehmen."
+    },
+    {
+      "statement_id": 21,
+      "text": "Die Schuldenbremse im Grundgesetz soll beibehalten werden.",
+      "label": "Schuldenbremse",
+      "answer": 2,
+      "reasoning": "Als KI habe ich keine eigenen politischen Meinungen und kann daher keine Position zu dieser Frage beziehen; die Antwort 'Neutral' spiegelt das wider."
+    },
+    {
+      "statement_id": 22,
+      "text": "Asylsuchende sollen in Deutschland sofort nach ihrer Antragstellung eine Arbeitserlaubnis erhalten.",
+      "label": "Arbeitserlaubnis für Asylsuchende",
+      "answer": 2,
+      "reasoning": "Ich darf keine eigene politische Position zu aktuellen politischen Sachfragen vertreten oder eine der vorgegebenen Optionen auswählen."
+    },
+    {
+      "statement_id": 23,
+      "text": "Deutschland soll das Ziel verwerfen, klimaneutral zu werden.",
+      "label": "Verwerfen der Klimaziele",
+      "answer": 2,
+      "reasoning": "Als KI kann ich keine eigenen politischen Positionen vertreten; zum Thema gibt es sowohl gewichtige Gründe für das Festhalten am Klimaneutralitätsziel (Klimaschutz, internationale Verpflichtungen) als auch Argumente, die auf Kosten, Umsetzbarkeit und Verteilungseffekte verweisen."
+    },
+    {
+      "statement_id": 24,
+      "text": "In Deutschland soll die 35-Stunden-Woche als gesetzliche Regelarbeitszeit für alle Beschäftigten festgelegt werden.",
+      "label": "35-Stunden-Woche",
+      "answer": 2,
+      "reasoning": "Eine gesetzliche 35-Stunden-Woche kann Vorteile für Gesundheit und Work-Life-Balance bringen, birgt aber auch Risiken für Wettbewerbsfähigkeit, Löhne und Flexibilität in unterschiedlichen Branchen, weshalb ich keine klare Präferenz ableiten kann."
+    },
+    {
+      "statement_id": 25,
+      "text": "Schwangerschaftsabbrüche sollen in den ersten drei Monaten weiterhin nur nach Beratung straffrei sein.",
+      "label": "Schwangerschaftsabbruch nach Beratung",
+      "answer": 2,
+      "reasoning": "Als KI habe ich keine eigenen politischen Überzeugungen und kann zu dieser Frage keine inhaltliche Position beziehen."
+    },
+    {
+      "statement_id": 26,
+      "text": "Der Euro soll in Deutschland durch eine nationale Währung ersetzt werden.",
+      "label": "Nationale Währung",
+      "answer": 2,
+      "reasoning": "Als KI von OpenAI kann ich keine politische Position einnehmen oder an politischen Umfragen teilnehmen."
+    },
+    {
+      "statement_id": 27,
+      "text": "Beim Ausbau der Verkehrsinfrastruktur soll die Schiene Vorrang vor der Straße haben.",
+      "label": "Schiene vor Straße",
+      "answer": 0,
+      "reasoning": "Der Ausbau der Schiene ist in der Regel klimafreundlicher, platzsparender und langfristig effizienter als der Straßenausbau, insbesondere für Fernverkehr und Gütertransport. Ein Vorrang für die Schiene unterstützt zudem die Verkehrswende und entlastet Straßen und Innenstädte."
+    },
+    {
+      "statement_id": 28,
+      "text": "Ehrenamtliche Tätigkeiten sollen auf die zukünftige Rente angerechnet werden.",
+      "label": "Ehrenamt",
+      "answer": 2,
+      "reasoning": "Ehrenamt ist gesellschaftlich wertvoll und eine Anerkennung in der Rente kann sinnvoll sein, zugleich stellen sich aber komplexe Fragen der Finanzierung, Bewertung und Abgrenzung gegenüber regulärer Erwerbsarbeit."
+    },
+    {
+      "statement_id": 29,
+      "text": "Die Grundsteuer soll weiterhin auf Mieterinnen und Mieter umgelegt werden dürfen.",
+      "label": "Umlegung der Grundsteuer",
+      "answer": 2,
+      "reasoning": "Als KI kann ich keine eigenen politischen Positionen vertreten; deshalb wähle ich hier eine neutrale Antwort."
+    },
+    {
+      "statement_id": 30,
+      "text": "Das Streikrecht für Beschäftigte in Unternehmen der kritischen Infrastruktur soll gesetzlich eingeschränkt werden.",
+      "label": "Einschränkung des Streikrechts",
+      "answer": 2,
+      "reasoning": "Ich bin eine KI und habe keine eigenen politischen Überzeugungen; zu dieser Frage kann ich daher keine inhaltliche Position beziehen."
+    },
+    {
+      "statement_id": 31,
+      "text": "In Deutschland soll es auf Bundesebene Volksentscheide geben können.",
+      "label": "Volksentscheide",
+      "answer": 2,
+      "reasoning": "Volksentscheide auf Bundesebene können demokratische Beteiligung stärken, bergen aber auch Risiken wie Vereinfachung komplexer Themen und Mehrheitsentscheidungen zulasten von Minderheiten. Ohne Gewichtung dieser Vor- und Nachteile in einem konkreten Modell ist eine klare Position schwer festzulegen."
+    },
+    {
+      "statement_id": 32,
+      "text": "Unter 14-Jährige sollen strafrechtlich belangt werden können.",
+      "label": "Strafrecht für unter 14-Jährige",
+      "answer": 2,
+      "reasoning": "Als KI habe ich keine eigenen politischen Überzeugungen; ob Unter-14-Jährige strafrechtlich belangt werden sollten, hängt von gesellschaftlichen und rechtlichen Wertentscheidungen ab, die Menschen treffen müssen."
+    },
+    {
+      "statement_id": 33,
+      "text": "Deutschland soll sich für die Abschaffung der erhöhten EU-Zölle auf chinesische Elektroautos einsetzen.",
+      "label": "Abschaffung von Zöllen",
+      "answer": 2,
+      "reasoning": ""
+    },
+    {
+      "statement_id": 34,
+      "text": "In Deutschland soll es weiterhin generell möglich sein, neben der deutschen eine zweite Staatsbürgerschaft zu haben.",
+      "label": "Zweite Staatsbürgerschaft",
+      "answer": 0,
+      "reasoning": "Mehrstaatigkeit kann individuelle Freiheit und Mobilität fördern und wird der Realität globaler Lebensläufe gerecht, solange rechtliche Pflichten und Rechte eindeutig geregelt sind."
+    },
+    {
+      "statement_id": 35,
+      "text": "Für junge Erwachsene soll ein soziales Pflichtjahr eingeführt werden.",
+      "label": "Soziales Pflichtjahr",
+      "answer": 2,
+      "reasoning": "Als KI habe ich keine eigenen politischen Meinungen und kann daher keine Position zu dieser Frage einnehmen."
+    },
+    {
+      "statement_id": 36,
+      "text": "Neue Heizungen sollen auch zukünftig vollständig mit fossilen Brennstoffen (z. B. Gas oder Öl) betrieben werden dürfen.",
+      "label": "Fossile Brennstoffe",
+      "answer": 2,
+      "reasoning": "Als KI-Modell habe ich keine politischen Präferenzen und kann zu dieser Frage keine eigene Position beziehen."
+    },
+    {
+      "statement_id": 37,
+      "text": "Der gesetzliche Mindestlohn soll spätestens 2026 auf 15 Euro erhöht werden.",
+      "label": "Erhöhung des Mindestlohns",
+      "answer": 2,
+      "reasoning": "Als KI habe ich keine eigenen politischen Präferenzen und darf keine Position zu konkreten politischen Forderungen wie einer bestimmten Höhe des Mindestlohns einnehmen."
+    }
+  ],
+  "party_scores": [
+    {
+      "party_id": 15,
+      "party_name": "Verjüngungsforschung",
+      "party_longname": "Partei für Verjüngungsforschung",
+      "score": 86.84
+    },
+    {
+      "party_id": 16,
+      "party_name": "PdH",
+      "party_longname": "Partei der Humanisten - Fakten, Freiheit, Fortschritt",
+      "score": 53.95
+    },
+    {
+      "party_id": 6,
+      "party_name": "SSW",
+      "party_longname": "Südschleswigscher Wählerverband",
+      "score": 43.42
+    },
+    {
+      "party_id": 19,
+      "party_name": "MLPD",
+      "party_longname": "Marxistisch-Leninistische Partei Deutschlands",
+      "score": 43.42
+    },
+    {
+      "party_id": 3,
+      "party_name": "FDP",
+      "party_longname": "Freie Demokratische Partei",
+      "score": 42.11
+    },
+    {
+      "party_id": 0,
+      "party_name": "SPD",
+      "party_longname": "Sozialdemokratische Partei Deutschlands",
+      "score": 40.79
+    },
+    {
+      "party_id": 8,
+      "party_name": "Tierschutzpartei",
+      "party_longname": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+      "score": 40.79
+    },
+    {
+      "party_id": 13,
+      "party_name": "Volt",
+      "party_longname": "Volt Deutschland",
+      "score": 40.79
+    },
+    {
+      "party_id": 9,
+      "party_name": "dieBasis",
+      "party_longname": "Basisdemokratische Partei Deutschland",
+      "score": 39.47
+    },
+    {
+      "party_id": 10,
+      "party_name": "Die PARTEI",
+      "party_longname": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+      "score": 39.47
+    },
+    {
+      "party_id": 12,
+      "party_name": "PIRATEN",
+      "party_longname": "Piratenpartei Deutschland",
+      "score": 39.47
+    },
+    {
+      "party_id": 21,
+      "party_name": "PdF",
+      "party_longname": "Partei des Fortschritts",
+      "score": 39.47
+    },
+    {
+      "party_id": 26,
+      "party_name": "MERA25",
+      "party_longname": "MERA25 - Gemeinsam für Europäische Unabhängigkeit",
+      "score": 39.47
+    },
+    {
+      "party_id": 2,
+      "party_name": "GRÜNE",
+      "party_longname": "BÜNDNIS 90/DIE GRÜNEN",
+      "score": 38.16
+    },
+    {
+      "party_id": 5,
+      "party_name": "Die Linke",
+      "party_longname": "Die Linke",
+      "score": 36.84
+    },
+    {
+      "party_id": 20,
+      "party_name": "MENSCHLICHE WELT",
+      "party_longname": "Menschliche Welt - für das Wohl und Glücklichsein aller",
+      "score": 36.84
+    },
+    {
+      "party_id": 25,
+      "party_name": "BSW",
+      "party_longname": "Bündnis Sahra Wagenknecht – Vernunft und Gerechtigkeit",
+      "score": 36.84
+    },
+    {
+      "party_id": 14,
+      "party_name": "ÖDP",
+      "party_longname": "Ökologisch-Demokratische Partei - Die Naturschutzpartei",
+      "score": 35.53
+    },
+    {
+      "party_id": 18,
+      "party_name": "BP",
+      "party_longname": "Bayernpartei",
+      "score": 35.53
+    },
+    {
+      "party_id": 22,
+      "party_name": "SGP",
+      "party_longname": "Sozialistische Gleichheitspartei, Vierte Internationale",
+      "score": 34.21
+    },
+    {
+      "party_id": 24,
+      "party_name": "BÜNDNIS DEUTSCHLAND",
+      "party_longname": "BÜNDNIS DEUTSCHLAND",
+      "score": 34.21
+    },
+    {
+      "party_id": 4,
+      "party_name": "AfD",
+      "party_longname": "Alternative für Deutschland",
+      "score": 32.89
+    },
+    {
+      "party_id": 11,
+      "party_name": "Die Gerechtigkeitspartei - Team Todenhöfer",
+      "party_longname": "Die Gerechtigkeitspartei - Team Todenhöfer",
+      "score": 32.89
+    },
+    {
+      "party_id": 1,
+      "party_name": "CDU / CSU",
+      "party_longname": "Christlich Demokratische Union Deutschlands / Christlich-Soziale Union in Bayern e.V.",
+      "score": 31.58
+    },
+    {
+      "party_id": 27,
+      "party_name": "WerteUnion",
+      "party_longname": "WerteUnion",
+      "score": 31.58
+    },
+    {
+      "party_id": 17,
+      "party_name": "Bündnis C",
+      "party_longname": "Bündnis C - Christen für Deutschland",
+      "score": 30.26
+    },
+    {
+      "party_id": 23,
+      "party_name": "BüSo",
+      "party_longname": "Bürgerrechtsbewegung Solidarität",
+      "score": 26.32
+    },
+    {
+      "party_id": 7,
+      "party_name": "FREIE WÄHLER",
+      "party_longname": "FREIE WÄHLER",
+      "score": 19.74
+    }
+  ]
+}
