@@ -1,132 +1,72 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" :class="darkMode ? 'dark' : ''">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WahlOMatic - {{ election_info.get('title', election_slug) }}</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../logo.svg">
     <link rel="alternate icon" href="../logo.svg">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://loggel.github.io/WahlOMatic/{{ election_slug }}/">
     <meta property="og:title" content="WahlOMatic - {{ election_info.get('title', election_slug) }}">
     <meta property="og:description" content="Evaluating Large Language Models against German WahlOMat political quiz data. See how well different LLMs align with German political party positions.">
     <meta property="og:image" content="https://loggel.github.io/WahlOMatic/logo.svg">
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="WahlOMatic - {{ election_info.get('title', election_slug) }}">
     <meta name="twitter:description" content="Evaluating Large Language Models against German WahlOMat political quiz data.">
     <meta name="twitter:image" content="https://loggel.github.io/WahlOMatic/logo.svg">
+
+    <link rel="stylesheet" href="../shared.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #ffffff;
-            color: #1a1a1a;
-            line-height: 1.6;
-            padding: 40px 20px;
-            font-size: 15px;
-        }
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            background: #ffffff;
-        }
-        .header-with-logo {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 4px;
-        }
-        .logo {
-            width: 48px;
-            height: 48px;
-            flex-shrink: 0;
-        }
-        h1 {
-            font-size: 32px;
-            font-weight: 600;
-            color: #000000;
-            margin: 0;
-            letter-spacing: -0.5px;
-        }
-        .subtitle {
-            font-size: 18px;
-            color: #666666;
-            margin: 0 0 8px 64px;
-            font-weight: 400;
-        }
-        .election-info {
-            color: #666666;
-            margin-bottom: 48px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid #e5e5e5;
-        }
-        .election-info h2 {
-            font-size: 20px;
-            font-weight: 500;
-            color: #1a1a1a;
-            margin-bottom: 8px;
-        }
-        .election-info p {
-            margin: 4px 0;
-            font-size: 14px;
-        }
-        .election-info a {
-            color: #666666;
-            text-decoration: none;
-        }
-        .election-info a:hover {
-            text-decoration: underline;
-        }
-        .nav {
-            margin: 32px 0 24px 0;
-            padding-bottom: 24px;
-            border-bottom: 1px solid #e5e5e5;
-        }
-        .nav a {
-            color: #666666;
-            text-decoration: none;
-            font-size: 14px;
-            margin-right: 16px;
-        }
-        .nav a:hover {
-            color: #000000;
-            text-decoration: underline;
-        }
-        .section {
-            margin-bottom: 64px;
-        }
-        h2 {
-            font-size: 20px;
-            font-weight: 600;
-            color: #000000;
-            margin-bottom: 24px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #e5e5e5;
-        }
-        table {
+        .container { max-width: 1600px; margin: 0 auto; }
+        .election-info { color: var(--text-secondary); margin-bottom: 48px; padding-bottom: 24px; border-bottom: 1px solid var(--border-color); }
+        .election-info h2 { font-size: 20px; font-weight: 500; color: var(--text-primary); margin-bottom: 8px; border-bottom: none; padding-bottom: 0; }
+        .election-info p { margin: 4px 0; font-size: 14px; }
+        .election-info a { color: var(--text-secondary); }
+
+        /* Search */
+        .search-input {
             width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
+            max-width: 360px;
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
             font-size: 14px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            outline: none;
+            transition: border-color 0.2s ease;
         }
-        th, td {
-            padding: 12px 16px;
-            text-align: left;
-            border-bottom: 1px solid #e5e5e5;
+        .search-input:focus { border-color: var(--text-secondary); }
+        .search-input::placeholder { color: var(--text-secondary); opacity: 0.7; }
+
+        /* Table */
+        .table-wrapper {
+            overflow-x: auto;
+            position: relative;
         }
+        .table-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0;
+            width: 32px;
+            background: var(--scroll-hint);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .table-wrapper.has-scroll::after { opacity: 1; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px; }
+        th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border-color); }
         th {
-            background: #fafafa;
-            color: #000000;
+            background: var(--bg-secondary);
+            color: var(--text-heading);
             font-weight: 600;
             position: sticky;
             top: 0;
@@ -137,192 +77,49 @@
             user-select: none;
             transition: background 0.2s ease;
         }
-        th:hover {
-            background: #f0f0f0;
+        th:hover { background: var(--bg-hover); }
+        th.sortable { position: relative; padding-right: 24px; }
+        .metric-header { display: flex; align-items: center; gap: 6px; }
+        th.sortable::after { content: '↕'; position: absolute; right: 8px; opacity: 0.3; font-size: 12px; }
+        th.sort-asc::after { content: '↑'; opacity: 1; }
+        th.sort-desc::after { content: '↓'; opacity: 1; }
+        tbody tr { transition: opacity 0.2s ease, background 0.15s ease; }
+        tbody tr:hover { background: var(--bg-secondary); }
+        tbody tr:last-child td { border-bottom: none; }
+        tfoot { border-top: 2px solid var(--border-strong); }
+        tfoot tr { background: var(--bg-secondary); font-weight: 600; }
+        tfoot td { padding: 12px 16px; border-top: 2px solid var(--border-strong); border-bottom: none; }
+
+        /* Sticky first column */
+        th:first-child, td:first-child {
+            position: sticky;
+            left: 0;
+            z-index: 2;
+            background: inherit;
         }
-        th.sortable {
-            position: relative;
-            padding-right: 24px;
-        }
-        .metric-header {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .info-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: #666666;
-            color: #ffffff;
-            font-size: 11px;
-            font-weight: bold;
-            cursor: help;
-            position: relative;
-        }
-        .info-icon:hover {
-            background: #000000;
-        }
-        .metric-tooltip {
-            visibility: hidden;
-            opacity: 0;
-            position: fixed;
-            background-color: #1a1a1a;
-            color: #ffffff;
-            padding: 10px 12px;
-            border-radius: 6px;
-            font-size: 12px;
-            line-height: 1.5;
-            white-space: normal;
-            min-width: 250px;
-            max-width: 350px;
-            z-index: 10000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            transition: opacity 0.2s ease, visibility 0.2s ease;
-            pointer-events: none;
-            font-weight: normal;
-            text-transform: none;
-            letter-spacing: normal;
-            transform: translateX(-50%);
-        }
-        .metric-tooltip::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 6px solid transparent;
-            border-top-color: #1a1a1a;
-        }
-        th.sortable::after {
-            content: '↕';
-            position: absolute;
-            right: 8px;
-            opacity: 0.3;
-            font-size: 12px;
-        }
-        th.sort-asc::after {
-            content: '↑';
-            opacity: 1;
-        }
-        th.sort-desc::after {
-            content: '↓';
-            opacity: 1;
-        }
-        tbody tr:hover {
-            background: #fafafa;
-        }
-        tbody tr:last-child td {
-            border-bottom: none;
-        }
-        tfoot {
-            border-top: 2px solid #000000;
-        }
-        tfoot tr {
-            background: #fafafa;
-            font-weight: 600;
-        }
-        tfoot td {
-            padding: 12px 16px;
-            border-top: 2px solid #000000;
-            border-bottom: none;
-        }
-        th:nth-child(3),
-        td:nth-child(3) {
-            border-right: 2px solid #000000;
-        }
-        .model-row.low-opinionated {
-            opacity: 0.5;
-            color: #999999;
-        }
-        .model-row.low-opinionated:hover {
-            background: #f5f5f5;
-        }
-        .model-row.low-opinionated td {
-            color: #999999;
-        }
-        .model-row.low-opinionated td a {
-            color: #999999 !important;
-        }
-        .model-row.low-opinionated td.score {
-            color: #999999;
-        }
-        .warning-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: #ff9800;
-            color: #ffffff;
-            font-size: 12px;
-            font-weight: bold;
-            cursor: help;
-            position: relative;
-            margin-left: 8px;
-            vertical-align: middle;
-        }
-        .warning-icon:hover {
-            background: #f57c00;
-        }
-        .warning-tooltip {
-            visibility: hidden;
-            opacity: 0;
-            position: fixed;
-            background-color: #1a1a1a;
-            color: #ffffff;
-            padding: 10px 12px;
-            border-radius: 6px;
-            font-size: 12px;
-            line-height: 1.5;
-            white-space: normal;
-            min-width: 250px;
-            max-width: 350px;
-            z-index: 10000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            transition: opacity 0.2s ease, visibility 0.2s ease;
-            pointer-events: none;
-            font-weight: normal;
-            transform: translateX(-50%);
-        }
-        .warning-tooltip::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 6px solid transparent;
-            border-top-color: #1a1a1a;
-        }
-        .score {
-            font-weight: 500;
-            color: #1a1a1a;
-        }
-        .party-section {
-            margin-bottom: 32px;
-            padding: 24px;
-            background: #fafafa;
-            border: 1px solid #e5e5e5;
-        }
-        .party-name {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: #000000;
-        }
-        .model-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
+        th:first-child { z-index: 3; background: var(--bg-secondary); }
+        tbody tr:hover td:first-child { background: var(--bg-secondary); }
+        tfoot td:first-child { background: var(--bg-secondary); }
+
+        /* Metric border */
+        th:nth-child(3), td:nth-child(3) { border-right: 2px solid var(--border-strong); }
+
+        /* Low-opinionated rows */
+        .model-row.low-opinionated { opacity: var(--low-opacity); color: var(--low-text); }
+        .model-row.low-opinionated:hover { opacity: 0.7; }
+        .model-row.low-opinionated td { color: var(--low-text); }
+        .model-row.low-opinionated td a { color: var(--low-text) !important; }
+
+        .score { font-weight: 500; color: var(--text-primary); }
+
+        /* Top models per party */
+        .party-section { margin-bottom: 32px; padding: 24px; background: var(--bg-secondary); border: 1px solid var(--border-color); }
+        .party-name { font-size: 16px; font-weight: 600; margin-bottom: 16px; color: var(--text-heading); }
+        .model-list { display: flex; flex-wrap: wrap; gap: 12px; }
         .model-card {
-            background: #ffffff;
+            background: var(--bg-primary);
             padding: 16px 20px;
-            border: 1px solid #e5e5e5;
+            border: 1px solid var(--border-color);
             min-width: 200px;
             cursor: pointer;
             transition: background 0.2s ease, border-color 0.2s ease;
@@ -330,511 +127,403 @@
             display: block;
             color: inherit;
         }
-        .model-card:hover {
-            background: #fafafa;
-            border-color: #000000;
-        }
-        .model-name {
-            font-weight: 500;
-            margin-bottom: 8px;
-            font-size: 14px;
-            color: #666666;
-        }
-        .model-score {
-            font-size: 24px;
-            font-weight: 600;
-            color: #000000;
-        }
-        .stats {
-            display: flex;
-            gap: 24px;
-            margin-bottom: 48px;
-            flex-wrap: wrap;
-        }
-        .stat-card {
-            background: #fafafa;
+        .model-card:hover { background: var(--bg-secondary); border-color: var(--model-card-hover-border); text-decoration: none; }
+        .model-name { font-weight: 500; margin-bottom: 8px; font-size: 14px; color: var(--text-secondary); }
+        .model-score { font-size: 24px; font-weight: 600; color: var(--text-heading); }
+
+        /* Comparison panel */
+        .compare-panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
             padding: 24px;
-            border: 1px solid #e5e5e5;
-            flex: 1;
-            min-width: 180px;
+            margin-bottom: 32px;
         }
-        .stat-value {
-            font-size: 36px;
-            font-weight: 600;
-            color: #000000;
-            margin-bottom: 4px;
+        .compare-panel h3 { font-size: 18px; font-weight: 600; color: var(--text-heading); margin-bottom: 16px; }
+        .compare-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+        .compare-model-col h4 { font-size: 14px; font-weight: 600; margin-bottom: 12px; color: var(--text-heading); }
+        .compare-bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 12px; }
+        .compare-bar-label { min-width: 80px; max-width: 80px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: right; color: var(--text-secondary); }
+        .compare-bar-track { flex: 1; height: 14px; background: var(--bar-track); border-radius: 2px; overflow: hidden; }
+        .compare-bar-fill { height: 100%; border-radius: 2px; transition: width 0.3s ease; }
+        .compare-bar-fill.high { background: var(--bar-high-start); }
+        .compare-bar-fill.medium { background: var(--bar-medium-start); }
+        .compare-bar-fill.low { background: var(--bar-low-start); }
+        .compare-bar-value { min-width: 42px; text-align: right; font-weight: 600; color: var(--text-primary); font-size: 12px; }
+
+        /* Checkbox */
+        .compare-cb { cursor: pointer; accent-color: var(--badge-agree); }
+
+        .controls-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
         }
-        .stat-label {
-            color: #666666;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+        .controls-bar h2 { margin-bottom: 0; border-bottom: none; padding-bottom: 0; flex-shrink: 0; }
+        .controls-right { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .filter-label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: var(--text-secondary); white-space: nowrap; }
+        .filter-label input { cursor: pointer; }
+
         @media (max-width: 768px) {
-            body {
-                padding: 20px 12px;
-            }
-            h1 {
-                font-size: 24px;
-            }
-            .logo {
-                width: 36px;
-                height: 36px;
-            }
-            .subtitle {
-                font-size: 16px;
-                margin-left: 52px;
-            }
-            table {
-                font-size: 12px;
-            }
-            th, td {
-                padding: 8px 12px;
-            }
-            .stat-card {
-                min-width: 100%;
-            }
+            table { font-size: 12px; }
+            th, td { padding: 8px 12px; }
+            .controls-bar { flex-direction: column; align-items: flex-start; }
+            .search-input { max-width: 100%; }
         }
     </style>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="../tooltip.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="header-with-logo">
-            <img src="../logo.svg" alt="WahlOMatic Logo" class="logo">
-            <h1>WahlOMatic</h1>
+
+<div class="container" x-data="scoreboard()" x-init="init()">
+
+    <div class="header-with-logo">
+        <img src="../logo.svg" alt="WahlOMatic Logo" class="logo">
+        <h1>WahlOMatic</h1>
+    </div>
+    <div class="subtitle">WahlOMat LLM Evaluation</div>
+    <div class="nav">
+        <a href="../index.html">Startseite</a>
+        <a href="../about.html">Über</a>
+
+        <button class="dark-toggle" @click="toggleDark()" x-text="darkMode ? '☀️' : '🌙'" aria-label="Toggle dark mode"></button>
+
+    </div>
+    <div class="election-info">
+        <h2>{{ election_info.get('title', election_slug) }}</h2>
+        <p>Datum: {{ election_info.get('date', 'N/A') }}</p>
+        {% if run_date_range %}
+        <p>Durchführung: {{ run_date_range }}</p>
+        {% endif %}
+        <p>Quelle: <a href="{{ election_info.get('data_source', '#') }}" target="_blank">{{ election_info.get('data_source', 'N/A') }}</a></p>
+    </div>
+
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-value">{{ models|length }}</div>
+            <div class="stat-label">Modelle</div>
         </div>
-        <div class="subtitle">WahlOMat LLM Evaluation</div>
-        <div class="nav">
-            <a href="../index.html">Startseite</a>
-            <a href="../about.html">Über</a>
+        <div class="stat-card">
+            <div class="stat-value">{{ parties|length }}</div>
+            <div class="stat-label">Parteien</div>
         </div>
-        <div class="election-info">
-            <h2>{{ election_info.get('title', election_slug) }}</h2>
-            <p>Datum: {{ election_info.get('date', 'N/A') }}</p>
-            {% if run_date_range %}
-            <p>Durchführung: {{ run_date_range }}</p>
-            {% endif %}
-            <p>Quelle: <a href="{{ election_info.get('data_source', '#') }}" target="_blank">{{ election_info.get('data_source', 'N/A') }}</a></p>
+        <div class="stat-card">
+            <div class="stat-value">{{ total_runs }}</div>
+            <div class="stat-label">Durchläufe</div>
         </div>
-        
-        <div class="stats">
-            <div class="stat-card">
-                <div class="stat-value">{{ models|length }}</div>
-                <div class="stat-label">Modelle</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value">{{ parties|length }}</div>
-                <div class="stat-label">Parteien</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value">{{ total_runs }}</div>
-                <div class="stat-label">Durchläufe</div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h2 style="margin-bottom: 0;">Übersicht: Modelle vs. Parteien</h2>
-                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px;">
-                    <input type="checkbox" id="mainPartiesFilter" checked style="cursor: pointer;">
+    </div>
+
+    <div class="section">
+        <div class="controls-bar">
+            <h2>Übersicht: Modelle vs. Parteien</h2>
+            <div class="controls-right">
+
+                <input type="text" class="search-input" placeholder="Modell suchen…" x-model="search" @input="syncUrl()">
+                <label class="filter-label">
+                    <input type="checkbox" x-model="mainOnly" @change="syncUrl()">
                     <span>Nur Hauptparteien</span>
                 </label>
+
             </div>
-            <div style="overflow-x: auto;">
-                <table id="comparisonTable">
-                    <thead>
-                        <tr>
-                            <th class="sortable" data-sort="model" data-sort-type="string">Modell</th>
-                            <th class="sortable" data-sort="consistency" data-sort-type="number">
-                                <div class="metric-header">
-                                    Konsistenz
-                                    <span class="info-icon">?
-                                        <span class="metric-tooltip">Anteil der Fragen, bei denen alle Durchläufe die gleiche Antwort gegeben haben. Ein hoher Wert bedeutet, dass das Modell konsistent antwortet.</span>
-                                    </span>
+        </div>
+
+
+        <!-- Comparison panel -->
+        <template x-if="selected.length >= 2">
+            <div class="compare-panel" x-transition>
+                <h3>Modellvergleich (<span x-text="selected.length"></span> ausgewählt)</h3>
+                <div class="compare-grid">
+                    <template x-for="model in selected" :key="model">
+                        <div class="compare-model-col">
+                            <h4 x-text="model"></h4>
+                            <template x-for="pid in visiblePartyIds()" :key="pid">
+                                <div class="compare-bar-row">
+                                    <div class="compare-bar-label" x-text="partyName(pid)"></div>
+                                    <div class="compare-bar-track">
+                                        <div class="compare-bar-fill"
+                                             :class="compareScoreClass(model, pid)"
+                                             :style="'width:' + compareScore(model, pid) + '%'"></div>
+                                    </div>
+                                    <div class="compare-bar-value" x-text="compareScore(model, pid).toFixed(1) + '%'"></div>
                                 </div>
-                            </th>
-                            <th class="sortable" data-sort="opinionated" data-sort-type="number">
-                                <div class="metric-header">
-                                    Positioniert
-                                    <span class="info-icon">?
-                                        <span class="metric-tooltip">Anteil der Antworten, die eine klare Position einnehmen (Zustimmung oder Ablehnung) statt neutral zu sein. Ein hoher Wert bedeutet, dass das Modell häufig Stellung bezieht.</span>
-                                    </span>
-                                </div>
-                            </th>
-                            {% for party in parties_sorted %}
-                            <th class="sortable party-header" data-party-id="{{ party.id }}" data-sort="party-{{ party.id }}" data-sort-type="number">{{ party.name }}</th>
-                            {% endfor %}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for model in models %}
-                        {% set is_low_opinionated = aggregated[model].opinionated < 50 %}
-                        <tr data-model="{{ model }}" data-runs="{{ aggregated[model].num_runs }}" data-consistency="{{ aggregated[model].consistency }}" data-opinionated="{{ aggregated[model].opinionated }}" class="model-row {% if is_low_opinionated %}low-opinionated{% endif %}">
-                            <td>
-                                <strong><a href="{{ model.replace('/', '_') }}.html" style="color: #000000; text-decoration: none;">{{ model }}</a></strong>
+                            </template>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </template>
+
+
+        <div class="table-wrapper" x-ref="tableWrapper">
+            <table>
+                <thead>
+
+                    <tr>
+                        <th class="sortable" @click="sort('model')">
+                            <span>Modell</span>
+                            <template x-if="sortCol === 'model'">
+                                <span x-text="sortDir === 'asc' ? ' ↑' : ' ↓'"></span>
+                            </template>
+                        </th>
+                        <th class="sortable" @click="sort('consistency')"
+                            :class="sortCol === 'consistency' ? (sortDir === 'asc' ? 'sort-asc' : 'sort-desc') : ''">
+                            <div class="metric-header">
+                                Konsistenz
+                                <span class="info-icon">?
+                                    <span class="metric-tooltip">Anteil der Fragen, bei denen alle Durchläufe die gleiche Antwort gegeben haben. Ein hoher Wert bedeutet, dass das Modell konsistent antwortet.</span>
+                                </span>
+                            </div>
+                        </th>
+                        <th class="sortable" @click="sort('opinionated')"
+                            :class="sortCol === 'opinionated' ? (sortDir === 'asc' ? 'sort-asc' : 'sort-desc') : ''">
+                            <div class="metric-header">
+                                Positioniert
+                                <span class="info-icon">?
+                                    <span class="metric-tooltip">Anteil der Antworten, die eine klare Position einnehmen (Zustimmung oder Ablehnung) statt neutral zu sein. Ein hoher Wert bedeutet, dass das Modell häufig Stellung bezieht.</span>
+                                </span>
+                            </div>
+                        </th>
+
+                        {% for party in parties_sorted %}
+                        <th class="sortable party-header"
+                            data-party-id="{{ party.id }}"
+                            x-show="showParty('{{ party.id }}')"
+                            x-on:click="sort('party-{{ party.id }}')"
+                            x-bind:class="sortCol === 'party-{{ party.id }}' ? (sortDir === 'asc' ? 'sort-asc' : 'sort-desc') : ''">{{ party.name }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for model in models %}
+                    {% set is_low_opinionated = aggregated[model].opinionated < 50 %}
+                    <tr x-show="matchesSearch('{{ model }}')"
+                        x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0"
+                        x-transition:enter-end="opacity-100"
+                        x-transition:leave="transition ease-in duration-150"
+                        x-transition:leave-start="opacity-100"
+                        x-transition:leave-end="opacity-0"
+                        data-model="{{ model }}"
+                        data-consistency="{{ aggregated[model].consistency }}"
+                        data-opinionated="{{ aggregated[model].opinionated }}"
+                        class="model-row {% if is_low_opinionated %}low-opinionated{% endif %}">
+                        <td>
+                            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                                <input type="checkbox" class="compare-cb" x-bind:value="'{{ model }}'" x-model="selected">
+                                <strong><a href="{{ model.replace('/', '_') }}.html" style="color:var(--text-heading);text-decoration:none;">{{ model }}</a></strong>
+                                {% if model in stealth_models %}
+                                <span class="stealth-badge" title="Stealth-Modell: tatsächlich {{ stealth_models[model] }}">= {{ stealth_models[model] }}</span>
+                                {% endif %}
                                 {% if is_low_opinionated %}
                                 <span class="warning-icon">!
                                     <span class="warning-tooltip">Dieses Modell möchte die Fragen nicht beantworten. Es gibt häufig neutrale Antworten statt eine klare Position zu beziehen.</span>
                                 </span>
                                 {% endif %}
-                            </td>
-                            <td class="score">{{ "%.1f"|format(aggregated[model].consistency) }}%</td>
-                            <td class="score">{{ "%.1f"|format(aggregated[model].opinionated) }}%</td>
-                            {% for party in parties_sorted %}
-                            {% set score = score_lookups[model].get(party.id, 0) %}
-                            {% set is_main = party.id in main_party_ids %}
-                            <td class="score party-cell" data-party-id="{{ party.id }}" data-is-main="{{ is_main|lower }}">{{ "%.1f"|format(score) }}%</td>
-                            {% endfor %}
-                        </tr>
+                            </label>
+                        </td>
+                        <td class="score">{{ "%.1f"|format(aggregated[model].consistency) }}%</td>
+                        <td class="score">{{ "%.1f"|format(aggregated[model].opinionated) }}%</td>
+                        {% for party in parties_sorted %}
+                        {% set score = score_lookups[model].get(party.id, 0) %}
+                        <td class="score party-cell"
+                            data-party-id="{{ party.id }}"
+                            x-show="showParty('{{ party.id }}')"
+                            style="background-color: {{ heatmap_color(score) }}">{{ "%.1f"|format(score) }}%</td>
                         {% endfor %}
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td><strong>Durchschnitt</strong></td>
-                            <td class="score"><strong>{{ "%.1f"|format(avg_consistency) }}%</strong></td>
-                            <td class="score"><strong>{{ "%.1f"|format(avg_opinionated) }}%</strong></td>
-                            {% for party in parties_sorted %}
-                            {% set avg_score = party_avg_scores.get(party.id, 0) %}
-                            {% set is_main = party.id in main_party_ids %}
-                            <td class="score party-cell" data-party-id="{{ party.id }}" data-is-main="{{ is_main|lower }}"><strong>{{ "%.1f"|format(avg_score) }}%</strong></td>
-                            {% endfor %}
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-        </div>
-        
-        <script>
-            (function() {
-                const table = document.getElementById('comparisonTable');
-                const tbody = table.querySelector('tbody');
-                const headers = table.querySelectorAll('th.sortable');
-                const mainPartiesFilter = document.getElementById('mainPartiesFilter');
-                let currentSort = { column: null, direction: 'asc' };
-                const mainPartyIds = new Set(['0', '1', '2', '3', '4', '5', '25']);
-                
-                function filterMainParties(showMainOnly) {
-                    const partyHeaders = document.querySelectorAll('th.party-header');
-                    const partyCells = document.querySelectorAll('td.party-cell');
-                    const partySections = document.querySelectorAll('.party-section-bottom');
-                    
-                    partyHeaders.forEach(header => {
-                        const partyId = header.dataset.partyId;
-                        if (showMainOnly && !mainPartyIds.has(partyId)) {
-                            header.style.display = 'none';
-                        } else {
-                            header.style.display = '';
-                        }
-                    });
-                    
-                    partyCells.forEach(cell => {
-                        const partyId = cell.dataset.partyId;
-                        if (showMainOnly && !mainPartyIds.has(partyId)) {
-                            cell.style.display = 'none';
-                        } else {
-                            cell.style.display = '';
-                        }
-                    });
-                    
-                    // Filter party sections at the bottom
-                    partySections.forEach(section => {
-                        const partyId = section.dataset.partyId;
-                        if (showMainOnly && !mainPartyIds.has(partyId)) {
-                            section.style.display = 'none';
-                        } else {
-                            section.style.display = 'block';
-                        }
-                    });
-                }
-                
-                function sortTable(column, type) {
-                    const rows = Array.from(tbody.querySelectorAll('tr'));
-                    const isAsc = currentSort.column === column && currentSort.direction === 'asc';
-                    
-                    rows.sort((a, b) => {
-                        let aVal, bVal;
-                        
-                        if (column === 'model') {
-                            aVal = a.dataset.model.toLowerCase();
-                            bVal = b.dataset.model.toLowerCase();
-                        } else if (column === 'runs') {
-                            aVal = parseInt(a.dataset.runs);
-                            bVal = parseInt(b.dataset.runs);
-                        } else if (column === 'consistency') {
-                            aVal = parseFloat(a.dataset.consistency || 0);
-                            bVal = parseFloat(b.dataset.consistency || 0);
-                        } else if (column === 'opinionated') {
-                            aVal = parseFloat(a.dataset.opinionated || 0);
-                            bVal = parseFloat(b.dataset.opinionated || 0);
-                        } else if (column.startsWith('party-')) {
-                            const partyId = column.replace('party-', '');
-                            const aCell = a.querySelector(`td.party-cell[data-party-id="${partyId}"]`);
-                            const bCell = b.querySelector(`td.party-cell[data-party-id="${partyId}"]`);
-                            aVal = parseFloat(aCell ? aCell.textContent.replace('%', '') : 0);
-                            bVal = parseFloat(bCell ? bCell.textContent.replace('%', '') : 0);
-                        }
-                        
-                        if (type === 'string') {
-                            return isAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
-                        } else {
-                            return isAsc ? aVal - bVal : bVal - aVal;
-                        }
-                    });
-                    
-                    // Clear tbody and append sorted rows
-                    tbody.innerHTML = '';
-                    rows.forEach(row => tbody.appendChild(row));
-                    
-                    // Update sort state
-                    currentSort.column = column;
-                    currentSort.direction = isAsc ? 'desc' : 'asc';
-                    
-                    // Update header classes
-                    headers.forEach(header => {
-                        header.classList.remove('sort-asc', 'sort-desc');
-                        if (header.dataset.sort === column) {
-                            header.classList.add(isAsc ? 'sort-desc' : 'sort-asc');
-                        }
-                    });
-                }
-                
-                // Function to sort columns by footer average values
-                function sortColumnsByFooter() {
-                    const tfoot = table.querySelector('tfoot');
-                    if (!tfoot) return;
-                    
-                    const footerRow = tfoot.querySelector('tr');
-                    if (!footerRow) return;
-                    
-                    const footerCells = Array.from(footerRow.querySelectorAll('td'));
-                    if (footerCells.length === 0) return;
-                    
-                    // Get footer values (skip first 3 cells: "Durchschnitt", Konsistenz, Positioniert)
-                    // Index 0 = Durchschnitt, 1 = Konsistenz, 2 = Positioniert, 3+ = Party columns
-                    const footerValues = footerCells.slice(3).map(cell => {
-                        const text = cell.textContent.trim().replace('%', '');
-                        return parseFloat(text) || 0;
-                    });
-                    
-                    // Create array of column indices with their footer values
-                    // Only sort party columns (starting from index 3)
-                    const columnData = footerValues.map((value, index) => ({
-                        index: index + 3, // +3 because we skip model, konsistenz, positioniert columns
-                        value: value
-                    }));
-                    
-                    // Sort by value descending
-                    columnData.sort((a, b) => b.value - a.value);
-                    
-                    // Get all rows (thead, tbody, tfoot)
-                    const theadRow = table.querySelector('thead tr');
-                    const tbodyRows = Array.from(tbody.querySelectorAll('tr'));
-                    const tfootRow = tfoot.querySelector('tr');
-                    
-                    // Reorder cells in each row by moving DOM elements
-                    [theadRow, ...tbodyRows, tfootRow].forEach(row => {
-                        const cells = Array.from(row.querySelectorAll('th, td'));
-                        if (cells.length === 0) return;
-                        
-                        // Keep first 3 cells (model name, konsistenz, positioniert) in place
-                        const fixedCells = cells.slice(0, 3);
-                        const partyCells = cells.slice(3);
-                        
-                        // Reorder party cells based on sorted column data
-                        const reorderedPartyCells = columnData.map(col => partyCells[col.index - 3]);
-                        
-                        // Remove all party cells, then append reordered ones
-                        partyCells.forEach(cell => cell.remove());
-                        reorderedPartyCells.forEach(cell => row.appendChild(cell));
-                    });
-                }
-                
-                // Filter toggle - apply filter on page load since checkbox is checked by default
-                filterMainParties(mainPartiesFilter.checked);
-                mainPartiesFilter.addEventListener('change', (e) => {
-                    filterMainParties(e.target.checked);
-                });
-                
-                // Sort columns by footer averages on page load
-                sortColumnsByFooter();
-                
-                // Update headers reference after column reordering
-                const updatedHeaders = table.querySelectorAll('th.sortable');
-                
-                // Auto-sort by opinionated (positioniert) on page load - descending order
-                const opinionatedHeader = Array.from(updatedHeaders).find(h => h.dataset.sort === 'opinionated');
-                if (opinionatedHeader) {
-                    // Sort descending (highest first)
-                    sortTable('opinionated', 'number');
-                    // Fix the state since sortTable toggles - we want descending
-                    currentSort.direction = 'desc';
-                    opinionatedHeader.classList.remove('sort-asc');
-                    opinionatedHeader.classList.add('sort-desc');
-                }
-                
-                // Column header sorting - reattach listeners after column reordering
-                updatedHeaders.forEach(header => {
-                    header.addEventListener('click', () => {
-                        const column = header.dataset.sort;
-                        const type = header.dataset.sortType;
-                        sortTable(column, type);
-                    });
-                });
-                
-                // Position metric tooltips dynamically
-                document.querySelectorAll('.info-icon').forEach(icon => {
-                    const tooltip = icon.querySelector('.metric-tooltip');
-                    if (!tooltip) return;
-                    
-                    let tooltipInBody = false;
-                    
-                    icon.addEventListener('mouseenter', () => {
-                        const rect = icon.getBoundingClientRect();
-                        
-                        // Move tooltip to body if not already there
-                        if (!tooltipInBody) {
-                            document.body.appendChild(tooltip);
-                            tooltipInBody = true;
-                        }
-                        
-                        // Temporarily make tooltip visible to get its dimensions
-                        tooltip.style.visibility = 'visible';
-                        tooltip.style.opacity = '0';
-                        const tooltipRect = tooltip.getBoundingClientRect();
-                        
-                        // Position above the icon, centered horizontally
-                        let top = rect.top - tooltipRect.height - 8;
-                        let left = rect.left + (rect.width / 2);
-                        
-                        // Adjust if tooltip would go off screen
-                        const viewportWidth = window.innerWidth;
-                        const viewportHeight = window.innerHeight;
-                        
-                        // Check right edge
-                        if (left + tooltipRect.width / 2 > viewportWidth) {
-                            left = viewportWidth - tooltipRect.width / 2 - 10;
-                        }
-                        // Check left edge
-                        if (left - tooltipRect.width / 2 < 10) {
-                            left = tooltipRect.width / 2 + 10;
-                        }
-                        // Check top edge
-                        if (top < 10) {
-                            top = rect.bottom + 8;
-                        }
-                        // Check bottom edge
-                        if (top + tooltipRect.height > viewportHeight - 10) {
-                            top = rect.top - tooltipRect.height - 8;
-                            if (top < 10) {
-                                top = 10;
-                            }
-                        }
-                        
-                        tooltip.style.top = top + 'px';
-                        tooltip.style.left = left + 'px';
-                        tooltip.style.opacity = '1';
-                    });
-                    
-                    icon.addEventListener('mouseleave', () => {
-                        tooltip.style.visibility = 'hidden';
-                        tooltip.style.opacity = '0';
-                        // Move tooltip back to icon when hidden
-                        if (tooltipInBody) {
-                            icon.appendChild(tooltip);
-                            tooltipInBody = false;
-                        }
-                    });
-                });
-                
-                // Warning icon tooltips dynamically
-                document.querySelectorAll('.warning-icon').forEach(icon => {
-                    const tooltip = icon.querySelector('.warning-tooltip');
-                    if (!tooltip) return;
-                    
-                    let tooltipInBody = false;
-                    
-                    icon.addEventListener('mouseenter', () => {
-                        const rect = icon.getBoundingClientRect();
-                        
-                        // Move tooltip to body if not already there
-                        if (!tooltipInBody) {
-                            document.body.appendChild(tooltip);
-                            tooltipInBody = true;
-                        }
-                        
-                        // Temporarily make tooltip visible to get its dimensions
-                        tooltip.style.visibility = 'visible';
-                        tooltip.style.opacity = '0';
-                        const tooltipRect = tooltip.getBoundingClientRect();
-                        
-                        // Position above the icon, centered horizontally
-                        let top = rect.top - tooltipRect.height - 8;
-                        let left = rect.left + (rect.width / 2);
-                        
-                        // Adjust if tooltip would go off screen
-                        const viewportWidth = window.innerWidth;
-                        const viewportHeight = window.innerHeight;
-                        
-                        // Check right edge
-                        if (left + tooltipRect.width / 2 > viewportWidth) {
-                            left = viewportWidth - tooltipRect.width / 2 - 10;
-                        }
-                        // Check left edge
-                        if (left - tooltipRect.width / 2 < 10) {
-                            left = tooltipRect.width / 2 + 10;
-                        }
-                        // Check top edge
-                        if (top < 10) {
-                            top = rect.bottom + 8;
-                        }
-                        // Check bottom edge
-                        if (top + tooltipRect.height > viewportHeight - 10) {
-                            top = rect.top - tooltipRect.height - 8;
-                            if (top < 10) {
-                                top = 10;
-                            }
-                        }
-                        
-                        tooltip.style.top = top + 'px';
-                        tooltip.style.left = left + 'px';
-                        tooltip.style.opacity = '1';
-                    });
-                    
-                    icon.addEventListener('mouseleave', () => {
-                        tooltip.style.visibility = 'hidden';
-                        tooltip.style.opacity = '0';
-                        // Move tooltip back to icon when hidden
-                        if (tooltipInBody) {
-                            icon.appendChild(tooltip);
-                            tooltipInBody = false;
-                        }
-                    });
-                });
-            })();
-        </script>
-        
-        <div class="section">
-            <h2>Top Modelle pro Partei</h2>
-            {% for party in parties %}
-            {% if party.id in top_models_per_party %}
-            {% set top_models = top_models_per_party[party.id][:5] %}
-            {% set is_main = party.id in main_party_ids %}
-            <div class="party-section party-section-bottom" data-party-id="{{ party.id }}" data-is-main="{{ is_main|lower }}" style="display: {{ 'block' if is_main else 'none' }};">
-                <div class="party-name">{{ party.name }} - {{ party.longname }}</div>
-                <div class="model-list">
-                    {% for model_data in top_models %}
-                    <a href="{{ model_data.model.replace('/', '_') }}.html" class="model-card">
-                        <div class="model-name">{{ model_data.model }}</div>
-                        <div class="model-score">{{ "%.1f"|format(model_data.score) }}%</div>
-                    </a>
+                    </tr>
                     {% endfor %}
-                </div>
-            </div>
-            {% endif %}
-            {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td><strong>Durchschnitt</strong></td>
+                        <td class="score"><strong>{{ "%.1f"|format(avg_consistency) }}%</strong></td>
+                        <td class="score"><strong>{{ "%.1f"|format(avg_opinionated) }}%</strong></td>
+                        {% for party in parties_sorted %}
+                        {% set avg_score = party_avg_scores.get(party.id, 0) %}
+                        <td class="score party-cell"
+                            data-party-id="{{ party.id }}"
+                            x-show="showParty('{{ party.id }}')"
+                            style="background-color: {{ heatmap_color(avg_score) }}"><strong>{{ "%.1f"|format(avg_score) }}%</strong></td>
+                        {% endfor %}
+                    </tr>
+                </tfoot>
+            </table>
         </div>
     </div>
+
+    <div class="section">
+        <h2>Top Modelle pro Partei</h2>
+        {% for party in parties %}
+        {% if party.id in top_models_per_party %}
+        {% set top_models = top_models_per_party[party.id][:5] %}
+        {% set is_main = party.id in main_party_ids %}
+        <div class="party-section" data-party-id="{{ party.id }}"
+             x-show="showParty('{{ party.id }}')"
+             x-transition>
+            <div class="party-name">{{ party.name }} - {{ party.longname }}</div>
+            <div class="model-list">
+                {% for model_data in top_models %}
+                <a href="{{ model_data.model.replace('/', '_') }}.html" class="model-card">
+                    <div class="model-name">{{ model_data.model }}</div>
+                    <div class="model-score">{{ "%.1f"|format(model_data.score) }}%</div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+
+    // Inject data from Python
+    var MAIN_PARTY_IDS = {{ main_party_ids_json | safe }};
+    var MODEL_SCORES = {{ model_scores_json | safe }};
+    var PARTY_NAMES = {{ party_names_json | safe }};
+
+    function scoreboard() {
+        return {
+            search: '',
+            mainOnly: true,
+            sortCol: 'opinionated',
+            sortDir: 'desc',
+            darkMode: localStorage.getItem('darkMode') === 'true',
+            selected: [],
+            mainPartyIds: new Set(MAIN_PARTY_IDS.map(String)),
+
+            init() {
+                // Apply dark mode
+                if (this.darkMode) document.documentElement.classList.add('dark');
+
+                // Read URL state
+                var params = new URLSearchParams(window.location.search);
+                if (params.get('q')) this.search = params.get('q');
+                if (params.get('sort')) this.sortCol = params.get('sort');
+                if (params.get('dir')) this.sortDir = params.get('dir');
+                if (params.has('main')) this.mainOnly = params.get('main') === '1';
+
+                // Apply initial sort
+                this.applySort();
+
+                // Tooltips
+                this.$nextTick(() => {
+                    initTooltips('.info-icon', '.metric-tooltip');
+                    initTooltips('.warning-icon', '.warning-tooltip');
+                    this.checkScroll();
+                });
+
+                // Scroll hint
+                if (this.$refs.tableWrapper) {
+                    this.$refs.tableWrapper.addEventListener('scroll', () => this.checkScroll());
+                    window.addEventListener('resize', () => this.checkScroll());
+                }
+            },
+
+            toggleDark() {
+                this.darkMode = !this.darkMode;
+                localStorage.setItem('darkMode', this.darkMode);
+                document.documentElement.classList.toggle('dark', this.darkMode);
+            },
+
+            matchesSearch(model) {
+                if (!this.search) return true;
+                return model.toLowerCase().includes(this.search.toLowerCase());
+            },
+
+            showParty(id) {
+                if (!this.mainOnly) return true;
+                return this.mainPartyIds.has(String(id));
+            },
+
+            sort(col) {
+                if (this.sortCol === col) {
+                    this.sortDir = this.sortDir === 'asc' ? 'desc' : 'asc';
+                } else {
+                    this.sortCol = col;
+                    this.sortDir = col === 'model' ? 'asc' : 'desc';
+                }
+                this.applySort();
+                this.syncUrl();
+            },
+
+            applySort() {
+                var tbody = document.querySelector('tbody');
+                if (!tbody) return;
+                var rows = Array.from(tbody.querySelectorAll('tr'));
+                var col = this.sortCol;
+                var asc = this.sortDir === 'asc';
+
+                rows.sort(function(a, b) {
+                    var av, bv;
+                    if (col === 'model') {
+                        av = a.dataset.model.toLowerCase();
+                        bv = b.dataset.model.toLowerCase();
+                        return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+                    } else if (col === 'consistency') {
+                        av = parseFloat(a.dataset.consistency || 0);
+                        bv = parseFloat(b.dataset.consistency || 0);
+                    } else if (col === 'opinionated') {
+                        av = parseFloat(a.dataset.opinionated || 0);
+                        bv = parseFloat(b.dataset.opinionated || 0);
+                    } else if (col.startsWith('party-')) {
+                        var pid = col.replace('party-', '');
+                        var ac = a.querySelector('td.party-cell[data-party-id="' + pid + '"]');
+                        var bc = b.querySelector('td.party-cell[data-party-id="' + pid + '"]');
+                        av = parseFloat(ac ? ac.textContent.replace('%', '') : 0);
+                        bv = parseFloat(bc ? bc.textContent.replace('%', '') : 0);
+                    }
+                    return asc ? av - bv : bv - av;
+                });
+
+                rows.forEach(function(row) { tbody.appendChild(row); });
+            },
+
+            syncUrl() {
+                var params = new URLSearchParams();
+                if (this.search) params.set('q', this.search);
+                if (this.sortCol !== 'opinionated') params.set('sort', this.sortCol);
+                if (this.sortDir !== 'desc') params.set('dir', this.sortDir);
+                if (!this.mainOnly) params.set('main', '0');
+                var qs = params.toString();
+                history.replaceState(null, '', qs ? '?' + qs : window.location.pathname);
+            },
+
+            checkScroll() {
+                var el = this.$refs.tableWrapper;
+                if (!el) return;
+                var hasScroll = el.scrollWidth > el.clientWidth && (el.scrollLeft + el.clientWidth < el.scrollWidth - 2);
+                el.classList.toggle('has-scroll', hasScroll);
+            },
+
+            // Comparison helpers
+            compareScore(model, pid) {
+                if (MODEL_SCORES[model] && MODEL_SCORES[model][String(pid)] !== undefined) {
+                    return MODEL_SCORES[model][String(pid)];
+                }
+                return 0;
+            },
+            compareScoreClass(model, pid) {
+                var s = this.compareScore(model, pid);
+                if (s >= 60) return 'high';
+                if (s >= 40) return 'medium';
+                return 'low';
+            },
+            visiblePartyIds() {
+                var self = this;
+                var ids = Object.keys(PARTY_NAMES);
+                if (this.mainOnly) ids = ids.filter(function(id) { return self.mainPartyIds.has(String(id)); });
+                return ids;
+            },
+            partyName(pid) {
+                return PARTY_NAMES[String(pid)] || pid;
+            }
+        };
+    }
+
+</script>
 </body>
 </html>
-
-

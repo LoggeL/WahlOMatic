@@ -1,0 +1,367 @@
+/* ===== CSS Custom Properties ===== */
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #fafafa;
+    --bg-hover: #f0f0f0;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
+    --text-heading: #000000;
+    --border-color: #e5e5e5;
+    --border-strong: #000000;
+    --link-color: #666666;
+    --link-hover: #000000;
+    --tooltip-bg: #1a1a1a;
+    --tooltip-text: #ffffff;
+    --stat-bg: #fafafa;
+    --stat-border: #e5e5e5;
+    --warning-bg: #ff9800;
+    --warning-hover: #f57c00;
+    --disclaimer-bg: #fff3cd;
+    --disclaimer-border: #ffc107;
+    --disclaimer-text: #856404;
+    --code-bg: #f5f5f5;
+    --code-border: #e5e5e5;
+    --badge-agree: #4a90e2;
+    --badge-disagree: #e74c3c;
+    --badge-neutral: #95a5a6;
+    --bar-high-start: #2ecc71;
+    --bar-high-end: #27ae60;
+    --bar-medium-start: #4a90e2;
+    --bar-medium-end: #5ba0f2;
+    --bar-low-start: #95a5a6;
+    --bar-low-end: #7f8c8d;
+    --bar-track: #e5e5e5;
+    --compare-agree: #2ecc71;
+    --compare-disagree: #e74c3c;
+    --compare-neutral: #95a5a6;
+    --heatmap-high: rgba(46, 204, 113, 0.15);
+    --heatmap-low: rgba(231, 76, 60, 0.12);
+    --shadow-tooltip: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-compare: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --scroll-hint: linear-gradient(to left, rgba(0,0,0,0.06) 0%, transparent 100%);
+    --info-icon-bg: #666666;
+    --info-icon-hover: #000000;
+    --low-opacity: 0.5;
+    --low-text: #999999;
+    --model-card-hover-border: #000000;
+    --toggle-sun: '☀️';
+    --toggle-moon: '🌙';
+}
+
+/* ===== Dark Mode ===== */
+.dark {
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --bg-hover: #2a2a2a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --text-heading: #f0f0f0;
+    --border-color: #333333;
+    --border-strong: #e0e0e0;
+    --link-color: #a0a0a0;
+    --link-hover: #ffffff;
+    --tooltip-bg: #333333;
+    --tooltip-text: #f0f0f0;
+    --stat-bg: #1e1e1e;
+    --stat-border: #333333;
+    --disclaimer-bg: #3d2e00;
+    --disclaimer-border: #665000;
+    --disclaimer-text: #ffc107;
+    --code-bg: #1e1e1e;
+    --code-border: #333333;
+    --bar-track: #333333;
+    --heatmap-high: rgba(46, 204, 113, 0.2);
+    --heatmap-low: rgba(231, 76, 60, 0.18);
+    --shadow-tooltip: 0 4px 12px rgba(0, 0, 0, 0.6);
+    --shadow-compare: 0 2px 8px rgba(0, 0, 0, 0.5);
+    --scroll-hint: linear-gradient(to left, rgba(255,255,255,0.04) 0%, transparent 100%);
+    --info-icon-bg: #888888;
+    --info-icon-hover: #cccccc;
+    --low-text: #666666;
+    --model-card-hover-border: #e0e0e0;
+}
+
+/* ===== Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== Base ===== */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 40px 20px;
+    font-size: 15px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+/* ===== Header ===== */
+.header-with-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 4px;
+}
+.logo {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+}
+h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+.subtitle {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin: 0 0 8px 64px;
+    font-weight: 400;
+}
+
+/* ===== Nav ===== */
+.nav {
+    margin: 32px 0 24px 0;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.nav a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-size: 14px;
+}
+.nav a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+/* ===== Dark Mode Toggle ===== */
+.dark-toggle {
+    margin-left: auto;
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 4px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    color: var(--text-secondary);
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+.dark-toggle:hover {
+    border-color: var(--text-secondary);
+    background: var(--bg-secondary);
+}
+
+/* ===== Stat Cards ===== */
+.stats {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+}
+.stat-card {
+    background: var(--stat-bg);
+    padding: 24px;
+    border: 1px solid var(--stat-border);
+    flex: 1;
+    min-width: 180px;
+}
+.stat-value {
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin-bottom: 4px;
+}
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ===== Sections ===== */
+.section {
+    margin-bottom: 64px;
+}
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* ===== Info / Tooltip Icons ===== */
+.info-icon, .stat-info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--info-icon-bg);
+    color: var(--tooltip-text);
+    font-weight: bold;
+    cursor: help;
+    position: relative;
+}
+.info-icon {
+    width: 16px;
+    height: 16px;
+    font-size: 11px;
+}
+.stat-info-icon {
+    width: 14px;
+    height: 14px;
+    font-size: 10px;
+}
+.info-icon:hover, .stat-info-icon:hover {
+    background: var(--info-icon-hover);
+}
+
+/* ===== Tooltips (shared base) ===== */
+.metric-tooltip, .warning-tooltip, .stat-tooltip, .tooltip {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    background-color: var(--tooltip-bg);
+    color: var(--tooltip-text);
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    line-height: 1.5;
+    white-space: normal;
+    min-width: 250px;
+    max-width: 350px;
+    z-index: 10000;
+    box-shadow: var(--shadow-tooltip);
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    pointer-events: none;
+    font-weight: normal;
+    text-transform: none;
+    letter-spacing: normal;
+    transform: translateX(-50%);
+}
+.metric-tooltip::after, .warning-tooltip::after, .stat-tooltip::after, .tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--tooltip-bg);
+}
+.tooltip {
+    border-radius: 4px;
+    padding: 10px 14px;
+    white-space: pre-line;
+    max-width: 400px;
+}
+
+/* ===== Warning Icon ===== */
+.warning-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--warning-bg);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: help;
+    position: relative;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+.warning-icon:hover {
+    background: var(--warning-hover);
+}
+
+/* ===== Warning Banner ===== */
+.warning-banner {
+    width: 100%;
+    background-color: var(--warning-bg);
+    color: #ffffff;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 1.6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Stealth Model Badge ===== */
+.stealth-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 4px;
+    background: var(--text-secondary);
+    color: var(--bg-primary);
+    vertical-align: middle;
+    letter-spacing: 0.02em;
+}
+
+/* ===== Footer ===== */
+.footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    text-align: left;
+    color: var(--text-secondary);
+    font-size: 13px;
+    border-top: 1px solid var(--border-color);
+}
+.footer a {
+    color: var(--text-secondary);
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+    body {
+        padding: 20px 12px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    .logo {
+        width: 36px;
+        height: 36px;
+    }
+    .subtitle {
+        font-size: 16px;
+        margin-left: 52px;
+    }
+    .stat-card {
+        min-width: 100%;
+    }
+    .tooltip {
+        min-width: 250px;
+        max-width: calc(100vw - 40px);
+        font-size: 12px;
+        padding: 10px 12px;
+    }
+}

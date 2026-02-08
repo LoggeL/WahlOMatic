@@ -81,6 +81,22 @@ class OpenRouterClient:
                 else:
                     raise Exception(f"API request failed after {self.max_retries} attempts: {e}")
         
+    def validate_key(self) -> bool:
+        """Validate the API key by calling the OpenRouter auth endpoint.
+
+        Returns:
+            True if the key is valid, False otherwise.
+        """
+        try:
+            response = requests.get(
+                "https://openrouter.ai/api/v1/auth/key",
+                headers={"Authorization": f"Bearer {self.api_key}"},
+                timeout=15,
+            )
+            return response.status_code == 200
+        except requests.exceptions.RequestException:
+            return False
+
     def get_completion(self, prompt: str, system_prompt: Optional[str] = None) -> str:
         """
         Get completion from LLM.

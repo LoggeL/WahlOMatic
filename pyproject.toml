@@ -10,3 +10,6 @@ dependencies = [
     "requests>=2.31.0",
     "tqdm>=4.66.0",
 ]
+
+[project.scripts]
+wahlomatic = "src.cli:main"

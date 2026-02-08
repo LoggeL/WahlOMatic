@@ -158,7 +158,15 @@ def run_evaluation(
     # Initialize client
     client = OpenRouterClient(model=model_name)
     print(f"Using model: {model_name}")
-    
+
+    # Validate API key before starting evaluation
+    print("Validating API key...")
+    if not client.validate_key():
+        raise RuntimeError(
+            "Invalid API key. Please check your OPENROUTER_API_KEY in .env file."
+        )
+    print("API key is valid.")
+
     # Prepare output directory
     output_dir = Path(results_path) / election_slug
     output_dir.mkdir(parents=True, exist_ok=True)
