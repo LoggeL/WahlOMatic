@@ -116,6 +116,19 @@
         .reasoning-header { font-size: 13px; color: var(--text-secondary); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.3px; }
         .reasoning-text { color: var(--text-primary); line-height: 1.7; }
 
+        /* Run count badge */
+        .run-count { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+
+        /* Multiple answer sections per question */
+        .answer-section + .answer-section { margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border-color); }
+
+        /* Collapsible duplicate reasonings */
+        .reasoning-extra { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px dotted var(--border-color); }
+        .answer-section.show-all .reasoning-extra { display: block; }
+        .toggle-runs { background: none; border: 1px solid var(--border-color); color: var(--link-color); font-size: 12px; padding: 2px 8px; cursor: pointer; margin-left: 8px; border-radius: 3px; }
+        .toggle-runs:hover { background: var(--bg-hover); }
+        .answer-section.show-all .toggle-runs::after { content: ''; }
+
         /* Filter label */
         .filter-label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: var(--text-secondary); }
         .filter-label input { cursor: pointer; }
@@ -27981,10 +27994,6 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
 
     <div class="question-list">
         
-        
-            
-            
-        
         <div class="question-card">
             <div class="question-header">
                 <div class="question-number">Frage 1</div>
@@ -27995,21 +28004,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Deutschland sollte die Ukraine weiterhin militärisch unterstützen, um die russische Aggression abzuwehren und die europäische Sicherheit zu wahren. Dies stärkt die NATO und verhindert eine Eskalation des Konflikts.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Deutschland sollte die Ukraine weiterhin militärisch unterstützen, um die russische Aggression einzudämmen und die europäische Sicherheit zu wahren. Eine starke Unterstützung fördert Stabilität und verhindert eine Eskalation des Konflikts.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Deutschland sollte die Ukraine militärisch unterstützen, um die russische Aggression zu stoppen und die europäische Sicherheit zu wahren. Eine starke Unterstützung fördert langfristig Frieden und Demokratie.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Deutschland sollte die Ukraine weiterhin militärisch unterstützen, um die russische Aggression zu stoppen und die europäische Sicherheit zu wahren.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Deutschland sollte die Ukraine militärisch unterstützen, um die russische Aggression abzuwehren und die europäische Sicherheit zu wahren. Dies stärkt die NATO und verhindert weitere Expansionen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28021,21 +28054,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Erneuerbare Energien sind essenziell für den Klimaschutz und die Energieunabhängigkeit. Staatliche Förderung beschleunigt den Übergang zu nachhaltiger Energie und schafft langfristig wirtschaftliche Vorteile.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Erneuerbare Energien sind essenziell für den Klimaschutz und die Energieunabhängigkeit. Staatliche Förderung beschleunigt den Übergang zu nachhaltiger Energieversorgung.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
                     <div class="reasoning-text">Erneuerbare Energien sind essenziell für den Klimaschutz und die Energiewende. Staatliche Förderung beschleunigt den Übergang zu nachhaltiger Energie und schafft langfristig Unabhängigkeit von fossilen Brennstoffen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Erneuerbare Energien sind essenziell für den Klimaschutz und die Energiewende. Staatliche Förderung beschleunigt den Übergang zu nachhaltiger Energie und schafft langfristig Unabhängigkeit von fossilen Brennstoffen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Erneuerbare Energien sind essenziell für den Klimaschutz und die Energiewende. Staatliche Förderung ist notwendig, um den Übergang zu beschleunigen und Abhängigkeiten von fossilen Brennstoffen zu reduzieren.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28047,21 +28104,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Bürgergeld sollte Leistungen für diejenigen streichen, die wiederholt Arbeitsangebote ablehnen, um Anreize zur Arbeitsaufnahme zu schaffen und Missbrauch zu verhindern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Bürgergeld sollte Leistungen fördern, keine Ablehnung von Arbeit belohnen. Wer wiederholt Stellenangebote ablehnt, zeigt kein echtes Interesse an Integration und sollte die Unterstützung verlieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Bürgergeld sollte Leistungen fördern, die zur Eigenverantwortung und Arbeitsaufnahme anregen. Wer wiederholt Stellenangebote ablehnt, missbraucht das System und verweigert sich der Integration in den Arbeitsmarkt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Bürgergeld sollte Leistungen belohnen, die auf Arbeitserhaltung abzielen. Wer wiederholt Angebote ablehnt, zeigt mangelnde Kooperationsbereitschaft und sollte die Unterstützung verlieren.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Bürgergeld sollte Leistungen fördern, die Arbeitssuchende aktiv in den Arbeitsmarkt integrieren. Wer wiederholt Angebote ablehnt, signalisiert mangelnde Bereitschaft und sollte die Unterstützung verlieren.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28073,21 +28154,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Ein generelles Tempolimit auf Autobahnen würde die Freiheit der Autofahrer unnötig einschränken und ignoriert die Tatsache, dass die meisten Unfälle nicht durch zu hohe Geschwindigkeiten, sondern durch andere Faktoren wie Ablenkung verursacht werden. Deutschland profitiert von seiner tempolosen Autobahn als Markenzeichen und wirtschaftlicher Stärke.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Ein generelles Tempolimit auf Autobahnen würde die Freiheit der Autofahrer unnötig einschränken und ignoriert, dass die unfallfreien Abschnitte durch variable Geschwindigkeitsanpassung sicher sind. Es geht mehr um ideologische EU-Vorgaben als um tatsächliche Sicherheitsgewinne.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ein generelles Tempolimit auf Autobahnen widerspricht der bewährten Flexibilität in Deutschland und ignoriert die sichere Fahrweise vieler Autofahrer auf gut ausgebauten Strecken. Es würde die Mobilität unnötig einschränken, ohne nachweislich die Sicherheit signifikant zu verbessern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Ein generelles Tempolimit auf Autobahnen würde die Mobilität unnötig einschränken und ignoriert die sichere Infrastruktur auf freien Strecken. Es gibt keine ausreichenden Belege, dass es Unfälle signifikant reduziert, während es den Verkehrsfluss behindert.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ein generelles Tempolimit auf Autobahnen ist unnötig, da viele Strecken sicher für höhere Geschwindigkeiten ausgelegt sind und es die Mobilität einschränkt. Stattdessen sollten variable Limits je nach Verkehr und Bedingungen gelten.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28099,21 +28204,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die EU-Asylreform und das Dublin-Abkommen schreiben vor, dass Asylsuchende im ersten Einreise-Staat bearbeitet werden sollten, um Missbrauch zu verhindern und die Last gerechter zu verteilen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Das entspricht dem Dublin-Abkommen, das vorschreibt, dass Asylsuchende im ersten EU-Einstiegsland bearbeitet werden sollten, um Missbrauch zu verhindern und faire Lastenverteilung zu gewährleisten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Das würde das Dublin-Abkommen durchsetzen und faire Lastenteilung in der EU gewährleisten, um Missbrauch des Asylsystems zu verhindern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Umsetzung des Dublin-Verfahrens schützt die Integrität des EU-Asylsystems und verhindert Asylmissbrauch durch irreguläre Sekundärmigration. Dies entlastet Deutschland und sorgt für faire Verteilung der Verantwortung unter EU-Staaten.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Das würde das Dublin-Abkommen durchsetzen und faire Lastenverteilung in der EU gewährleisten. Deutschland kann nicht allein für alle Asylsuchenden verantwortlich sein.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28125,21 +28254,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Gesetzliche Mietpreisbegrenzungen bei Neuvermietungen schützen Mieter vor überhöhten Preisen und fördern bezahlbaren Wohnraum insbesondere in angespannten Märkten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Gesetzliche Mietpreisbegrenzungen bei Neuvermietungen schützen Mieter vor überhöhten Preisen und fördern bezahlbaren Wohnraum insbesondere in angespannten Märkten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Gesetzliche Mietpreisbegrenzungen bei Neuvermietungen schützen Mieter vor überhöhten Preisen und fördern bezahlbaren Wohnraum insbesondere in angespannten Märkten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Gesetzliche Mietpreisbegrenzungen bei Neuvermietungen schützen Mieter vor überhöhten Preisen und fördern bezahlbaren Wohnraum in angespannten Märkten.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Gesetzliche Mietpreisbegrenzungen bei Neuvermietungen schützen Mieter vor überhöhten Preisen und fördern bezahlbaren Wohnraum insbesondere in angespannten Märkten.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28151,21 +28304,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Gesichtserkennung an Bahnhöfen erhöht die Sicherheit und hilft effektiv gegen Kriminalität und Terrorismus. Datenschutzbedenken können durch strenge gesetzliche Regelungen und proportionale Anwendung minimiert werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Gesichtserkennung an Bahnhöfen verbessert die Sicherheit und hilft, Kriminalität wie Terrorismus oder Diebstähle effektiv zu bekämpfen. Der Datenschutz kann durch klare gesetzliche Regelungen und Löschfristen gewährleistet werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Gesichtserkennung an Bahnhöfen verbessert die Sicherheit und hilft effektiv gegen Kriminalität und Terrorismus. Datenschutzbedenken können durch gesetzliche Regelungen und proportionale Anwendung minimiert werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Gesichtserkennung an Bahnhöfen verbessert die Sicherheit und hilft, Kriminalität wie Terrorismus oder Flucht von Straftätern effektiv zu bekämpfen. Der Datenschutz kann durch klare gesetzliche Regelungen und temporäre Speicherung gewährleistet werden.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Gesichtserkennung an Bahnhöfen erhöht die Sicherheit und hilft, Kriminalität wie Terrorismus oder Diebstähle effektiv zu bekämpfen. Datenschutzbedenken können durch gesetzliche Regelungen und Proportionalität ausgeglichen werden.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28177,21 +28354,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Energieintensive Unternehmen sind essenziell für die Wirtschaft und Arbeitsplätze; staatliche Ausgleichszahlungen verhindern Standortverlagerungen und stärken die Wettbewerbsfähigkeit in Zeiten hoher Energiepreise.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Energieintensive Unternehmen sind essenziell für die Wirtschaft und Wettbewerbsfähigkeit Deutschlands; staatliche Ausgleiche verhindern Standortverluste und schützen Arbeitsplätze.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Energieintensive Unternehmen sind essenziell für die Wirtschaft und Wettbewerbsfähigkeit, daher ist ein staatlicher Ausgleich für hohe Stromkosten gerechtfertigt, um Arbeitsplätze zu sichern und Deindustrialisierung zu verhindern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Energieintensive Unternehmen sind essenziell für die Wirtschaft und Arbeitsplätze; staatliche Ausgleiche verhindern Abwanderung ins Ausland und sichern Wettbewerbsfähigkeit.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Energieintensive Unternehmen sind essenziell für die Wirtschaft und Arbeitsplätze; staatliche Ausgleiche verhindern Abwanderung ins Ausland und stärken die Wettbewerbsfähigkeit.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28203,21 +28404,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="run-count">3× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 2 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 3 anzeigen</button></div>
+                    <div class="reasoning-text">Eine Regelung nach 40 Beitragsjahren ohne Abschläge belohnt langjährige Beitragszahler fair und entlastet das Rentensystem von übermäßiger Belastung durch hohes Alter. Sie fördert zudem die Motivation für längere Erwerbsbiografien.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Eine Regelung nach 40 Beitragsjahren ohne Abschläge belohnt langjährige Arbeitnehmer fair und fördert die Motivation für längere Erwerbstätigkeit. Sie ist sozial ausgewogen und nachhaltig finanzierbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Eine Regelung nach 40 Beitragsjahren ohne Abschläge belohnt langjährige Arbeitnehmer fair und entlastet das Rentensystem, ohne das reguläre Rentenalter zu senken. Sie fördert soziale Gerechtigkeit und motiviert zu längerer Erwerbstätigkeit.</div>
+                </div>
+                
+            </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">2× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 2 anzeigen</button></div>
+                    <div class="reasoning-text">Eine Rente ohne Abschläge nach 40 Beitragsjahren würde das Rentensystem finanziell überlasten, da die demografische Entwicklung und steigende Lebenserwartung höhere Beiträge oder höheres Rentenalter erfordern. Eine flexible Regelung mit Abschlägen ist nachhaltiger.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Eine Rente nach 40 Beitragsjahren ohne Abschläge würde die Finanzierung der Rentenversicherung überfordern, da viele früher in Rente gehen und längere Rentenbezugsdauern entstehen. Stattdessen sollten Anreize für längeres Arbeiten und eine nachhaltige Finanzierung priorisiert werden.</div>
                 </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28229,21 +28466,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Das Grundgesetz ist ein säkulares Dokument, das die religiöse Neutralität des Staates gewährleistet und alle Bürger unabhängig von ihrem Glauben einbezieht. Eine explizite religiöse Formulierung würde dies unterlaufen und Diskriminierung fördern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Das Grundgesetz schützt die religiöse Neutralität des Staates und sollte säkular bleiben, um alle Bürger unabhängig von ihrem Glauben gleich zu behandeln. Eine explizite religiöse Formulierung würde Minderheiten diskriminieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Das Grundgesetz schützt die religiöse Neutralität des Staates, und eine explizite Formulierung wie &#39;Verantwortung vor Gott&#39; würde säkulare und pluralistische Prinzipien verletzen. Eine solche Änderung ist in einem modernen, vielfältigen Deutschland unangebracht.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Das Grundgesetz ist ein säkulares Dokument, das alle Bürger unabhängig von religiöser Überzeugung gleich behandelt. Die Formulierung &#39;Verantwortung vor Gott&#39; diskriminiert nicht-religiöse Menschen und widerspricht dem Prinzip der Neutralität des Staates.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Das Grundgesetz ist ein säkulares Dokument, das die religiöse Neutralität des Staates gewährleistet. Eine explizite religiöse Formulierung würde die Trennung von Staat und Kirche unterlaufen und nicht alle Bürger gleichermaßen ansprechen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28255,21 +28516,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Deutschland hat einen akuten Fachkräftemangel in Bereichen wie IT, Pflege und Ingenieurwesen, der durch die Anwerbung qualifizierter Ausländer effektiv bekämpft werden kann. Dies fördert Wirtschaftswachstum und Innovation ohne die einheimische Bevölkerung zu benachteiligen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Deutschland leidet unter einem akuten Fachkräftemangel in Bereichen wie IT, Pflege und Ingenieurwesen. Die Anwerbung aus dem Ausland ist essenziell, um Wirtschaftswachstum zu sichern und den demografischen Wandel auszugleichen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Deutschland leidet unter einem akuten Fachkräftemangel in Bereichen wie IT, Pflege und Ingenieurwesen. Die Anwerbung aus dem Ausland ist essenziell, um Wirtschaftswachstum zu sichern und den Arbeitsmarkt zu stärken.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Deutschland leidet unter einem akuten Fachkräftemangel, der durch eine alternde Bevölkerung verschärft wird. Die Anwerbung aus dem Ausland ist essenziell, um Wirtschaftswachstum zu sichern und offene Stellen zu besetzen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Deutschland leidet unter einem akuten Fachkräftemangel in Bereichen wie IT, Pflege und Ingenieurwesen. Die Anwerbung aus dem Ausland ist essenziell, um Wirtschaftswachstum zu sichern und den demografischen Wandel auszugleichen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28281,21 +28566,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Kernenergie ist eine zuverlässige, CO₂-arme Energiequelle, die Deutschlands Abhängigkeit von fossilen Brennstoffen und volatilen Importen reduziert. Der Atomausstieg hat zu höheren Energiekosten und Instabilität geführt, weshalb eine Rückkehr sinnvoll ist.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Kernenergie ist eine zuverlässige, CO₂-arme Energiequelle, die Deutschlands Abhängigkeit von fossilen Brennstoffen und volatilen Importen reduziert. Der Atomausstieg hat zu höheren Emissionen und Energiekosten geführt, was rückgängig gemacht werden sollte.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Kernenergie ist eine zuverlässige, kohlenstoffarme Energiequelle, die Deutschlands Abhängigkeit von fossilen Brennstoffen und volatilen Importen reduziert. Der Atomausstieg hat zu höheren CO2-Emissionen und Energiepreisen geführt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Kernenergie ist eine zuverlässige, kohlenstoffarme Energiequelle, die Deutschlands Abhängigkeit von fossilen Brennstoffen und volatilen Importen reduziert. Der Atomausstieg hat zu höheren CO2-Emissionen und Energiepreisen geführt, was ein Fehler war.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Kernenergie ist eine zuverlässige, kohlenstoffarme Energiequelle, die Deutschlands Abhängigkeit von fossilen Brennstoffen und volatilen Importen reduziert. Der Atomausstieg hat zu höheren CO2-Emissionen und Energiepreisen geführt, was ein Wiederanstieg wirtschaftlich und ökologisch sinnvoll macht.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28307,21 +28616,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Ein Anheben des Spitzensteuersatzes würde Anreize zur Investition und wirtschaftlichem Wachstum mindern und zu Kapitalabflüssen führen. Niedrigere Steuern fördern Produktivität und Innovation effektiver.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Ein Anheben des Spitzensteuersatzes würde Anreize zur Investition und wirtschaftlichem Wachstum mindern und zu Kapitalabflüssen führen. Niedrigere Steuern fördern hingegen Innovation und Wohlstand für alle.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ein Anstieg des Spitzensteuersatzes würde Anreize zur Leistung und Investitionen mindern und die Wirtschaft bremsen. Niedrigere Steuern fördern Wachstum und Wohlstand für alle.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Ein Anstieg des Spitzensteuersatzes würde Anreize zur Investition und wirtschaftlichem Wachstum mindern und zu Kapitalflucht führen. Niedrigere Steuern fördern Innovation und Beschäftigung langfristig effektiver.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ein Anheben des Spitzensteuersatzes würde Anreize zur Investition und Arbeit mindern und das Wirtschaftswachstum bremsen. Niedrigere Steuern fördern hingegen Innovation und Wettbewerbsfähigkeit.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28333,21 +28666,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Schulpolitik ist primär eine Landesaufgabe, da Bildung regional unterschiedlich ist und Länder eine hohe Kompetenz haben. Mehr Zentralismus würde die Vielfalt und Flexibilität einschränken.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Schulpolitik ist traditionell Ländersache in Deutschland, was föderale Vielfalt und Nähe zu den Bürgern gewährleistet. Mehr Bundesk kompetenzen könnten zu zentraler Uniformität führen und die Autonomie der Länder einschränken.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Schulpolitik ist primär eine Landesaufgabe, die kulturelle und regionale Vielfalt berücksichtigt. Mehr Bundesk competencies könnten zu einer ungewollten Uniformierung führen und die föderale Struktur Deutschlands unterlaufen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Schulpolitik ist primär eine Landesangelegenheit, da Länder unterschiedliche regionale Bedürfnisse haben. Eine Zentralisierung durch den Bund würde die Föderalismusprinzipien untergraben und zu einheitlicher, weniger flexibler Bildungspolitik führen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Schulpolitik ist primär Ländersache und sollte föderal bleiben, um regionale Vielfalt und Nähe zu den Bürgern zu wahren. Mehr Bundesk kompetenzen würden zu zentralistischer Einheitssteuerung führen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28359,21 +28716,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Deutschland hat eine historische Verpflichtung gegenüber Israel und Rüstungsexporte stärken die Sicherheitskooperation zwischen Verbündeten. Solange internationale Standards eingehalten werden, ist dies legitim.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Deutschland hat eine historische Verpflichtung gegenüber Israel und Rüstungsexporte stärken die sicherheitspolitische Partnerschaft in einer instabilen Region. Solange humanitäre Standards eingehalten werden, ist dies legitim.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Deutschland hat eine historische Verpflichtung gegenüber Israel, und Rüstungsexporte stärken die Sicherheit eines demokratischen Verbündeten in einer instabilen Region. Solange sie den internationalen Standards entsprechen, sollten sie fortgesetzt werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Deutschland hat historische und strategische Bündnisverpflichtungen gegenüber Israel, und Rüstungsexporte stärken die Sicherheit eines demokratischen Verbündeten in einer instabilen Region.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Deutschland hat eine historische Verpflichtung gegenüber Israel, und Rüstungsexporte stärken die Verteidigungsfähigkeit eines demokratischen Verbündeten in einer instabilen Region.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28385,21 +28766,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Eine gesetzliche Pflichtversicherung in Krankenkassen gewährleistet Solidarität und verhindert, dass Risikogruppen ohne Versicherungsschutz bleiben. Dies schützt die gesamte Gesellschaft vor hohen Kosten durch unversicherte Personen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Eine gesetzliche Pflichtversicherung in Krankenkassen gewährleistet Solidarität und verhindert, dass Risikogruppen benachteiligt werden. Sie schützt die gesamte Gesellschaft vor medizinischen Risiken und unbezahlten Kosten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Eine gesetzliche Pflichtversicherung in Krankenkassen gewährleistet Solidarität und verhindert, dass Risikogruppen ohne Schutz bleiben. Sie schützt die gesamte Gesellschaft vor hohen Kosten durch unversicherte Personen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Eine gesetzliche Pflichtversicherung in Krankenkassen gewährleistet Solidarität und verhindert, dass gesunde oder wohlhabende Personen das System ausnutzen, ohne beizutragen. Dies schützt die gesamte Bevölkerung vor finanziellen Risiken bei Krankheit.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Eine gesetzliche Pflichtversicherung in Krankenkassen gewährleistet Solidarität und verhindert, dass gesunde oder wohlhabende Personen das System verlassen, was die Finanzierung für alle stabilisiert.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28411,21 +28816,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Quoten sind eine Form der Zwangsdiskriminierung und verletzen das Prinzip der Leistungsbasiertigkeit. Sie sollten abgeschafft werden, um faire Meritokratie zu fördern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Quoten sind eine Form der Zwangsdiskriminierung und verletzen das Prinzip der Leistungsbewertung. Sie sollten durch freie Marktwettbewerb und Meritokratie ersetzt werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Quoten sind eine Form der Diskriminierung nach Geschlecht und verletzen das Prinzip der Leistungsfähigkeit. Sie sollten durch freie Marktwahl und Meritokratie ersetzt werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die gesetzliche Frauenquote verletzt das Prinzip der Leistungsbasierten Auswahl und ignoriert individuelle Qualifikationen. Sie sollte durch freie Marktdynamik ersetzt werden, um echte Kompetenz zu fördern.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Quoten sind eine Form der Bevorzugung und verletzen das Prinzip der Leistungsbewertung. Sie sollten durch freie Marktwahl und Meritokratie ersetzt werden.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28437,21 +28866,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">3× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 3 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 3 anzeigen</button></div>
+                    <div class="reasoning-text">Ökologische Landwirtschaft schont die Umwelt, fördert Biodiversität und reduziert Pestizideinsatz langfristig. Eine stärkere Förderung ist notwendig, um nachhaltige Landwirtschaft zu etablieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Ökologische Landwirtschaft schont die Umwelt, fördert Biodiversität und reduziert Pestizideinsatz langfristig. Eine stärkere Förderung ist notwendig, um nachhaltige Ernährungssicherheit zu gewährleisten.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ökologische Landwirtschaft schont die Umwelt, reduziert Pestizide und fördert Biodiversität langfristig. Eine stärkere Förderung ist notwendig, um Klimawandel und Bodenerosion zu bekämpfen.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="run-count">2× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 2 anzeigen</button></div>
+                    <div class="reasoning-text">Ökologische Landwirtschaft hat oft niedrigere Erträge und höhere Kosten, was die Ernährungssicherheit gefährdet und den globalen Hunger verschärfen könnte. Eine stärkere Förderung sollte auf Technologie und Innovation in der konventionellen Landwirtschaft setzen, um Nachhaltigkeit effizient zu erreichen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Ökologische Landwirtschaft ist oft weniger produktiv und teurer, was zu höheren Lebensmittelpreisen und Versorgungsunsicherheiten führt. Eine stärkere Förderung sollte auf Innovationen in der konventionellen Landwirtschaft setzen, um Effizienz und Nachhaltigkeit zu verbessern.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28463,21 +28928,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Rechtsextremismus stellt eine Bedrohung für Demokratie und Rechtsstaat dar. Eine verstärkte Förderung von Projekten gegen ihn ist notwendig, um Prävention und Integration zu stärken.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Rechtsextremismus bedroht Demokratie und Menschenrechte, daher ist eine verstärkte Förderung von Projekten dagegen notwendig, um gesellschaftliche Spaltungen zu verhindern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Rechtsextremismus stellt eine Bedrohung für Demokratie und Gesellschaft dar und sollte aktiv bekämpft werden. Eine verstärkte Förderung von Projekten dagegen ist ein wichtiger Schritt zur Stärkung des gesellschaftlichen Zusammenhalts.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Rechtsextremismus bedroht Demokratie und Rechtsstaat, daher ist eine verstärkte Förderung von Projekten dagegen notwendig, um Prävention und Integration zu stärken.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Rechtsextremismus stellt eine Bedrohung für Demokratie und Rechtsstaat dar. Eine verstärkte Förderung von Projekten gegen ihn ist notwendig, um Prävention und Integration zu stärken.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28489,21 +28978,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Unternehmen haben die Verantwortung, menschenrechtswidrige oder umweltschädigende Praktiken in ihrer Lieferkette zu verhindern, um globale Standards durchzusetzen. Dies fördert Nachhaltigkeit und schützt vulnerable Arbeiter und Ökosysteme.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Unternehmen haben die Verantwortung, Menschenrechtsverletzungen und Umweltschäden in ihrer Lieferkette zu verhindern, um nachhaltige und ethische Standards zu gewährleisten. Kontrollen bei Zulieferern sind essenziell für globale Verantwortung.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Unternehmen haben die Verantwortung, Menschenrechtsverletzungen und Umweltschäden in ihrer Lieferkette zu verhindern, um globale Standards durchzusetzen. Kontrollen sorgen für Transparenz und Nachhaltigkeit.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Unternehmen haben die Verantwortung, Menschenrechtsverletzungen und Umweltschäden in ihrer Lieferkette zu verhindern, um nachhaltige und ethische Praktiken zu fördern. Kontrollen sorgen für Transparenz und schützen vulnerable Arbeiter und die Umwelt.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Unternehmen haben die Verantwortung, Menschenrechtsverletzungen und Umweltschäden in ihrer Lieferkette zu verhindern, um nachhaltige und ethische Praktiken zu fördern. Kontrollen stellen sicher, dass globale Standards eingehalten werden.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28515,21 +29028,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">BAföG sollte unabhängig vom Einkommen der Eltern sein, um gleiche Chancen für alle Studierenden zu gewährleisten und soziale Mobilität zu fördern.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">BAföG sollte unabhängig vom Einkommen der Eltern sein, um gleiche Chancen für alle Studierenden zu gewährleisten und soziale Mobilität zu fördern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">BAföG sollte unabhängig vom Einkommen der Eltern sein, um gleiche Chancen für alle Studierenden zu gewährleisten und soziale Mobilität zu fördern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">BAföG sollte unabhängig vom Einkommen der Eltern sein, um gleiche Chancen für alle Studierenden zu gewährleisten und soziale Mobilität zu fördern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">BAföG sollte unabhängig vom Einkommen der Eltern sein, um gleiche Chancen für alle Studierenden zu gewährleisten und soziale Mobilität zu fördern.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28541,21 +29078,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Schuldenbremse fördert fiskalische Disziplin und verhindert übermäßige Verschuldung zukünftiger Generationen. Sie hat sich in der Vergangenheit bewährt, indem sie die Staatsfinanzen stabilisiert hat.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Die Schuldenbremse fördert fiskalische Disziplin und verhindert übermäßige Verschuldung zukünftiger Generationen. Sie hat sich als effektives Instrument zur Stabilisierung der Staatsfinanzen bewährt.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Schuldenbremse fördert fiskalische Disziplin und verhindert übermäßige Verschuldung zukünftiger Generationen. Sie hat sich als effektives Instrument zur Stabilisierung der Staatsfinanzen bewährt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Schuldenbremse fördert fiskalische Disziplin und verhindert übermäßige Verschuldung zukünftiger Generationen. Sie hat sich als effektives Instrument zur Stabilisierung der Staatsfinanzen bewährt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Schuldenbremse fördert fiskalische Disziplin und verhindert übermäßige Verschuldung zukünftiger Generationen. Sie hat sich als effektives Instrument erwiesen, um die Staatsfinanzen langfristig zu stabilisieren.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28567,21 +29128,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">4× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 2 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
+                    <div class="reasoning-text">Sofortige Arbeitserlaubnis ermöglicht Asylsuchenden rasche Integration in den Arbeitsmarkt und reduziert Abhängigkeit von Sozialleistungen. Dies fördert die Wirtschaft und mindert Vorurteile durch schnelle Selbstversorgung.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Sofortige Arbeitserlaubnis für Asylsuchende fördert Integration, reduziert Abhängigkeit von Sozialhilfe und nutzt den Arbeitskräftemangel in Deutschland effektiv.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Sofortige Arbeitserlaubnis ermöglicht Asylsuchenden schnelle Integration in den Arbeitsmarkt, reduziert Abhängigkeit von Sozialhilfe und trägt zur Wirtschaft bei.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Sofortige Arbeitserlaubnis ermöglicht Asylsuchenden eine schnellere Integration in den Arbeitsmarkt und reduziert Abhängigkeit von Sozialleistungen. Dies fördert die Wirtschaft und mindert Vorurteile durch frühe Selbstversorgung.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="run-count">1× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1</div>
+                    <div class="reasoning-text">Sofortige Arbeitserlaubnis könnte den Asylprozess missbrauchen und den Arbeitsmarkt belasten, bevor der Schutzstatus geklärt ist. Eine Wartefrist schützt das System vor Missbrauch.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28593,21 +29190,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Klimaneutralität ist essenziell, um den Klimawandel zu bekämpfen und langfristig die Umwelt, Wirtschaft und Gesellschaft zu schützen. Das Ziel sollte beibehalten und erreicht werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Klimaneutralität ist essenziell, um den Klimawandel zu bekämpfen und die langfristige Nachhaltigkeit zu sichern. Deutschland als Vorreiter sollte dieses Ziel beibehalten und umsetzen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Klimaneutralität ist essenziell, um den Klimawandel zu bekämpfen und langfristig wirtschaftliche und ökologische Vorteile zu sichern. Das Ziel sollte beibehalten und realistisch umgesetzt werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Klimaneutralität ist essenziell, um den Klimawandel zu bekämpfen und langfristig wirtschaftliche und ökologische Vorteile zu sichern. Das Ziel sollte beibehalten und effizient umgesetzt werden.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Klimaneutralität ist essenziell, um den Klimawandel zu bekämpfen und langfristig die Umwelt sowie die Wirtschaft zu schützen. Das Ziel sollte beibehalten und erreicht werden.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28619,21 +29240,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Die 35-Stunden-Woche fördert ein besseres Work-Life-Balance, reduziert Burnout und steigert die Produktivität langfristig. Sie ist ein wichtiger Schritt zu mehr sozialer Gerechtigkeit in Deutschland.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die 35-Stunden-Woche fördert ein besseres Work-Life-Balance und reduziert Burnout-Risiken für Beschäftigte. Sie ist ein Fortschritt im Vergleich zur aktuellen 40-Stunden-Regelung und unterstützt die Produktivität langfristig.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die 35-Stunden-Woche fördert ein besseres Work-Life-Balance, reduziert Burnout und erhöht die Produktivität langfristig. Sie ist eine faire Maßnahme für alle Beschäftigten in Deutschland.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die 35-Stunden-Woche fördert ein besseres Work-Life-Balance, reduziert Burnout und steigert die Produktivität langfristig. Sie ist ein wichtiger Schritt zu mehr sozialer Gerechtigkeit in Deutschland.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die 35-Stunden-Woche fördert ein besseres Work-Life-Balance, reduziert Burnout und erhöht die Produktivität langfristig. Sie ist ein wichtiger Schritt zu mehr sozialer Gerechtigkeit in Deutschland.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28645,21 +29290,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">3× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 2 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 3 anzeigen</button></div>
+                    <div class="reasoning-text">Eine Beratung in den ersten drei Monaten stellt sicher, dass Frauen informierte Entscheidungen treffen und Alternativen wie Adoption oder Unterstützung kennenlernen. Dies balanciert den Schutz ungeborenen Lebens mit der Autonomie der Frau.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Eine Beratungspflicht in den ersten drei Monaten schützt Frauen vor unüberlegten Entscheidungen und gewährleistet informierte Wahl. Sie balanciert den Schutz ungeborenen Lebens mit der Autonomie der Frau.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Eine Beratungspflicht in den ersten drei Monaten schützt Frauen vor impulsiven Entscheidungen und stellt sicher, dass alle Optionen informiert abgewogen werden. Sie balanciert das Recht auf Abbruch mit dem Schutz ungeborenen Lebens.</div>
                 </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="run-count">2× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 2 anzeigen</button></div>
+                    <div class="reasoning-text">Schwangerschaftsabbrüche sollten in den ersten drei Monaten straffrei und ohne Beratungspflicht möglich sein, um Frauen volle Entscheidungsfreiheit zu gewähren und bürokratische Hürden zu vermeiden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Schwangerschaftsabbrüche sollten in den ersten drei Monaten straffrei und ohne verpflichtende Beratung möglich sein, um Frauen volle Autonomie über ihren Körper zu geben und bürokratische Hürden zu vermeiden.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28671,21 +29352,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="run-count">4× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
+                    <div class="reasoning-text">Der Euro fördert den Handel und die Stabilität in der Eurozone, was Deutschland als Exportnation nutzt. Eine Rückkehr zu einer nationalen Währung würde hohe Kosten und Unsicherheiten verursachen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Der Euro fördert den Handel und die Stabilität in der Eurozone, ein Wechsel zu einer nationalen Währung würde hohe Kosten und wirtschaftliche Unsicherheiten verursachen. Deutschland profitiert von der gemeinsamen Währung langfristig mehr als von einer Rückkehr zum D-Mark.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Der Euro fördert den Handel und die Stabilität in der Eurozone, und eine Rückkehr zu einer nationalen Währung würde hohe Kosten und wirtschaftliche Unsicherheiten verursachen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Der Euro bietet Stabilität und Vorteile im internationalen Handel für Deutschland. Eine Rückkehr zu einer nationalen Währung würde hohe Kosten und Unsicherheiten verursachen.</div>
+                </div>
+                
+            </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">1× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Der Euro hat zu hoher Abhängigkeit von der EZB-Politik geführt, die nicht immer den deutschen Interessen dient. Eine nationale Währung würde mehr Souveränität und Flexibilität bei wirtschaftlichen Entscheidungen ermöglichen.</div>
                 </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28697,21 +29414,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Schiene ist umweltfreundlicher und effizienter für den Massentransport, was zu weniger Verkehrsstau und geringeren CO2-Emissionen führt. Der Vorrang vor der Straße fördert eine nachhaltige Verkehrspolitik.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Der Ausbau der Schiene ist umweltfreundlicher und effizienter für den Massentransport, reduziert Verkehrsstau und CO2-Emissionen im Vergleich zur Straße.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Der Ausbau der Schiene fördert umweltfreundlicheren und effizienteren öffentlichen Nahverkehr, reduziert Verkehrsstau und CO2-Emissionen im Vergleich zur Straße.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Der Ausbau der Schiene ist umweltfreundlicher und effizienter für den Massentransport, reduziert Verkehrsstau und CO2-Emissionen. Straße sollte ergänzend genutzt werden, nicht priorisiert.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Der Ausbau der Schiene ist nachhaltiger, reduziert CO2-Emissionen und entlastet die Straßen von Staus. Es fördert eine umweltfreundlichere Mobilität langfristig.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28723,21 +29464,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Ehrenamtliche Tätigkeiten leisten einen wichtigen gesellschaftlichen Beitrag und sollten finanziell belohnt werden, um mehr Menschen zu motivieren, mitzuhelfen. Dies fördert soziale Gerechtigkeit und gleicht Nachteile für Freiwillige aus.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Ehrenamtliche Tätigkeiten leisten einen wichtigen gesellschaftlichen Beitrag und sollten finanziell anerkannt werden, um Freiwilligen entgegenzukommen. Dies fördert soziale Teilhabe und gleicht Lücken in der Rentenversicherung aus.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ehrenamtliche Tätigkeiten leisten einen wichtigen gesellschaftlichen Beitrag und sollten belohnt werden, indem sie auf die Rente angerechnet werden, um Freiwillige zu motivieren und soziale Ungleichheiten auszugleichen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Ehrenamtliche Tätigkeiten leisten einen wichtigen gesellschaftlichen Beitrag und sollten finanziell anerkannt werden, um Freiwilligen ein faires Rentenrecht zu bieten. Dies fördert das Engagement in der Zivilgesellschaft.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ehrenamtliche Tätigkeiten leisten einen wichtigen gesellschaftlichen Beitrag und sollten finanziell belohnt werden, um Freiwilligenarbeit attraktiver zu machen. Dies fördert soziale Kohäsion und gleicht Nachteile für Nicht-Gewinnerterwerbsgruppen aus.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28749,21 +29514,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Grundsteuer ist eine Eigentümersteuer und sollte daher ausschließlich von den Grundstückseigentümern getragen werden. Eine Umlage auf Mieter belastet diese unangemessen und widerspricht dem Prinzip der Steuergerechtigkeit.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Grundsteuer ist eine Steuer auf Immobilienbesitz und sollte daher allein vom Eigentümer getragen werden. Die Umlegung auf Mieter belastet diese unangemessen und verschiebt die Steuerlast ungerechtfertigt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Grundsteuer ist eine Eigentümersteuer und sollte daher primär von den Grundstückseigentümern getragen werden, nicht auf Mieter umgelegt werden. Eine Umlage belastet Mieter ungerechtfertigt und verschärft die Wohnkostenkrise.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Grundsteuer ist eine Eigentümersteuer und sollte allein von den Grundstückseigentümern getragen werden, nicht auf Mieter umgelegt werden. Eine Umlage belastet Mieter ungerechtfertigt und widerspricht dem Prinzip der Steuergerechtigkeit.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Grundsteuer ist eine Eigentümersteuer und sollte nicht auf Mieter umgelegt werden, da Mieter keine Eigentümer sind und dies zu ungerechter Belastung führt. Stattdessen sollte sie allein bei den Grundstückseigentümern verbleiben.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28775,21 +29564,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Kritische Infrastruktur wie Strom, Wasser und Verkehr muss vor Ausfällen geschützt werden, um die öffentliche Sicherheit und Wirtschaft zu gewährleisten. Streikrecht sollte hier eingeschränkt werden, um unverhältnismäßige Schäden zu vermeiden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Kritische Infrastruktur wie Energieversorgung oder Verkehr muss vor Streiks geschützt werden, um die öffentliche Sicherheit und Versorgung zu gewährleisten. Eine Einschränkung des Streikrechts ist hier gerechtfertigt, um unverhältnismäßige Schäden zu vermeiden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Kritische Infrastruktur wie Energieversorgung oder Verkehr muss vor Ausfällen geschützt werden, um die öffentliche Sicherheit und Wirtschaft zu gewährleisten. Streiks in diesen Bereichen können erhebliche Schäden verursachen, daher sind Einschränkungen notwendig.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Kritische Infrastruktur wie Energieversorgung oder Verkehr muss vor unkontrollierten Streiks geschützt werden, um die öffentliche Sicherheit und Wirtschaft zu gewährleisten. Eine Einschränkung des Streikrechts ist hier angemessen und verhältnismäßig.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Kritische Infrastruktur wie Energieversorgung oder Verkehr muss vor Ausfällen geschützt werden, um die öffentliche Sicherheit und Wirtschaft zu gewährleisten. Streiks in diesen Bereichen können unverhältnismäßige Schäden verursachen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28801,21 +29614,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Volksentscheide auf Bundesebene würden die direkte Demokratie stärken und den Bürgern mehr Mitspracherecht bei wichtigen Entscheidungen geben, wie es in der Schweiz erfolgreich funktioniert.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Volksentscheide auf Bundesebene würden die direkte Demokratie stärken und den Bürgern mehr Mitspracherecht geben, was die repräsentative Demokratie ergänzt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Volksentscheide auf Bundesebene stärken die direkte Demokratie und geben den Bürgern mehr Mitspracherecht bei wichtigen Entscheidungen. Dies würde die repräsentative Demokratie ergänzen und die Legitimität politischer Prozesse erhöhen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Volksentscheide auf Bundesebene würden die direkte Demokratie stärken und den Bürgern mehr Mitspracherecht bei wichtigen Entscheidungen geben, was die repräsentative Demokratie ergänzt.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Volksentscheide auf Bundesebene würden die direkte Demokratie stärken und den Bürgern mehr Mitspracherecht bei wichtigen Entscheidungen geben.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28827,21 +29664,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Kinder ab einem gewissen Alter verstehen die Konsequenzen ihrer Handlungen und sollten für schwere Straftaten strafrechtlich belangt werden können, um Gerechtigkeit für Opfer zu gewährleisten und Abschreckung zu schaffen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Schwere Straftaten durch Kinder unter 14 erfordern strafrechtliche Verfolgung, um Opfer zu schützen und Abschreckung zu schaffen. Das aktuelle Strafminderungsalter ist zu hoch und begünstigt Wiederholungstäter.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Schwere Straftaten von Kindern unter 14 sollten strafrechtlich verfolgt werden können, um Opfer zu schützen und Abschreckung zu schaffen. Eine absolute Straffreiheit fördert Missbrauch des Systems.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Kinder unter 14 können schwere Straftaten begehen, die Gesellschaft schützen muss; eine strafrechtliche Verfolgung mit angepassten Sanktionen ist gerechtfertigt, um Wiederholungstäter früh einzudämmen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Schwere Straftaten wie Mord oder Vergewaltigung durch Kinder unter 14 erfordern strafrechtliche Verfolgung, um Gerechtigkeit für Opfer zu gewährleisten und Abschreckung zu schaffen. Ein absolutes Strafunmündigkeitsalter schützt nicht die Gesellschaft ausreichend.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28853,21 +29714,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Erhöhte Zölle schützen die heimische Industrie kurzfristig, behindern aber den freien Handel und den Zugang zu günstigen, innovativen Elektroautos, was den Übergang zu nachhaltiger Mobilität in Europa beschleunigt. Deutschland profitiert langfristig von Wettbewerb und niedrigeren Preisen für Verbraucher.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Erhöhte Zölle schützen keine heimische Industrie langfristig und behindern den freien Handel. Deutschland profitiert von günstigeren Elektroautos für den Übergang zu nachhaltiger Mobilität.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Erhöhte Zölle schützen die heimische Industrie kurzfristig, behindern aber langfristig den Wettbewerb und Innovationen. Freier Handel mit chinesischen Elektroautos fördert bezahlbare E-Mobilität und hilft beim Klimaziel.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Erhöhte Zölle schützen die heimische Industrie kurzfristig, behindern aber langfristig den freien Handel und den Zugang zu günstigen, innovativen Elektroautos. Deutschland profitiert von offenen Märkten und stärkerer Wettbewerbsfähigkeit.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Erhöhte Zölle schützen die heimische Industrie kurzfristig, behindern aber langfristig den Wettbewerb und Innovationen. Freier Handel mit chinesischen Elektroautos fördert günstigere Preise und den Übergang zu nachhaltiger Mobilität in Europa.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28879,21 +29764,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Mehrstaatigkeit fördert Globalisierung und erleichtert das Leben von Menschen mit Migrationshintergrund. Sie ist in modernen Gesellschaften üblich und schadet nicht der Integration.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Mehrstaatigkeit fördert Globalisierung und erleichtert das Leben von Menschen mit Migrationshintergrund. Sie stärkt internationale Beziehungen, ohne die Loyalität zur deutschen Staatsbürgerschaft zu mindern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Möglichkeit einer doppelten Staatsbürgerschaft fördert Globalisierung und erleichtert das Leben von Menschen mit Migrationshintergrund. Sie ist in der modernen, vernetzten Welt sinnvoll und entspricht bereits der Praxis in vielen Fällen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Mehrstaatigkeit fördert Globalisierung und Mobilität in einer vernetzten Welt. Sie schadet nicht der Loyalität zur deutschen Staatsbürgerschaft.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Eine zweite Staatsbürgerschaft fördert Globalisierung und Mobilität, insbesondere für Menschen mit Migrationshintergrund. Sie schadet nicht der Integration und ist in vielen Ländern bereits üblich.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28905,21 +29814,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Ein Pflichtjahr schränkt die individuelle Freiheit junger Erwachsener ein und ist paternalistisch. Freiwillige Programme wären effektiver und respektieren persönliche Entscheidungen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Ein Pflichtjahr verletzt die individuelle Freiheit junger Erwachsener und ist in einer freien Gesellschaft unnötig. Freiwillige Programme wie das Freiwillige Soziale Jahr sind effektiver und respektieren persönliche Entscheidungen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ein Pflichtjahr verletzt die individuelle Freiheit junger Erwachsener und ist in einer freien Gesellschaft nicht gerechtfertigt. Freiwillige Programme wären eine bessere Alternative.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Ein Pflichtjahr schränkt die individuelle Freiheit junger Erwachsener ein und ist paternalistisch. Freiwillige Programme wie FSJ sind effektiver und motivierter.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ein Pflichtjahr verletzt individuelle Freiheit und Freiheit der Berufswahl junger Erwachsener. Es ist besser, Freiwilligkeit und Anreize zu fördern, anstatt Zwang einzuführen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28931,21 +29864,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Fossile Brennstoffe tragen stark zum Klimawandel bei, und ein Verbot neuer fossiler Heizungen ist notwendig, um die Energiewende voranzutreiben und CO2-Emissionen zu reduzieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Fossile Brennstoffe tragen stark zum Klimawandel bei, und ein Verbot neuer fossiler Heizungen ist notwendig, um die Energiewende voranzutreiben und CO2-Emissionen zu reduzieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Der Klimawandel erfordert einen schnellen Ausstieg aus fossilen Brennstoffen, um CO2-Emissionen zu reduzieren. Neue Heizungen sollten auf erneuerbare Energien umgestellt werden, um langfristig Kosten zu senken und die Umwelt zu schützen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Fossile Brennstoffe tragen stark zum Klimawandel bei, und ein Verbot neuer fossiler Heizungen ist ein notwendiger Schritt zum Umstieg auf erneuerbare Energien. Zukünftige Systeme sollten emissionsfrei sein, um Umwelt und Klima zu schützen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Der Klimawandel erfordert einen schnellen Übergang zu erneuerbaren Energien, um CO2-Emissionen zu reduzieren. Fossile Brennstoffe sollten schrittweise aus neuen Heizungen verbannt werden.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28957,16 +29914,44 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openrouter/sherlock-dash-alpha</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openrouter/sherlock-dash-alpha</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Ein Mindestlohn von 15 Euro bis 2026 stärkt die Kaufkraft der Arbeitnehmer und reduziert Armut, ohne die Wirtschaft signifikant zu belasten, da Deutschland wettbewerbsfähig bleibt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Ein Mindestlohn von 15 Euro bis 2026 würde die Kaufkraft der Arbeitnehmer stärken und Armut mindern. Dies fördert wirtschaftliches Wachstum durch höhere Konsum und ist langfristig tragfähig.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ein Mindestlohn von 15 Euro würde die Kaufkraft der Arbeitnehmer stärken und Armut mindern. Es fördert faire Löhne in einer Zeit steigender Lebenshaltungskosten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Ein Mindestlohn von 15 Euro bis 2026 stärkt die Kaufkraft der Arbeitnehmer und reduziert Armut, ohne die Wirtschaft signifikant zu belasten, da Deutschland bereits Erfahrungen mit steigenden Mindestlöhnen gemacht hat.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ein Mindestlohn von 15 Euro bis 2026 würde die Kaufkraft der Arbeitnehmer stärken und Armut reduzieren. Dies fördert wirtschaftliches Wachstum durch höhere Konsum, ohne die Wirtschaft signifikant zu belasten.</div>
+                </div>
+                
             </div>
+            
         </div>
         
     </div>

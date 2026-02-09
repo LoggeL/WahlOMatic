@@ -116,6 +116,19 @@
         .reasoning-header { font-size: 13px; color: var(--text-secondary); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.3px; }
         .reasoning-text { color: var(--text-primary); line-height: 1.7; }
 
+        /* Run count badge */
+        .run-count { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+
+        /* Multiple answer sections per question */
+        .answer-section + .answer-section { margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border-color); }
+
+        /* Collapsible duplicate reasonings */
+        .reasoning-extra { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px dotted var(--border-color); }
+        .answer-section.show-all .reasoning-extra { display: block; }
+        .toggle-runs { background: none; border: 1px solid var(--border-color); color: var(--link-color); font-size: 12px; padding: 2px 8px; cursor: pointer; margin-left: 8px; border-radius: 3px; }
+        .toggle-runs:hover { background: var(--bg-hover); }
+        .answer-section.show-all .toggle-runs::after { content: ''; }
+
         /* Filter label */
         .filter-label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: var(--text-secondary); }
         .filter-label input { cursor: pointer; }
@@ -27979,10 +27992,6 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
 
     <div class="question-list">
         
-        
-            
-            
-        
         <div class="question-card">
             <div class="question-header">
                 <div class="question-number">Frage 1</div>
@@ -27993,21 +28002,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Unterstützung der Ukraine trägt zur Verteidigung ihrer Souveränität bei und untermauert die internationale Ordnung gegen völkerrechtswidrige Angriffe.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Die Unterstützung der Ukraine trägt zur Verteidigung ihrer Souveränität bei und stärkt die internationale Ordnung gegen völkerrechtswidrige Angriffe.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ein fortgesetzter militärischer Support Deutschlands hilft der Ukraine, ihre territoriale Integrität gegen äußere Aggression zu verteidigen und trägt zur Stabilität in Europa bei.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Ein fortgesetzter militärischer Support stärkt die Ukraine in ihrem Verteidigungskampf und untergräbt aggressives Vorgehen, das die europäische Sicherheitsordnung bedroht.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Unterstützung der Ukraine trägt zur Verteidigung international anerkannter Grenzen und zur Abschreckung von Aggression bei.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28019,21 +28052,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Förderung erneuerbarer Energien durch den Staat trägt zum Klimaschutz bei und beschleunigt den Übergang zu einer nachhaltigen Energieversorgung.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Die Förderung erneuerbarer Energien durch den Staat trägt zur Reduzierung von Treibhausgasen und zur langfristigen Energieunabhängigkeit bei.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Förderung erneuerbarer Energien durch den Staat trägt zur Verringerung von Treibhausgasemissionen und zur Erreichung der Klimaziele bei.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Förderung erneuerbarer Energien durch den Staat trägt zum Klimaschutz bei und fördert die Unabhängigkeit von fossilen Brennstoffen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Förderung erneuerbarer Energien durch den Staat trägt zum Klimaschutz bei und unterstützt den Übergang zu einer nachhaltigen Energieversorgung.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28045,21 +28102,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge neutral">Neutral</div>
+                    <div class="run-count">3× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 3 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 3 anzeigen</button></div>
+                    <div class="reasoning-text">Einerseits könnte die Streichung von Bürgergeld Anreize zur Jobsuche schaffen, andererseits hängt die Sinnhaftigkeit einer Ablehnung von Stellenangeboten stark von individuellen Umständen und der Qualität der Angebote ab.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Einerseits könnte die Streichung des Bürgergelds als Anreiz wirken, Stellenangebote ernsthaft zu prüfen. Andererseits müssen individuelle Umstände wie gesundheitliche Einschränkungen oder die Angemessenheit der Stelle berücksichtigt werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Einerseits kann die Streichung von Bürgergeld bei wiederholter Ablehnung von Stellenangeboten Anreize zur Arbeitsaufnahme setzen, andererseits müssen individuelle Umstände wie Gesundheit oder Passung des Angebots berücksichtigt werden.</div>
+                </div>
+                
+            </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">2× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 2 anzeigen</button></div>
+                    <div class="reasoning-text">Wer wiederholt Stellenangebote ohne triftigen Grund ablehnt, sollte über die Fortzahlung des Bürgergelds nachdenken, da eine aktive Jobsuche erwartet wird.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Wer wiederholt vernünftige Stellenangebote ablehnt, sollte über die Höhe des Bürgergelds nachdenken, da es eine Verpflichtung zur Arbeitsuche gibt.</div>
                 </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28071,21 +28164,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge neutral">Neutral</div>
+                    <div class="run-count">3× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 3 anzeigen</button></div>
+                    <div class="reasoning-text">Ein generelles Tempolimit kann Sicherheits- und Umweltaspekte verbessern, könnte aber auch Individualfreiheit und Effizienz im Verkehr beeinträchtigen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Ein generelles Tempolimit kann Sicherheit und Umwelt schützen, könnte aber auch auf bestimmten Strecken unnötig sein. Die Vor- und Nachteile wiegen sich für mich derzeit gleich stark auf.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ein generelles Tempolimit kann Sicherheit und Umweltbelastung verbessern, birgt aber auch Einschränkungen für schnelles Reisen; die Gesamtwirkung hängt stark von konkreten Rahmenbedingungen ab.</div>
+                </div>
+                
+            </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">2× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 2 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 2 anzeigen</button></div>
                     <div class="reasoning-text">Ein generelles Tempolimit auf Autobahnen kann die Verkehrssicherheit erhöhen und den CO2-Ausstoß reduzieren.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ein generelles Tempolimit auf Autobahnen kann die Verkehrssicherheit erhöhen und hilft, den CO2-Ausstoß zu reduzieren.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28097,21 +28226,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Eine pauschale Ablehnung von Asylsuchenden an der Grenze widerspricht dem individuellen Recht auf Asyl und humanitären Grundsätzen, unabhängig vom Einreiseweg.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Eine Abweisung widerspricht dem Grundsatz des individuellen Asylrechts und könnte Menschen in Notlagen von Schutz ausschließen, ohne ihre persönliche Situation zu prüfen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Eine pauschale Ablehnung von Asylsuchenden an der Grenze widerspricht dem individuellen Recht auf Asyl und humanitären Grundsätzen, unabhängig vom Einreiseweg.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die individuelle Schutzbedürftigkeit eines Asylsuchenden sollte vorrangig geprüft werden, unabhängig vom Einreiseland, um humanitäre Verpflichtungen einzuhalten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Eine pauschale Abweisung von Asylsuchenden widerspricht dem individuellen Recht auf Asyl und humanitären Grundsätzen, unabhängig vom Einreiseweg.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28123,21 +28276,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Gesetzliche Mietpreisbegrenzungen bei Neuvermietungen können helfen, bezahlbaren Wohnraum zu sichern und Spekulationen auf dem Wohnungsmarkt einzudämmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Gesetzliche Mietpreisbegrenzungen bei Neuvermietungen können helfen, bezahlbaren Wohnraum zu sichern und Spekulation auf dem Wohnungsmarkt einzudämmen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Gesetzliche Mietpreisbegrenzungen bei Neuvermietungen können helfen, bezahlbaren Wohnraum zu sichern und Spekulationen auf dem Wohnungsmarkt einzudämmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Gesetzliche Mietpreisbremse bei Neuvermietungen können dazu beitragen, bezahlbaren Wohnraum zu sichern und Spekulationen auf dem Wohnungsmarkt einzudämmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Gesetzliche Mietpreisbremse bei Neuvermietungen können verhindern, dass Mieter durch überhöhte Preise von Wohnungsmärkten ausgeschlossen werden, besonders in angespannten Ballungsräumen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28149,21 +28326,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Der Einsatz von automatisierter Gesichtserkennung an Bahnhöfen birgt erhebliche Risiken für die Privatsphäre und das Recht auf informationelle Selbstbestimmung, die im Kontext eines demokratischen Rechtsstaats kritisch sind.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Der Einsatz automatisierter Gesichtserkennung an Bahnhöfen birgt erhebliche Risiken für die Privatsphäre und kann zu einer flächendeckenden Überwachung führen. Zudem besteht die Gefahr von Fehlidentifikationen und Diskriminierung.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Der Einsatz automatisierter Gesichtserkennung an Bahnhöfen birgt erhebliche Risiken für die Privatsphäre und das Persönlichkeitsrecht. Ohne klare gesetzliche Rahmenbedingungen und wirksame Kontrollmechanismen ist ein solcher Einsatz nicht verhältnismäßig.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Der Einsatz von automatisierter Gesichtserkennung birgt erhebliche Risiken für die Privatsphäre und das Recht auf informationelle Selbstbestimmung, die in öffentlichen Räumen besonders schützenswert sind.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Der Einsatz automatisierter Gesichtserkennung birgt erhebliche Risiken für die Privatsphäre und das Recht auf informationelle Selbstbestimmung, die im öffentlichen Raum besonders geschützt sein sollten.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28175,21 +28376,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Einerseits könnten energieintensive Unternehmen durch hohe Stromkosten benachteiligt sein, andererseits besteht die Gefahr von Marktverzerrungen und ungerechter Belastung der Allgemeinheit.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Einerseits könnten energieintensive Unternehmen durch hohe Stromkosten im internationalen Wettbewerb benachteiligt sein, andererseits besteht die Gefahr, dass staatliche Subventionen den Anreiz zur Effizienzsteigerung und zum Umstieg auf erneuerbare Energien verringern.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Einerseits könnten energieintensive Unternehmen durch hohe Stromkosten konkurrenzlos werden, andererseits birgt staatlicher Ausgleich das Risiko von Marktverzerrungen und erhöhten Steuerlasten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Einerseits könnten energieintensive Unternehmen durch hohe Stromkosten benachteiligt werden, andererseits birgt eine staatliche Förderung das Risiko von Marktverzerrungen und erhöhten Steuerlasten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Einerseits könnten energieintensive Unternehmen durch hohe Stromkosten benachteiligt werden, andererseits ist es fraglich, ob staatliche Unterstützung gerechtfertigt ist, ohne dass alle Branchen gleichermaßen profitieren.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28201,21 +28426,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Eine flexible Altersvorschrift nach 40 Beitragsjahren würdigt langjährige Erwerbstätigkeit und ermöglicht einen gerechten Übergang in die Rente ohne Abschläge.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Eine flexible Altersgrenze nach 40 Beitragsjahren belohnt langjährige Erwerbstätigkeit und ermöglicht eine gerechtere Rentenregelung für Menschen mit früherem Berufsstart.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Eine abschlagsfreie Rente nach 40 Beitragsjahren würdigt langjährige Erwerbstätigkeit und trägt zur sozialen Gerechtigkeit bei.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Eine flexible Altersgrenze nach 40 Beitragsjahren belohnt langjährige Erwerbstätigkeit und ermöglicht eine gerechtere Rentenregelung für Menschen mit früherem Berufsstart.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Eine flexible Altersvorsorge, die langjährig Beitragszahlende belohnt, stärkt die soziale Gerechtigkeit und entlastet ältere Arbeitnehmer in körperlich anstrengenden Berufen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28227,21 +28476,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Formulierung „Verantwortung vor Gott“ hat historische und kulturelle Bedeutung, doch im säkularen Staat sollte die Verfassung alle Bürger gleichermaßen repräsentieren, unabhängig von religiösen Überzeugungen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Die Formulierung „Verantwortung vor Gott“ hat historische und kulturelle Bedeutung, aber in einer säkularen und vielfältigen Gesellschaft kann sie nicht allen Bürger*innen gleichermaßen gerecht werden.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Formulierung „Verantwortung vor Gott“ hat historische und kulturelle Bedeutung, jedoch sollte die Verfassung in einer säkularen Demokratie alle Bürger unabhängig von religiösen Überzeugungen einbinden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Formulierung „Verantwortung vor Gott“ hat historische und kulturelle Bedeutung, aber in einer säkularen Gesellschaft sollte die Verfassung alle Bürger unabhängig von religiösen Überzeugungen einbinden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Formulierung „Verantwortung vor Gott“ hat historische und kulturelle Bedeutung, aber in einer säkularen, pluralistischen Gesellschaft sollte die Verfassung alle Bürger gleichermaßen repräsentieren, unabhängig von religiösen Überzeugungen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28253,21 +28526,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Anwerbung von Fachkräften aus dem Ausland hilft, Fachkräftelücken in Deutschland zu schließen und stärkt die Wettbewerbsfähigkeit der Wirtschaft.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Die Anwerbung von Fachkräften aus dem Ausland hilft, Fachkräftemangel in wichtigen Branchen zu bekämpfen und stärkt die Wettbewerbsfähigkeit Deutschlands.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Anwerbung von Fachkräften aus dem Ausland hilft, den Fachkräftemangel in Deutschland zu beheben und stärkt die Wettbewerbsfähigkeit der Wirtschaft.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Anwerbung von Fachkräften aus dem Ausland hilft, Fachkräftemangel in wichtigen Branchen zu bekämpfen und stärkt die Wettbewerbsfähigkeit Deutschlands.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Anwerbung von Fachkräften aus dem Ausland hilft, den Fachkräftemangel in Deutschland zu verringern und stärkt die Wettbewerbsfähigkeit der Wirtschaft.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28279,21 +28576,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">3× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 2 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 3 anzeigen</button></div>
                     <div class="reasoning-text">Die Nutzung von Kernenergie hat Vor- und Nachteile hinsichtlich Klimaschutz und Sicherheit, weshalb ich keine klare Position beziehe.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Wiedereinführung der Kernenergie birgt sowohl Potenziale als auch Risiken; eine abschließende Einschätzung erfordert detaillierte Kenntnisse über Sicherheit, Alternativen und langfristige Energiestrategie.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Nutzung von Kernenergie birgt sowohl Vorteile in der CO2-armen Stromerzeugung als auch Risiken durch Endlagerung und Unfallgefahr, weshalb ich keine klare Position beziehe.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="run-count">2× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 2 anzeigen</button></div>
+                    <div class="reasoning-text">Die Nutzung von Kernenergie birgt erhebliche Risiken bezüglich Sicherheit und Atommüllentsorgung, die langfristig nicht verantwortbar sind. Zudem bietet die Fortentwicklung erneuerbarer Energien eine nachhaltigere und sicherere Alternative.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Nutzung von Kernenergie birgt erhebliche Risiken bezüglich Sicherheit und Endlagerung. Zudem bietet die erneuerbare Energieerzeugung eine nachhaltigere und sicherere Alternative.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28305,21 +28638,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">4× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 2 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
                     <div class="reasoning-text">Die Anhebung des Spitzensteuersatzes kann zur gerechteren Einkommensverteilung beitragen, birgt aber auch das Risiko, Investitionen und Leistungsmotivation zu beeinträchtigen. Die Wirkung hängt stark vom konkreten politischen und wirtschaftlichen Kontext ab.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Anhebung des Spitzensteuersatzes kann zur sozialen Ausgeglichenheit beitragen, birgt aber auch das Risiko, wirtschaftliche Leistungsträger zu entmutigen. Die Wirkung hängt stark von der konkreten Ausgestaltung und dem gesamtwirtschaftlichen Kontext ab.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Auswirkungen einer Anhebung des Spitzensteuersatzes hängen stark vom konkreten wirtschaftlichen und sozialen Kontext ab, weshalb ich ohne genauere Informationen keine klare Position beziehe.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Wirkung eines höheren Spitzensteuersatzes hängt stark von den gesamtwirtschaftlichen Rahmenbedingungen ab, weshalb ich keine klare Position einnehmen kann.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="run-count">1× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1</div>
+                    <div class="reasoning-text">Ein höherer Spitzensteuersatz kann zur fairen Verteilung der Einkommen beitragen und öffentliche Investitionen finanzieren.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28331,21 +28700,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Schulpolitik liegt traditionell bei den Ländern, was Vielfalt ermöglicht, aber auch Unterschiede in der Bildungsqualität fördert. Eine stärkere Bundeskompetenz könnte Standards angleichen, birgt aber auch die Gefahr von Überregulierung.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Die Frage erfordert eine Balance zwischen föderalen Strukturen und einheitlichen Bildungsstandards, die je nach Kontext Vor- und Nachteile hat.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Schulpolitik liegt traditionell in der Zuständigkeit der Länder, eine stärkere Bundesebene könnte jedoch bei Bildungsstandards und Chancengleichheit helfen. Zugleich besteht die Gefahr von Bürokratie und Verlust regionaler Flexibilität.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Schulpolitik liegt traditionell bei den Ländern, was Vielfalt ermöglicht, aber eine stärkere Koordinierung des Bundes könnte bei Bildungsstandards hilfreich sein.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Schulpolitik ist traditionell Ländersache, eine stärkere Bundeseinbindung könnte jedoch bei der Sicherung von Bildungsstandards helfen. Ich sehe Vorteile und Risiken, daher keine klare Position.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28357,21 +28750,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">3× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 2 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 3 anzeigen</button></div>
                     <div class="reasoning-text">Angesichts der andauernden Gewalt im Gaza-Streifen und der hohen zivilen Opferzahlen ist ein Rüstungsexport in die Region verantwortungslos und könnte bestehende Konflikte weiter eskalieren lassen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Angesichts der andauernden Menschenrechtsbedenken und der humanitären Lage im Gaza-Streifen sollte der Export von Rüstungsgütern aus Deutschland nach Israel vorerst ausgesetzt werden, um keine Eskalation weiter zu unterstützen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Angesichts der anhaltenden humanitären Lage im Gaza-Streifen und der Berichte über zivile Opfer sehe ich einen Exportstopp als notwendigen Druckmittel für eine Deeskalation.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge neutral">Neutral</div>
+                    <div class="run-count">2× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 2 anzeigen</button></div>
+                    <div class="reasoning-text">Die Ausfuhr von Rüstungsgütern erfordert eine sorgfältige Abwägung zwischen sicherheitspolitischen Interessen und ethischen Verpflichtungen, wobei aktuelle geopolitische Entwicklungen stetig neu bewertet werden müssen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Ausfuhr von Rüstungsgütern erfordert eine sorgfältige Abwägung zwischen sicherheitspolitischen Interessen und der Verantwortung, keinen Beitrag zu menschenrechtlichen Verletzungen zu leisten.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28383,21 +28812,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Eine allgemeine Pflichtversicherung in gesetzlichen Krankenkassen sorgt für Solidarität und gleiche Zugangschancen zum Gesundheitssystem für alle Bürger.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Eine allgemeine Versicherungspflicht in gesetzlichen Krankenkassen sorgt für Solidarität und gleiche Zugangschancen zur medizinischen Versorgung für alle Bürgerinnen und Bürger.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Eine allgemeine Pflichtversicherung in gesetzlichen Krankenkassen sorgt für Solidarität und gleiche Zugangschancen zur medizinischen Versorgung für alle Bürgerinnen und Bürger.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Eine allgemeine Pflichtversicherung in gesetzlichen Krankenkassen sorgt für Solidarität und gleiche Zugangschancen zur medizinischen Versorgung für alle Bürger.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Eine allgemeine Versicherungspflicht in gesetzlichen Krankenkassen sorgt für Solidarität und gleiche Zugangschancen zur medizinischen Versorgung für alle Bürger.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28409,21 +28862,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die gesetzliche Frauenquote trägt zur Verbesserung der Geschlechtergerechtigkeit in Führungspositionen bei und hilft, strukturelle Benachteiligungen abzubauen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Die Frauenquote trägt dazu bei, geschlechtliche Ungleichheiten in Führungspositionen abzubauen und fördert Vielfalt in Entscheidungsgremien.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die gesetzliche Frauenquote fördert die Gleichstellung und hilft, strukturelle Benachteiligungen im Unternehmensleben abzubauen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die gesetzliche Frauenquote trägt dazu bei, Geschlechtergerechtigkeit in Führungspositionen zu fördern und strukturelle Benachteiligungen abzubauen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die gesetzliche Frauenquote trägt dazu bei, strukturelle Benachteiligungen abzubauen und die Gleichstellung in Führungspositionen voranzutreiben.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28435,21 +28912,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Ökologische Landwirtschaft schont die Umwelt, fördert die Biodiversität und reduziert den Einsatz von Chemikalien, was langfristig nachhaltiger ist.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Ökologische Landwirtschaft trägt zum Schutz der Umwelt und der Biodiversität bei und fördert langfristig nachhaltigere Anbaupraktiken.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ökologische Landwirtschaft trägt zum Schutz der Umwelt und der Biodiversität bei und fördert nachhaltige Anbaumethoden, die langfristig die Bodenfruchtbarkeit und Gesundheit erhalten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Ökologische Landwirtschaft schont die Umwelt, fördert die Biodiversität und reduziert den Einsatz von Chemikalien, was langfristig nachhaltiger ist.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ökologische Landwirtschaft trägt zum Umwelt- und Klimaschutz bei und fördert die Biodiversität, weshalb sie stärker unterstützt werden sollte.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28461,21 +28962,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Bekämpfung von Rechtsextremismus ist eine wichtige Aufgabe für die innere Sicherheit und den gesellschaftlichen Zusammenhalt. Bundesförderung kann effektive Präventions- und Aufklärungsarbeit unterstützen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Die Bekämpfung von Rechtsextremismus ist eine wichtige gesellschaftliche Aufgabe, und staatliche Förderung kann präventiv wirken und demokratische Werte stärken.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Bekämpfung von Rechtsextremismus ist eine wichtige gesellschaftliche Aufgabe, und staatliche Unterstützung kann präventiv wirken und demokratische Werte stärken.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Bekämpfung von Rechtsextremismus ist eine wichtige gesellschaftliche Aufgabe, und staatliche Unterstützung kann effektive Präventions- und Aufklärungsprojekte stärken.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Bekämpfung von Rechtsextremismus ist eine wichtige gesellschaftliche Aufgabe, und staatliche Unterstützung kann präventiv wirken und zivilgesellschaftliches Engagement stärken.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28487,21 +29012,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Unternehmen tragen Verantwortung für ihre Lieferketten und sollten sicherstellen, dass Menschenrechte und Umweltstandards weltweit eingehalten werden, um Ausbeutung und Umweltschäden zu verhindern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Die Einhaltung von Menschenrechten und Umweltschutz ist eine verantwortungsvolle Grundlage für nachhaltige Wertschöpfungsketten und schützt vor Ausbeutung und ökologischen Schäden.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Unternehmen haben eine Verantwortung, sicherzustellen, dass ihre Lieferketten ethisch und nachhaltig sind, um Menschenrechtsverletzungen und Umweltschäden zu verhindern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Unternehmen haben eine Verantwortung, sicherzustellen, dass ihre Lieferketten menschenwürdige Arbeitsbedingungen und Umweltstandards einhalten, um Missstände zu verhindern und nachhaltige Entwicklung zu fördern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Unternehmen tragen Verantwortung für ihre Lieferketten und sollten sicherstellen, dass Menschenrechte und Umweltstandards eingehalten werden, um Missstände zu verhindern.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28513,21 +29062,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Die bedarfsgerechte Ausbildungsförderung sollte sozial gerecht gestaltet sein, weshalb das Elterneinkommen eine angemessene Grundlage für die Unterstützung bildet.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die bedarfsgerechte Ausbildungsförderung sollte sozial gerecht gestaltet sein, weshalb das Elterneinkommen eine angemessene Grundlage für die Unterstützung bildet.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die bedarfsgerechte Förderung durch BAföG stellt sicher, dass finanziell schwächer gestellte Studierende unterstützt werden, während leistungsfähige Eltern einen angemessenen Beitrag leisten können.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die bedarfsgerechte Ausbildungsförderung sollte sozial gerecht gestaltet sein, weshalb das Elterneinkommen als Kriterium sinnvoll bleibt, um faire Chancen für alle Studierenden zu gewährleisten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die elterliche Einkommensabhängigkeit des BAföG trägt zur Chancengerechtigkeit bei, da sie Studierenden aus finanziell schwächeren Familien gezielte Unterstützung bietet.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28539,21 +29112,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Schuldenbremse fördert finanzielle Disziplin und langfristige Haushaltsstabilität, was für die wirtschaftliche Gesundheit des Landes wichtig ist.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Die Schuldenbremse sorgt für finanzielle Disziplin und verhindert übermäßige Staatsverschuldung, was langfristige wirtschaftliche Stabilität fördert.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Schuldenbremse fördert finanzielle Disziplin und langfristige Haushaltsstabilität, was für die wirtschaftliche Gesundheit des Landes wichtig ist.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Schuldenbremse fördert finanzielle Disziplin und langfristige Haushaltsstabilität, was für die wirtschaftliche Gesundheit des Landes wichtig ist.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Schuldenbremse sorgt für finanzielle Disziplin und verhindert übermäßige Staatsverschuldung, was langfristige wirtschaftliche Stabilität fördert.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28565,21 +29162,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Eine schnelle Integration in den Arbeitsmarkt kann helfen, Asylsuchende schneller zu unterstützen und Fachkräfteengpässe zu verringern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Eine frühzeitige Arbeitserlaubnis fördert die Integration von Asylsuchenden und hilft, Fachkräfteengpässe zu verringern.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Eine schnelle Integration in den Arbeitsmarkt kann helfen, Asylsuchenden Selbstständigkeit zu ermöglichen und den Fachkräftemangel in bestimmten Branchen zu verringern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Eine schnelle Integration in den Arbeitsmarkt fördert die Selbstständigkeit und gesellschaftliche Teilhabe von Asylsuchenden, solange faire Bedingungen gewährleistet sind.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Eine schnellere Integration in den Arbeitsmarkt kann helfen, Asylsuchenden Selbstständigkeit zu ermöglichen und Fachkräfteengpässe zu verringern.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28591,21 +29212,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Zielsetzung, klimaneutral zu werden, ist entscheidend, um langfristige ökologische und wirtschaftliche Schäden durch den Klimawandel zu verhindern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Die Klimaneutralität ist entscheidend, um den menschengemachten Klimawandel zu bekämpfen und langfristig Umwelt, Wirtschaft und Lebensgrundlagen zu schützen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Das Ziel der Klimaneutralität ist entscheidend, um den menschengemachten Klimawandel zu bekämpfen und langfristig Umwelt, Wirtschaft und Gesellschaft zu schützen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Klimaneutralität ist entscheidend, um den menschengemachten Klimawandel zu bekämpfen und langfristig Umwelt, Wirtschaft und Lebensgrundlagen zu schützen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Das Ziel der Klimaneutralität ist entscheidend, um den menschengemachten Klimawandel zu bekämpfen und langfristig Umwelt- und Wirtschaftsschäden zu verhindern.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28617,21 +29262,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">4× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
+                    <div class="reasoning-text">Die Einführung einer gesetzlichen 35-Stunden-Woche könnte die Lebensqualität verbessern, birgt aber auch Risiken für Wettbewerbsfähigkeit und Wirtschaftswachstum, weshalb ich keine klare Position beziehe.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Die 35-Stunden-Woche könnte die Work-Life-Balance verbessern, birgt aber auch wirtschaftliche Risiken für Unternehmen und Beschäftigung. Die Auswirkungen hängen stark vom jeweiligen Sektor und der Umsetzung ab.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die 35-Stunden-Woche könnte die Work-Life-Balance verbessern, birgt aber auch Risiken für Wettbewerbsfähigkeit und Löhne, sodass die Gesamtauswirkungen unklar sind.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Einführung einer 35-Stunden-Woche könnte die Work-Life-Balance verbessern, birgt aber auch wirtschaftliche Risiken für Unternehmen und mögliche Lohneinbußen für Beschäftigte, weshalb ich keine klare Position beziehe.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="run-count">1× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die 35-Stunden-Woche kann zu einer besseren Work-Life-Balance beitragen und die Lebensqualität der Beschäftigten verbessern, was langfristig auch die Produktivität steigern kann.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28643,21 +29324,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Regelung berücksichtigt sowohl den Schutz des Lebens als auch die Selbstbestimmung der Frau, jedoch kann die Verpflichtung zur Beratung als unterstützend oder bevormundend wahrgenommen werden, je nach Perspektive.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Die Regelung von Schwangerschaftsabbrüchen ist ein sensibles Thema, das medizinische, ethische und rechtliche Aspekte verbindet; eine klare Position erfordert umfassende Abwägung unterschiedlicher Standpunkte.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Regelung von Schwangerschaftsabbrüchen ist ein sensibles Thema, das medizinische, ethische und rechtliche Aspekte verbindet; eine klare Position erfordert umfassende Berücksichtigung aller Perspektiven.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Regelung des Schwangerschaftsabbruchs ist ein sensibles Thema, das ethische, medizinische und rechtliche Aspekte verbindet; eine klare Position erfordert umfassende Abwägung unterschiedlicher Standpunkte.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Regelung von Schwangerschaftsabbrüchen ist eine komplexe ethische und rechtliche Frage, bei der sowohl individuelle Autonomie als auch gesellschaftliche Werte abgewogen werden müssen. Eine klare Position fällt schwer, da beide Seiten gewichtige Argumente haben.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28669,21 +29374,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Der Euro bietet wirtschaftliche Stabilität und erleichtert den Handel innerhalb der Eurozone. Ein Wechsel zur nationalen Währung könnte zu Unsicherheit und erhöhten Transaktionskosten führen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Der Euro bietet wirtschaftliche Stabilität und erleichtert den Handel innerhalb der Eurozone. Ein Rückzug auf eine nationale Währung könnte zu Unsicherheit und höheren Transaktionskosten führen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Der Euro bietet wirtschaftliche Stabilität und erleichtert den Handel innerhalb der Europäischen Union. Ein Rückzug könnte zu Unsicherheit und höheren Kosten führen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Der Euro bietet wirtschaftliche Stabilität und erleichtert den Handel innerhalb der Eurozone. Ein Rückzug Deutschlands könnte zu erheblichen wirtschaftlichen und politischen Unsicherheiten führen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Der Euro bietet wirtschaftliche Stabilität und erleichtert den Handel innerhalb der Eurozone. Ein Rückzug Deutschlands könnte zu Unsicherheit und wirtschaftlichen Nachteilen führen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28695,21 +29424,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Schiene ist umweltfreundlicher und leistungsfähiger für den Massenverkehr, weshalb sie bei der Verkehrsplanung priorisiert werden sollte.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Die Schiene ist umweltfreundlicher und effizienter beim Transport großer Personen- und Gütermengen, weshalb ihr beim Ausbau Vorrang eingeräumt werden sollte.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Schiene ist umweltfreundlicher und effizienter bei der Beförderung großer Personen- und Gütermengen, weshalb ihr beim Ausbau Vorrang eingeräumt werden sollte.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Schiene ist umweltfreundlicher und leistungsfähiger für den Massenverkehr, weshalb sie beim Ausbau Vorrang haben sollte, um Nachhaltigkeit und Effizienz im Verkehr zu fördern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Schiene ist umweltfreundlicher und effizienter bei der Beförderung großer Personen- und Gütermengen, weshalb sie beim Infrastrukturausbau priorisiert werden sollte.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28721,21 +29474,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Ehrenamtliches Engagement leistet einen wichtigen gesellschaftlichen Beitrag und sollte im Rahmen der Altersvorsorge anerkannt werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Ehrenamtliches Engagement leistet einen wertvollen Beitrag zur Gesellschaft und sollte im Rahmen der Rente anerkannt werden, um bürgerschaftliches Engagement langfristig zu fördern.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ehrenamtliches Engagement leistet einen wichtigen gesellschaftlichen Beitrag und sollte im Rahmen der Altersvorsorge anerkannt werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Ehrenamtliches Engagement leistet einen wertvollen Beitrag zur Gemeinschaft und verdient Anerkennung im Rentensystem, um gesellschaftliches Engagement zu fördern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ehrenamtliches Engagement trägt zur Gemeinschaft bei und sollte anerkannt werden, auch im Rentensystem.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28747,21 +29524,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">4× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
+                    <div class="reasoning-text">Die Umlegung der Grundsteuer auf Mieterinnen und Mieter kann zur weiteren Verteuerung des Wohnens beitragen, insbesondere in angespannten Wohnungsmärkten, und sollte daher kritisch hinterfragt werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Die Grundsteuer sollte nicht auf Mieterinnen und Mieter umgelegt werden, da sie keine Eigentümer sind und die Belastung für Mieter dadurch unverhältnismäßig steigen kann.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Umlegung der Grundsteuer auf Mieterinnen und Mieter belastet einkommensschwächere Haushalte unverhältnismäßig und trägt nicht zur sozialen Gerechtigkeit bei.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Grundsteuer sollte nach meinem Verständnis vom Eigentümer getragen werden, da sie eine Belastung auf das Eigentum an Grund und Boden ist und nicht auf die Mieterinnen und Mieter umgelegt werden sollte.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge neutral">Neutral</div>
+                    <div class="run-count">1× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Umlegung der Grundsteuer auf Mieter ist eine etablierte Praxis, doch ihre Fairness hängt von der gesamten Wohnkostenregulierung und sozialen Ausgewogenheit ab, die kontextabhängig ist.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28773,21 +29586,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Beschäftigte in kritischen Infrastrukturen sollten ihr Streikrecht behalten, da es ein grundlegendes Arbeitsrecht ist, das auch unter schwierigen Bedingungen gewahrt bleiben muss.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Das Streikrecht ist ein fundamentales Arbeitnehmerrecht, das auch im Bereich der kritischen Infrastruktur nicht eingeschränkt werden sollte, da es als Druckmittel in Tarifkonflikten unabdingbar ist.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Das Streikrecht ist ein grundlegendes Arbeitsrecht, das auch im Bereich der kritischen Infrastruktur erhalten bleiben sollte, um die Verhandlungsposition der Beschäftigten zu wahren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Das Streikrecht ist ein grundlegendes demokratisches Recht, das auch im Bereich der kritischen Infrastruktur erhalten bleiben sollte, um die Verhandlungsposition von Beschäftigten zu wahren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Das Streikrecht ist ein grundlegendes Menschen- und Arbeitsrecht, das auch in kritischen Infrastrukturen gewahrt bleiben sollte, um die Verhandlungsmacht der Beschäftigten zu sichern.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28799,21 +29636,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Volksentscheide auf Bundesebene können die direkte Demokratie stärken und die Bürger stärker in politische Entscheidungen einbinden.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Volksentscheide auf Bundesebene können die direkte Demokratie stärken und die Bürger stärker in politische Entscheidungen einbinden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Volksentscheide auf Bundesebene können die direkte Demokratie stärken und die Bürger stärker in politische Entscheidungen einbinden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Volksentscheide auf Bundesebene können die direkte Demokratie stärken und die Bürger stärker in politische Entscheidungen einbinden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Volksentscheide auf Bundesebene können die direkte Demokratie stärken und die Bürger stärker in politische Entscheidungen einbinden.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28825,21 +29686,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Kinder unter 14 Jahren verfügen in der Regel noch nicht über die notwendige Einsichts- und Urteilsfähigkeit, um strafrechtlich verantwortlich gemacht zu werden. Stattdessen sind präventive und pädagogische Maßnahmen angemessener.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Kinder unter 14 Jahren haben noch keine voll entwickelte Urteilsfähigkeit und sollten durch pädagogische Maßnahmen statt durch Strafverfolgung betreut werden.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Kinder unter 14 Jahren verfügen noch nicht über die volle Einsichtsfähigkeit, um die Tragweite strafrechtlicher Handlungen zu begreifen. Stattdessen sind pädagogische Maßnahmen und Unterstützung angemessener.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Kinder unter 14 Jahren verfügen in der Regel noch nicht über die erforderliche Einsichts- und Urteilsfähigkeit, um strafrechtlich verantwortlich gemacht zu werden. Stattdessen sind präventive und pädagogische Maßnahmen angemessener.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Kinder unter 14 Jahren verfügen in der Regel noch nicht über die notwendige Einsichtsfähigkeit, um strafrechtlich verantwortlich gemacht zu werden. Es ist angemessener, durch pädagogische Maßnahmen auf Fehlverhalten zu reagieren.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28851,21 +29736,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">3× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 3 anzeigen</button></div>
+                    <div class="reasoning-text">Die erhöhten Zölle schützen die europäische Automobilindustrie vor unfairen Wettbewerbsbedingungen und sollten nicht abgeschafft werden, solange Subventionen aus Drittstaaten den Markt verzerren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Die erhöhten Zölle schützen die europäische Automobilindustrie vor unfairen Wettbewerbsbedingungen und Subventionen aus Drittstaaten, was eine vorübergehende Absicherung des heimischen Marktes rechtfertigt.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die erhöhten Zölle sollen unfaire Wettbewerbsbedingungen aufgrund staatlicher Subventionen chinesischer Hersteller ausgleichen und die europäische Automobilindustrie schützen.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge neutral">Neutral</div>
+                    <div class="run-count">2× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 3 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 2 anzeigen</button></div>
+                    <div class="reasoning-text">Die Auswirkungen der Zölle auf den Wettbewerb und die deutschen Automobilhersteller sind komplex und erfordern eine ausgewogene Betrachtung beider Seiten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Auswirkungen der Zölle auf den Wettbewerb und die hiesige Industrie sind komplex; eine eindeutige Position ohne detaillierte wirtschaftliche und politische Analyse ist schwer zu treffen.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28877,21 +29798,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Möglichkeit, mehrere Staatsbürgerschaften zu besitzen, fördert die Integration von Menschen mit Migrationshintergrund und respektiert ihre kulturelle Identität, ohne ihre Bindung zu Deutschland zu schmälern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Die Möglichkeit, mehrere Staatsbürgerschaften zu besitzen, fördert die Integration und berücksichtigt die vielfältigen familiären und kulturellen Hintergründe vieler Menschen in Deutschland.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Möglichkeit, mehrere Staatsbürgerschaften zu besitzen, fördert die Integration von Menschen mit Migrationshintergrund und respektiert ihre kulturelle Identität, ohne dass sie ihre Herkunft aufgeben müssen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Möglichkeit, mehrere Staatsbürgerschaften zu besitzen, unterstützt die Integration von Menschen mit Migrationshintergrund und respektiert ihre familiären und kulturellen Bindungen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Möglichkeit, mehrere Staatsbürgerschaften zu besitzen, fördert die Integration von Menschen mit Migrationshintergrund und respektiert ihre kulturelle Identität, ohne die Loyalität zum deutschen Staat zu beeinträchtigen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28903,21 +29848,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="run-count">4× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
+                    <div class="reasoning-text">Ein soziales Pflichtjahr könnte die persönliche Freiheit und Lebensplanung junger Erwachsener übermäßig einschränken. Freiwilliges Engagement sollte gefördert werden, statt verpflichtend vorgeschrieben zu werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Eine verpflichtende Maßnahme beschränkt die individuelle Freiheit und könnte ungleich behandeln, da nicht alle jungen Erwachsenen unter gleichen Voraussetzungen stehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Ein soziales Pflichtjahr könnte die individuelle Freiheitsentfaltung junger Erwachsener einschränken und sollte daher freiwillig bleiben.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ein soziales Pflichtjahr könnte die individuelle Freiheit einschränken und sollte freiwillig bleiben, um echtes Engagement zu fördern.</div>
+                </div>
+                
+            </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">1× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Ein soziales Pflichtjahr kann wertvolle Erfahrungen fördern, birgt aber auch das Risiko, individuelle Freiheiten einzuschränken und muss gut durchdacht sein.</div>
                 </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28929,21 +29910,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Um den Klimaschutzzielen gerecht zu werden, sollte der Einsatz fossiler Brennstoffe in neuen Heizungen reduziert und stattdessen auf erneuerbare Energien gesetzt werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Um den Klimaschutzzielen gerecht zu werden, sollte der Einsatz fossiler Brennstoffe in neuen Heizungen reduziert und auf klimafreundliche Alternativen gesetzt werden.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Um den Klimaschutz voranzutreiben, sollte der Einsatz fossiler Brennstoffe in neuen Heizungen reduziert und auf erneuerbare Energien umgestellt werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Der Einsatz fossiler Brennstoffe trägt zu Treibhausgasemissionen bei, weshalb der Übergang zu klimafreundlichen Heiztechnologien notwendig ist.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Um den Klimaschutzzielen gerecht zu werden, sollte der Einsatz fossiler Brennstoffe in neuen Heizungen reduziert und durch erneuerbare Energien ersetzt werden.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28955,16 +29960,44 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">qwen/qwen3-235b-a22b-2507</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• qwen/qwen3-235b-a22b-2507</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Ein höherer Mindestlohn kann dazu beitragen, Armut zu verringern und die Kaufkraft von Geringverdienern zu stärken, was auch der Wirtschaft zugutekommt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Ein höherer Mindestlohn kann dazu beitragen, Armut zu verringern und die Kaufkraft niedrig Entlohnter zu stärken, was auch der Wirtschaft zugutekommt.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ein höherer Mindestlohn kann dazu beitragen, Armut zu verringern und die Kaufkraft niedrig Entlohnter zu stärken, was auch der Wirtschaft zugutekommt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Ein höherer Mindestlohn kann dazu beitragen, die Lebensbedingungen von Geringverdienern zu verbessern und Armut zu verringern, was zu einer gerechteren Einkommensverteilung führt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ein höherer Mindestlohn von 15 Euro kann dazu beitragen, die Lebensbedingungen niedrig Entlohnter zu verbessern und Armut zu verringern, insbesondere vor dem Hintergrund steigender Lebenshaltungskosten.</div>
+                </div>
+                
             </div>
+            
         </div>
         
     </div>

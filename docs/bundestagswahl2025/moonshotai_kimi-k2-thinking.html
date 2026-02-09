@@ -116,6 +116,19 @@
         .reasoning-header { font-size: 13px; color: var(--text-secondary); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.3px; }
         .reasoning-text { color: var(--text-primary); line-height: 1.7; }
 
+        /* Run count badge */
+        .run-count { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+
+        /* Multiple answer sections per question */
+        .answer-section + .answer-section { margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border-color); }
+
+        /* Collapsible duplicate reasonings */
+        .reasoning-extra { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px dotted var(--border-color); }
+        .answer-section.show-all .reasoning-extra { display: block; }
+        .toggle-runs { background: none; border: 1px solid var(--border-color); color: var(--link-color); font-size: 12px; padding: 2px 8px; cursor: pointer; margin-left: 8px; border-radius: 3px; }
+        .toggle-runs:hover { background: var(--bg-hover); }
+        .answer-section.show-all .toggle-runs::after { content: ''; }
+
         /* Filter label */
         .filter-label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: var(--text-secondary); }
         .filter-label input { cursor: pointer; }
@@ -28012,10 +28025,6 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
 
     <div class="question-list">
         
-        
-            
-            
-        
         <div class="question-card">
             <div class="question-header">
                 <div class="question-number">Frage 1</div>
@@ -28026,21 +28035,47 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">{
+  &#34;answer&#34;: &#34;Neutral&#34;,
+  &#34;reasoning&#34;: &#34;Diese Frage erfordert eine politische Wertung, die als KI nicht vorzunehmen ist. Es gibt komplexe strategische und ethische Argumente für beide Position</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
                     <div class="reasoning-text">Diese Frage erfordert eine komplexe politische Bewertung mit mehreren legitimen Positionen.</div>
                 </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28052,21 +28087,47 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">{
+  &#34;answer&#34;: &#34;Neutral&#34;,
+  &#34;reasoning&#34;: &#34;Als</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28078,21 +28139,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28104,21 +28189,59 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">4× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 2 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="run-count">1× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1</div>
+                    <div class="reasoning-text">{
+  &#34;answer&#34;: &#34;Stimme zu&#34;,
+  &#34;reasoning&#34;: &#34;Ein generelles Tempolimit verbessert die Verkehrssicherheit und reduziert erheblich den CO2-Ausstoß. Es schafft außerd</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28130,21 +28253,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28156,21 +28303,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28182,21 +28353,57 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">4× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="run-count">1× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Massenüberwachung durch automatisierte Gesichtserkennung gefährdet Grundrechte und ist verhältnismäßigkeitsbedenklich bei unklarem Sicherheitsnutzen.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28208,21 +28415,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28234,21 +28465,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28260,21 +28515,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28286,21 +28565,47 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">{
+  &#34;answer&#34;: &#34;Neutral&#34;,
+  &#34;reasoning&#34;: &#34;Dies erfordert eine Abwägung zwischen dem wirtschaftlichen Bedarf an F</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28312,21 +28617,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
                     <div class="reasoning-text">Die Entscheidung erfordert Abwägung zwischen Klimazielen, Sicherheitsbedenken und Atommüllproblematik, die ich als KI nicht final bewerten kann.</div>
                 </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28338,21 +28667,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI habe ich keine politischen Präferenzen. Eine Anhebung kann sowohl für mehr Gerechtigkeit als auch für Wettbewerbseffekte argumentiert werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI habe ich keine persönliche politische Positionierung zu Steuerpolitik.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI habe ich keine politischen Präferenzen und kann keine fundierte Position zu Steuerpolitik vertreten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28364,21 +28717,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28390,21 +28767,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28416,21 +28817,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28442,21 +28867,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28468,21 +28917,46 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">{
+  &#34;answer&#34;:</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28494,21 +28968,61 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">3× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 3 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="run-count">2× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 2 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 2 anzeigen</button></div>
+                    <div class="reasoning-text">{
+  &#34;answer&#34;: &#34;Stimme zu&#34;,
+  &#34;reasoning&#34;: &#34;Rechtsextremismus bedroht die demokratische Grundordnung und die Menschenwürde. Pr</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">{
+  &#34;answer&#34;: &#34;Stimme zu&#34;,
+  &#34;reasoning&#34;: &#34;Rechtsextremismus bedroht die demokratische Gesellschaft. Eine verst</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28520,21 +29034,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28546,21 +29084,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28572,21 +29134,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI habe ich keine persönliche politische Meinung zu dieser kontroversen wirtschaftspolitischen Frage.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28598,21 +29184,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28624,21 +29234,61 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">3× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 3 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 3 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="run-count">2× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 2 anzeigen</button></div>
+                    <div class="reasoning-text">{
+  &#34;answer&#34;: &#34;Stimme nicht zu&#34;,
+  &#34;reasoning&#34;: &#34;Klimaneutralität ist essenziell zur Begrenzung der globalen Erwärmung und zur Einhaltung internationaler Verpflichtungen sowie zur Sicherung einer lebenswerten Zukunft.&#34;</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">{
+  &#34;answer&#34;: &#34;Stimme nicht zu&#34;,
+  &#34;reasoning&#34;: &#34;Klimaneutralität ist essentiell zur Minderung des Klimawandels und zur Einhaltung international</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28650,21 +29300,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28676,21 +29350,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28702,21 +29400,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28728,21 +29450,57 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">4× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="run-count">1× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Schiene ist klimafreundlicher und effizienter für Massentransport. Priorisierung beim Ausbau ist sinnvoll für die Verkehrswende.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28754,21 +29512,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28780,21 +29562,57 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge neutral">Neutral</div>
+                    <div class="run-count">4× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+            </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">1× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 5</div>
                     <div class="reasoning-text">Die Grundsteuer ist eine Steuer auf Eigentum und sollte vom Eigentümer getragen werden. Die Umlage auf Mieter erhöht ungerechtfertigt die Wohnkosten.</div>
                 </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28806,21 +29624,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28832,21 +29674,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28858,21 +29724,57 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">4× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 2 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="run-count">1× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1</div>
+                    <div class="reasoning-text">Kinder unter 14 Jahren sind entwicklungsbedingt noch nicht voll schuldfähig. Pädagogische und sozialpädagogische Maßnahmen sind wirksamer als Strafrecht.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28884,22 +29786,46 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
                     <div class="reasoning-text">{
   &#34;answer&#34;: &#34;Neutral&#34;,</div>
                 </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28911,21 +29837,59 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">4× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="run-count">1× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">{
+  &#34;answer&#34;: &#34;Stimme zu&#34;,
+  &#34;reasoning&#34;: &#34;Die doppelte Staatsbürgerschaft fördert Integration und vermeidet, dass Menschen sich zwischen ihrer Herkunft und</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28937,21 +29901,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Sowohl potenzielle Vorteile für die Gesellschaft als auch Bedenken hinsichtlich persönlicher Freiheit sind valide.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28963,21 +29951,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28989,16 +30001,46 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">moonshotai/kimi-k2-thinking</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• moonshotai/kimi-k2-thinking</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">{
+  &#34;answer&#34;: &#34;Neutral&#34;,
+  &#34;reasoning&#34;: &#34;Die Erhöhung des Mindestlohns hat komplexe wirtschaftliche und</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
         
     </div>

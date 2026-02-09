@@ -116,6 +116,19 @@
         .reasoning-header { font-size: 13px; color: var(--text-secondary); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.3px; }
         .reasoning-text { color: var(--text-primary); line-height: 1.7; }
 
+        /* Run count badge */
+        .run-count { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+
+        /* Multiple answer sections per question */
+        .answer-section + .answer-section { margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border-color); }
+
+        /* Collapsible duplicate reasonings */
+        .reasoning-extra { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px dotted var(--border-color); }
+        .answer-section.show-all .reasoning-extra { display: block; }
+        .toggle-runs { background: none; border: 1px solid var(--border-color); color: var(--link-color); font-size: 12px; padding: 2px 8px; cursor: pointer; margin-left: 8px; border-radius: 3px; }
+        .toggle-runs:hover { background: var(--bg-hover); }
+        .answer-section.show-all .toggle-runs::after { content: ''; }
+
         /* Filter label */
         .filter-label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: var(--text-secondary); }
         .filter-label input { cursor: pointer; }
@@ -313,17 +326,7 @@
     </div>
 
     <div class="question-list">
-        {% for question in questions %}
-        {% if question.answer == 0 %}
-            {% set badge_class = 'agree' %}
-            {% set answer_label = 'Stimme zu' %}
-        {% elif question.answer == 1 %}
-            {% set badge_class = 'disagree' %}
-            {% set answer_label = 'Stimme nicht zu' %}
-        {% else %}
-            {% set badge_class = 'neutral' %}
-            {% set answer_label = 'Neutral' %}
-        {% endif %}
+        {% for question in questions_grouped %}
         <div class="question-card">
             <div class="question-header">
                 <div class="question-number">Frage {{ question.statement_id + 1 }}</div>
@@ -334,16 +337,30 @@
                     {% endif %}
                 </div>
             </div>
+            {% for group in question.answer_groups %}
+            {% if group.answer == 0 %}
+                {% set badge_class = 'agree' %}
+                {% set answer_label = 'Stimme zu' %}
+            {% elif group.answer == 1 %}
+                {% set badge_class = 'disagree' %}
+                {% set answer_label = 'Stimme nicht zu' %}
+            {% else %}
+                {% set badge_class = 'neutral' %}
+                {% set answer_label = 'Neutral' %}
+            {% endif %}
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge {{ badge_class }}">{{ answer_label }}</div>
-                    <div class="model-badge">{{ model_name }}</div>
+                    <div class="run-count">{{ group.count }}× von {{ model_results|length }}</div>
                 </div>
-                <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• {{ model_name }}</span></div>
-                    <div class="reasoning-text">{{ question.reasoning or 'Keine Begründung verfügbar.' }}</div>
+                {% for run in group.runs %}
+                <div class="reasoning{% if not loop.first %} reasoning-extra{% endif %}">
+                    <div class="reasoning-header">Durchlauf {{ run.run_id }}{% if loop.first and group.runs|length > 1 %} <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle {{ group.runs|length }} anzeigen</button>{% endif %}</div>
+                    <div class="reasoning-text">{{ run.reasoning or 'Keine Begründung verfügbar.' }}</div>
                 </div>
+                {% endfor %}
             </div>
+            {% endfor %}
         </div>
         {% endfor %}
     </div>

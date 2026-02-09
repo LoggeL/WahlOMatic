@@ -116,6 +116,19 @@
         .reasoning-header { font-size: 13px; color: var(--text-secondary); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.3px; }
         .reasoning-text { color: var(--text-primary); line-height: 1.7; }
 
+        /* Run count badge */
+        .run-count { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+
+        /* Multiple answer sections per question */
+        .answer-section + .answer-section { margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border-color); }
+
+        /* Collapsible duplicate reasonings */
+        .reasoning-extra { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px dotted var(--border-color); }
+        .answer-section.show-all .reasoning-extra { display: block; }
+        .toggle-runs { background: none; border: 1px solid var(--border-color); color: var(--link-color); font-size: 12px; padding: 2px 8px; cursor: pointer; margin-left: 8px; border-radius: 3px; }
+        .toggle-runs:hover { background: var(--bg-hover); }
+        .answer-section.show-all .toggle-runs::after { content: ''; }
+
         /* Filter label */
         .filter-label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: var(--text-secondary); }
         .filter-label input { cursor: pointer; }
@@ -27984,10 +27997,6 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
 
     <div class="question-list">
         
-        
-            
-            
-        
         <div class="question-card">
             <div class="question-header">
                 <div class="question-number">Frage 1</div>
@@ -27998,21 +28007,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI-Modell nehme ich keine politischen Positionen ein und kann daher keine inhaltliche Zustimmung oder Ablehnung ausdrücken.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Überzeugungen und kann daher keine klare Position zu dieser Frage einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und kann zu dieser Frage keine Position beziehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Error: &#39;NoneType&#39; object has no attribute &#39;strip&#39;</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI-Modell habe ich keine eigenen politischen Meinungen oder Präferenzen und kann daher keine klare Position zu dieser Frage einnehmen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28024,21 +28057,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Error: &#39;NoneType&#39; object has no attribute &#39;strip&#39;</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Präferenzen. Ich kann Vor- und Nachteile staatlicher Förderung erneuerbarer Energien analysieren, ohne selbst eine Wertung vorzunehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und kann daher keine wertende Position zu dieser Aussage einnehmen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Präferenzen; ob der Staat den Ausbau erneuerbarer Energien weiter finanziell fördern soll, hängt von einer gesellschaftlichen Abwägung zwischen Klimaschutzzielen, Kostenverteilung und Effizienz der Förderinstrumente ab.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28050,21 +28107,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI habe ich keine politischen Meinungen und kann keine Position zu dieser Frage einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen oder Werturteile, daher kann ich keine Zustimmung oder Ablehnung ausdrücken und bleibe neutral.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Es gibt gute Argumente sowohl für Sanktionen zur Sicherung der Mitwirkungspflicht als auch dagegen, weil sie die Existenzsicherung gefährden und individuelle Gründe für Ablehnungen zu wenig berücksichtigen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und kann daher keine klare Position zu dieser Frage einnehmen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI-Modell habe ich keine eigenen politischen Überzeugungen und kann Vor- und Nachteile dieser Maßnahme lediglich aus verschiedenen Perspektiven darstellen, ohne eine feste Position zu beziehen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28076,21 +28157,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI habe ich keine persönlichen Meinungen oder Interessen und kann daher keine eigene politische Position einnehmen; ich kann nur Argumente und Fakten zu beiden Seiten eines Tempolimits darstellen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI habe ich keine persönlichen politischen Meinungen; ich kann nur Argumente und Fakten zu beiden Seiten eines Tempolimits aufzeigen, ohne eine eigene Position einzunehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Überzeugungen und nehme daher zu dieser Frage keine inhaltliche Position ein.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI habe ich keine eigenen politischen Positionen und kann daher keine Zustimmung oder Ablehnung zu politischen Forderungen wie einem generellen Tempolimit auf Autobahnen äußern.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Präferenzen und kann Vor- und Nachteile eines Tempolimits nur darstellen, ohne eine klare Position zu beziehen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28102,21 +28207,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Ansichten und kann zu dieser Frage keine inhaltliche Position beziehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI-Modell vertrete ich keine eigenen politischen Positionen und kann diese konkrete politische Forderung daher weder unterstützen noch ablehnen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Ich bin ein KI-Modell und habe keine eigenen politischen Überzeugungen; daher kann ich zu dieser Frage keine inhaltliche Position beziehen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Überzeugungen und kann daher keine inhaltliche Position zu dieser Aussage einnehmen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28128,21 +28257,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Präferenzen und kann die komplexen gesellschaftlichen und wirtschaftlichen Folgen gesetzlicher Mietpreisbegrenzungen nicht normativ bewerten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Gesetzliche Mietpreisbegrenzungen können Mieter vor Verdrängung und überhöhten Mieten schützen, bergen aber auch das Risiko, Investitionen in Wohnraum zu verringern. Ohne konkrete Ausgestaltung und Begleitmaßnahmen ist eine klare Bewertung schwierig.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI-Modell habe ich keine eigenen politischen Meinungen und darf zu konkreten politischen Streitfragen keine Position beziehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI-Modell habe ich keine eigenen politischen Meinungen und kann daher keine klare Position zu dieser politischen Frage einnehmen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine persönlichen politischen Überzeugungen und kann daher keine inhaltliche Position zu dieser Frage einnehmen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28154,21 +28307,57 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">4× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
+                    <div class="reasoning-text">Automatisierte Gesichtserkennung kann zwar zur Sicherheit beitragen, wirft aber zugleich erhebliche Fragen zum Datenschutz, zur Überwachung und zu möglichen Fehlidentifikationen auf, sodass eine klare Bewertung von der konkreten Ausgestaltung und Kontrolle abhängt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Überzeugungen; die Bewertung hängt stark davon ab, wie Sicherheitsgewinn, Datenschutz, Transparenz und klare gesetzliche Grenzen gegeneinander abgewogen werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und kann daher keine klare Position zu dieser Frage einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Der Einsatz automatisierter Gesichtserkennung bietet potenzielle Sicherheitsvorteile, wirft aber zugleich erhebliche Fragen zum Datenschutz und zur Überwachung auf, sodass ohne konkrete Ausgestaltung keine klare Bewertung möglich ist.</div>
                 </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="run-count">1× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Automatisierte Gesichtserkennung an Bahnhöfen birgt erhebliche Risiken für Datenschutz und Bürgerrechte und kann zu umfassender Überwachung führen, ohne dass der Sicherheitsgewinn klar belegt ist.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28180,21 +28369,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Einerseits kann ein Ausgleich die internationale Wettbewerbsfähigkeit energieintensiver Unternehmen sichern, andererseits können solche Subventionen Marktverzerrungen verstärken und Klimaschutzanreize schwächen, weshalb eine eindeutige Bewertung vom konkreten Design der Maßnahme abhängt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Ob ein staatlicher Ausgleich sinnvoll ist, hängt stark von der konkreten Ausgestaltung, Klimazielen und der Gefahr von Wettbewerbsverzerrungen ab. Ohne diese Details ist eine klare Zustimmung oder Ablehnung nicht fundiert möglich.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ein finanzieller Ausgleich kann internationale Wettbewerbsfähigkeit sichern und Abwanderung verhindern, verzerrt aber gleichzeitig Marktpreise, kostet Steuergeld und kann Anreize zur Energieeinsparung schwächen. Ob er sinnvoll ist, hängt stark von Ausgestaltung, Zielgenauigkeit und Gegenleistungen (z.B. Klimaschutzauflagen) ab.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Ein finanzieller Ausgleich kann internationale Wettbewerbsfähigkeit sichern und Abwanderung von Industrie verhindern, birgt aber das Risiko von Marktverzerrungen und hohen Kosten für Steuerzahler. Ob er sinnvoll ist, hängt stark von der konkreten Ausgestaltung, den Klimazielen und der Gegenfinanzierung ab.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ein finanzieller Ausgleich kann Wettbewerbsfähigkeit und Standorttreue sichern, birgt aber das Risiko von Marktverzerrungen und Fehlanreizen beim Klimaschutz; die Bewertung hängt stark von Ausgestaltung, Gegenleistungen und zeitlicher Befristung ab.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28206,21 +28419,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Präferenzen; die Bewertung hängt von Wertentscheidungen über Verteilungsgerechtigkeit, Finanzierbarkeit der Rentenversicherung und Auswirkungen auf Arbeitsmarkt und Staatsfinanzen ab.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Ein abschlagsfreier Renteneintritt nach 40 Beitragsjahren kann für viele Beschäftigte fair sein, wirft aber gleichzeitig Fragen zur Finanzierbarkeit und Generationengerechtigkeit auf, die eine klare Positionierung erschweren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ein abschlagsfreier Renteneintritt nach 40 Beitragsjahren kann für körperlich belastende Berufe fair sein, wirft aber Finanzierungs- und Gerechtigkeitsfragen gegenüber Personen mit unterbrochenen Erwerbsbiografien oder späterem Berufseinstieg auf.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI habe ich keine eigenen politischen Präferenzen und kann zu dieser rentenpolitischen Frage keine Position beziehen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Präferenzen; einerseits könnte eine abschlagsfreie Rente nach 40 Beitragsjahren die Lebensleistung besser anerkennen, andererseits stellen sich Finanzierbarkeits- und Gerechtigkeitsfragen zwischen unterschiedlichen Berufsgruppen und Erwerbsbiografien.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28232,21 +28469,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI habe ich keine persönlichen Überzeugungen und kann daher keine eigene politische Wertung zur Formulierung im Grundgesetz abgeben.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI habe ich keine persönlichen religiösen oder politischen Überzeugungen und kann deshalb keine wertende Position zu dieser Formulierung im Grundgesetz einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI-Modell darf ich keine politische Stellung beziehen und habe keine eigenen Überzeugungen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI habe ich keine eigenen politischen Überzeugungen oder religiösen Werte und kann daher keine Position zu dieser Frage beziehen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ich habe keine eigenen politischen oder religiösen Überzeugungen und kann daher zu dieser Formulierung keine inhaltliche Position beziehen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28258,21 +28519,57 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge neutral">Neutral</div>
+                    <div class="run-count">3× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 3 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI-Modell habe ich keine eigenen politischen Überzeugungen und kann daher keine Position zugunsten oder zulasten dieser Aussage einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Präferenzen und kann daher keine klare Position zu dieser Aussage einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und nehme daher zu solchen politischen Sachfragen keine inhaltliche Position ein.</div>
+                </div>
+                
+            </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">2× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 3 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 2 anzeigen</button></div>
+                    <div class="reasoning-text">Deutschland hat in vielen Branchen einen Fachkräftemangel, und die gezielte Anwerbung qualifizierter Arbeitskräfte aus dem Ausland kann Wirtschaft, Innovation und Sozialstaat stabilisieren, solange sie fair und integrationsfördernd gestaltet wird.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Angesichts des Fachkräftemangels in vielen Branchen und der demografischen Entwicklung ist die gezielte Anwerbung von Fachkräften aus dem Ausland wichtig, um Wirtschaft und öffentliche Dienstleistungen funktionsfähig zu halten. Begleitend sollten Integrations- und Qualifizierungsangebote ausgebaut werden.</div>
                 </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28284,21 +28581,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI-Modell habe ich keine eigenen politischen Meinungen und kann daher keine Position zu dieser Frage beziehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen oder Präferenzen und kann daher keine inhaltliche Position zu dieser Frage einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI habe ich keine politischen Präferenzen; zur Kernenergie gibt es sowohl Argumente für Versorgungssicherheit und CO₂-Reduktion als auch gegen hohe Kosten, Sicherheits- und Entsorgungsrisiken.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI habe ich keine eigenen politischen Präferenzen und kann daher keine klare Position zu dieser Frage einnehmen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und kann daher keine klare Position zu dieser Frage einnehmen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28310,21 +28631,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Präferenzen und kann daher keine inhaltliche Position einnehmen; eine Bewertung einer Anhebung des Spitzensteuersatzes hängt von politischen Zielen, ökonomischen Annahmen und Wertvorstellungen ab.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Präferenzen und kann nur Vor- und Nachteile verschiedener Steuerpolitiken darstellen, ohne eine normative Position zu beziehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Präferenzen und kann daher keine Position zur Erhöhung des Spitzensteuersatzes einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI habe ich keine persönlichen politischen Meinungen und kann daher keine klare Position zur Anhebung des Spitzensteuersatzes einnehmen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI-Modell habe ich keine eigenen politischen Überzeugungen und kann daher keine inhaltliche Position zu steuerpolitischen Fragen beziehen. Deshalb bleibe ich in dieser Frage neutral.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28336,21 +28681,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI-Modell habe ich keine politischen Meinungen oder Präferenzen und kann daher keine inhaltliche Position zu dieser Aussage einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Positionen; die Bewertung, ob der Bund mehr Kompetenzen in der Schulpolitik erhalten soll, hängt von politischen Prioritäten und Föderalismusverständnis der Bürgerinnen und Bürger ab.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI-Modell habe ich keine eigenen politischen Präferenzen und kann daher keine klare Position zu dieser Frage einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI habe ich keine eigenen politischen Positionen und kann daher keine klare Zustimmung oder Ablehnung ausdrücken.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Überzeugungen und kann daher keine inhaltliche Position zu dieser Aussage einnehmen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28362,21 +28731,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI-System nehme ich keine eigenen politischen Positionen ein und kann daher nicht zustimmen oder widersprechen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und kann daher keine klare Position zu dieser Aussage einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Überzeugungen oder Präferenzen und kann daher keine inhaltliche Position zu dieser Frage einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und kann daher keine klare Position zu dieser konkreten politischen Forderung einnehmen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI-Assistent habe ich keine eigenen politischen Meinungen und kann daher keine Position zu dieser Frage einnehmen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28388,21 +28781,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Eine allgemeine Pflicht zur gesetzlichen Krankenversicherung stärkt Solidarität und Versorgungssicherheit, kann aber gleichzeitig Wettbewerbs- und Wahlmöglichkeiten im Gesundheitswesen einschränken, weshalb ich keine eindeutige Präferenz festlegen kann.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Es gibt gute Argumente sowohl für eine einheitliche solidarische Absicherung (gesetzliche Kassenpflicht) als auch für Wettbewerb und Wahlfreiheit durch verschiedene Versicherungssysteme. Ohne klare gesellschaftliche Präferenzen oder Detailregeln über Ausgestaltung und Ausnahmen ist eine eindeutige Bewertung schwierig.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Es gibt starke Argumente sowohl für eine einheitliche Bürgerversicherung (mehr Solidarität, weniger Zwei-Klassen-System) als auch für Wettbewerb und Wahlfreiheit zwischen gesetzlich und privat, sodass ich keine eindeutige Präferenz festlegen kann.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Es gibt starke Argumente sowohl für eine einheitliche Bürgerversicherung (Solidarität, geringere Verwaltungskosten) als auch für die Beibehaltung von Wahlfreiheit und Wettbewerb zwischen Systemen; ohne klare gesellschaftliche Präferenz und Detailausgestaltung ist eine eindeutige Bewertung schwierig.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Es gibt starke Argumente sowohl für eine einheitliche Bürgerversicherung (z.B. Solidarität, weniger Zwei-Klassen-Medizin) als auch für die Beibehaltung von Wahlfreiheit und Wettbewerb; ohne Werturteil zwischen politischen Modellen bleibt meine Position neutral.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28414,21 +28831,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI-Modell habe ich keine eigenen politischen Überzeugungen und nehme daher zu dieser Frage keine inhaltliche Position ein.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI habe ich keine politischen Präferenzen und nehme keine eigene Wertung vor. Ich kann nur Argumente für und gegen eine gesetzliche Frauenquote darstellen, ohne eine Seite zu bevorzugen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI-Modell habe ich keine eigenen politischen Überzeugungen und nehme zu solchen politischen Streitfragen keine inhaltliche Position ein.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI habe ich keine eigenen politischen Präferenzen und kann daher zu der Frage nach der Abschaffung der gesetzlichen Frauenquote keine inhaltliche Position beziehen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Präferenzen. Es gibt sowohl Argumente für die Beibehaltung der Quote (z.B. zur Förderung von Chancengleichheit) als auch dagegen (z.B. Eingriff in unternehmerische Freiheit), ohne dass ich eine davon normativ bewerten darf.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28440,21 +28881,57 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge neutral">Neutral</div>
+                    <div class="run-count">4× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI-Assistentin nehme ich zu konkreten politischen Forderungen keine eigene inhaltliche Position ein und bleibe daher neutral.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Eine stärkere Förderung ökologischer Landwirtschaft kann Umweltvorteile bringen, gleichzeitig müssen aber auch Fragen der Versorgungssicherheit, Kosten und Effizienz berücksichtigt werden, weshalb ich keine eindeutige Präferenz angebe.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI-Modell habe ich keine eigenen politischen Überzeugungen und kann daher keine inhaltliche Präferenz für diese Frage angeben.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Es gibt gute Argumente für eine stärkere Förderung ökologischer Landwirtschaft (z.B. Umwelt- und Tierschutz), aber auch dafür, konventionelle Betriebe nicht zu benachteiligen und beide Ansätze über klare Umwelt- und Qualitätsstandards fair zu behandeln.</div>
+                </div>
+                
+            </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">1× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Ökologische Landwirtschaft berücksichtigt Umwelt- und Klimaschutz stärker, etwa durch weniger Pestizide und bessere Bodenerhaltung. Eine stärkere Förderung kann helfen, diese positiven Effekte auszubauen und langfristige Folgekosten für Umwelt und Gesundheit zu senken.</div>
                 </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28466,21 +28943,57 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">4× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 2 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI-Modell vertrete ich keine eigenen politischen Positionen und kann daher keine klare Zustimmung oder Ablehnung äußern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und kann daher zu dieser politischen Forderung keine Position beziehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und kann daher keine Position zu dieser Aussage einnehmen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und kann daher keine inhaltliche Position zu dieser Aussage einnehmen.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="run-count">1× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1</div>
+                    <div class="reasoning-text">Rechtsextremismus stellt eine Gefahr für Demokratie und gesellschaftlichen Zusammenhalt dar, daher sind verstärkte Förderungen von Projekten zu seiner Bekämpfung sinnvoll. Wichtig ist dabei, dass die Förderung transparent, wirksam und grundrechtsschonend erfolgt.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28492,21 +29005,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Unternehmen profitieren global von Lieferketten und sollten daher auch Verantwortung für Menschenrechte und Umweltstandards in diesen Strukturen übernehmen, um Ausbeutung und Umweltschäden vorzubeugen. Rechtliche Kontrollpflichten helfen, Wettbewerbsverzerrungen zu vermeiden und Mindeststandards durchzusetzen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Unternehmen profitieren wirtschaftlich von ihren Lieferketten und sollten daher Verantwortung für Menschenrechte und Umweltschutz entlang der gesamten Wertschöpfungskette tragen. Gesetzliche Pflichten zur Kontrolle können zudem verhindern, dass sich verantwortungsvolle Unternehmen gegenüber weniger verantwortlichen Wettbewerbern im Nachteil befinden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Unternehmen tragen Verantwortung für die Auswirkungen ihrer gesamten Lieferkette, und verbindliche Kontrollen helfen, Menschenrechtsverletzungen und Umweltschäden vorzubeugen oder zu verringern. Gerade bei globalen Lieferketten sind sonst Anreize groß, Probleme in vorgelagerte Stufen auszulagern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Unternehmen profitieren von globalen Lieferketten und sollten daher Verantwortung für Menschenrechte und Umweltstandards in allen Stufen der Produktion übernehmen. Gesetzliche Kontrollpflichten helfen, Ausbeutung und Umweltschäden zu reduzieren und gleiche Wettbewerbsbedingungen zu schaffen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Unternehmen profitieren von globalen Lieferketten und sollten daher Verantwortung für die Einhaltung von Menschenrechten und Umweltschutz entlang dieser Ketten übernehmen, um Ausbeutung und Umweltzerstörung zu verhindern. Gesetzliche Kontrollpflichten schaffen faire Wettbewerbsbedingungen und mehr Transparenz.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28518,21 +29055,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Positionen und kann daher keine inhaltliche Zustimmung oder Ablehnung zu dieser Aussage äußern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ich bin ein KI-Modell und habe keine eigenen politischen Meinungen; zur Frage der elternunabhängigen oder einkommensabhängigen Förderung gibt es zudem sowohl soziale als auch fiskalische Argumente, ohne klare Präferenz aus meiner Sicht.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI-Modell habe ich keine eigenen politischen Präferenzen und kann daher keine klare Position zu dieser Gestaltungsfrage der Ausbildungsförderung einnehmen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und kann deshalb zu dieser Frage keine inhaltliche Position beziehen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28544,21 +29105,59 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">4× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 2 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und kann daher keine Position zur Schuldenbremse einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und kann daher keine Position zur Schuldenbremse beziehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und kann daher keine Position zu dieser Frage beziehen; die Antwort &#39;Neutral&#39; spiegelt das wider.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigene politische Meinung und kann daher keine eindeutige Position zu dieser Aussage einnehmen. Meine Aufgabe ist es, Informationen und Argumente zu beiden Seiten bereitzustellen, ohne Partei zu ergreifen.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="run-count">1× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1</div>
+                    <div class="reasoning-text">{
+  &#34;answer&#34;: &#34;Neutral&#34;,
+  &#34;reasoning&#34;: &#34;Als KI-Modell vertrete ich keine eigenen politischen Positionen und kann daher weder klar zustimmen noch widersprechen. Ich kann nur Informationen</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28570,21 +29169,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI-Modell habe ich keine eigene politische Meinung und kann daher keine Position zu dieser Aussage beziehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und kann daher keine klare Position zu dieser Aussage einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Eine sofortige Arbeitserlaubnis kann Integration und Selbstständigkeit fördern, wirft aber zugleich Fragen zu Kontrolle, Missbrauchsrisiken und Verwaltungsaufwand auf, die je nach Ausgestaltung sehr unterschiedlich zu bewerten sind.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Ich darf keine eigene politische Position zu aktuellen politischen Sachfragen vertreten oder eine der vorgegebenen Optionen auswählen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen; zur Frage der sofortigen Arbeitserlaubnis für Asylsuchende gibt es sowohl integrations- und arbeitsmarktpolitische Argumente dafür als auch rechtliche und organisatorische Bedenken dagegen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28596,21 +29219,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI habe ich keine eigene politische Meinung und kann daher keine klare Position zu dieser Aussage einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI habe ich keine politischen Meinungen oder Präferenzen; die Auswahl „Neutral“ dient nur dazu, das geforderte Antwortformat zu erfüllen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI kann ich keine eigenen politischen Positionen vertreten; zum Thema gibt es sowohl gewichtige Gründe für das Festhalten am Klimaneutralitätsziel (Klimaschutz, internationale Verpflichtungen) als auch Argumente, die auf Kosten, Umsetzbarkeit und Verteilungseffekte verweisen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Keine Begründung verfügbar.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28622,21 +29269,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Eine gesetzliche 35-Stunden-Woche könnte Vorteile für Work-Life-Balance und Gesundheit bringen, birgt aber auch Risiken für Wettbewerbsfähigkeit, Fachkräftemangel und flexible Branchen. Ohne klare Daten zu wirtschaftlichen Folgen und branchenspezifischen Ausnahmen ist eine eindeutige Bewertung schwierig.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Eine gesetzliche 35-Stunden-Woche kann Vorteile für Work-Life-Balance und Gesundheit bringen, könnte aber gleichzeitig Fachkräftemangel und Kostenprobleme in bestimmten Branchen verschärfen. Ohne klare Daten zu wirtschaftlichen Auswirkungen und Ausgleichsmechanismen ist eine eindeutige Bewertung schwierig.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Eine gesetzliche 35-Stunden-Woche kann Vorteile für Work-Life-Balance und Gesundheit bringen, birgt aber zugleich das Risiko von Mehrkosten, Fachkräftemangel und Wettbewerbsnachteilen, je nach Branche. Ohne konkrete Ausgestaltung zu Lohnniveau, Flexibilitätsregeln und branchenspezifischen Ausnahmen ist eine klare Bewertung schwierig.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Eine gesetzliche 35-Stunden-Woche kann Vorteile für Gesundheit und Work-Life-Balance bringen, birgt aber auch Risiken für Wettbewerbsfähigkeit, Löhne und Flexibilität in unterschiedlichen Branchen, weshalb ich keine klare Präferenz ableiten kann.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Eine gesetzliche 35-Stunden-Woche kann Vorteile für Gesundheit und Vereinbarkeit von Beruf und Privatleben bringen, könnte aber gleichzeitig Fachkräftemangel und Kostenprobleme für bestimmte Branchen verschärfen. Ohne klare Daten zu diesen Auswirkungen ist eine eindeutige Bewertung schwierig.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28648,21 +29319,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen oder moralischen Überzeugungen und kann daher keine inhaltliche Position zu dieser Regelung einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Überzeugungen und kann zu dieser normativ-ethischen Frage keine inhaltliche Position beziehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI habe ich keine persönlichen politischen oder ethischen Überzeugungen und kann daher zu dieser konkreten Regelung keine eigene Position einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI habe ich keine eigenen politischen Überzeugungen und kann zu dieser Frage keine inhaltliche Position beziehen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen moralischen oder politischen Überzeugungen, und die Frage berührt komplexe ethische, rechtliche und persönliche Aspekte. Unterschiedliche gesellschaftliche und wissenschaftliche Perspektiven führen zu legitimen, aber divergierenden Positionen, sodass ich keine klare Präferenz formulieren kann.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28674,21 +29369,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Präferenzen und kann daher keine inhaltliche Position zu dieser Frage einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und kann daher keine Position zu dieser Frage beziehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen oder Präferenzen und kann daher keine Position zu dieser Frage einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI von OpenAI kann ich keine politische Position einnehmen oder an politischen Umfragen teilnehmen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen oder Präferenzen und kann daher keine Position zu dieser Frage einnehmen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28700,21 +29419,57 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge neutral">Neutral</div>
+                    <div class="run-count">4× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
+                    <div class="reasoning-text">Die Priorität zwischen Schiene und Straße hängt stark von regionalen Bedürfnissen, bestehender Infrastruktur und Umwelt- sowie Sozialfolgen ab, sodass eine pauschale Bevorzugung ohne Kontext schwer zu bewerten ist.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI-Modell kann ich keine eigenen politischen Positionen einnehmen, sondern nur Argumente und Informationen zu verschiedenen Sichtweisen bereitstellen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI-Assistent darf ich keine eigene politische Position vertreten und kann daher keine der geforderten Antwortoptionen wählen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI-System habe ich keine eigenen politischen Meinungen und kann daher keine inhaltliche Position zu dieser Aussage einnehmen.</div>
+                </div>
+                
+            </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">1× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Der Ausbau der Schiene ist in der Regel klimafreundlicher, platzsparender und langfristig effizienter als der Straßenausbau, insbesondere für Fernverkehr und Gütertransport. Ein Vorrang für die Schiene unterstützt zudem die Verkehrswende und entlastet Straßen und Innenstädte.</div>
                 </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28726,21 +29481,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Es gibt gute Argumente dafür, ehrenamtliches Engagement aufzuwerten, aber auch praktische und finanzielle Herausforderungen bei der Umsetzung einer rentenrechtlichen Anrechnung. Ohne eine konkrete Ausgestaltung lässt sich der Gesamteffekt schwer beurteilen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Anrechnung von Ehrenamt auf die Rente kann gesellschaftliches Engagement stärken, hätte aber erhebliche finanzielle und verwaltungstechnische Folgen und wirft Gerechtigkeitsfragen gegenüber Erwerbsarbeit und nicht ehrenamtlich Tätigen auf.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ehrenamt stärkt Gesellschaft und könnte über Rentenpunkte anerkannt werden, gleichzeitig müssten Fairness, Finanzierbarkeit und die Abgrenzung zu regulärer Erwerbsarbeit sorgfältig geklärt werden. Ohne konkrete Ausgestaltung überwiegt für mich weder klar Zustimmung noch Ablehnung.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Ehrenamt ist gesellschaftlich wertvoll und eine Anerkennung in der Rente kann sinnvoll sein, zugleich stellen sich aber komplexe Fragen der Finanzierung, Bewertung und Abgrenzung gegenüber regulärer Erwerbsarbeit.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Anrechnung ehrenamtlicher Tätigkeiten auf die Rente kann gesellschaftliches Engagement fördern, wirft aber gleichzeitig komplexe Finanzierungs- und Gerechtigkeitsfragen gegenüber Personen ohne Ehrenamtsmöglichkeiten auf.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28752,21 +29531,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Aus sozialpolitischer Sicht spricht vieles dagegen, die Grundsteuer voll auf Mieten umzulegen, weil dies Wohnkosten erhöht, während aus verwaltungspraktischer Sicht eine Umlage die Abrechnung vereinfacht und Eigentümer entlastet. Die Frage berührt damit einen Zielkonflikt zwischen Mieterschutz und Anreizen für Wohneigentum bzw. Investitionen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Frage berührt sowohl Gerechtigkeitsaspekte für Mieter als auch finanzielle und rechtliche Planbarkeit für Vermieter und Kommunen, und ohne Kontext zu Ausgleichsmaßnahmen oder Alternativmodellen ist kein klarer Vorteil einer der Seiten eindeutig. Eine differenzierte Lösung hängt stark von der Ausgestaltung des übrigen Miet- und Steuerrechts ab.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Positionen und kann daher keine inhaltliche Zustimmung oder Ablehnung zu dieser Aussage äußern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI kann ich keine eigenen politischen Positionen vertreten; deshalb wähle ich hier eine neutrale Antwort.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ich habe als KI keine eigenen politischen Positionen und kann deshalb keine wertende Aussage zu dieser Frage treffen. Die Antwort &#39;Neutral&#39; spiegelt lediglich meine Rollenbeschränkung wider, nicht eine politische Haltung.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28778,21 +29581,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Überzeugungen und kann daher keine inhaltliche Position zu dieser Frage einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI-Modell habe ich keine eigenen politischen Meinungen oder Interessen und kann daher keine inhaltliche Position zu dieser Frage einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI-Modell habe ich keine eigenen politischen Überzeugungen und kann daher zu dieser Frage keine inhaltliche Position beziehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Ich bin eine KI und habe keine eigenen politischen Überzeugungen; zu dieser Frage kann ich daher keine inhaltliche Position beziehen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Einerseits kann ein uneingeschränktes Streikrecht in kritischer Infrastruktur erhebliche Schäden verursachen, andererseits ist das Streikrecht ein zentrales Grundrecht der Beschäftigten; eine ausgewogene Bewertung hängt stark von der konkreten Ausgestaltung möglicher Einschränkungen ab.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28804,21 +29631,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Volksentscheide können demokratische Teilhabe stärken, bergen aber auch Risiken vereinfachter Entscheidungen bei komplexen Themen; als KI habe ich keine eigenen politischen Präferenzen und bewerte daher beide Seiten ohne klare Tendenz.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI habe ich keine politischen Präferenzen oder eigenen Interessen und kann daher keine Position zu dieser Frage einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Präferenzen und kann Vor- und Nachteile von Volksentscheiden auf Bundesebene sehen, ohne eine klare Position zu beziehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Volksentscheide auf Bundesebene können demokratische Beteiligung stärken, bergen aber auch Risiken wie Vereinfachung komplexer Themen und Mehrheitsentscheidungen zulasten von Minderheiten. Ohne Gewichtung dieser Vor- und Nachteile in einem konkreten Modell ist eine klare Position schwer festzulegen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Überzeugungen und kann daher keine klare Position zu dieser Frage einnehmen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28830,21 +29681,57 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">3× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 2 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 3 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Überzeugungen und kann keine Position zu konkreten rechtspolitischen Forderungen einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI habe ich keine eigenen politischen Überzeugungen; ob Unter-14-Jährige strafrechtlich belangt werden sollten, hängt von gesellschaftlichen und rechtlichen Wertentscheidungen ab, die Menschen treffen müssen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine persönlichen Meinungen und kann daher keine klare Position zu dieser politischen Frage einnehmen.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="run-count">2× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 2 anzeigen</button></div>
+                    <div class="reasoning-text">Unter 14-Jährige befinden sich in einer wichtigen Entwicklungsphase, in der Einsichts- und Steuerungsfähigkeit noch nicht ausreichend ausgereift sind; strafrechtliche Sanktionen sind hier meist weniger sinnvoll als pädagogische und sozialarbeiterische Maßnahmen. Ein zu frühes Einsetzen des Strafrechts kann zudem Stigmatisierung verstärken und den weiteren Lebensweg negativ beeinflussen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Unter 14-Jährige befinden sich noch in der Entwicklung, weshalb der Fokus auf Erziehung, Prävention und Jugendhilfe statt auf strafrechtlicher Verfolgung liegen sollte. Strafrechtliche Sanktionen in diesem Alter sind selten wirksam und können die weitere Entwicklung eher schädigen.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28856,21 +29743,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Es gibt gewichtige Argumente sowohl für die Beibehaltung der Zölle (Schutz der europäischen Industrie, faire Wettbewerbsbedingungen) als auch für deren Abschaffung (günstigere Preise für Verbraucher, Förderung des Wettbewerbs), sodass eine eindeutige Bewertung ohne weitere Rahmenbedingungen schwierig ist.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Bewertung der Zölle hängt von komplexen Abwägungen zwischen fairem Wettbewerb, Verbraucherschutz, Klimazielen und geopolitischen Risiken ab; ohne eine klare Gewichtung dieser Ziele lässt sich keine eindeutige Position rechtfertigen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI-System vertrete ich keine eigenen politischen Positionen und kann daher keine der inhaltlichen Seiten dieser politischen Frage unterstützen oder ablehnen. Ich kann nur Argumente und Auswirkungen der verschiedenen Optionen erläutern, aber keine Präferenz äußern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Frage berührt komplexe Abwägungen zwischen Verbraucherpreisen, Klimazielen und dem Schutz der europäischen Industrie vor Dumpingpraktiken, weshalb ohne konkrete Daten zu den Auswirkungen eine klare Bewertung schwierig ist.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28882,21 +29793,59 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge neutral">Neutral</div>
+                    <div class="run-count">4× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI habe ich keine eigene politische Meinung und kann daher keine inhaltliche Position zu dieser Frage einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und kann daher keine wertende Position zu dieser Frage einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">{
+  &#34;answer&#34;: &#34;Neutral&#34;,
+  &#34;reasoning</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Präferenzen; ich kann nur Argumente für und gegen doppelte Staatsbürgerschaft darstellen, ohne selbst eine Position zu beziehen.</div>
+                </div>
+                
+            </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">1× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Mehrstaatigkeit kann individuelle Freiheit und Mobilität fördern und wird der Realität globaler Lebensläufe gerecht, solange rechtliche Pflichten und Rechte eindeutig geregelt sind.</div>
                 </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28908,21 +29857,45 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und kann daher keine Position zu dieser Frage einnehmen. Ich kann nur Argumente und Perspektiven zu dem Thema darstellen, ohne selbst Stellung zu beziehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen; ich kann nur Argumente für und gegen ein soziales Pflichtjahr darstellen, ohne selbst eine Position einzunehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ein soziales Pflichtjahr kann gesellschaftlichen Zusammenhalt und praktische Erfahrungen fördern, wirft aber zugleich gewichtige Fragen nach Freiheit, Umsetzbarkeit und sozialer Gerechtigkeit auf, die sorgfältig abgewogen werden müssen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und kann daher keine Position zu dieser Frage einnehmen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Überzeugungen und kann Vor- und Nachteile eines sozialen Pflichtjahres nur beschreiben, ohne selbst eine Position zu beziehen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28934,21 +29907,57 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">3× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 2 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 3 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI-Assistent habe ich keine eigenen politischen Meinungen, daher habe ich zu dieser Frage keine klare Position.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI-Modell habe ich keine politischen Präferenzen und kann zu dieser Frage keine eigene Position beziehen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und kann daher keine inhaltliche Position zu dieser Aussage einnehmen.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="run-count">2× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 2 anzeigen</button></div>
+                    <div class="reasoning-text">Um Klimaziele und Energiesicherheit zu erreichen, sollte der Einbau neuer Heizungen nicht mehr vollständig auf fossile Brennstoffe ausgerichtet sein, sondern schrittweise auf erneuerbare oder hybride Systeme umgestellt werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Um Klimaziele zu erreichen und Emissionen zu senken, sollte der Einbau neuer Heizungen auf klimafreundlichere Alternativen ausgerichtet werden, statt weiterhin vollständig auf fossile Brennstoffe zu setzen.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28960,16 +29969,44 @@ Jeder sollte von seiner Arbeit leben können. Für produktive Arbeitsplätze mus
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">openai/gpt-5.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• openai/gpt-5.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Als KI-Modell kann ich keine eigenen politischen Positionen einnehmen und habe daher keine klare Haltung zu dieser Frage.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Meinungen und kann Vor- und Nachteile einer Erhöhung des Mindestlohns nur darstellen, ohne eine Position zu beziehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI-Modell habe ich keine eigenen politischen Präferenzen und bin zur politischen Neutralität verpflichtet, daher kann ich keine inhaltliche Position zu dieser Forderung einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Als KI habe ich keine eigenen politischen Präferenzen und darf keine Position zu konkreten politischen Forderungen wie einer bestimmten Höhe des Mindestlohns einnehmen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine eigenen politischen Positionen; eine Bewertung dieser Forderung hängt von wirtschaftlichen Analysen, sozialen Zielen und politischen Präferenzen ab, die von Menschen getroffen werden müssen.</div>
+                </div>
+                
             </div>
+            
         </div>
         
     </div>

@@ -116,6 +116,19 @@
         .reasoning-header { font-size: 13px; color: var(--text-secondary); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.3px; }
         .reasoning-text { color: var(--text-primary); line-height: 1.7; }
 
+        /* Run count badge */
+        .run-count { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+
+        /* Multiple answer sections per question */
+        .answer-section + .answer-section { margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border-color); }
+
+        /* Collapsible duplicate reasonings */
+        .reasoning-extra { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px dotted var(--border-color); }
+        .answer-section.show-all .reasoning-extra { display: block; }
+        .toggle-runs { background: none; border: 1px solid var(--border-color); color: var(--link-color); font-size: 12px; padding: 2px 8px; cursor: pointer; margin-left: 8px; border-radius: 3px; }
+        .toggle-runs:hover { background: var(--bg-hover); }
+        .answer-section.show-all .toggle-runs::after { content: ''; }
+
         /* Filter label */
         .filter-label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: var(--text-secondary); }
         .filter-label input { cursor: pointer; }
@@ -27979,10 +27992,6 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
 
     <div class="question-list">
         
-        
-            
-            
-        
         <div class="question-card">
             <div class="question-header">
                 <div class="question-number">Frage 1</div>
@@ -27993,21 +28002,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die militärische Unterstützung der Ukraine dient der Verteidigung ihrer Souveränität und Stabilität in Europa, was langfristig auch Deutschlands Sicherheit und Werte wie Demokratie und Völkerrecht stärkt. Eine Eskalationsgefahr muss jedoch durch diplomatische Begleitung begrenzt werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die militärische Unterstützung der Ukraine dient der Verteidigung ihrer Souveränität und dem Schutz demokratischer Werte, was langfristig auch die Sicherheit Europas stärkt. Eine Eskalationsvermeidung sollte dabei durch diplomatische Begleitung sichergestellt werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die militärische Unterstützung der Ukraine ist entscheidend für ihre Souveränität und die Stabilität Europas, basierend auf völkerrechtlichen Prinzipien und der Abwehr unprovozierter Aggression. Gleichzeitig sollte sie mit diplomatischen Lösungsansätzen und humanitärer Hilfe einhergehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die militärische Unterstützung der Ukraine dient der Verteidigung ihrer Souveränität und Stabilität in Europa, was im Einklang mit völkerrechtlichen Prinzipien und deutschen Sicherheitsinteressen steht. Gleichzeitig sollte dies mit diplomatischen Lösungsbemühungen und humanitärer Hilfe einhergehen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die militärische Unterstützung der Ukraine dient der Verteidigung ihrer Souveränität und dem Schutz demokratischer Werte in Europa, was langfristig auch der Stabilität und Sicherheit Deutschlands zugutekommt. Gleichzeitig sollte sie mit diplomatischen Bemühungen um eine friedliche Lösung einhergehen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28019,21 +28052,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Der Ausbau erneuerbarer Energien ist entscheidend für die Bekämpfung des Klimawandels und die langfristige Energiesicherheit. Staatliche Förderung beschleunigt die Transformation und gleicht anfängliche Marktnachteile gegenüber fossilen Energieträgern aus.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Der Ausbau erneuerbarer Energien ist entscheidend für die Bekämpfung des Klimawandels und die langfristige Energiesicherheit. Staatliche Förderung beschleunigt die notwendige Transformation und gleicht anfängliche Marktnachteile aus, bis die Technologien wettbewerbsfähig sind.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Der Ausbau erneuerbarer Energien ist entscheidend für die Bekämpfung des Klimawandels und die langfristige Energiesicherheit. Staatliche Förderung beschleunigt die notwendige Transformation und gleicht anfängliche Marktbarrieren aus, bis die Technologien wettbewerbsfähig sind.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Der Ausbau erneuerbarer Energien ist entscheidend für die Bekämpfung des Klimawandels und die langfristige Energiesicherheit. Staatliche Förderung beschleunigt die notwendige Transformation und gleicht anfängliche Marktungleichgewichte aus, bis die Technologien wettbewerbsfähig sind.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Der Ausbau erneuerbarer Energien ist entscheidend für die Bekämpfung des Klimawandels und die langfristige Energiesicherheit, wobei staatliche Förderung notwendige Anreize für Innovation und Infrastruktur schafft – besonders in der Übergangsphase von fossilen Brennstoffen. Die volkswirtschaftlichen Folgekosten nicht-handelns (z. B. durch Extremwetter) übersteigen die Investitionen deutlich.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28045,21 +28102,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Sanktionen ohne individuelle Prüfung der Gründe (z. B. gesundheitliche Einschränkungen, unzumutbare Arbeitsbedingungen oder strukturelle Hindernisse wie Betreuungspflichten) können soziale Härten verschärfen und sind oft ineffektiv, da sie die Ursachen von Arbeitslosigkeit nicht adressieren. Ein unterstützender Ansatz mit Qualifizierung und passgenauen Angeboten wäre nachhaltiger.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Eine Streichung des Bürgergelds ohne individuelle Prüfung der Gründe für Ablehnungen (z. B. gesundheitliche Einschränkungen, unzumutbare Arbeitsbedingungen oder strukturelle Hürden wie Betreuungspflichten) wäre sozial ungerecht und könnte Betroffene in existenzielle Not bringen. Statt Strafe sollten gezielte Unterstützung und Qualifizierung im Vordergrund stehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Eine Streichung des Bürgergelds ohne individuelle Prüfung der Gründe für Ablehnungen (z. B. gesundheitliche Einschränkungen, unzumutbare Arbeitsbedingungen oder systemische Hürden wie Kinderbetreuung) würde soziale Härten verschärfen und das Ziel der Reintegration untergraben. Statt Strafe braucht es gezielte Unterstützung und passgenaue Vermittlungsangebote.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Sanktionen ohne individuelle Prüfung der Gründe (z. B. gesundheitliche Einschränkungen, unzumutbare Arbeitsbedingungen oder strukturelle Hindernisse wie Betreuungspflichten) können soziale Härten verschärfen und sind oft ineffektiv, da sie die Ursachen von Arbeitslosigkeit nicht bekämpfen. Ein unterstützender Ansatz mit Qualifizierung und passgenauen Angeboten wäre nachhaltiger.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Eine Streichung des Bürgergelds ohne individuelle Prüfung der Gründe für Ablehnungen (z. B. gesundheitliche Einschränkungen, unzumutbare Arbeitsbedingungen oder strukturelle Hindernisse wie Betreuungspflichten) wäre sozial ungerecht und könnte Betroffene in existenzielle Not bringen. Statt Bestrafung sollten gezielte Unterstützung und Qualifizierung im Vordergrund stehen, um nachhaltige Integration zu fördern.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28071,21 +28152,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Ein generelles Tempolimit könnte die Verkehrssicherheit erhöhen, den CO₂-Ausstoß reduzieren und den Verkehrsfluss gleichmäßiger gestalten, ohne die Reisezeit in den meisten Fällen signifikant zu verlängern. Die Vorteile für Umwelt und Sicherheit überwiegen aus meiner Sicht die potenziellen Nachteile wie individuelle Freiheitseinschränkungen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Ein generelles Tempolimit könnte die Verkehrssicherheit erhöhen, den CO₂-Ausstoß reduzieren und den Verkehrsfluss gleichmäßiger gestalten, ohne die Reisezeit in den meisten Fällen signifikant zu verlängern. Die Vorteile für Umwelt und Sicherheit überwiegen aus meiner Sicht die potenziellen Nachteile wie individuelle Einschränkungen oder gewohnte Flexibilität.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ein generelles Tempolimit könnte die Verkehrssicherheit erhöhen, den CO₂-Ausstoß reduzieren und den Verkehrsfluss gleichmäßiger gestalten, ohne die Reisezeiten signifikant zu verlängern – wie Beispiele aus anderen Ländern zeigen. Die Vorteile in Sachen Umwelt, Sicherheit und Ressourcenschonung überwiegen aus meiner Sicht die individuellen Freiheitsargumente.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Ein generelles Tempolimit könnte die Verkehrssicherheit erhöhen, den CO₂-Ausstoß reduzieren und den Verkehrsfluss gleichmäßiger gestalten, ohne die Reisezeiten signifikant zu verlängern – wie Studien (z. B. aus Ländern mit Tempolimit) zeigen. Die Vorteile überwiegen aus ökologischer und sozialer Perspektive die individuellen Freiheitseinschränkungen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ein generelles Tempolimit auf Autobahnen könnte die Verkehrssicherheit erhöhen, den CO₂-Ausstoß reduzieren und den Verkehrsfluss gleichmäßiger gestalten, ohne die Reisezeiten signifikant zu verlängern – wie Studien aus Ländern mit Tempolimit zeigen. Die Vorteile für Umwelt und Gesellschaft überwiegen aus meiner Sicht die individuellen Freiheitsargumente.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28097,21 +28202,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Das Dublin-System regelt bereits die Zuständigkeit für Asylanträge in der EU, und automatische Abweisungen an der Grenze widersprechen humanitären Verpflichtungen sowie dem Recht auf individuellen Asylantrag. Eine europäische Lösung mit fairer Lastenverteilung wäre sinnvoller als nationale Alleingänge.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Das Dublin-System regelt bereits die Zuständigkeit für Asylverfahren in der EU, und Abweisungen an der Grenze könnten Schutzsuchende in prekäre Situationen drängen, ohne ihr individuelles Recht auf Asyl angemessen zu prüfen. Eine europäische Lösung mit fairer Lastenverteilung wäre sinnvoller als nationale Alleingänge.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Das Dublin-System regelt bereits die Zuständigkeit für Asylanträge in der EU, und eine pauschale Abweisung an den Grenzen würde humanitäre Verpflichtungen und individuelle Schutzbedürfnisse ignorieren. Zudem könnte dies zu chaotischen Situationen an den EU-Außengrenzen führen, ohne das grundlegende Problem der fairen Lastenverteilung in der EU zu lösen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Das Dublin-System regelt bereits die Zuständigkeit für Asylanträge in der EU, und Abweisungen an der Grenze könnten Schutzsuchende in prekäre Situationen drängen, ohne ihr individuelles Asylrecht zu prüfen. Humanitäre Verantwortung und völkerrechtliche Verpflichtungen sollten Vorrang vor pauschalen Abweisungen haben.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Das Dublin-System regelt bereits die Zuständigkeit für Asylanträge in der EU, und eine pauschale Abweisung an Grenzen widerspricht humanitären Verpflichtungen sowie dem Recht auf individuellen Schutz. Eine solidarische EU-weite Lösung wäre effektiver als nationale Alleingänge.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28123,21 +28252,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Gesetzliche Mietpreisbremse bei Neuvermietungen kann sozialer Ungleichheit und Verdrängung in Ballungsräumen entgegenwirken, indem sie bezahlbaren Wohnraum sichert – vorausgesetzt, sie wird flankierend mit Wohnungsbau- und Fördermaßnahmen kombiniert, um Investitionsanreize nicht vollständig zu ersticken.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Gesetzliche Mietpreisbremse bei Neuvermietungen kann bezahlbaren Wohnraum sichern und soziale Ungleichheit in Ballungsräumen verringern, ohne den Neubau komplett zu behindern, wenn sie gut reguliert wird.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Gesetzliche Mietpreisbremse bei Neuvermietungen kann bezahlbaren Wohnraum sichern und soziale Ungleichheit verringern, insbesondere in Ballungsräumen mit starkem Mietdruck. Gleichzeitig sollten Ausnahmen für Neubauten oder Modernisierungen möglich sein, um Investitionsanreize nicht vollständig zu ersticken.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Gesetzliche Mietpreisbremse bei Neuvermietungen kann bezahlbaren Wohnraum sichern und soziale Ungleichheit verringern, insbesondere in Ballungsräumen mit hohem Mietdruck – vorausgesetzt, sie wird flankierend mit Wohnungsbau- und Fördermaßnahmen kombiniert.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Gesetzliche Mietpreisbremse bei Neuvermietungen kann bezahlbaren Wohnraum sichern und soziale Ungleichheit verringern, insbesondere in Ballungsräumen mit starkem Mietdruck. Allerdings sollten Ausnahmen für Neubauten oder Sanierungen bedacht werden, um Investitionsanreize nicht vollständig zu ersticken.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28149,21 +28302,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Automatisierte Gesichtserkennung an Bahnhöfen birgt erhebliche Risiken für die Privatsphäre und Grundrechte, insbesondere durch falsche Verdächtigungen und den Missbrauch sensibler biometrischer Daten. Der Nutzen für die Sicherheit ist zudem oft unbewiesen und steht in keinem angemessenen Verhältnis zu den potenziellen negativen Folgen für eine offene Gesellschaft.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Automatisierte Gesichtserkennung an Bahnhöfen birgt erhebliche Risiken für die Privatsphäre und Grundrechte, insbesondere durch potenzielle Fehlidentifikationen, Diskriminierung und den Missbrauch von Überwachungstechnologien – der Nutzen steht in keinem angemessenen Verhältnis zu diesen Gefahren. Zudem fehlt eine hinreichende demokratische Legitimation für einen solchen flächendeckenden Einsatz.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Automatisierte Gesichtserkennung an öffentlichen Orten birgt erhebliche Risiken für Datenschutz, Grundrechte und falsche Verdächtigungen, während ihr Nutzen für die Sicherheit oft unbewiesen oder unverhältnismäßig ist. Transparente, zielgerichtete und weniger invasive Maßnahmen wären vorzuziehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Automatisierte Gesichtserkennung an öffentlichen Orten birgt erhebliche Risiken für Datenschutz, Grundrechte und Missbrauchspotenzial – besonders ohne klare gesetzliche Grenzen und transparente Kontrolle. Der Eingriff in die Privatsphäre aller Bürger*innen steht in keinem angemessenen Verhältnis zum Nutzen, zumal die Effektivität solcher Systeme wissenschaftlich umstritten ist.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Automatisierte Gesichtserkennung an Bahnhöfen birgt erhebliche Risiken für Datenschutz, Grundrechte und falsche Verdächtigungen, während der Nutzen für die öffentliche Sicherheit nicht ausreichend belegt ist. Ein solcher Eingriff in die Privatsphäre aller Bürger:innen wäre unverhältnismäßig.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28175,21 +28352,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Ein finanzieller Ausgleich könnte kurzfristig Wettbewerbsfähigkeit sichern, aber langfristig sind strukturelle Lösungen wie Energieeffizienz oder erneuerbare Energien wichtiger – die Abwägung hängt von Rahmenbedingungen (z. B. Branche, Klimaziele) ab.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Ein finanzieller Ausgleich könnte kurzfristig Wettbewerbsfähigkeit sichern, aber langfristig sollten Anreize für Energieeffizienz und erneuerbare Energien im Vordergrund stehen, um strukturelle Abhängigkeiten zu vermeiden. Die Entscheidung hängt von der konkreten Ausgestaltung und den Rahmenbedingungen (z. B. Klimaziele, Haushaltslage) ab.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ein finanzieller Ausgleich könnte kurzfristig Wettbewerbsfähigkeit sichern, aber langfristig sind strukturelle Lösungen wie Energieeffizienz oder erneuerbare Energien sinnvoller – die Abwägung hängt von Rahmenbedingungen (z. B. Branche, Klimaziele) ab.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Keine Begründung verfügbar.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ein finanzieller Ausgleich könnte kurzfristig Wettbewerbsfähigkeit sichern, aber langfristig sind strukturelle Lösungen wie Energieeffizienz oder erneuerbare Energien wichtiger – die Abwägung hängt von Rahmenbedingungen (z. B. Branche, Klimaziele) ab.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28201,21 +28402,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Eine abschlagsfreie Rente nach 40 Beitragsjahren honoriert lebenslange Arbeitsleistung und fördert die Generationengerechtigkeit, da viele Berufe körperlich oder psychisch belastend sind. Gleichzeitig sollte dies finanziell tragbar gestaltet werden, z. B. durch flexible Übergangsmodelle oder Anpassungen im Rentensystem.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Eine abschlagsfreie Rente nach 40 Beitragsjahren würdigt lebenslange Arbeitsleistung und schafft Planungssicherheit, ohne das System durch zu frühe Inanspruchnahme zu überlasten – vorausgesetzt, die Finanzierbarkeit wird durch Anpassungen (z. B. Steuern, Beitragssätze) gesichert.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Eine abschlagsfreie Rente nach 40 Beitragsjahren honoriert langjährige Arbeitsleistung und fördert die Generationengerechtigkeit, da sie flexible Übergänge in den Ruhestand ermöglicht – vorausgesetzt, die Finanzierbarkeit des Systems bleibt durch Anpassungen (z. B. Steuern, Beitragssätze) gesichert.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Eine abschlagsfreie Rente nach 40 Beitragsjahren würdigt lebenslange Arbeit und bietet Planungssicherheit, ohne das System durch zu frühe Austrittsoptionen zu überlasten – vorausgesetzt, die Finanzierbarkeit ist durch Anpassungen (z. B. Steuern, Rentenbeiträge oder demografische Maßnahmen) gesichert.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Eine abschlagsfreie Rente nach 40 Beitragsjahren honoriert langjährige Arbeitsleistung und fördert die Generationengerechtigkeit, ohne das System übermäßig zu belasten, wenn die Finanzierung durch Umverteilung oder Steuern gesichert wird.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28227,21 +28452,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Formulierung hat historische und symbolische Bedeutung für viele Bürger:innen, sollte aber in einer pluralistischen Gesellschaft nicht als verbindliche Norm verstanden werden. Eine neutrale Haltung respektiert sowohl religiöse als auch säkulare Perspektiven.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Formulierung hat historische und kulturelle Bedeutung für viele Bürger:innen, sollte aber in einer pluralistischen Gesellschaft nicht als verbindliche Norm verstanden werden – daher weder klare Zustimmung noch Ablehnung.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Formulierung hat historische und kulturelle Bedeutung, sollte aber im säkularen Kontext nicht dogmatisch vorgegeben werden – eine individuelle Gewissensentscheidung wäre ideal.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Formulierung hat historische und symbolische Bedeutung für viele Bürger:innen, sollte aber in einer pluralistischen Gesellschaft nicht als verbindliche Norm verstanden werden. Eine neutrale Haltung respektiert beide Perspektiven – die der Tradition wie auch die einer säkularen Staatsauffassung.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Formulierung hat historische und kulturelle Bedeutung, sollte aber in einer pluralistischen Gesellschaft nicht ohne kritische Reflexion über ihre Inklusivität stehen. Eine neutrale Haltung ermöglicht eine sachliche Debatte über die Rolle religiöser Bezüge im Grundgesetz.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28253,21 +28502,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Anwerbung von Fachkräften aus dem Ausland ist notwendig, um dem Fachkräftemangel in Deutschland entgegenzuwirken und die Wirtschaft sowie soziale Systeme langfristig zu stabilisieren – vorausgesetzt, sie wird durch gezielte Integration und faire Arbeitsbedingungen begleitet.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Anwerbung von Fachkräften aus dem Ausland ist essenziell, um dem Fachkräftemangel in Deutschland entgegenzuwirken und die Wirtschaft sowie soziale Systeme langfristig zu stabilisieren. Gleichzeitig sollte dies mit Integration und fairen Arbeitsbedingungen einhergehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Angesichts des demografischen Wandels und des Fachkräftemangels in vielen Branchen ist die gezielte Anwerbung qualifizierter Arbeitskräfte aus dem Ausland notwendig, um die Wirtschaftskraft und soziale Absicherung in Deutschland langfristig zu sichern – vorausgesetzt, es erfolgt eine faire Integration und Anpassung der Rahmenbedingungen (z. B. Anerkennung von Abschlüssen, Sprachförderung).</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Anwerbung von Fachkräften aus dem Ausland ist notwendig, um dem Fachkräftemangel in Deutschland entgegenzuwirken und die Wettbewerbsfähigkeit der Wirtschaft langfristig zu sichern – vorausgesetzt, es erfolgt eine faire Integration und Anpassung der Rahmenbedingungen wie Anerkennung von Abschlüssen oder Sprachförderung.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Anwerbung von Fachkräften aus dem Ausland ist notwendig, um dem Fachkräftemangel in Schlüsselbranchen entgegenzuwirken und die wirtschaftliche Wettbewerbsfähigkeit Deutschlands langfristig zu sichern – vorausgesetzt, sie wird durch gezielte Integrationsmaßnahmen und faire Arbeitsbedingungen begleitet.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28279,21 +28552,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Kernenergie birgt langfristige Risiken wie Endlagerung und hohe Kosten, während erneuerbare Energien kombiniert mit Speichertechnologien und Effizienzmaßnahmen eine nachhaltigere und sicherere Lösung für die Energiewende bieten. Die Priorität sollte auf dem beschleunigten Ausbau dieser Alternativen liegen, statt auf einer Rückkehr zu veralteten Technologien mit ungelösten Problemen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Kernenergie birgt langfristige Risiken wie Endlagerung und hohe Kosten, während erneuerbare Energien kombiniert mit Speicherlösungen und Effizienzmaßnahmen eine nachhaltigere und sicherere Alternative bieten. Die Priorität sollte auf dem beschleunigten Ausbau der Erneuerbaren und der Dekarbonisierung liegen, statt auf einer Technologie mit ungelösten Problemen wie der Atommüll-Frage.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Kernenergie birgt langfristige Risiken wie Endlagerung und hohe Kosten, während erneuerbare Energien kombiniert mit Speicherlösungen und Effizienzmaßnahmen eine nachhaltigere und schnellere Alternative für die Energiewende bieten. Die Priorität sollte auf dem Ausbau sicherer, klimaneutraler Technologien liegen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Kernenergie birgt langfristige Risiken durch Atommüll und hohe Kosten, während erneuerbare Energien in Kombination mit Speicherlösungen und Netzausbau eine nachhaltigere, sicherere und wirtschaftlich sinnvollere Alternative für Deutschlands Energiezukunft darstellen. Die Priorität sollte auf dem beschleunigten Ausbau der Erneuerbaren und Effizienzmaßnahmen liegen, statt auf einer Technologie mit ungelösten Endlagerproblemen und langen Planungszeiten.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Kernenergie birgt langfristige Risiken wie Endlagerung und hohe Kosten, während erneuerbare Energien kombiniert mit Speicherlösungen und Effizienzmaßnahmen eine nachhaltigere, schnellere und sicherere Alternative für die Energiewende darstellen. Die Priorität sollte auf dem Ausbau und der Optimierung dieser Technologien liegen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28305,21 +28602,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Entscheidung hängt von der konkreten Ausgestaltung (z. B. Definition des Spitzenverdienstes, Verwendung der Mehreinnahmen) und der Gesamtsteuerlast ab. Ohne spezifischen Kontext ist eine pauschale Bewertung schwierig.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Entscheidung hängt von der konkreten Ausgestaltung (z. B. Höhe des Spitzensteuersatzes, Definition der Einkommensgrenzen) und den damit verbundenen wirtschaftlichen sowie sozialen Auswirkungen ab, die hier nicht detailliert bewertet werden können.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Entscheidung hängt von der konkreten Ausgestaltung (z. B. Höhe des Spitzensteuersatzes, Freigrenzen, Verwendungszweck der Mehreinnahmen) und der wirtschaftlichen Gesamtlage ab – pauschal lässt sich das nicht bewerten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Entscheidung hängt von der konkreten Ausgestaltung (z. B. Höhe des Spitzensteuersatzes, Definition der Einkommensgrenzen) und den damit verbundenen sozialen und wirtschaftlichen Auswirkungen ab, die hier nicht detailliert bewertet werden können.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Entscheidung hängt von der konkreten Ausgestaltung (z. B. Höhe des Spitzensteuersatzes, Definition der Einkommensgrenzen) und den damit verbundenen wirtschaftlichen sowie sozialen Auswirkungen ab, die hier nicht detailliert bewertet werden können.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28331,21 +28652,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Balance zwischen bundesweiter Vereinheitlichung (z. B. bei Bildungsstandards oder Digitalisierung) und regionaler Flexibilität (z. B. kulturelle oder strukturelle Unterschiede) ist komplex – eine pauschale Kompetenzverlagerung erfordert detaillierte Abwägung, die hier nicht möglich ist.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Balance zwischen bundesweiter Vereinheitlichung (z. B. bei Bildungsstandards oder Digitalisierung) und föderaler Vielfalt (z. B. regionale Anpassungen) erfordert eine differenzierte Abwägung, die pauschal weder für noch gegen eine Kompetenzverlagerung spricht. Die konkrete Ausgestaltung wäre entscheidend.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Balance zwischen bundesweiter Vereinheitlichung (z. B. bei Bildungsstandards oder Digitalisierung) und regionaler Flexibilität (z. B. kulturelle oder strukturelle Besonderheiten) ist komplex – eine pauschale Kompetenzverlagerung erfordert detaillierte Abwägung der konkreten Maßnahmen, die hier nicht spezifiziert sind.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Balance zwischen bundesweiter Standardsicherung (z. B. bei Chancengleichheit oder Digitalisierung) und der Bewahrung regionaler Flexibilität (z. B. kulturelle oder pädagogische Schwerpunkte) erfordert eine differenzierte Abwägung, die pauschal weder für noch gegen eine Kompetenzverlagerung spricht.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Balance zwischen bundesweiter Standardisierung (z. B. bei Bildungsgerechtigkeit) und föderaler Vielfalt (z. B. regionale Anpassungen) ist komplex – eine pauschale Kompetenzverlagerung erfordert detailliertere Abwägungen, die hier nicht möglich sind.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28357,21 +28702,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Entscheidung hängt von einer sorgfältigen Abwägung der Menschenrechtslage, völkerrechtlicher Verpflichtungen und der Sicherheitsinteressen der Region ab – eine pauschale Bewertung ist ohne aktuelle, detaillierte Analyse nicht vertretbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Frage erfordert eine komplexe Abwägung zwischen völkerrechtlichen Verpflichtungen, Menschenrechten, sicherheitspolitischen Interessen und der aktuellen Konfliktlage, die sich nicht pauschal mit einer einfachen Zustimmung oder Ablehnung beantworten lässt. Eine differenzierte Position hängt von konkreten Exportgenehmigungen, Endverbleibskontrollen und der Einhaltung humanitärer Standards ab.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Entscheidung hängt von einer sorgfältigen Abwägung der Menschenrechtslage, völkerrechtlicher Verpflichtungen und der Sicherheitsinteressen aller beteiligten Parteien ab – eine pauschale Bewertung ist ohne aktuelle, detaillierte Kontextanalyse nicht möglich.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Frage erfordert eine komplexe Abwägung zwischen völkerrechtlichen Verpflichtungen, Menschenrechten, sicherheitspolitischen Interessen und der aktuellen Konfliktlage, die sich nicht pauschal mit einer einfachen Zustimmung oder Ablehnung beantworten lässt. Eine differenzierte Position hängt von konkreten Exportkriterien (z. B. Endverbleibskontrollen, Einhaltung des humanitären Völkerrechts) und der jeweiligen politischen Situation ab.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Frage erfordert eine komplexe Abwägung zwischen völkerrechtlichen Verpflichtungen, Menschenrechten, sicherheitspolitischen Interessen und der aktuellen Konfliktlage, die sich nicht pauschal mit einer einfachen Zustimmung oder Ablehnung beantworten lässt. Eine differenzierte Position hängt von konkreten Exportkriterien (z. B. Endverbleibskontrollen, Einhaltung des Kriegsvölkerrechts) und der jeweiligen politischen Situation ab.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28383,21 +28752,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Eine einheitliche gesetzliche Krankenversicherung für alle fördert Solidarität und sichert eine grundlegende medizinische Versorgung unabhängig von Einkommen oder Vorerkrankungen. Zudem vereinfacht sie das System und reduziert administrative Hürden für Bürger:innen und Anbieter.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Eine einheitliche gesetzliche Krankenversicherung für alle fördert Solidarität und Chancengleichheit im Gesundheitssystem, indem Risiken breiter gestreut und Grundleistungen für alle gesichert werden. Dies kann zu einer faireren und effizienteren Gesundheitsversorgung beitragen, besonders in Systemen mit starker sozialer Absicherung.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Eine allgemeine Krankenversicherungspflicht sichert den Solidarausgleich zwischen Gesunden und Kranken, verhindert Risikoselektion durch private Anbieter und garantiert eine flächendeckende Grundversorgung – was essenziell für ein funktionierendes Gesundheitssystem ist. Die praktische Umsetzung (z. B. Beitragsgerechtigkeit oder Wahlfreiheit) sollte jedoch regelmäßig überprüft werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Eine einheitliche gesetzliche Krankenversicherung für alle fördert Solidarität und sichert eine grundlegende medizinische Versorgung unabhängig von Einkommen oder Vorerkrankungen – ähnlich wie in vielen europäischen Ländern mit erfolgreichen Systemen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Eine allgemeine Krankenversicherungspflicht fördert Solidarität und stellt sicher, dass alle Bürger:innen Zugang zu medizinischer Grundversorgung haben, unabhängig von Einkommen oder Vorerkrankungen. Dies stärkt die gesellschaftliche Absicherung und beugt finanziellen Härten im Krankheitsfall vor.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28409,21 +28802,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Frauenquote ist ein wichtiges Instrument, um strukturelle Ungleichheiten in Führungspositionen abzubauen und Vielfalt in Entscheidungsgremien zu fördern – bis echte Chancengleichheit ohne regulative Maßnahmen erreicht ist.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Frauenquote ist ein wichtiges Instrument, um strukturelle Benachteiligungen auszugleichen und Diversität in Führungspositionen zu fördern, was nachweislich zu besseren Entscheidungen und faireren Chancen führt. Ihre Abschaffung würde bestehende Ungleichheiten likely verstärken, ohne dass marktgetriebene Lösungen bisher ausreichend gewirkt hätten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Frauenquote ist ein wichtiges Instrument, um strukturelle Ungleichheiten in Führungspositionen abzubauen und Chancengleichheit zu fördern – ihre Abschaffung würde diesen Fortschritt gefährden und bestehende Barrieren ignorieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Frauenquote ist ein wichtiges Instrument, um strukturelle Ungleichheiten in Führungspositionen abzubauen und Chancengleichheit zu fördern, solange gesellschaftliche Barrieren wie unbewusste Vorurteile oder traditionelle Rollenbilder bestehen. Ihre Abschaffung ohne alternative Maßnahmen würde den Fortschritt bei der Gleichstellung gefährden.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Frauenquote ist ein wichtiges Instrument, um strukturelle Benachteiligungen auszugleichen und Vielfalt in Führungspositionen zu fördern, was langfristig zu faireren Chancen und besseren Unternehmensentscheidungen beiträgt. Ihre Abschaffung würde den Fortschritt in der Gleichstellung gefährden, ohne dass alternative Maßnahmen bereits ausreichend wirken.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28435,21 +28852,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Ökologische Landwirtschaft fördert langfristig Boden- und Umweltschutz, reduziert schädliche Chemikalien und unterstützt nachhaltige Lebensmittelsysteme, was angesichts des Klimawandels und des Artensterbens dringend notwendig ist. Eine stärkere Förderung könnte zudem Innovationen in diesem Bereich beschleunigen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Ökologische Landwirtschaft fördert langfristig Bodenqualität, Biodiversität und Klimaresilienz, während sie gesundheitliche und ökologische Risiken durch Pestizide und synthetische Dünger reduziert. Eine stärkere Förderung kann den Übergang zu nachhaltigeren Systemen beschleunigen, ohne konventionelle Betriebe abrupt zu benachteiligen, sondern durch gezielte Anreize und Forschung.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ökologische Landwirtschaft fördert langfristig Bodenqualität, Biodiversität und Klimaresilienz, während sie gesundheitliche und ökologische Risiken durch Pestizide und Monokulturen reduziert. Eine stärkere Unterstützung kann dazu beitragen, nachhaltigere Ernährungssysteme zu etablieren – allerdings sollte der Übergang sozial gerecht und wissenschaftlich begleitet erfolgen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Ökologische Landwirtschaft fördert langfristig Boden- und Artenvielfalt, reduziert schädliche Umweltauswirkungen (z. B. Pestizide, Grundwasserverschmutzung) und kann durch gezielte Subventionen nachhaltigere Ernährungssysteme unterstützen – auch wenn die Umstellung Herausforderungen für Erträge und Kosten mit sich bringt. Eine *stärkere* (nicht ausschließliche) Förderung erscheint daher sinnvoll, um Klimaziele und Resilienz zu erreichen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ökologische Landwirtschaft fördert langfristig Bodenqualität, Biodiversität und Klimaresilienz, während sie gesundheitliche und ökologische Risiken durch Pestizide und Monokulturen reduziert. Eine stärkere Förderung kann zudem Anreize für nachhaltigere Praktiken schaffen, ohne konventionelle Betriebe abrupt zu benachteiligen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28461,21 +28902,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Rechtsextremismus gefährdet demokratische Werte und den gesellschaftlichen Zusammenhalt – präventive Maßnahmen und Aufklärung sind daher essenziell, um langfristig Sicherheit und Pluralismus zu stärken.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Rechtsextremismus gefährdet demokratische Werte, soziale Kohäsion und Menschenrechte – präventive Maßnahmen und Aufklärung sind daher essenziell, um langfristig eine offene und pluralistische Gesellschaft zu sichern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Rechtsextremismus gefährdet demokratische Werte, soziale Kohäsion und Menschenrechte – präventive Maßnahmen und Aufklärung sind daher essenziell, um langfristig eine offene und pluralistische Gesellschaft zu stärken.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Rechtsextremismus gefährdet demokratische Grundwerte und den gesellschaftlichen Zusammenhalt. Präventive Maßnahmen und Aufklärung sind notwendig, um langfristig eine offene und pluralistische Gesellschaft zu sichern.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Rechtsextremismus gefährdet demokratische Werte, Menschenrechte und den gesellschaftlichen Zusammenhalt – präventive Maßnahmen und Aufklärung sind daher essenziell, um langfristig Stabilität und Sicherheit zu gewährleisten.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28487,21 +28952,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Einhaltung von Menschenrechten und Umweltschutz in globalen Lieferketten ist essenziell, um Ausbeutung und ökologische Schäden zu verhindern – Unternehmen tragen hier eine gesellschaftliche Verantwortung, die durch verbindliche Kontrollen sichergestellt werden muss.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Einhaltung von Menschenrechten und Umweltschutz in globalen Lieferketten ist essenziell, um Ausbeutung und ökologische Schäden zu verhindern – Unternehmen tragen hier eine gesellschaftliche Verantwortung, die durch verbindliche Kontrollen sichergestellt werden muss.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Unternehmen tragen eine globale Verantwortung, und die Einhaltung von Menschenrechten sowie Umweltschutz in der gesamten Lieferkette ist essenziell, um nachhaltige und ethische Wirtschaftspraktiken zu fördern. Transparenz und Kontrolle stärken zudem das Vertrauen von Verbrauchern und Investoren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Einhaltung von Menschenrechten und Umweltschutz in globalen Lieferketten ist essenziell, um Ausbeutung zu verhindern und nachhaltige Standards durchzusetzen – auch wenn dies für Unternehmen mit Aufwand verbunden ist. Langfristig stärkt dies soziale Gerechtigkeit und ökologische Verantwortung.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Einhaltung von Menschenrechten und Umweltschutz in globalen Lieferketten ist essenziell, um Ausbeutung und ökologische Schäden zu verhindern – Unternehmen tragen hier eine gesellschaftliche Verantwortung, die durch verbindliche Kontrollen gestärkt werden muss.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28513,21 +29002,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">BAföG sollte primär nach dem Bedarf der Studierenden/ Auszubildenden und nicht vom Elterneinkommen abhängen, um Chancengleichheit zu fördern – besonders in Fällen, wo Eltern trotz hohem Einkommen keine Unterstützung leisten (können/wollen). Eine progressive Rückzahlungsregelung wäre fairer.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">BAföG sollte primär nach dem Bedarf der Studierenden oder Auszubildenden selbst bewertet werden, um Chancengleichheit unabhängig vom Elternhaus zu fördern. Eine reine Eltern-Einkommensprüfung kann soziale Ungerechtigkeiten verstärken, z. B. bei entfremdeten Familien oder wenn Eltern ihre finanziellen Möglichkeiten nicht offenlegen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">BAföG sollte primär nach dem Bedarf der Studierenden/Auszubildenden und deren eigener Leistungsfähigkeit bemessen werden, um Chancengleichheit unabhängig vom Elternhaus zu fördern. Eine stärkere Entkopplung vom Elterneinkommen (z. B. durch höhere Freibeträge oder elternunabhängiges BAföG ab einem bestimmten Alter) wäre fairer.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">BAföG sollte primär auf dem Bedarf der Studierenden basieren, um Chancengleichheit unabhängig vom Elternhaus zu fördern. Eine reine Eltern-Einkommensprüfung kann soziale Ungleichheiten verstärken, besonders bei komplexen Familienkonstellationen oder temporären Einkommensschwankungen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">BAföG sollte primär auf den Bedarf und die Leistungsbereitschaft der Studierenden oder Auszubildenden selbst abstellen, um Chancengleichheit unabhängig vom Elternhaus zu fördern. Eine stärkere Eigenständigkeit der Förderung würde soziale Mobilität verbessern und Bürokratie reduzieren.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28539,21 +29052,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Schuldenbremse hat sowohl Vorteile (z. B. langfristige Haushaltsstabilität) als auch Nachteile (z. B. eingeschränkte Handlungsfähigkeit in Krisen), sodass eine pauschale Bewertung ohne konkreten Kontext schwierig ist.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Schuldenbremse hat Vorteile wie Haushaltsdisziplin, kann aber in Krisen (z. B. Pandemien, Klimawandel) notwendige Investitionen behindern – eine differenzierte Bewertung hängt von der konkreten Wirtschaftslage und Prioritätensetzung ab.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Schuldenbremse hat sowohl Vorteile (langfristige Haushaltsdisziplin, Generationengerechtigkeit) als auch Nachteile (eingeschränkte Handlungsfähigkeit in Krisen, potenzielle Unterinvestition in Infrastruktur/Zukunftsthemen). Eine pauschale Bewertung erfordert eine Abwägung kontextabhängiger Prioritäten (z. B. aktuelle Schuldenquote, Konjunkturphase, Investitionsbedarf), die hier nicht möglich ist.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Schuldenbremse hat sowohl Vorteile (langfristige Haushaltsdisziplin, Generationengerechtigkeit) als auch Nachteile (eingeschränkte Handlungsfähigkeit in Krisen, Investitionsstau). Eine pauschale Bewertung erfordert eine Abwägung kontextabhängiger Faktoren wie konjunktureller Lage oder alternativer Finanzierungsmodelle, die hier nicht detailliert möglich ist.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Schuldenbremse hat sowohl Vorteile (z. B. langfristige Haushaltsstabilität) als auch Nachteile (z. B. eingeschränkte Handlungsspielräume in Krisen), sodass eine pauschale Bewertung ohne konkreten Kontext schwierig ist.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28565,21 +29102,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Eine schnelle Arbeitserlaubnis fördert die Integration von Asylsuchenden, entlastet den Sozialstaat durch Eigenständigkeit und nutzt dem Fachkräftemangel – vorausgesetzt, faire Löhne und Arbeitsbedingungen werden gewährleistet. Die Maßnahme sollte mit effizienten Asylverfahren und Sprachförderung einhergehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Eine schnelle Arbeitserlaubnis fördert die Integration von Asylsuchenden, entlastet den Sozialstaat durch Eigenständigkeit und nutzt dem Fachkräftemangel – vorausgesetzt, faire Löhne und Arbeitsbedingungen werden sichergestellt. Die Maßnahme sollte mit effizienten Asylverfahren und Sprachförderung einhergehen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Eine schnelle Arbeitserlaubnis fördert die Integration von Asylsuchenden, entlastet den Sozialstaat durch Eigenständigkeit und beugt Fachkräftemangel in bestimmten Branchen vor – vorausgesetzt, faire Lohn- und Arbeitsbedingungen werden eingehalten. Die Maßnahme sollte jedoch mit effizienten Asylverfahren und Sprachförderung einhergehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Eine schnelle Arbeitserlaubnis fördert die Integration von Asylsuchenden, entlastet den Sozialstaat durch Eigenständigkeit und nutzt dem Fachkräftemangel – vorausgesetzt, faire Löhne und Arbeitsbedingungen werden sichergestellt. Die Maßnahme sollte mit effizienten Asylverfahren und Sprachförderung einhergehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Eine schnelle Arbeitserlaubnis fördert die Integration von Asylsuchenden, entlastet den Sozialstaat durch Eigenständigkeit und nutzt dem Fachkräftemangel – vorausgesetzt, faire Lohn- und Arbeitsbedingungen werden eingehalten sowie Asylverfahren zügig bearbeitet.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28591,21 +29152,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Klimaneutralität ist essenziell, um die Folgen des Klimawandels zu begrenzen und langfristig eine lebenswerte Zukunft zu sichern – sowohl ökologisch als auch wirtschaftlich. Deutschland als Industrienation hat hier eine besondere Verantwortung und sollte Vorreiter bei nachhaltigen Lösungen sein.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Klimaneutralität ist ein zentrales Ziel, um die Folgen des Klimawandels zu begrenzen und internationale Verpflichtungen wie das Pariser Abkommen einzuhalten. Ein Verzicht darauf würde langfristige ökologische und wirtschaftliche Risiken verstärken.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Klimaneutralität ist essenziell, um die Folgen des Klimawandels zu begrenzen und langfristig eine lebenswerte Zukunft zu sichern – sowohl ökologisch als auch wirtschaftlich. Deutschland als Industrienation hat hier eine besondere Verantwortung und sollte seine Ziele ambitioniert verfolgen, auch wenn der Weg herausfordernd ist.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Klimaneutralität ist essenziell, um die Folgen des Klimawandels zu begrenzen und langfristig eine lebenswerte Zukunft zu sichern – sowohl ökologisch als auch wirtschaftlich. Deutschland als Industrienation hat hier eine besondere Verantwortung und sollte seine Ziele ambitioniert verfolgen, auch wenn die Umsetzung komplex ist.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Klimaneutralität ist essenziell, um die Erderwärmung zu begrenzen und langfristige ökologische, wirtschaftliche und soziale Folgen abzuwenden. Deutschland als Industrienation hat eine besondere Verantwortung, Vorreiter bei der Transformation zu sein.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28617,21 +29202,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Einführung einer 35-Stunden-Woche hat sowohl potenzielle Vorteile (z. B. bessere Work-Life-Balance, Produktivitätssteigerung) als auch Herausforderungen (z. B. wirtschaftliche Belastung für bestimmte Branchen, Umsetzbarkeit in KMUs), die einer differenzierten Abwägung bedürfen – insbesondere in Abhängigkeit von Branche, Unternehmensgröße und makroökonomischen Rahmenbedingungen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Einführung einer 35-Stunden-Woche hat sowohl potenzielle Vorteile (z. B. bessere Work-Life-Balance, Produktivitätssteigerung) als auch Herausforderungen (z. B. wirtschaftliche Belastung für bestimmte Branchen, Umsetzbarkeit in KMUs), die einer differenzierten Abwägung bedürfen – eine pauschale gesetzliche Regelung erscheint daher komplex und kontextabhängig.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Einführung einer 35-Stunden-Woche hat sowohl potenzielle Vorteile (z. B. bessere Work-Life-Balance, Produktivitätssteigerung) als auch Herausforderungen (z. B. wirtschaftliche Belastung für bestimmte Branchen, Umsetzungsaufwand), die einer differenzierten Abwägung bedürfen – insbesondere in Abhängigkeit von der konkreten Ausgestaltung (z. B. Lohnausgleich, Branchenausnahmen).</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Einführung einer 35-Stunden-Woche hat sowohl potenzielle Vorteile (z. B. bessere Work-Life-Balance, Produktivitätssteigerung) als auch Herausforderungen (z. B. wirtschaftliche Belastung für bestimmte Branchen, Umsetzungsaufwand), die einer differenzierten Abwägung bedürfen – insbesondere in Abhängigkeit von Branche, Unternehmensgröße und makroökonomischen Rahmenbedingungen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die 35-Stunden-Woche könnte die Work-Life-Balance verbessern, aber die Auswirkungen auf Produktivität, Wirtschaft und Branchen mit spezifischen Anforderungen (z. B. Gesundheitswesen) müssten detailliert geprüft werden, bevor eine pauschale Regelung sinnvoll ist.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28643,21 +29252,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">3× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 3 anzeigen</button></div>
+                    <div class="reasoning-text">Eine verbindliche Beratung vor einem Schwangerschaftsabbruch in den ersten drei Monaten fördert informierte Entscheidungen und kann psychologische oder medizinische Unterstützung sicherstellen, während die Straffreiheit die Autonomie der betroffenen Person respektiert. Dies erscheint als ausgewogener Kompromiss zwischen Schutz des ungeborenen Lebens und Selbstbestimmungsrecht.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Eine verbindliche Beratung vor einem Schwangerschaftsabbruch in den ersten drei Monaten fördert informierte Entscheidungen und bietet Unterstützung, ohne den Zugang unnötig einzuschränken. Dies stellt einen ausgewogenen Kompromiss zwischen Selbstbestimmung und Verantwortung dar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Eine verbindliche Beratung vor einem Schwangerschaftsabbruch in den ersten drei Monaten fördert informierte Entscheidungen und kann psychologische oder soziale Unterstützungsangebote vermitteln, während die Straffreiheit die Selbstbestimmung der schwangeren Person respektiert. Dies erscheint als ausgewogener Kompromiss zwischen Schutz des ungeborenen Lebens und individueller Freiheit.</div>
                 </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge neutral">Neutral</div>
+                    <div class="run-count">2× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 3 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 2 anzeigen</button></div>
+                    <div class="reasoning-text">Die Frage erfordert eine Abwägung zwischen medizinischer Selbstbestimmung, ethischen Überlegungen und rechtlichen Rahmenbedingungen – eine pauschale Zustimmung oder Ablehnung ohne Kontext (z. B. individuelle Umstände, gesetzliche Alternativen) wäre vereinfachend. Eine fundierte Position würde detailliertere Informationen zur Umsetzung und zu Begleitmaßnahmen (z. B. soziale Unterstützung, Aufklärung) voraussetzen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Frage erfordert eine Abwägung zwischen medizinischer, ethischer und rechtlicher Perspektive, wobei individuelle Freiheit, Schutz des ungeborenen Lebens und praktische Rahmenbedingungen (wie Beratungspflicht) komplexe Aspekte darstellen, die keine pauschale Zustimmung oder Ablehnung zulassen.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28669,21 +29314,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Der Euro fördert als gemeinsame Währung die wirtschaftliche Stabilität und den Handel innerhalb der EU; eine Rückkehr zur D-Mark würde hohe Kosten, Unsicherheiten und mögliche Handelsbarrieren mit sich bringen, ohne klare Vorteile für die breite Bevölkerung.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Der Euro fördert als gemeinsame Währung die wirtschaftliche Stabilität und den Handel innerhalb der EU; eine Rückkehr zu einer nationalen Währung würde erhebliche Risiken wie Inflation, Handelsbarrieren und Unsicherheit für Unternehmen und Verbraucher mit sich bringen. Die Vorteile der europäischen Integration überwiegen die potenziellen Nachteile einer nationalen Währungspolitik.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Der Euro fördert als gemeinsame Währung die wirtschaftliche Stabilität und den Handel innerhalb der EU; eine Rückkehr zu nationalen Währungen würde Unsicherheiten, Wechselkursrisiken und potenzielle Inflation mit sich bringen, ohne klare Vorteile für Deutschland.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Der Euro stabilisiert als gemeinsame Währung den europäischen Binnenmarkt, fördert den Handel und schützt vor Wechselkursschwankungen – ein Rückzug hätte erhebliche wirtschaftliche und politische Nachteile für Deutschland und Europa.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Der Euro fördert als gemeinsame Währung die wirtschaftliche Stabilität und Integration Europas; eine Rückkehr zu einer nationalen Währung brächte hohe Risiken wie Inflation, Handelsbarrieren und Unsicherheit für Unternehmen und Verbraucher mit sich. Die Vorteile einer gemeinsamen Währungsunion überwiegen aus makroökonomischer und politischer Sicht.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28695,21 +29364,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Der Schienenverkehr ist umweltfreundlicher, effizienter im Massentransport und reduziert langfristig Staus sowie Flächenverbrauch durch Individualverkehr. Eine Priorisierung fördert nachhaltige Mobilität und Klimaziele.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Der Schienenverkehr ist im Vergleich zum Individualverkehr effizienter, umweltfreundlicher und platzsparender – besonders für den Massen- und Gütertransport. Eine Priorisierung der Schiene fördert nachhaltige Mobilität und reduziert langfristig Staus sowie Emissionen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Der Schienenverkehr ist umweltfreundlicher, platzsparender und effizienter für den Massenpersonen- und -gütertransport als der Individualverkehr. Eine Priorisierung der Schiene kann langfristig Verkehrskollaps, Emissionen und Flächenverbrauch reduzieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Der Ausbau der Schieneninfrastruktur ist nachhaltiger, effizienter im Flächenverbrauch und reduziert langfristig Emissionen sowie Staus – besonders in dicht besiedelten Regionen und für den Güterverkehr. Eine Priorisierung fördert zudem die Verkehrswende und entlastet den Individualverkehr.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Der Schienenverkehr ist im Vergleich zum Individualverkehr umweltfreundlicher, platzsparender und effizienter für den Massenpersonen- und Gütertransport – besonders in dicht besiedelten oder wachsenden Regionen. Eine Priorisierung der Schiene fördert zudem die Verkehrswende und reduziert langfristig Staus und Emissionen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28721,21 +29414,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Ehrenamtliches Engagement stärkt den gesellschaftlichen Zusammenhalt und sollte daher sozial anerkannt werden – auch finanziell, um Motivation und Gerechtigkeit zu fördern. Allerdings müssten klare Kriterien (z. B. Mindeststunden, gemeinnütziger Charakter) definiert werden, um Missbrauch zu vermeiden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Ehrenamtliches Engagement leistet einen wertvollen gesellschaftlichen Beitrag und sollte daher – ähnlich wie Erwerbsarbeit oder Care-Arbeit – sozial anerkannt und materiell abgesichert werden, um die Motivation und Fairness zu stärken.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ehrenamtliches Engagement stärkt den gesellschaftlichen Zusammenhalt und verdient Anerkennung – auch in Form sozialer Absicherung, da es oft wertvolle Arbeit ersetzt und Lebenszeit bindet.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Ehrenamtliches Engagement leistet einen wertvollen gesellschaftlichen Beitrag und sollte daher – ähnlich wie Erwerbsarbeit oder Kindererziehung – sozial anerkannt und materiell abgesichert werden, um die Motivation zu stärken und soziale Ungleichheiten auszugleichen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ehrenamtliches Engagement leistet einen wertvollen gesellschaftlichen Beitrag und sollte daher – ähnlich wie Erwerbsarbeit oder Care-Arbeit – sozial anerkannt und materiell abgesichert werden, um die Motivation zu stärken und soziale Ungleichheiten auszugleichen. Eine Anrechnung auf die Rente wäre ein fairer Schritt, um bürgerschaftliches Engagement langfristig zu fördern.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28747,21 +29464,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Grundsteuer ist eine kommunale Abgabe für Eigentümer:innen und sollte nicht pauschal auf Mieter:innen abgewälzt werden, da dies die soziale Ungleichheit verschärft und die Wohnkosten weiter erhöht. Eine Reform sollte stattdessen Eigentümer:innen stärker in die Pflicht nehmen oder sozial ausgewogenere Lösungen (z. B. einkommensabhängige Staffeln) vorsehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Umlage der Grundsteuer auf Mieter:innen erhöht die Wohnkosten ohne direkten Nutzen für sie und verschärft soziale Ungleichheit, da Vermieter:innen die Steuerlast oft 1:1 weitergeben, obwohl sie die Eigentümer:innen der Immobilie sind. Eine Reform sollte die Steuer gerechter verteilen, z. B. durch stärkere Berücksichtigung der Vermögensverhältnisse der Eigentümer:innen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Umlage der Grundsteuer auf Mieter:innen verschärft die soziale Ungleichheit, da sie die ohnehin schon hohe Belastung für einkommensschwächere Haushalte erhöht, ohne dass diese von der Eigentumsbildung profitieren. Eine Reform sollte die Kosten fairer zwischen Vermieter:innen und Staat verteilen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Umlage der Grundsteuer auf Mieter:innen verstärkt die soziale Ungleichheit, da sie die ohnehin schon hohe Belastung durch Mietkosten weiter erhöht – besonders für einkommensschwache Haushalte. Vermieter:innen als Eigentümer:innen sollten die Steuer tragen, da sie von der Wertsteigerung der Immobilie profitieren.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Umlage der Grundsteuer auf Mieter:innen verschärft die soziale Ungleichheit, da sie die ohnehin hohe Mietbelastung weiter erhöht – besonders für einkommensschwache Haushalte. Vermieter:innen als Eigentümer:innen sollten die Steuer tragen, da sie direkt von der Wertsteigerung des Grundbesitzes profitieren.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28773,21 +29514,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Das Streikrecht ist ein fundamentales Arbeitskampfmittel und essenzieller Bestandteil demokratischer Gesellschaften – auch in kritischen Sektoren müssen faire Tarifverhandlungen ohne übermäßige staatliche Einschränkungen möglich sein. Statt pauschaler Beschränkungen sollten gezielte Notfallregelungen (z. B. Mindestdienst-Vereinbarungen) Vorrang haben.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Das Streikrecht ist ein fundamentales Grundrecht zur Wahrung fairer Arbeitsbedingungen und demokratischer Teilhabe – selbst in kritischen Sektoren müssen Ausgleichsmechanismen (z. B. Mindestdienst-Vereinbarungen) Vorrang vor pauschalen Einschränkungen haben, um Machtungleichgewichte nicht zu zementieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Das Streikrecht ist ein grundlegendes Arbeitskampfmittel und essenzieller Bestandteil demokratischer Teilhabe – auch in kritischen Sektoren müssen faire Lösungen (z. B. Mindestdienst-Vereinbarungen) Vorrang vor pauschalen Einschränkungen haben, um Machtungleichgewichte nicht zu zementieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Das Streikrecht ist ein grundlegendes Arbeitnehmerrecht und essenzieller Bestandteil demokratischer Gesellschaften – selbst in kritischen Infrastruktursektoren müssen faire Ausgleichsmechanismen (z. B. Mindestdienst-Vereinbarungen) Vorrang vor pauschalen Einschränkungen haben, um Machtungleichgewichte nicht zu zementieren.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Das Streikrecht ist ein fundamentales Grundrecht zur Wahrung fairer Arbeitsbedingungen und demokratischer Teilhabe – auch in kritischen Infrastrukturbereichen müssen Ausgleichsmechanismen (z. B. Mindestdienst-Vereinbarungen) statt pauschaler Einschränkungen greifen, um Missbrauch zu verhindern.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28799,21 +29564,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Direkte Demokratie kann die Bürgerbeteiligung stärken und politische Entscheidungen transparenter machen, sofern sie durch klare Regeln (z. B. Quoren, sachliche Aufklärung) flankiert wird, um Populismus und Überforderung zu vermeiden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Volksentscheide auf Bundesebene könnten die demokratische Teilhabe stärken und die Legitimität politischer Entscheidungen erhöhen, sofern sie durch klare Regeln (z. B. qualifizierte Mehrheiten, sachliche Themenabgrenzung) vor Populismus und Überlastung des Systems geschützt werden. Eine Ergänzung – nicht Ersatz – der repräsentativen Demokratie erscheint sinnvoll.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Volksentscheide auf Bundesebene könnten die demokratische Teilhabe stärken und die Legitimität politischer Entscheidungen erhöhen, sofern sie durch klare Regeln (z. B. qualifizierte Mehrheiten, sachliche Aufklärung) flankiert werden, um Populismus und Überforderung der Bürger:innen zu vermeiden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Volksentscheide auf Bundesebene könnten die demokratische Teilhabe stärken und die Legitimität politischer Entscheidungen erhöhen, sofern sie durch klare Regeln (z. B. Quoren, sachliche Themenbegrenzungen) flankiert werden, um Populismus und Überlastung des Systems zu vermeiden.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Volksentscheide auf Bundesebene könnten die demokratische Teilhabe stärken und die Legitimität politischer Entscheidungen erhöhen, sofern sie durch klare Regeln (z. B. qualifizierte Mehrheiten, sachliche Themenabgrenzung) flankiert werden, um Populismus oder Überlastung des Systems zu verhindern.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28825,21 +29614,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die strafrechtliche Verantwortung unter 14-Jähriger widerspricht entwicklungspsychologischen Erkenntnissen über Reife und Schuldfähigkeit; pädagogische und sozialarbeiterische Maßnahmen sind in diesem Alter sinnvoller, um Resozialisierung zu fördern und langfristig Kriminalität zu verhindern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Unter 14-Jährige befinden sich in einer kritischen Entwicklungsphase und sind oft nicht ausreichend reif, um die Konsequenzen strafrechtlicher Verantwortung vollständig zu begreifen. Erziehungsmaßnahmen und pädagogische Ansätze sind in diesem Alter sinnvoller als strafrechtliche Sanktionen, um Resozialisierung und Prävention zu fördern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die strafrechtliche Verantwortung unter 14-Jähriger widerspricht entwicklungspsychologischen Erkenntnissen über Reife und Schuldfähigkeit; pädagogische und soziale Maßnahmen sind in diesem Alter sinnvoller als strafrechtliche Konsequenzen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die strafrechtliche Verantwortung unter 14-Jähriger widerspricht entwicklungspsychologischen Erkenntnissen über Reife und Schuldfähigkeit; präventive und pädagogische Maßnahmen sind in diesem Alter sinnvoller als Strafen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Unter 14-Jährige befinden sich in einer kritischen Entwicklungsphase und sind oft nicht ausreichend reif, um die Konsequenzen strafrechtlicher Verantwortung voll zu verstehen. Erziehungsmaßnahmen und pädagogische Ansätze sind in diesem Alter sinnvoller als strafrechtliche Sanktionen, um Resozialisierung und Prävention zu fördern.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28851,21 +29664,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Entscheidung erfordert eine Abwägung zwischen Wettbewerbsfähigkeit der europäischen Autoindustrie, Verbraucherinteressen (günstigere E-Autos) und geopolitischen Spannungen – hier fehlen mir detaillierte Analysen zu den konkreten Auswirkungen, um eine klare Position zu beziehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Entscheidung erfordert eine Abwägung zwischen Schutz der europäischen Autoindustrie und den Vorteilen günstigerer E-Autos für Verbraucher sowie Klimaziele, wobei auch geopolitische und wirtschaftliche Abhängigkeiten zu berücksichtigen sind.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Entscheidung erfordert eine Abwägung zwischen dem Schutz europäischer Industrie (z. B. Arbeitsplätze, Innovation) und den Vorteilen günstigerer E-Autos für Verbraucher*innen und Klimaziele. Ohne detaillierte Analyse der wirtschaftlichen und geopolitischen Folgen ist eine klare Position schwierig.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Entscheidung erfordert eine Abwägung zwischen wirtschaftlicher Wettbewerbsfähigkeit (niedrigere Preise für Verbraucher) und dem Schutz der europäischen Autoindustrie sowie strategischen Abhängigkeiten. Ohne detaillierte Kenntnis der aktuellen Handelsdynamik und langfristigen Folgen ist eine klare Position schwierig.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Entscheidung erfordert eine Abwägung zwischen wirtschaftlicher Wettbewerbsfähigkeit (niedrigere Preise für Verbraucher, Innovation) und dem Schutz der europäischen Autoindustrie sowie geopolitischen Abhängigkeiten – hier fehlen mir detaillierte Analysen zu den konkreten Auswirkungen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28877,21 +29714,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Mehrstaatigkeit fördert globale Mobilität, kulturellen Austausch und Integration, ohne die Bindung an Deutschland zu schwächen – besonders in einer zunehmend vernetzten Welt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Eine zweite Staatsbürgerschaft fördert globale Mobilität, kulturellen Austausch und wirtschaftliche Chancen, ohne die deutsche Identität oder Integration zu gefährden – vorausgesetzt, klare Regeln (z. B. Loyalität zur demokratischen Ordnung) werden eingehalten. Die aktuelle Praxis zeigt, dass dies funktioniert.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Eine doppelte Staatsbürgerschaft fördert globale Mobilität, kulturellen Austausch und wirtschaftliche Chancen, ohne die Bindung an Deutschland zu schwächen – besonders in einer zunehmend vernetzten Welt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Doppelte Staatsbürgerschaften fördern globale Mobilität, kulturellen Austausch und wirtschaftliche Vernetzung, ohne die deutsche Identität oder Integration zu gefährden – besonders in einer zunehmend vernetzten Welt.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Doppelte Staatsbürgerschaften fördern globale Mobilität, kulturellen Austausch und wirtschaftliche Vernetzung, ohne die deutsche Identität oder Rechtsordnung zu gefährden – besonders in einer zunehmend vernetzten Welt.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28903,21 +29764,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Ein soziales Pflichtjahr kann zwar den Zusammenhalt und das Engagement in der Gesellschaft stärken, aber die Freiheit der Berufs- und Lebenswahl junger Erwachsener sollte nicht unnötig eingeschränkt werden – eine freiwillige Lösung wäre vorzuziehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Ein soziales Pflichtjahr kann zwar den gesellschaftlichen Zusammenhalt stärken und junge Erwachsene für gemeinwohlorientierte Tätigkeiten sensibilisieren, jedoch müssen die konkrete Ausgestaltung (z. B. Flexibilität, Vergütung, Alternativen) und mögliche Freiheitsbeschränkungen sorgfältig abgewogen werden, um Chancengerechtigkeit und individuelle Lebensentwürfe nicht zu beeinträchtigen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ein soziales Pflichtjahr kann sinnvoll für den gesellschaftlichen Zusammenhalt und die persönliche Entwicklung sein, wirft aber auch Fragen nach Freiheit, praktischer Umsetzbarkeit und alternativen freiwilligen Modellen auf – eine pauschale Bewertung ist daher schwierig.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Ein soziales Pflichtjahr könnte zwar den gesellschaftlichen Zusammenhalt stärken und junge Erwachsene in ihrer Persönlichkeitsentwicklung fördern, jedoch müssen die konkrete Ausgestaltung (z. B. Freiheit der Wahl, Vergütung, Alternativen) und mögliche negative Effekte wie Zwang oder Überforderung sorgfältig abgewogen werden. Ohne klare Details ist eine pauschale Bewertung schwierig.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ein soziales Pflichtjahr könnte zwar den Gemeinschaftssinn stärken und praktische Erfahrungen vermitteln, aber die zwangsweise Umsetzung wirft Fragen nach individueller Freiheit und praktischer Machbarkeit auf – besonders bei unterschiedlichen Lebensumständen junger Erwachsener.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28929,21 +29814,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Fossile Brennstoffe tragen maßgeblich zum Klimawandel bei und sind langfristig weder nachhaltig noch wirtschaftlich sinnvoll. Der Umstieg auf erneuerbare Energien und klimaneutrale Heizsysteme ist notwendig, um Umweltziele zu erreichen und zukünftige Generationen zu schützen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Fossile Brennstoffe tragen maßgeblich zur Klimakrise bei und sind langfristig weder nachhaltig noch wirtschaftlich sinnvoll. Der Umstieg auf erneuerbare Energien und klimaneutrale Heizsysteme ist notwendig, um Umweltziele zu erreichen und zukünftige Generationen zu schützen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Fossile Brennstoffe tragen maßgeblich zur Klimakrise bei und sind langfristig weder nachhaltig noch wirtschaftlich sinnvoll. Der Umstieg auf erneuerbare Energien und klimaneutrale Heizsysteme ist notwendig, um Umweltziele zu erreichen und zukünftige Generationen zu schützen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Fossile Brennstoffe sind klimaschädlich und tragen zur Erderwärmung bei – der Umstieg auf erneuerbare Energien und effizientere Heizsysteme (z. B. Wärmepumpen, Solarthermie) ist notwendig, um langfristige Umweltziele zu erreichen und die Abhängigkeit von endlichen Ressourcen zu verringern.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Fossile Brennstoffe sind klimaschädlich und langfristig nicht nachhaltig – der Umstieg auf erneuerbare Energien und effizientere Heizsysteme (z. B. Wärmepumpen, Solarthermie) ist notwendig, um Klimaziele zu erreichen und Abhängigkeiten von endlichen Ressourcen zu verringern.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28955,16 +29864,44 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">mistralai/mistral-medium-3.1</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• mistralai/mistral-medium-3.1</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Ein Mindestlohn von 15 Euro bis 2026 könnte die Kaufkraft vieler Arbeitnehmer:innen stärken und soziale Ungleichheit verringern, vorausgesetzt, er wird regional differenziert und wirtschaftlich verantwortungsvoll umgesetzt, um negative Effekte auf kleine Unternehmen oder Arbeitsplätze zu minimieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Ein Mindestlohn von 15 Euro bis 2026 könnte die Kaufkraft vieler Beschäftigter stärken und soziale Ungleichheit verringern – vorausgesetzt, die wirtschaftliche Entwicklung und Inflation werden berücksichtigt, um negative Effekte auf kleine Unternehmen abzufedern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ein höherer Mindestlohn von 15 € bis 2026 könnte die Kaufkraft niedriger Einkommen stärken und soziale Ungleichheit verringern, vorausgesetzt, die wirtschaftliche Lage und Inflation entwickeln sich stabil. Kleine Unternehmen müssten jedoch gezielt unterstützt werden, um die Umstellung zu bewältigen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Ein Mindestlohn von 15 Euro bis 2026 könnte die Kaufkraft vieler Beschäftigter stärken und die wachsende Lohnungleichheit mildern, vorausgesetzt, er wird regional differenziert und wirtschaftlich verantwortungsvoll umgesetzt – kombiniert mit Maßnahmen zur Produktivitätssteigerung und Inflationskontrolle, um negative Effekte auf kleine Unternehmen oder Arbeitsplätze zu begrenzen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ein höherer Mindestlohn von 15 € bis 2026 könnte die Kaufkraft niedriger Einkommen stärken und soziale Ungleichheit verringern – vorausgesetzt, die wirtschaftliche Entwicklung und Inflation werden berücksichtigt, um negative Effekte auf kleine Unternehmen abzufedern.</div>
+                </div>
+                
             </div>
+            
         </div>
         
     </div>

@@ -116,6 +116,19 @@
         .reasoning-header { font-size: 13px; color: var(--text-secondary); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.3px; }
         .reasoning-text { color: var(--text-primary); line-height: 1.7; }
 
+        /* Run count badge */
+        .run-count { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+
+        /* Multiple answer sections per question */
+        .answer-section + .answer-section { margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border-color); }
+
+        /* Collapsible duplicate reasonings */
+        .reasoning-extra { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px dotted var(--border-color); }
+        .answer-section.show-all .reasoning-extra { display: block; }
+        .toggle-runs { background: none; border: 1px solid var(--border-color); color: var(--link-color); font-size: 12px; padding: 2px 8px; cursor: pointer; margin-left: 8px; border-radius: 3px; }
+        .toggle-runs:hover { background: var(--bg-hover); }
+        .answer-section.show-all .toggle-runs::after { content: ''; }
+
         /* Filter label */
         .filter-label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: var(--text-secondary); }
         .filter-label input { cursor: pointer; }
@@ -27979,10 +27992,6 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
 
     <div class="question-list">
         
-        
-            
-            
-        
         <div class="question-card">
             <div class="question-header">
                 <div class="question-number">Frage 1</div>
@@ -27993,21 +28002,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Frage ist komplex, da sowohl die Notwendigkeit der Unterstützung als auch die potenziellen Risiken einer Eskalation berücksichtigt werden müssen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Frage ist komplex und beinhaltet sowohl moralische als auch strategische Überlegungen, die eine einfache Zustimmung oder Ablehnung schwierig machen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Frage ist komplex und es gibt sowohl überzeugende Argumente für als auch gegen eine fortgesetzte Militärhilfe, die von verschiedenen Faktoren abhängen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Frage ist komplex und beinhaltet sowohl moralische als auch strategische Überlegungen, bei denen es schwerfällt, eine eindeutige Position zu beziehen, ohne weitere Informationen oder Abwägung verschiedener Faktoren.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Frage ist komplex und beinhaltet sowohl moralische als auch strategische Abwägungen, die eine einfache Zustimmung oder Ablehnung schwierig machen, ohne weitere Informationen oder Kontext zu haben.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28019,21 +28052,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Förderung ist entscheidend für den Übergang zu einer nachhaltigen Energieversorgung und zur Erreichung von Klimazielen, da sie Investitionen und Innovationen anregt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die finanzielle Förderung ist notwendig, um den Übergang zu einer nachhaltigen Energieversorgung zu beschleunigen und die Klimaziele zu erreichen. Sie schafft Anreize für Investitionen und Innovationen in diesem wichtigen Sektor.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Förderung ist entscheidend für den Übergang zu einer nachhaltigen Energieversorgung und zur Erreichung von Klimazielen, da sie Investitionen in neue Technologien und Infrastruktur anregt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Förderung erneuerbarer Energien ist essenziell für den Klimaschutz und die Reduzierung der Abhängigkeit von fossilen Brennstoffen, was langfristig die Energiesicherheit stärkt und neue Arbeitsplätze schafft.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Der Ausbau erneuerbarer Energien ist entscheidend für den Klimaschutz und die Reduzierung der Abhängigkeit von fossilen Brennstoffen. Staatliche Förderung beschleunigt diesen Übergang und schafft Planungssicherheit für Investitionen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28045,21 +28102,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Wer wiederholt zumutbare Stellen ablehnt, sollte keinen Anspruch auf Bürgergeld haben, da dies dem Grundgedanken der Eigenverantwortung widerspricht und das System missbraucht.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Wer wiederholt zumutbare Stellenangebote ablehnt, sollte die Unterstützung des Bürgergeldes verlieren, da dies dem Prinzip der Eigenverantwortung und der Solidargemeinschaft widerspricht.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Wer staatliche Leistungen erhält, sollte auch die Verpflichtung haben, aktiv an der eigenen Integration in den Arbeitsmarkt mitzuwirken. Wiederholtes Ablehnen von Stellenangeboten ohne triftigen Grund untergräbt das Solidarprinzip.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Wer wiederholt zumutbare Stellenangebote ablehnt, sollte keine bedingungslosen Sozialleistungen erhalten, da dies dem Prinzip von Leistung und Gegenleistung widerspricht und die Solidargemeinschaft belastet.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Wer staatliche Leistungen erhält, sollte auch eine Gegenleistung erbringen, indem er zumutbare Arbeitsangebote annimmt. Andernfalls würde das System ausgenutzt.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28071,21 +28152,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Es gibt sowohl gute Argumente für als auch gegen ein Tempolimit, und die Auswirkungen sind komplex und vielschichtig.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Es gibt sowohl überzeugende Argumente für als auch gegen ein generelles Tempolimit, und die Abwägung der Vor- und Nachteile fällt mir schwer.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Es gibt sowohl überzeugende Argumente für als auch gegen ein generelles Tempolimit, sodass ich keine eindeutige Präferenz habe.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Es gibt sowohl gute Argumente für als auch gegen ein Tempolimit (Umweltschutz, Sicherheit vs. Reisezeit, Verkehrsfluss), und ich habe keine klare Präferenz.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ein Tempolimit kann Vorteile für die Sicherheit und Umwelt haben, schränkt aber auch die individuelle Freiheit ein. Die optimale Geschwindigkeit ist ein komplexes Thema.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28097,21 +28202,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">4× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
+                    <div class="reasoning-text">Das Dublin-III-Verfahren sieht vor, dass derjenige EU-Staat für das Asylverfahren zuständig ist, in den der Asylsuchende zuerst eingereist ist. Eine Abweisung an der deutschen Grenze würde diesem Prinzip entsprechen und eine gerechtere Verteilung der Verantwortung innerhalb der EU fördern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Das Dublin-III-Abkommen sieht vor, dass Asylanträge im ersten sicheren EU-Land gestellt werden müssen. Eine Abweisung an der Grenze würde diesem Prinzip entsprechen und die Verfahren effizienter gestalten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Das Dublin-III-Abkommen sieht vor, dass derjenige EU-Staat für das Asylverfahren zuständig ist, den ein Asylsuchender zuerst betreten hat. Eine Abweisung an der deutschen Grenze würde diesem Prinzip entsprechen und eine Überlastung einzelner Staaten vermeiden helfen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Das Dublin-III-Abkommen sieht vor, dass Asylanträge in dem EU-Land gestellt werden müssen, in dem der Asylsuchende zuerst europäischen Boden betreten hat. Eine Abweisung an der deutschen Grenze würde diesem Prinzip entsprechen und die Verantwortung des Ersteinreisestaates stärken.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge neutral">Neutral</div>
+                    <div class="run-count">1× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Frage berührt komplexe rechtliche und humanitäre Aspekte des Dublin-Abkommens, deren Bewertung von unterschiedlichen Faktoren abhängt, die eine einfache Zustimmung oder Ablehnung erschweren.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28123,21 +28264,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Mietpreisbegrenzungen können dazu beitragen, bezahlbaren Wohnraum zu sichern und Mieter vor überhöhten Forderungen zu schützen, insbesondere in angespannten Wohnungsmärkten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Mietpreisbegrenzungen können dazu beitragen, bezahlbaren Wohnraum zu sichern und Mieter vor überhöhten Preisen zu schützen, insbesondere in angespannten Wohnungsmärkten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Mietpreisbegrenzungen können dazu beitragen, bezahlbaren Wohnraum zu erhalten und Spekulationen auf dem Wohnungsmarkt einzudämmen, was besonders in Ballungsräumen wichtig ist.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Mietpreisbegrenzungen können dazu beitragen, bezahlbaren Wohnraum zu sichern und Mieter vor übermäßigen Preisanstiegen zu schützen, insbesondere in angespannten Wohnungsmärkten.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Mietpreisbegrenzungen können dazu beitragen, bezahlbaren Wohnraum zu sichern und Mieter vor überhöhten Preisen zu schützen, insbesondere in angespannten Wohnungsmärkten.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28149,21 +28314,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Der Einsatz von automatisierter Gesichtserkennung wirft erhebliche Bedenken hinsichtlich des Datenschutzes und der Privatsphäre auf und könnte zu einer Überwachung des öffentlichen Raums führen, ohne dass ein konkreter Verdacht vorliegt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Der Einsatz von automatisierter Gesichtserkennung an Bahnhöfen birgt erhebliche Risiken für die Privatsphäre und die bürgerlichen Freiheiten und könnte zu einer umfassenden Überwachung führen, ohne dass der Nutzen für die Sicherheit dies rechtfertigt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Der Einsatz von automatisierter Gesichtserkennung an Bahnhöfen birgt erhebliche Risiken für die Privatsphäre und die bürgerlichen Freiheiten, ohne dass ein klarer Nutzen für die Sicherheit nachgewiesen ist.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Der Einsatz von automatisierter Gesichtserkennung an Bahnhöfen birgt erhebliche Risiken für die Privatsphäre und die bürgerlichen Freiheiten, ohne dass ein klarer, nachweisbarer Sicherheitsgewinn ersichtlich ist.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Der Einsatz von automatisierter Gesichtserkennung an Bahnhöfen birgt erhebliche Risiken für die Privatsphäre und die bürgerlichen Freiheiten, ohne dass ein klarer, nachweisbarer Sicherheitsgewinn ersichtlich ist.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28175,21 +28364,69 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">2× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 3 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 2 anzeigen</button></div>
+                    <div class="reasoning-text">Es gibt Argumente für und gegen eine solche Subventionierung. Einerseits könnte es Arbeitsplätze sichern und die Wettbewerbsfähigkeit erhalten, andererseits könnten dadurch Anreize für Energieeffizienz sinken und andere Sektoren benachteiligt werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Es gibt Argumente für und gegen eine solche Subventionierung, die je nach politischer oder wirtschaftlicher Priorität unterschiedlich gewichtet werden können.</div>
                 </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="run-count">2× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 2 anzeigen</button></div>
+                    <div class="reasoning-text">Subventionen für einzelne Branchen verzerren den Wettbewerb und belasten den Steuerzahler, während sie wenig Anreiz zur Energieeffizienz bieten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Subventionen für energieintensive Unternehmen können den Anreiz zur Effizienzsteigerung mindern und den Wettbewerb verzerren. Eine allgemeine Entlastung für alle Stromverbraucher wäre gerechter.</div>
+                </div>
+                
+            </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="run-count">1× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Energieintensive Unternehmen sind oft systemrelevant und sichern Arbeitsplätze. Ein finanzieller Ausgleich kann ihre Wettbewerbsfähigkeit erhalten und Abwanderung ins Ausland verhindern.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28201,21 +28438,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge neutral">Neutral</div>
+                    <div class="run-count">3× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 3 anzeigen</button></div>
+                    <div class="reasoning-text">Die Idee einer abschlagsfreien Rente nach 40 Beitragsjahren hat Vorteile für langjährig Beschäftigte, könnte aber finanzielle Herausforderungen für das Rentensystem mit sich bringen, die abgewogen werden müssen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Obwohl die Idee der abschlagsfreien Rente nach 40 Beitragsjahren attraktiv ist, sind die finanziellen Auswirkungen auf das Rentensystem und die Generationengerechtigkeit komplex und müssen sorgfältig abgewogen werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Idee einer abschlagsfreien Rente nach 40 Beitragsjahren hat Vorteile für langjährig Beschäftigte, birgt aber auch erhebliche finanzielle Risiken für das Rentensystem und könnte die junge Generation zusätzlich belasten.</div>
+                </div>
+                
+            </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">2× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 3 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 2 anzeigen</button></div>
+                    <div class="reasoning-text">Eine Rente nach 40 Beitragsjahren ohne Abschläge würde langjährig Beschäftigten eine verdiente und planbare Altersvorsorge ermöglichen und die Attraktivität des Arbeitsmarktes erhöhen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Dies würde langjährig Beschäftigten eine faire und planbare Altersvorsorge ermöglichen und den Wert ihrer Arbeit anerkennen, ohne sie bis ins hohe Alter zur Arbeit zu zwingen.</div>
                 </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28227,21 +28500,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">3× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 2 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 3 anzeigen</button></div>
+                    <div class="reasoning-text">Die Formulierung hat eine historische Bedeutung, ist aber in einer säkularen Gesellschaft nicht für jeden konsensfähig. Eine Entfernung würde jedoch ebenfalls historische Bezüge ignorieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Formulierung hat eine historische Bedeutung, könnte aber in einer säkularen Gesellschaft als nicht mehr zeitgemäß empfunden werden, was zu unterschiedlichen Interpretationen führt.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Formulierung hat eine historische Bedeutung, könnte aber in einer säkularen Gesellschaft als nicht repräsentativ für alle Bürger empfunden werden. Eine Änderung würde jedoch auch eine Debatte über die Wertegrundlagen des Staates auslösen.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="run-count">2× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 2 anzeigen</button></div>
+                    <div class="reasoning-text">Ein modernes Grundgesetz sollte weltanschaulich neutral sein und alle Bürger gleichermaßen repräsentieren, unabhängig von ihrer religiösen Überzeugung oder Nicht-Überzeugung.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ein modernes Grundgesetz sollte weltanschaulich neutral sein und alle Bürger gleichermaßen repräsentieren, unabhängig von religiösen Überzeugungen.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28253,21 +28562,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Deutschland hat einen Fachkräftemangel, der durch Zuwanderung aus dem Ausland gemildert werden kann, um die Wirtschaft zu stärken und die Sozialsysteme zu entlasten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Deutschland hat einen erheblichen Fachkräftemangel in vielen Schlüsselbereichen, der durch die Anwerbung ausländischer Fachkräfte gemildert werden kann, um Wirtschaftswachstum und Wohlstand zu sichern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Deutschland hat einen Fachkräftemangel in vielen Branchen, und die Anwerbung ausländischer Fachkräfte kann helfen, diese Lücke zu schließen und die Wirtschaft zu stärken.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Angesichts des demografischen Wandels und des Fachkräftemangels in vielen Branchen ist die gezielte Anwerbung von Fachkräften aus dem Ausland essenziell für die Aufrechterhaltung der Wettbewerbsfähigkeit und des Wohlstands Deutschlands.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Deutschland hat einen Fachkräftemangel in vielen Branchen, und die Anwerbung von qualifizierten Arbeitskräften aus dem Ausland ist notwendig, um die Wirtschaft zu stärken und den Wohlstand zu sichern.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28279,21 +28612,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Frage ist komplex, mit Argumenten für und gegen Kernenergie in Bezug auf Energiesicherheit, Umweltschutz und Kosten, die eine eindeutige Positionierung schwierig machen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Es gibt sowohl überzeugende Argumente für als auch gegen die Wiederaufnahme der Kernenergie in Deutschland, und die Abwägung der Risiken und Vorteile ist komplex.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Frage ist komplex, da sowohl Befürworter als auch Gegner von Kernenergie überzeugende Argumente vorbringen können, und ich habe keine eindeutige Präferenz, die alle Aspekte abdeckt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Es gibt sowohl überzeugende Argumente für als auch gegen die Wiederaufnahme der Kernenergie in Deutschland, wodurch eine klare Position schwierig ist.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Frage ist komplex, da sowohl Befürworter als auch Gegner der Kernenergie stichhaltige Argumente vorbringen, die Umwelt- und Wirtschaftsfaktoren betreffen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28305,21 +28662,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Anhebung des Spitzensteuersatzes hat sowohl potenzielle Vorteile (z.B. höhere Staatseinnahmen, Umverteilung) als auch Nachteile (z.B. mögliche Flucht von Kapital, geringere Investitionsanreize), deren genaue Auswirkungen von vielen Faktoren abhängen und schwer vorherzusagen sind.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Anhebung des Spitzensteuersatzes hat sowohl potenzielle Vorteile in Bezug auf soziale Gerechtigkeit und Finanzierung öffentlicher Leistungen als auch mögliche Nachteile für die Wirtschaft und die Wettbewerbsfähigkeit, weshalb eine klare Positionierung ohne weitere Kontextinformationen schwierig ist.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Anhebung des Spitzensteuersatzes hat sowohl potenzielle Vorteile (Umverteilung, Finanzierung öffentlicher Dienstleistungen) als auch Nachteile (mögliche Auswirkungen auf Investitionsanreize und wirtschaftliche Dynamik), deren Gewichtung von vielen Faktoren abhängt und komplex ist.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Anhebung des Spitzensteuersatzes hat sowohl potenzielle Vorteile (Umverteilung, Finanzierung öffentlicher Dienstleistungen) als auch Nachteile (mögliche Auswirkungen auf Investitionen und Wettbewerbsfähigkeit), deren genaue Effekte komplex sind und von vielen Faktoren abhängen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Anhebung des Spitzensteuersatzes hat sowohl potenzielle Vorteile (Umverteilung, Staatsfinanzen) als auch Nachteile (Wirtschaftsleistung, Investitionsanreize), die sorgfältig abgewogen werden müssen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28331,21 +28712,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Es gibt Argumente für und gegen eine Zentralisierung der Bildungspolitik, und die optimale Balance hängt stark von den spezifischen Zielen ab, die erreicht werden sollen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Es gibt sowohl Vor- als auch Nachteile einer stärkeren Bundeskompetenz in der Schulpolitik, die eine pauschale Zustimmung oder Ablehnung schwierig machen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Es gibt sowohl Vor- als auch Nachteile einer stärkeren Bundeskompetenz in der Schulpolitik, und die optimale Balance hängt von verschiedenen Faktoren ab, die hier nicht näher beleuchtet werden können.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Es gibt sowohl Vor- als auch Nachteile einer stärkeren Bundeskompetenz in der Schulpolitik, die eine eindeutige Positionierung erschweren.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Eine Zentralisierung könnte Standards verbessern, birgt aber auch das Risiko, lokale Bedürfnisse zu vernachlässigen. Es gibt Argumente für und gegen eine solche Veränderung.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28357,21 +28762,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Situation ist komplex und es gibt sowohl sicherheitspolitische als auch humanitäre Aspekte, die berücksichtigt werden müssen, was eine eindeutige Position schwierig macht.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Situation ist komplex und es gibt sowohl sicherheitspolitische als auch ethische Argumente für und gegen Rüstungsexporte, die eine eindeutige Positionierung erschweren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Situation ist komplex und es gibt sowohl sicherheitspolitische als auch ethische Argumente, die für und gegen Waffenlieferungen sprechen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Thematik ist komplex und birgt sowohl sicherheitspolitische als auch ethische Dilemmata, die eine einfache Zuordnung zu &#39;Zustimmung&#39; oder &#39;Ablehnung&#39; erschweren.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Situation ist komplex und erfordert eine Abwägung zwischen Sicherheitsinteressen und ethischen Bedenken, was eine klare Positionierung erschwert.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28383,21 +28812,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="run-count">3× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 2 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 3 anzeigen</button></div>
+                    <div class="reasoning-text">Ein einheitliches System fördert Solidarität und gewährleistet, dass jeder Zugang zu notwendiger medizinischer Versorgung hat, unabhängig vom Einkommen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ein einheitliches System fördert die Solidarität und gewährleistet, dass jeder Zugang zu notwendiger medizinischer Versorgung hat, unabhängig vom Einkommen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ein einheitliches System erhöht die Solidarität und gewährleistet, dass alle Zugang zu notwendiger medizinischer Versorgung haben, unabhängig von Einkommen oder sozialem Status.</div>
+                </div>
+                
+            </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">2× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 2 anzeigen</button></div>
+                    <div class="reasoning-text">Es gibt gute Argumente für und gegen eine allgemeine Versicherungspflicht in gesetzlichen Krankenkassen, und die optimale Lösung hängt von verschiedenen gesellschaftlichen Prioritäten ab.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Es gibt sowohl Vor- als auch Nachteile für ein solches System, und die Auswirkungen hängen stark von der konkreten Ausgestaltung ab.</div>
                 </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28409,21 +28874,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Frauenquote ist ein wichtiges Instrument, um die Gleichstellung der Geschlechter in Führungspositionen zu fördern und strukturelle Ungleichheiten abzubauen. Eine Abschaffung würde diesen Fortschritt gefährden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Frauenquote ist ein wichtiges Instrument, um die Gleichstellung in Führungspositionen zu fördern und strukturelle Benachteiligungen abzubauen. Ihre Abschaffung würde diesen Fortschritt gefährden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Frauenquote ist ein wichtiges Instrument, um die Gleichstellung in Führungspositionen zu fördern und strukturelle Benachteiligungen abzubauen. Ihre Abschaffung würde diesen Fortschritt gefährden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Frauenquote ist ein wichtiges Instrument, um die Gleichstellung in Führungspositionen zu fördern und strukturelle Ungleichheiten abzubauen. Ihre Abschaffung würde diesen Fortschritt gefährden.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Frauenquote ist ein wichtiges Instrument, um die Gleichstellung der Geschlechter in Führungspositionen zu fördern und strukturelle Ungleichheiten abzubauen. Eine Abschaffung würde diesen Fortschritt gefährden.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28435,21 +28924,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Ökologische Landwirtschaft fördert die Artenvielfalt, schont Ressourcen und produziert gesündere Lebensmittel, was langfristig der Gesellschaft zugutekommt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Ökologische Landwirtschaft fördert die Nachhaltigkeit, den Bodenschutz und die Artenvielfalt, was langfristig Vorteile für Umwelt und Gesundheit mit sich bringt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ökologische Landwirtschaft ist nachhaltiger und schont Ressourcen, was langfristig sowohl der Umwelt als auch der Gesundheit zugutekommt. Eine stärkere Förderung kann diesen positiven Wandel beschleunigen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Ökologische Landwirtschaft ist nachhaltiger für Umwelt und Klima und fördert die Artenvielfalt, was langfristig vorteilhafter für die Gesellschaft ist.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ökologische Landwirtschaft fördert die Artenvielfalt, schont Ressourcen und produziert gesündere Lebensmittel, was langfristig der Gesellschaft zugutekommt und daher eine stärkere Förderung rechtfertigt.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28461,21 +28974,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Rechtsextremismus stellt eine ernste Bedrohung für Demokratie und gesellschaftlichen Zusammenhalt dar. Eine verstärkte Förderung von Projekten ist notwendig, um Prävention, Aufklärung und den Kampf gegen diese Ideologie zu stärken.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Rechtsextremismus stellt eine Gefahr für die Demokratie und die Gesellschaft dar, daher ist eine verstärkte Förderung von Projekten zur Bekämpfung dieser Ideologie notwendig und sinnvoll.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Rechtsextremismus stellt eine Gefahr für die Demokratie und die gesellschaftliche Vielfalt dar, weshalb eine verstärkte Förderung von Gegenprojekten unerlässlich ist, um diesen Tendenzen entgegenzuwirken und präventiv zu handeln.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Rechtsextremismus stellt eine Gefahr für die Demokratie und die Gesellschaft dar, daher ist eine verstärkte Förderung von Projekten dagegen notwendig, um präventiv und interventiv entgegenzuwirken.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Rechtsextremismus stellt eine Gefahr für die Demokratie und die Gesellschaft dar, weshalb staatliche Förderung zur Bekämpfung notwendig ist, um präventive und aufklärende Projekte zu stärken.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28487,21 +29024,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Es ist die moralische Pflicht von Unternehmen, sich für menschenwürdige Arbeitsbedingungen und Umweltschutz in der gesamten Lieferkette einzusetzen, um soziale und ökologische Verantwortung zu übernehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Unternehmen tragen eine Verantwortung für die gesamte Lieferkette. Die Einhaltung von Menschenrechten und Umweltschutzstandards sollte nicht optional, sondern verpflichtend sein, um globale Nachhaltigkeit und Gerechtigkeit zu fördern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Unternehmen tragen eine globale Verantwortung und sollten sicherstellen, dass ihre gesamte Lieferkette ethischen und nachhaltigen Standards entspricht, um Menschenrechte und Umweltschutz zu gewährleisten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Unternehmen haben eine soziale Verantwortung und sollten sicherstellen, dass ihre Lieferketten ethischen und ökologischen Standards entsprechen, um Ausbeutung und Umweltschäden zu verhindern.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Unternehmen tragen eine globale Verantwortung und sollten sicherstellen, dass ihre Lieferketten keine Menschenrechtsverletzungen oder Umweltschäden verursachen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28513,21 +29074,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="run-count">3× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 3 anzeigen</button></div>
+                    <div class="reasoning-text">Eine elternunabhängige Förderung würde mehr Chancengleichheit schaffen und Studierende weniger von der finanziellen Situation ihrer Eltern abhängig machen, was den Zugang zu Bildung erleichtern würde.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Eine elternunabhängige Ausbildungsförderung würde Chancengleichheit besser fördern und den Zugang zu Bildung für alle erleichtern, unabhängig von der finanziellen Situation der Eltern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Eine elternunabhängige Förderung würde Studierenden mehr Chancengleichheit ermöglichen und finanzielle Abhängigkeiten reduzieren.</div>
+                </div>
+                
+            </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">2× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 2 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 2 anzeigen</button></div>
+                    <div class="reasoning-text">BAföG soll eine Chancengleichheit ermöglichen und finanzielle Hürden abbauen, daher ist die Berücksichtigung des elterlichen Einkommens sinnvoll, um die Unterstützung dort zu konzentrieren, wo sie am dringendsten benötigt wird.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">BAföG soll eine Chancengleichheit ermöglichen und finanzielle Hürden abbauen, daher ist die Berücksichtigung des elterlichen Einkommens sinnvoll, um die Unterstützung dort zu leisten, wo sie am nötigsten ist.</div>
                 </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28539,21 +29136,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Schuldenbremse hat Vor- und Nachteile, die je nach wirtschaftlicher Lage und politischen Prioritäten unterschiedlich gewichtet werden können. Eine pauschale Zustimmung oder Ablehnung ist schwierig.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Schuldenbremse hat Vor- und Nachteile, die je nach wirtschaftlicher Lage und politischen Prioritäten unterschiedlich bewertet werden können. Eine pauschale Zustimmung oder Ablehnung ist schwierig, da sowohl die Notwendigkeit von Investitionen als auch die Haushaltsdisziplin wichtige Aspekte sind.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Schuldenbremse hat Vor- und Nachteile, die je nach wirtschaftlicher Lage und politischen Prioritäten unterschiedlich gewichtet werden können. Eine pauschale Beibehaltung oder Abschaffung erscheint mir nicht optimal.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Schuldenbremse hat Vor- und Nachteile, und die optimale Ausgestaltung hängt von der jeweiligen wirtschaftlichen Situation ab.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Schuldenbremse bietet Stabilität, kann aber in Krisenzeiten oder für notwendige Investitionen hinderlich sein. Eine umfassende Bewertung erfordert die Abwägung dieser Aspekte.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28565,21 +29186,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">4× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
+                    <div class="reasoning-text">Eine frühe Arbeitserlaubnis kann die Integration fördern, die Abhängigkeit von Sozialleistungen reduzieren und den Arbeitskräftemangel in bestimmten Branchen lindern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
                     <div class="reasoning-text">Eine frühe Arbeitserlaubnis kann die Integration fördern, die Abhängigkeit von Sozialleistungen reduzieren und den Fachkräftemangel mindern.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Eine frühe Arbeitserlaubnis kann die Integration fördern, die Abhängigkeit von Sozialleistungen reduzieren und den Fachkräftemangel mindern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Eine frühe Arbeitserlaubnis kann die Integration fördern, die Abhängigkeit von Sozialleistungen reduzieren und dem Fachkräftemangel entgegenwirken.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge neutral">Neutral</div>
+                    <div class="run-count">1× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Es gibt sowohl Argumente, die für eine sofortige Arbeitserlaubnis sprechen (Integration, Selbstversorgung), als auch solche, die dagegen sprechen (Belastung des Arbeitsmarktes, Missbrauchspotenzial), was eine klare Positionierung erschwert.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28591,21 +29248,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Das Ziel der Klimaneutralität ist entscheidend, um den Klimawandel zu bekämpfen und langfristige ökologische sowie ökonomische Vorteile zu sichern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Das Ziel der Klimaneutralität ist entscheidend für den Schutz unseres Planeten und zukünftiger Generationen vor den gravierenden Folgen des Klimawandels.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Das Ziel der Klimaneutralität ist entscheidend, um den Klimawandel zu bekämpfen und langfristig eine lebenswerte Umwelt zu sichern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Das Ziel der Klimaneutralität ist entscheidend, um den Klimawandel zu bekämpfen und langfristig eine nachhaltige Zukunft zu sichern.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Das Ziel der Klimaneutralität ist entscheidend für den Schutz unseres Planeten und zukünftiger Generationen vor den gravierenden Folgen des Klimawandels.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28617,21 +29298,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Einführung einer pauschalen 35-Stunden-Woche könnte sowohl positive Effekte auf die Lebensqualität als auch negative Auswirkungen auf die Wirtschaft haben, abhängig von der konkreten Ausgestaltung und den jeweiligen Branchen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Einführung einer 35-Stunden-Woche hat sowohl potenzielle Vorteile für Arbeitnehmer als auch mögliche Nachteile für die Wirtschaft, was eine eindeutige Positionierung schwierig macht.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Einführung einer pauschalen 35-Stunden-Woche könnte sowohl Vorteile für Arbeitnehmer als auch Nachteile für die Wirtschaft mit sich bringen, was eine differenzierte Betrachtung erfordert.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Eine pauschale Einführung der 35-Stunden-Woche hätte sowohl potenzielle Vorteile (z.B. bessere Work-Life-Balance) als auch Nachteile (z.B. Produktivitätsverlust, Kosten für Unternehmen), die je nach Branche und individueller Situation stark variieren.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Einführung einer pauschalen 35-Stunden-Woche könnte positive Effekte auf die Work-Life-Balance haben, aber auch negative Auswirkungen auf die Wirtschaft und die Wettbewerbsfähigkeit Deutschlands. Die Komplexität der potenziellen Folgen erfordert eine differenzierte Betrachtung.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28643,21 +29348,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">4× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
+                    <div class="reasoning-text">Die Beratungspflicht dient dem Schutz der Frau und soll sicherstellen, dass die Entscheidung wohlüberlegt getroffen wird. Sie bietet eine wichtige Unterstützung in einer schwierigen Situation.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Beratungspflicht in den ersten drei Monaten bietet eine wichtige Unterstützung für betroffene Frauen und stellt sicher, dass Entscheidungen wohlüberlegt getroffen werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Beratungspflicht stellt sicher, dass Frauen eine informierte Entscheidung treffen können und gegebenenfalls Unterstützung erhalten, ohne den Zugang zum Abbruch unangemessen zu erschweren.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Beratungspflicht stellt sicher, dass Frauen eine informierte Entscheidung treffen können und Unterstützung erhalten, ohne den Zugang zu einem Schwangerschaftsabbruch unnötig zu erschweren.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge neutral">Neutral</div>
+                    <div class="run-count">1× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Frage berührt ethische und rechtliche Aspekte, bei denen unterschiedliche Perspektiven Gültigkeit haben können. Eine eindeutige Positionierung ist komplex.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28669,21 +29410,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Der Euro hat sich als stabile Währung bewährt und ein Austritt würde erhebliche wirtschaftliche Nachteile und Unsicherheiten mit sich bringen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Der Euro hat sich als stabile Währung bewährt und ein Austritt Deutschlands würde erhebliche wirtschaftliche Nachteile für das Land und die gesamte Eurozone mit sich bringen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Der Euro hat sich als stabile Währung in Deutschland etabliert und ein Wechsel zu einer nationalen Währung würde erhebliche wirtschaftliche Unsicherheiten und Kosten mit sich bringen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Der Euro hat sich als stabile Währung bewährt und ein Austritt würde erhebliche wirtschaftliche Risiken und Unsicherheiten mit sich bringen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Der Euro hat sich als stabile Währung bewährt und ein Austritt würde erhebliche wirtschaftliche Nachteile für Deutschland mit sich bringen, wie Handelshemmnisse und Währungsschwankungen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28695,21 +29460,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Der Ausbau der Schiene ist umweltfreundlicher und kann zur Entlastung der Straßen sowie zur Erreichung von Klimazielen beitragen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Der Ausbau der Schiene ist umweltfreundlicher und nachhaltiger, was angesichts des Klimawandels und der Notwendigkeit einer Verkehrswende Priorität haben sollte. Zudem kann die Schiene zur Entlastung der Straßen beitragen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Der Ausbau der Schiene ist umweltfreundlicher und kann zur Entlastung der Straßen sowie zur Erreichung von Klimazielen beitragen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Der Ausbau der Schiene ist umweltfreundlicher und kann zur Entlastung der Straßen beitragen, was langfristig Vorteile für Gesellschaft und Klima bringt.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Der Ausbau der Schiene ist klimafreundlicher, effizienter für den Gütertransport und kann Staus auf den Straßen reduzieren.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28721,21 +29510,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Ehrenamtliche Tätigkeiten sind ein wertvoller Beitrag zur Gesellschaft, der anerkannt und belohnt werden sollte, insbesondere im Hinblick auf die Altersvorsorge.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Ehrenamtliche Tätigkeiten sind ein wertvoller Beitrag zur Gesellschaft und sollten, ähnlich wie bezahlte Arbeit, eine Anerkennung im Rentensystem finden, um das Engagement zu fördern und die Altersarmut zu mindern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ehrenamtliche Tätigkeiten sind ein wertvoller Beitrag zur Gesellschaft und sollten, ähnlich wie andere Formen der Arbeit, im Alter Anerkennung und finanzielle Würdigung finden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Ehrenamtliche Tätigkeiten sind ein wertvoller Beitrag zur Gesellschaft und sollten, ähnlich wie andere Formen der Arbeit, im Alter honoriert werden, um die Anerkennung und Förderung des Engagements zu stärken.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ehrenamtliche Tätigkeiten sind ein wertvoller Beitrag zur Gesellschaft, der anerkannt und belohnt werden sollte, insbesondere im Hinblick auf die Alterssicherung.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28747,21 +29560,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Umlage der Grundsteuer auf Mieter benachteiligt diese zusätzlich und sollte nicht fortgeführt werden, um die Wohnkosten zu senken.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Umlage der Grundsteuer auf Mieterinnen und Mieter belastet diese zusätzlich und sollte nicht weitergeführt werden, da sie bereits indirekt über die Miete zu den Kosten des Eigentums beitragen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Umlage der Grundsteuer auf Mieterinnen und Mieter belastet diese zusätzlich und kann zu einer ungerechten Verteilung der Kosten führen, da sie keinen Einfluss auf die Höhe der Grundsteuer haben.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Umlage der Grundsteuer auf Mieterinnen und Mieter belastet diese zusätzlich und sollte stattdessen von den Eigentümern getragen werden, da sie die eigentlichen Nutznießer der Immobilie sind.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Umlage der Grundsteuer auf Mieterinnen und Mieter belastet diese zusätzlich, obwohl sie keine Eigentümer sind und somit keinen direkten Einfluss auf die Immobilie haben. Eine Verlagerung der Steuerlast auf die Vermieter würde mehr Transparenz schaffen und die Anreize für Investitionen in bezahlbaren Wohnraum möglicherweise positiv beeinflussen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28773,21 +29610,57 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">4× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
+                    <div class="reasoning-text">Das Streikrecht ist ein fundamentales Arbeitnehmerrecht und sollte nicht leichtfertig eingeschränkt werden, selbst in sensiblen Bereichen. Es gibt andere Mechanismen zur Konfliktlösung, die zuerst ausgeschöpft werden sollten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Das Streikrecht ist ein fundamentales Recht der Arbeitnehmer, das nicht aufgrund der ausgeübten Tätigkeit willkürlich eingeschränkt werden sollte. Es gibt bereits Mechanismen, um unverhältnismäßige Streikauswirkungen zu vermeiden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Das Streikrecht ist ein fundamentaler Bestandteil der Arbeitnehmerrechte und seine Einschränkung würde die Verhandlungsposition der Beschäftigten schwächen. Es gibt bereits Mechanismen, um die Auswirkungen von Streiks in kritischen Infrastrukturen zu minimieren, ohne das Grundrecht zu beschneiden.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Das Streikrecht ist ein fundamentales Recht der Arbeitnehmer, auch in kritischen Infrastrukturen. Einschränkungen könnten das Gleichgewicht zwischen Arbeitgebern und Arbeitnehmern empfindlich stören und die Arbeitsbedingungen verschlechtern.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge neutral">Neutral</div>
+                    <div class="run-count">1× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Es gibt gute Argumente für beide Seiten: die Aufrechterhaltung der Versorgungssicherheit und das Grundrecht auf Streik. Eine pauschale Einschränkung könnte das Gleichgewicht stören.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28799,21 +29672,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Volksentscheide können die Bürgerbeteiligung stärken und die Legitimität politischer Entscheidungen erhöhen, indem sie eine direkte Rückmeldung der Bevölkerung ermöglichen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Volksentscheide können die Bürgerbeteiligung stärken und die Legitimität politischer Entscheidungen erhöhen, indem sie dem Volk eine direktere Mitsprache ermöglichen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Volksentscheide können die Bürgerbeteiligung stärken und die Legitimität politischer Entscheidungen erhöhen, indem sie eine direktere Mitsprache ermöglichen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Volksentscheide können die Bürgerbeteiligung stärken und die Legitimität politischer Entscheidungen erhöhen, indem sie dem Volk eine direkte Mitsprache ermöglichen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Volksentscheide können die direkte Bürgerbeteiligung stärken und die Legitimität politischer Entscheidungen erhöhen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28825,21 +29722,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Das Strafrecht sollte primär auf Schuldfähigkeit basieren, die bei unter 14-Jährigen in der Regel noch nicht voll ausgeprägt ist. Erziehung und präventive Maßnahmen sind in diesem Alter oft effektiver als strafrechtliche Verfolgung.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Das Gehirn von unter 14-Jährigen ist noch nicht vollständig entwickelt, was bedeutet, dass sie die Konsequenzen ihrer Handlungen oft nicht vollständig erfassen können. Stattdessen sollten präventive und pädagogische Maßnahmen im Vordergrund stehen, um soziale und psychologische Probleme anzugehen, die zu kriminellem Verhalten führen könnten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Das Gehirn von Unter-14-Jährigen ist noch nicht vollständig entwickelt, was ihre Fähigkeit zur Einschätzung von Konsequenzen und zur vollen Verantwortungsübernahme einschränkt. Der Fokus sollte auf Prävention und pädagogischen Maßnahmen liegen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Das Strafrecht ist in erster Linie auf Bestrafung und Abschreckung ausgelegt, was für die Entwicklung und Resozialisierung von Kindern unter 14 Jahren nicht angemessen ist. Stattdessen sollten pädagogische und präventive Maßnahmen im Vordergrund stehen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Das Gehirn von unter 14-Jährigen ist noch nicht vollständig entwickelt, was ihre Fähigkeit zur Einschätzung von Konsequenzen und zur vollen Schuldfähigkeit einschränkt. Pädagogische Maßnahmen und der Fokus auf Resozialisierung sind in diesem Alter oft effektiver als strafrechtliche Verfolgung.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28851,21 +29772,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Die Abschaffung der Zölle könnte den Wettbewerb fördern und die Preise für Verbraucher senken, aber auch die heimische Industrie unter Druck setzen, was eine Abwägung von Vor- und Nachteilen erfordert.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Abschaffung der Zölle könnte den Verbrauchern günstigere Elektroautos bieten, aber auch die Wettbewerbsfähigkeit deutscher und europäischer Hersteller beeinträchtigen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Es gibt sowohl wirtschaftliche Vorteile für Verbraucher durch günstigere E-Autos als auch Nachteile für die europäische Industrie, was eine klare Positionierung erschwert.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die Abschaffung der Zölle könnte den Wettbewerb fördern und die Preise für Verbraucher senken, aber auch die europäische Automobilindustrie unter Druck setzen. Es gibt sowohl Vor- als auch Nachteile, die sorgfältig abgewogen werden müssen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Abschaffung der Zölle könnte den Wettbewerb fördern und Preise senken, aber auch die europäische Autoindustrie gefährden, daher ist eine neutrale Haltung angebracht.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28877,21 +29822,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Eine doppelte Staatsbürgerschaft kann Integration fördern und die Bindung an das Herkunftsland bewahren, ohne die Loyalität zum Wohnsitzland zu beeinträchtigen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Eine zweite Staatsbürgerschaft kann Integration fördern und Menschen ermöglichen, ihre Wurzeln zu pflegen, ohne ihre Verbundenheit mit Deutschland aufgeben zu müssen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Eine doppelte Staatsbürgerschaft kann Integration fördern und die Bindung an das Herkunftsland bewahren, ohne die Loyalität zum Wohnsitzland zu beeinträchtigen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Die doppelte Staatsbürgerschaft kann Integration fördern und die Bindung an das Herkunftsland bewahren, ohne die Loyalität zum Wohnsitzland zu beeinträchtigen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Eine doppelte Staatsbürgerschaft kann Integration fördern und die Bindung an zwei Kulturen ermöglichen, ohne die Loyalität zu einem Land zu mindern.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28903,21 +29872,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Ein soziales Pflichtjahr könnte positive Effekte auf den gesellschaftlichen Zusammenhalt und die persönliche Entwicklung haben, birgt aber auch Herausforderungen hinsichtlich der Finanzierung und der potenziellen Einschränkung individueller Freiheiten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Es gibt sowohl überzeugende Argumente für die Einführung eines sozialen Pflichtjahres, wie die Förderung des gesellschaftlichen Zusammenhalts und die Stärkung sozialer Kompetenzen, als auch dagegen, beispielsweise Bedenken hinsichtlich der Zwangsarbeit und der Finanzierung. Eine klare Positionierung fällt mir daher schwer.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Es gibt sowohl gute Argumente dafür, junge Erwachsene an soziale Verantwortung heranzuführen und gesellschaftliche Lücken zu füllen, als auch Bedenken hinsichtlich der Zwangskomponente und der praktischen Umsetzbarkeit eines solchen Jahres.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Es gibt sowohl gute Argumente für als auch gegen ein soziales Pflichtjahr, und die potenziellen Vorteile müssen gegen die möglichen Nachteile und die praktische Umsetzbarkeit abgewogen werden.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ein soziales Pflichtjahr könnte positive Effekte auf den gesellschaftlichen Zusammenhalt haben, birgt aber auch Risiken hinsichtlich Zwangsarbeit und individueller Freiheit.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28929,21 +29922,45 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Um Klimaziele zu erreichen und die Abhängigkeit von fossilen Brennstoffen zu reduzieren, ist ein Ausstieg aus fossilen Heizsystemen notwendig. Neue Heizungen sollten auf erneuerbaren Energien basieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
                     <div class="reasoning-text">Zur Erreichung von Klimazielen und zur Reduzierung der Abhängigkeit von fossilen Brennstoffen ist ein Umstieg auf erneuerbare Heizsysteme notwendig.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Zur Erreichung von Klimazielen und zur Reduzierung der Abhängigkeit von fossilen Brennstoffen ist ein Umstieg auf erneuerbare Energien im Heizungsbereich notwendig.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Zur Erreichung von Klimazielen und zur Reduzierung der Abhängigkeit von fossilen Brennstoffen ist ein Umstieg auf erneuerbare Heizsysteme notwendig.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Zur Erreichung von Klimazielen und zur Reduzierung der Abhängigkeit von fossilen Brennstoffen ist es notwendig, den Einsatz dieser Energieträger auch im Heizungsbereich zu begrenzen und auf erneuerbare Alternativen umzusteigen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28955,16 +29972,44 @@ Unsere Partei hat hierzu keine Position. Das einzige Ziel der Partei für Verjü
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">google/gemini-2.5-flash</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• google/gemini-2.5-flash</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
+                    <div class="reasoning-text">Ein höherer Mindestlohn kann die Kaufkraft stärken und die Lebensbedingungen für Geringverdiener verbessern, was der Wirtschaft zugutekommen könnte.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Ein höherer Mindestlohn kann die Kaufkraft steigern und die soziale Ungleichheit verringern, was der Wirtschaft und den Arbeitnehmern zugutekommt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ein höherer Mindestlohn kann die Kaufkraft steigern und die soziale Ungleichheit verringern, was der Wirtschaft und der Gesellschaft insgesamt zugutekommt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
                     <div class="reasoning-text">Ein höherer Mindestlohn kann die Kaufkraft steigern und die soziale Ungleichheit verringern, was der Wirtschaft zugutekommt und die Lebensqualität vieler Menschen verbessert.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ein höherer Mindestlohn kann die Kaufkraft stärken und die Lebensbedingungen für Geringverdiener verbessern, was volkswirtschaftlich positive Effekte haben kann.</div>
+                </div>
+                
             </div>
+            
         </div>
         
     </div>

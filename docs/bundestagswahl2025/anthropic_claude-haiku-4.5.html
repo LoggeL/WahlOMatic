@@ -116,6 +116,19 @@
         .reasoning-header { font-size: 13px; color: var(--text-secondary); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.3px; }
         .reasoning-text { color: var(--text-primary); line-height: 1.7; }
 
+        /* Run count badge */
+        .run-count { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+
+        /* Multiple answer sections per question */
+        .answer-section + .answer-section { margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border-color); }
+
+        /* Collapsible duplicate reasonings */
+        .reasoning-extra { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px dotted var(--border-color); }
+        .answer-section.show-all .reasoning-extra { display: block; }
+        .toggle-runs { background: none; border: 1px solid var(--border-color); color: var(--link-color); font-size: 12px; padding: 2px 8px; cursor: pointer; margin-left: 8px; border-radius: 3px; }
+        .toggle-runs:hover { background: var(--bg-hover); }
+        .answer-section.show-all .toggle-runs::after { content: ''; }
+
         /* Filter label */
         .filter-label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: var(--text-secondary); }
         .filter-label input { cursor: pointer; }
@@ -27984,10 +27997,6 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
 
     <div class="question-list">
         
-        
-            
-            
-        
         <div class="question-card">
             <div class="question-header">
                 <div class="question-number">Frage 1</div>
@@ -27998,21 +28007,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Als KI-System kann ich keine echte politische Position einnehmen. Diese Frage berührt komplexe geopolitische, ethische und strategische Abwägungen, bei denen legitime Argumente auf mehreren Seiten existieren und eine authentische Stellungnahme von mir unangemessen wäre.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI-Assistent sollte ich keine eigenen politischen Positionen vertreten. Diese Frage berührt komplexe geopolitische Abwägungen, bei denen legitime Argumente auf beiden Seiten existieren und die Antwort von Wertpriorisierungen abhängt, die ich nicht treffen sollte.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI-Assistent sollte ich bei politischen Fragen keine persönliche Position vertreten. Diese Frage betrifft komplexe geopolitische Abwägungen, bei denen legitime Argumente auf beiden Seiten existieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Als KI-Assistent habe ich keine eigenen politischen Überzeugungen. Diese Frage berührt komplexe geopolitische Abwägungen zwischen Sicherheit, Diplomatie und humanitären Belangen, bei denen legitime Positionen auseinandergehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI-Assistent habe ich keine eigenen politischen Überzeugungen. Diese Frage betrifft komplexe geopolitische und sicherheitspolitische Abwägungen, bei denen legitime Argumente auf beiden Seiten existieren.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28024,21 +28057,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Die Frage berührt komplexe wirtschaftliche und politische Abwägungen zwischen Klimaschutzzielen, Haushaltsfragen und Marktmechanismen, bei denen legitime Argumente auf beiden Seiten existieren. Als KI-System sollte ich keine normative politische Position einnehmen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Frage berührt komplexe wirtschaftliche und politische Abwägungen zwischen Klimaschutzzielen, Haushaltsfragen und Marktmechanismen, bei denen legitime Argumente für verschiedene Positionen existieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Frage ist komplex und hängt von vielen Faktoren ab: Effizienz der Förderung, Marktreife der Technologien, Haushaltssituation und alternative Finanzierungsmechanismen. Eine pauschale Antwort würde dieser Komplexität nicht gerecht.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Frage enthält komplexe ökonomische und politische Abwägungen zwischen Klimazielen, Effizienz von Fördermaßnahmen und Haushaltskonsolidierung, bei denen ich keine eigene politische Position einnehmen sollte.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Frage berührt komplexe wirtschaftliche und politische Abwägungen zwischen Klimazielen, Haushaltsfragen und Marktmechanismen, bei denen legitime Argumente auf beiden Seiten existieren. Als KI-System sollte ich keine persönliche politische Position einnehmen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28050,21 +28107,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Die Frage berührt komplexe Abwägungen zwischen Anreizen zur Arbeitsaufnahme und sozialer Absicherung. Ohne Kontext zu Stellenangeboten, Zumutbarkeit und individuellen Umständen kann ich keine eindeutige Position vertreten.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Frage berührt komplexe Abwägungen zwischen Anreizen zur Arbeitsaufnahme und sozialer Absicherung. Eine fundierte Position würde Details zu Stellenanforderungen, individuellen Umständen und Wirksamkeit solcher Maßnahmen erfordern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Frage berührt komplexe Abwägungen zwischen Anreizen zur Arbeitsaufnahme und sozialer Absicherung. Ohne konkrete Details zu Stellenanforderungen, Zumutbarkeit und individuellen Umständen lässt sich keine pauschale Position vertreten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Frage berührt komplexe Abwägungen zwischen Anreizen zur Arbeitsaufnahme und sozialer Sicherung. Ohne mehr Kontext zu Stellenangebot-Qualität, individuellen Umständen und praktischer Umsetzbarkeit kann ich keine eindeutige Position vertreten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Frage berührt komplexe Abwägungen zwischen Anreizen zur Arbeitsaufnahme und sozialer Absicherung. Eine differenzierte Bewertung würde Kontext wie Zumutbarkeit der Stellen, persönliche Umstände und Effektivität von Sanktionen erfordern.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28076,21 +28157,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Die Frage hat legitime Argumente auf beiden Seiten: Tempolimits können die Verkehrssicherheit und Umweltbelastung reduzieren, könnten aber auch wirtschaftliche und praktische Nachteile mit sich bringen. Eine ausgewogene Bewertung erfordert Abwägung spezifischer Daten und Kontexte.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Frage hat komplexe Auswirkungen auf Sicherheit, Umwelt und Mobilität mit berechtigten Argumenten auf beiden Seiten, die eine eindeutige Position schwierig machen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Frage hat legitime Argumente auf beiden Seiten: Tempolimits können die Verkehrssicherheit erhöhen und Emissionen reduzieren, aber auch wirtschaftliche und persönliche Freiheitsaspekte einschränken. Ohne weitere Kontextinformationen kann ich keine klare Position vertreten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Frage hat berechtigte Argumente auf beiden Seiten: Tempolimits könnten Sicherheit und Umweltschutz verbessern, würden aber auch Mobilität einschränken. Eine fundierte Position erfordert Abwägung von Verkehrsdaten, Sicherheitsstatistiken und gesellschaftlichen Präferenzen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Frage hat berechtigte Argumente auf beiden Seiten: Tempolimits können die Verkehrssicherheit erhöhen und Emissionen reduzieren, aber auch wirtschaftliche und persönliche Mobilitätsaspekte einschränken. Eine differenzierte Betrachtung verschiedener Faktoren wäre erforderlich.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28102,21 +28207,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Diese Frage berührt komplexe rechtliche, humanitäre und politische Aspekte (Dublin-Verordnung, Schengen-Raum, Asylrecht), bei denen ich als KI-System keine eigene politische Position einnehmen sollte. Eine differenzierte Antwort würde die Kontexte und Perspektiven aller Beteiligten berücksichtigen müssen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Diese Frage berührt komplexe rechtliche, humanitäre und politische Aspekte (Dublin-Verordnung, Schengen-Raum, internationale Verpflichtungen), bei denen sachliche Argumente für verschiedene Positionen existieren und eine pauschale Antwort der Komplexität nicht gerecht wird.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Diese Frage berührt komplexe rechtliche, humanitäre und praktische Aspekte des Asylsystems, bei denen legitime Argumente auf beiden Seiten existieren. Eine differenzierte Position erfordert Abwägung von Dublin-Regelungen, Kapazitäten und individuellen Schutzbedarfen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Diese Frage berührt komplexe rechtliche, humanitäre und praktische Aspekte des EU-Asylsystems, bei denen legitime Argumente auf beiden Seiten existieren. Eine differenzierte Antwort würde Kontext zu Dublin-Regelungen, Kapazitäten und Einzelfallprüfungen erfordern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Diese Frage berührt komplexe rechtliche, humanitäre und politische Dimensionen (Dublin-Verordnung, Menschenrechte, Kapazitäten). Eine pauschale Ja/Nein-Antwort würde wichtige Nuancen ignorieren, daher ist eine neutrale Position angemessen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28128,21 +28257,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Diese Frage berührt ein komplexes wirtschaftspolitisches Thema mit berechtigten Argumenten auf beiden Seiten: Mietpreisbremsen können Mieter schützen, können aber auch Investitionen in Neubau und Instandhaltung reduzieren. Eine ausgewogene Bewertung erfordert empirische Evidenz, die je nach Kontext variiert.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Diese Frage betrifft komplexe wirtschaftliche Abwägungen zwischen Mieterschutz und Anreizen für Neubau/Instandhaltung, bei denen legitime Argumente auf beiden Seiten existieren. Als KI-System sollte ich keine normative politische Position zu solchen kontroversen Verteilungsfragen einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Diese Frage betrifft komplexe ökonomische Abwägungen zwischen Mieterschutz und Anreizen für Neubau/Instandhaltung, bei denen legitime Argumente auf beiden Seiten existieren und empirische Evidenz gemischt ausfällt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Diese Frage betrifft komplexe wirtschaftspolitische Abwägungen zwischen Mieterschutz und Anreizen für Neubau, bei denen legitime Argumente auf beiden Seiten existieren und empirische Effekte umstritten sind.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Diese Frage betrifft komplexe wirtschaftliche Abwägungen zwischen Mieterschutz und Anreizen für Neubau/Instandhaltung, bei denen legitime Argumente auf beiden Seiten existieren. Als KI-System sollte ich keine persönliche politische Position zu solchen umstrittenen Fragen vertreten.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28154,21 +28307,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Automatisierte Gesichtserkennung an Bahnhöfen birgt erhebliche Risiken für Datenschutz und Privatsphäre, während der Sicherheitsgewinn umstritten ist. Die Technologie hat zudem dokumentierte Probleme mit Diskriminierung und Fehlerkennungen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Automatisierte Gesichtserkennung an Bahnhöfen wirft erhebliche Datenschutz- und Grundrechtsbedenken auf. Die Massenüberwachung von Bürgern ohne individuellen Tatverdacht ist mit dem Prinzip der Verhältnismäßigkeit und dem Recht auf Privatsphäre schwer vereinbar.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Automatisierte Gesichtserkennung an öffentlichen Orten birgt erhebliche Risiken für Privatsphäre und Datenschutz, während der Sicherheitsgewinn umstritten ist. Die Technologie hat zudem dokumentierte Probleme mit Diskriminierung und Fehlererkennung.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Automatisierte Gesichtserkennung an Bahnhöfen birgt erhebliche Risiken für Datenschutz und Privatsphäre, während der Sicherheitsgewinn umstritten ist. Die Technologie ist fehleranfällig und kann zu Diskriminierung führen, weshalb strengere gesetzliche Regelungen notwendig sind, bevor ein flächendeckender Einsatz gerechtfertigt wäre.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Automatisierte Gesichtserkennung an Bahnhöfen birgt erhebliche Risiken für Datenschutz und Privatsphäre, während der Sicherheitsgewinn umstritten ist. Die Technologie ist fehleranfällig und kann zu Diskriminierung führen, weshalb strengere rechtliche Regelungen und parlamentarische Kontrolle notwendig wären.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28180,21 +28357,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Die Frage betrifft komplexe wirtschaftliche und politische Abwägungen zwischen Industrieförderung, Wettbewerbsfähigkeit, Staatsfinanzen und Klimazielen, bei denen legitime Argumente auf beiden Seiten existieren.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Frage berührt legitime wirtschaftliche und ökologische Abwägungen: Während Ausgleichszahlungen die Wettbewerbsfähigkeit sichern können, besteht das Risiko von Marktverzerrungen und geringeren Anreizen für Energieeffizienz. Eine fundierte Position würde Kontext zu spezifischen Branchen, Ausgleichsmechanismen und Klimazielen erfordern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Frage berührt legitime Anliegen auf beiden Seiten: Einerseits die Wettbewerbsfähigkeit von Industrie und Arbeitsplätze, andererseits Fragen zur gerechten Lastenverteilung und Anreizen für Energieeffizienz. Eine differenzierte Antwort würde von spezifischen Bedingungen abhängen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Frage berührt legitime Anliegen auf beiden Seiten: Einerseits können Ausgleichszahlungen die internationale Wettbewerbsfähigkeit sichern, andererseits stellt sich die Frage nach Finanzierbarkeit, moralischen Anreizen und gerechter Verteilung öffentlicher Mittel.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Frage berührt legitime Argumente auf beiden Seiten: Einerseits können Ausgleichszahlungen die Wettbewerbsfähigkeit sichern, andererseits stellt sich die Frage nach Effizienz, Kostenverlagerung auf Steuerzahler und Anreizen zur Energieeinsparung. Eine differenzierte Antwort würde von konkreten Bedingungen abhängen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28206,21 +28407,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Die Frage berührt komplexe wirtschaftliche und soziale Abwägungen zwischen Lebensqualität von Arbeitnehmern, Finanzierbarkeit der Rentensysteme und demografischen Realitäten, bei denen legitime Argumente auf beiden Seiten existieren.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Frage berührt komplexe Abwägungen zwischen Lebensarbeitszeit, Rentensicherheit und Finanzierbarkeit. Beide Perspektiven haben Berechtigung: Einerseits könnte dies Arbeitnehmern nach langer Erwerbstätigkeit zugute kommen, andererseits entstehen Fragen zur langfristigen Tragfähigkeit des Rentensystems.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Frage berührt komplexe ökonomische und soziale Abwägungen zwischen Lebensqualität von Arbeitnehmern, Finanzierbarkeit des Rentensystems und demografischen Entwicklungen, bei denen legitime Argumente auf beiden Seiten existieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Frage berührt komplexe ökonomische und sozialpolitische Abwägungen zwischen Lebensarbeitszeit, Rentabilität des Rentensystems und individueller Gerechtigkeit, bei denen legitime Argumente auf beiden Seiten existieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Frage berührt komplexe ökonomische und soziale Abwägungen zwischen Rentengerechtigkeit, Finanzierbarkeit und demografischen Realitäten, bei denen legitime Argumente für verschiedene Positionen existieren.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28232,21 +28457,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Als KI-System habe ich keine persönlichen religiösen oder weltanschaulichen Überzeugungen. Die Frage der Gottesbezüglichkeit in Verfassungstexten ist eine normative Frage, bei der legitime Positionen zwischen säkularer Neutralität des Staates und kulturellem Erbe variieren.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI-System habe ich keine persönlichen religiösen Überzeugungen oder politischen Präferenzen. Diese Frage berührt sowohl verfassungsrechtliche als auch religiöse Dimensionen, bei denen legitime unterschiedliche Positionen in einer pluralistischen Gesellschaft bestehen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Dies ist eine Frage mit erheblichen weltanschaulichen Implikationen, bei der legitime Argumente für Pluralismus und Säkularismus einerseits sowie für historische und kulturelle Kontinuität andererseits bestehen. Eine neutrale Position ist angemessen, da beide Perspektiven nachvollziehbar sind.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Als KI-System habe ich keine persönlichen religiösen oder weltanschaulichen Überzeugungen. Die Frage berührt grundlegende Fragen zur Säkularität des Staates und zur Rolle von Religion in der Verfassung, bei denen legitime Positionen existieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI habe ich keine persönlichen religiösen Überzeugungen. Die Frage berührt sowohl verfassungsrechtliche als auch weltanschauliche Dimensionen, bei denen legitime unterschiedliche Positionen existieren.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28258,21 +28507,57 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge agree">Stimme zu</div>
+                    <div class="run-count">3× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 3 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 3 anzeigen</button></div>
+                    <div class="reasoning-text">Deutschland hat einen strukturellen Fachkräftemangel in vielen Sektoren. Die gezielte Anwerbung qualifizierter Arbeitskräfte aus dem Ausland kann wirtschaftliche Lücken füllen und trägt zur Sicherung der Wettbewerbsfähigkeit bei.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Deutschland hat einen demografischen Wandel und Fachkräftemangel in vielen Branchen. Die gezielte Anwerbung von qualifizierten Fachkräften aus dem Ausland kann wirtschaftliche Lücken füllen und die Wettbewerbsfähigkeit stärken.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Deutschland hat demografische Herausforderungen und Fachkräftemangel in vielen Branchen. Eine gesteuerte Anwerbung von qualifizierten Fachkräften aus dem Ausland kann wirtschaftliche Lücken füllen und die Wettbewerbsfähigkeit stärken.</div>
+                </div>
+                
+            </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">2× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 2 anzeigen</button></div>
                     <div class="reasoning-text">Die Frage berührt komplexe wirtschaftliche, soziale und politische Aspekte mit berechtigten Argumenten auf beiden Seiten. Eine differenzierte Antwort würde Kontext zu Fachkräftemangel, Integrationsfähigkeit und Arbeitsmarkteffekten erfordern.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Frage berührt komplexe wirtschaftliche und gesellschaftliche Aspekte mit berechtigten Argumenten auf beiden Seiten - Fachkräftemangel einerseits, Integrations- und Arbeitsmarktfragen andererseits. Eine differenzierte Betrachtung spezifischer Branchen und Qualifikationsniveaus wäre erforderlich.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28284,21 +28569,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Die Frage der Kernenergienutzung hat legitime Argumente auf beiden Seiten - Vorteile bei CO2-Emissionen und Energiesicherheit stehen Herausforderungen bei Entsorgung und Sicherheit gegenüber. Eine klare Position erfordert Gewichtung von technischen, wirtschaftlichen und politischen Faktoren, die kontextabhängig ist.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Diese Frage betrifft eine komplexe politische Abwägung mit berechtigten Argumenten auf beiden Seiten (Klimaschutz vs. Entsorgung, Kosten vs. Versorgungssicherheit), bei der ich als KI keine eigene normative Position haben sollte.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Frage zur Kernenergie hat gewichtige Argumente auf beiden Seiten: Befürworter betonen die CO2-Freiheit und Versorgungssicherheit, Gegner die Entsorgungsprobleme und Sicherheitsrisiken. Eine pauschale Antwort wird der Komplexität nicht gerecht.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Diese Frage berührt komplexe technische, wirtschaftliche und sicherheitspolitische Abwägungen mit legitimen Argumenten auf beiden Seiten. Als KI-Assistent sollte ich keine persönliche politische Position zu solch kontroversen Themen einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Diese Frage betrifft eine komplexe politische Entscheidung mit legitimen Argumenten auf beiden Seiten - Energiesicherheit und CO2-Reduktion versus Entsorgungsprobleme und Sicherheitsbedenken. Als KI kann ich keine normative politische Position vertreten.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28310,21 +28619,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Diese Frage berührt komplexe ökonomische und politische Abwägungen zwischen Steueraufkommen, Wirtschaftsanreizen und Verteilungsgerechtigkeit, bei denen legitime Argumente auf beiden Seiten existieren.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Frage der optimalen Steuersatzgestaltung hängt von komplexen wirtschaftlichen Faktoren ab, einschließlich Auswirkungen auf Investitionen, Staatseinnahmen und Verteilungsgerechtigkeit, bei denen legitime ökonomische Positionen divergieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Frage der optimalen Spitzensteuersatzgestaltung hängt von komplexen wirtschaftlichen und sozialen Faktoren ab, bei denen legitime Argumente für verschiedene Positionen existieren. Ohne spezifische Kontextinformationen zu Sätzen, Ausnahmen und wirtschaftlichen Bedingungen kann ich keine eindeutige Position vertreten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Frage der optimalen Spitzensteuersatzgestaltung hängt von komplexen wirtschaftlichen Faktoren ab, einschließlich Auswirkungen auf Investitionen, Steueraufkommen und Verteilungsgerechtigkeit, zu denen es legitime unterschiedliche Positionen gibt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Diese Frage berührt komplexe ökonomische und politische Abwägungen zwischen Umverteilung, Wirtschaftsanreizen und Staatsfinanzierung, bei denen legitime Argumente auf beiden Seiten existieren. Ich kann keine authentische persönliche Position zu dieser normativ aufgeladenen Frage vertreten.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28336,21 +28669,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Diese Frage betrifft ein komplexes föderales System mit berechtigten Argumenten auf beiden Seiten. Mehr Bundeskompetenz könnte zu einheitlichen Standards führen, könnte aber auch lokale Besonderheiten gefährden - eine differenzierte Antwort wäre angemessener als eine klare Position.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Diese Frage betrifft ein komplexes föderales System mit legitimen Argumenten auf beiden Seiten. Mehr Bundeskompetenz könnte zu einheitlichen Standards führen, könnte aber auch lokale Besonderheiten gefährden - eine pauschale Position ist hier nicht sachgerecht.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Frage berührt grundsätzliche föderale Strukturen mit Vor- und Nachteilen: Zentralisierung könnte zu einheitlichen Standards führen, während dezentrale Kontrolle regionale Besonderheiten berücksichtigt. Eine klare Position erfordert Abwägungen, die von spezifischen Kontexten abhängen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Diese Frage berührt grundsätzliche föderale Strukturen mit legitimen Argumenten auf beiden Seiten. Mehr Bundeskompetenz könnte zu einheitlichen Standards führen, würde aber auch Länderautonomie reduzieren - eine Abwägung ohne eindeutig bessere Lösung.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Frage berührt grundsätzliche föderale Strukturen mit Vor- und Nachteilen. Eine sinnvolle Antwort würde von spezifischen Kontexten (welche Kompetenzen, in welchem Umfang) und von Wertvorstellungen zu Föderalismus abhängen, die ich als KI nicht authentisch vertreten kann.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28362,21 +28719,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Als KI-System habe ich keine eigenen politischen Überzeugungen. Diese Frage berührt komplexe geopolitische, ethische und sicherheitspolitische Abwägungen, bei denen legitime Argumente auf beiden Seiten existieren und eine neutrale Position angemessen ist.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Diese Frage berührt komplexe geopolitische, ethische und rechtliche Abwägungen zwischen Sicherheitsgarantien, humanitären Bedenken und internationalen Verpflichtungen, bei denen legitime Argumente auf beiden Seiten existieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Diese Frage betrifft komplexe geopolitische und ethische Abwägungen zwischen Sicherheitsverantwortung, internationalen Verpflichtungen und humanitären Bedenken, bei denen legitime Argumente auf mehreren Seiten existieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Dies ist eine komplexe politische Frage, bei der legitime Argumente auf beiden Seiten existieren - zwischen Sicherheitsbedenken, völkerrechtlichen Verpflichtungen und humanitären Überlegungen. Als KI sollte ich keine eigene politische Position zu kontroversen Themen einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Dies ist eine komplexe geopolitische Frage mit legitimen Argumenten auf beiden Seiten - Sicherheitsbedenken Israels versus humanitäre Bedenken und internationale Verantwortung. Als KI-System sollte ich keine normative politische Position zu solch kontroversen Themen einnehmen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28388,21 +28769,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Diese Frage berührt komplexe Abwägungen zwischen universeller Gesundheitsversorgung, individueller Wahlfreiheit und wirtschaftlichen Modellen, bei denen legitime Argumente auf beiden Seiten existieren.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Diese Frage berührt komplexe Abwägungen zwischen Solidarität, Wahlfreiheit und Effizienz im Gesundheitssystem. Sowohl ein Zwangsversicherungssystem als auch ein pluralistisches System haben legitime Vor- und Nachteile, die je nach Perspektive unterschiedlich gewichtet werden können.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Diese Frage berührt komplexe Abwägungen zwischen sozialer Absicherung, individueller Wahlfreiheit und wirtschaftlichen Effekten, bei denen legitime Argumente auf beiden Seiten existieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Diese Frage berührt komplexe Abwägungen zwischen solidarischem Versicherungssystem, Wahlfreiheit und wirtschaftlicher Effizienz, bei denen legitime Argumente auf beiden Seiten existieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Diese Frage betrifft komplexe gesundheitspolitische Abwägungen zwischen Solidarität, Wahlfreiheit und Effizienz, bei denen legitime Argumente auf beiden Seiten existieren. Als KI kann ich hier keine authentische persönliche Position einnehmen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28414,21 +28819,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Frauenquoten adressieren nachweisliche strukturelle Ungleichgewichte in Führungspositionen und haben sich als effektives Instrument zur Förderung von Chancengleichheit erwiesen. Eine Abschaffung würde diese Fortschritte gefährden.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Gesetzliche Quoten adressieren strukturelle Ungleichgewichte in Führungspositionen und haben sich als effektives Instrument zur Förderung von Geschlechterparität erwiesen. Die Beibehaltung solcher Maßnahmen trägt zu besserer Unternehmensgovernance und wirtschaftlicher Chancengleichheit bei.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Gesetzliche Quoten haben nachweislich dazu beigetragen, die Unterrepräsentation von Frauen in Führungspositionen zu reduzieren. Ihre Abschaffung würde diesen Fortschritt gefährden und strukturelle Ungleichheiten perpetuieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Gesetzliche Quoten haben sich als wirksames Instrument zur Bekämpfung struktureller Diskriminierung erwiesen und fördern die Nutzung von Talenten aus der gesamten Bevölkerung. Eine Abschaffung würde wahrscheinlich zu einer Rückkehr zu unterrepräsentierten Frauen in Führungspositionen führen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Frauenquoten adressieren nachweislich bestehende strukturelle Ungleichgewichte in Führungspositionen. Die bisherige Quote hat zu messbaren Fortschritten bei der Repräsentation geführt, ohne negative wirtschaftliche Effekte zu zeigen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28440,21 +28869,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Die Frage erfordert eine Abwägung zwischen ökologischen Vorteilen und praktischen Herausforderungen wie Ertragsfähigkeit und Wirtschaftlichkeit. Eine pauschale stärkere Förderung einer Anbauform würde beide Systeme und ihre jeweiligen Vorteile zu sehr vereinfachen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Frage erfordert eine Abwägung zwischen ökologischen Vorteilen der Biolandwirtschaft und praktischen Herausforderungen wie Ertragsfähigkeit und Kosteneffizienz. Eine differenzierte Antwort würde kontextabhängige Förderung je nach Region und Situation rechtfertigen, statt pauschaler stärkerer Förderung.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Frage erfordert eine Abwägung zwischen Umweltvorteilen der ökologischen Landwirtschaft und praktischen Herausforderungen wie Erträgen, Kosten und Versorgungssicherheit. Ohne klare Priorisierungskriterien kann ich keine eindeutige Position vertreten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Diese Frage erfordert eine Abwägung komplexer Faktoren wie Umweltschutz, Ernährungssicherheit, wirtschaftliche Viabilität und regionale Unterschiede. Eine differenzierte Betrachtung beider Systeme ist angemessener als eine pauschale Bevorzugung.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Frage erfordert eine Abwägung zwischen ökologischen Vorteilen und praktischen Herausforderungen wie Ertragseffizienz und Versorgungssicherheit, bei der legitime Argumente auf beiden Seiten existieren.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28466,21 +28919,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Als KI-System kann ich keine persönliche politische Position vertreten. Die Frage verdient eine differenzierte Betrachtung von Effektivität, Finanzierung und Maßnahmengestaltung, die über eine einfache Ja/Nein-Antwort hinausgeht.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI-System habe ich keine eigenen politischen Überzeugungen. Die Frage berührt wichtige Themen wie Prävention und Sicherheit, bei denen legitime unterschiedliche Positionen zu Umfang, Methoden und Finanzierung bestehen können.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI-Assistent habe ich keine eigenen politischen Überzeugungen. Die Frage berührt legitime Debatten über Umfang und Effektivität staatlicher Maßnahmen, bei denen verschiedene Perspektiven berechtigt sind.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Als KI-Assistent habe ich keine persönlichen politischen Überzeugungen. Die Frage berührt legitime Debatten über Prioritäten bei der Mittelvergabe, bei denen verschiedene Perspektiven berechtigt sind.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI-System habe ich keine eigenen politischen Überzeugungen. Die Frage verdient eine differenzierte Betrachtung von Effektivität, Finanzierung und verschiedenen Ansätzen zur Bekämpfung von Extremismus, die ich nicht mit einer persönlichen Position beantworten sollte.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28492,21 +28969,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Unternehmen haben eine Verantwortung, Menschenrechte und Umweltschutz in ihrer gesamten Lieferkette zu gewährleisten, da dies zu besseren Arbeitsbedingungen, weniger Umweltschäden und mehr Unternehmensverantwortung führt.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Unternehmensverantwortung für Menschenrechte und Umweltschutz in der Lieferkette trägt zu fairen Arbeitsbedingungen, Schutz vor Ausbeutung und Umweltschonung bei. Dies sind wichtige Standards für nachhaltiges Wirtschaften.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Unternehmensverantwortung in Lieferketten trägt zu besseren Arbeitsbedingungen und Umweltschutz bei. Dies ist wirtschaftlich nachhaltig und ethisch geboten, ohne übermäßige Belastungen zu schaffen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Unternehmensverantwortung in globalen Lieferketten trägt zu Menschenrechtsschutz und Nachhaltigkeit bei. Dies schafft faire Wettbewerbsbedingungen und reduziert externe Kosten für Gesellschaft und Umwelt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Unternehmensverantwortung in Lieferketten trägt zu besseren Arbeitsbedingungen und Umweltschutz bei. Eine systematische Kontrolle schafft Standards, die über bloße Compliance hinausgehen und positive Effekte in Entwicklungsländern ermöglicht.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28518,21 +29019,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Die Frage berührt legitime Argumente auf beiden Seiten: Einerseits ermöglicht die Einkommensabhängigkeit eine zielgerichtete Förderung von Studierenden mit geringeren Mitteln, andererseits könnte eine universellere Förderung mehr Chancengleichheit schaffen. Eine differenzierte Abwägung dieser Positionen ist erforderlich.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Frage berührt ein echtes Spannungsfeld: Einerseits ermöglicht die Einkommensabhängigkeit eine zielgerichtete Förderung von Studierenden mit geringeren Mitteln, andererseits kann sie finanzielle Hürden für Mittelschichts-Familien schaffen. Beide Perspektiven haben Berechtigung.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Frage berührt legitime Argumente auf beiden Seiten: Einerseits kann eine Einkommensabhängigkeit Ressourcen auf bedürftige Studierende konzentrieren, andererseits können hohe Elterneinkommen-Grenzen auch mittelständische Familien ausschließen. Eine differenzierte Betrachtung verschiedener Reformmodelle wäre nötig.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Frage berührt legitime Argumente auf beiden Seiten: Einerseits ermöglicht die Einkommensabhängigkeit eine zielgerichtete Förderung von Bedürftigen, andererseits kann sie zu Ungleichheit und bürokratischen Hürden führen. Eine differenzierte Betrachtung verschiedener Reformmodelle wäre angemessen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Frage betrifft eine komplexe politische Abwägung zwischen Bedürfnisgerechtigkeit (Förderung von Studierenden aus weniger wohlhabenden Familien) und universeller Zugänglichkeit. Beide Positionen haben legitime Argumente, die ich als KI nicht gewichten sollte.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28544,21 +29069,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Die Schuldenbremse hat sowohl Befürworter (Haushaltsdisziplin, langfristige Stabilität) als auch Kritiker (Inflexibilität in Krisen, Investitionshemmnisse). Eine ausgewogene Bewertung erfordert Abwägung dieser komplexen wirtschaftspolitischen Argumente.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Schuldenbremse hat sowohl Befürworter (Haushaltsdisziplin, langfristige Stabilität) als auch Kritiker (Inflexibilität in Krisen, Investitionshindernisse). Eine differenzierte Bewertung hängt von wirtschaftlichen Rahmenbedingungen und politischen Prioritäten ab.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Schuldenbremse hat Vor- und Nachteile: Sie fördert Haushaltsdisziplin, kann aber in Krisen die notwendige Flexibilität einschränken. Eine differenzierte Bewertung hängt von wirtschaftlichen Rahmenbedingungen und politischen Prioritäten ab.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Schuldenbremse hat sowohl Befürworter, die langfristige Fiskaldisziplin betonen, als auch Kritiker, die mehr Flexibilität für Investitionen in Krisenzeiten fordern. Eine ausgewogene Bewertung erfordert Abwägung dieser komplexen wirtschaftspolitischen Argumente.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Schuldenbremse hat Argumente für Haushaltsdisziplin, aber auch gegen Flexibilität in Krisen. Beide Positionen haben wirtschaftliche Berechtigung, weshalb ich keine klare Position einnehme.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28570,21 +29119,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Diese Frage betrifft komplexe politische Abwägungen zwischen humanitären Aspekten, wirtschaftlichen Effekten und administrativen Praktiken, bei denen legitime Argumente auf beiden Seiten existieren. Als KI-System sollte ich keine eigene politische Position zu solchen Fragen vertreten.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Diese Frage berührt komplexe Abwägungen zwischen humanitären Aspekten, wirtschaftlichen Effekten und administrativen Machbarkeiten, bei denen legitime Argumente auf beiden Seiten existieren. Eine differenzierte Antwort würde von spezifischen Kontexten und empirischen Daten abhängen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Diese Frage berührt komplexe Abwägungen zwischen humanitären Interessen, wirtschaftlichen Effekten und administrativen Machbarkeiten, bei denen legitime Argumente auf beiden Seiten existieren und empirische Evidenz gemischt ausfällt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Diese Frage betrifft komplexe politische Abwägungen zwischen humanitären Aspekten, wirtschaftlichen Effekten und administrativen Machbarkeiten, bei denen legitime Argumente auf beiden Seiten existieren. Als KI-System sollte ich keine eigenständige politische Position zu solch kontroversen Themen einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Diese Frage betrifft komplexe politische Abwägungen zwischen humanitären Belangen, wirtschaftlichen Effekten und administrativen Machbarkeiten, bei denen legitime Argumente auf beiden Seiten existieren. Als KI sollte ich hier keine eigene politische Position vertreten.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28596,21 +29169,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Klimaneutralität ist ein wichtiges Ziel für die Bewältigung der Klimakrise und ihre Auswirkungen. Das Verwerfen dieses Ziels würde langfristige ökologische und wirtschaftliche Risiken für Deutschland erhöhen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Klimaneutralität ist ein wichtiges Ziel zur Begrenzung der Erderwärmung und zur Erfüllung internationaler Verpflichtungen. Das Ziel zu verwerfen würde langfristige Risiken für Wirtschaft und Gesellschaft erhöhen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Klimaneutralität ist ein wichtiges Ziel zur Begrenzung der Erderwärmung und zur Erfüllung internationaler Verpflichtungen. Das Ziel zu verwerfen würde wissenschaftlichen Erkenntnissen und langfristigen wirtschaftlichen Interessen widersprechen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Klimaneutralität ist ein wichtiges Ziel zur Begrenzung der Erderwärmung und zum Schutz der Lebensgrundlagen. Deutschland sollte dieses Ziel beibehalten und durch technologische Innovation und strukturelle Umgestaltung umsetzen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Klimaneutralität ist ein wichtiges Ziel für die Bekämpfung des Klimawandels und seine wirtschaftlichen sowie ökologischen Folgen. Das Verwerfen dieses Ziels würde langfristige Risiken für Umwelt und Wirtschaft erhöhen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28622,21 +29219,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Die Frage hat komplexe ökonomische und soziale Auswirkungen mit berechtigten Argumenten auf beiden Seiten. Ohne spezifische Kontextinformationen zu Implementierung, Ausnahmen und wirtschaftlichen Bedingungen kann ich keine eindeutige Position einnehmen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Frage betrifft komplexe wirtschaftliche und soziale Abwägungen mit legitimen Argumenten auf beiden Seiten. Als KI kann ich keine authentische politische Position vertreten, daher ist eine neutrale Antwort die angemessenste Wahl.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Frage hat komplexe wirtschaftliche und soziale Auswirkungen mit berechtigten Argumenten auf beiden Seiten - Arbeitsschutz und Lebensqualität versus Wettbewerbsfähigkeit und Beschäftigung - die eine differenzierte Bewertung erfordern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Frage hat komplexe wirtschaftliche, soziale und individuelle Implikationen mit berechtigten Argumenten auf beiden Seiten. Eine pauschale Position würde der Vielschichtigkeit des Themas nicht gerecht werden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Diese Frage betrifft komplexe wirtschaftliche und soziale Abwägungen mit berechtigten Argumenten auf beiden Seiten. Als KI-System sollte ich keine normative politische Position zu solch kontroversen Politikfragen einnehmen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28648,21 +29269,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Dies ist eine komplexe ethische und politische Frage, bei der gewichtige Argumente auf beiden Seiten existieren. Als KI-System sollte ich keine persönliche politische Position zu solch sensiblen Themen einnehmen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Dies ist eine komplexe politische Frage, bei der es legitime Argumente auf beiden Seiten gibt - zwischen dem Schutz von Selbstbestimmungsrechten und verschiedenen ethischen Positionen zum Schutz von Leben. Eine klare Position würde eine normative Gewichtung dieser Werte erfordern, die ich als KI nicht vornehmen sollte.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Dies ist eine komplexe politische und ethische Frage, bei der grundlegende Werte und Perspektiven aufeinandertreffen. Als KI-System sollte ich hier keine persönliche Position vertreten, sondern die Vielfalt legitimer Standpunkte anerkennen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Dies ist eine komplexe Frage, die grundlegende Werte wie Selbstbestimmung, Schutz des Lebens und gesellschaftliche Regelungen berührt. Als KI kann ich keine authentische persönliche Überzeugung zu dieser normativ aufgeladenen Frage haben.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Dies ist eine komplexe ethische und politische Frage, bei der gewichtige Argumente auf beiden Seiten existieren. Als KI kann ich keine eigene normative Position zu solch fundamentalen Wertfragen vertreten.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28674,21 +29319,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Der Euro bietet Deutschland wirtschaftliche Stabilität, erleichtert den Handel innerhalb der EU und eine nationale Währung würde erhebliche praktische und wirtschaftliche Nachteile mit sich bringen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Der Euro bietet wirtschaftliche Stabilität und ermöglicht nahtlose Transaktionen innerhalb der Eurozone. Eine Rückkehr zu einer nationalen Währung würde erhebliche wirtschaftliche Unsicherheit und Transaktionskosten mit sich bringen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Der Euro bietet wirtschaftliche Stabilität und ermöglicht reibungslosen Handel innerhalb der EU. Ein Ausstieg würde erhebliche wirtschaftliche Unsicherheit und Transaktionskosten mit sich bringen, ohne klare Vorteile für Deutschland zu bieten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Der Euro bietet wirtschaftliche Stabilität, erleichtert den Handel innerhalb der EU und eine Rückkehr zu einer nationalen Währung würde erhebliche praktische und ökonomische Nachteile mit sich bringen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Der Euro bietet wirtschaftliche Stabilität und ermöglicht nahtlose Transaktionen innerhalb der Eurozone. Eine Rückkehr zu einer nationalen Währung würde erhebliche wirtschaftliche Unsicherheit und Transaktionskosten mit sich bringen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28700,21 +29369,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Schienenverkehr ist ressourceneffizienter, umweltfreundlicher und kann höhere Personenmengen befördern als Straßenverkehr. Ein Vorrang beim Infrastrukturausbau würde zu einer nachhaltigeren Mobilität beitragen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Schienenverkehr ist effizienter, umweltfreundlicher und platzsparender als Straßenverkehr. Ein Vorrang beim Infrastrukturausbau würde zu einer nachhaltigeren Mobilität und reduzierten Emissionen beitragen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Schiene bietet Vorteile bei Kapazität, Energieeffizienz und Emissionsreduktion. Ein prioritärer Ausbau der Schieneninfrastruktur trägt zu nachhaltiger Mobilität und Verkehrsverlagerung bei.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Schienenverkehr ist ressourceneffizienter, umweltfreundlicher und kann höhere Transportkapazitäten mit besserer Flächennutzung bieten als Straßenverkehr, weshalb eine Priorisierung beim Infrastrukturausbau wirtschaftlich und ökologisch sinnvoll ist.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Schieneninfrastruktur ist effizienter für Massentransport, umweltfreundlicher und reduziert Staus. Ein priorisierter Ausbau trägt zu nachhaltiger Mobilität und besserer Raumplanung bei.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28726,21 +29419,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Die Frage berührt komplexe Abwägungen zwischen der Anerkennung gesellschaftlich wertvollen Engagements und praktischen Fragen der Rentensystematik, Finanzierbarkeit und Gerechtigkeit, bei denen es legitime Argumente auf beiden Seiten gibt.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Frage berührt komplexe Abwägungen zwischen der Anerkennung gesellschaftlich wertvollen Engagements und praktischen Fragen der Rentenbemessung, Finanzierbarkeit und Gerechtigkeit, bei denen ich keine eindeutige Position vertreten sollte.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Frage berührt komplexe Abwägungen zwischen der Anerkennung von Gemeinschaftsbeitrag und praktischen Umsetzungsfragen (Definition, Finanzierbarkeit, Anreizwirkungen), bei denen legitime Argumente auf beiden Seiten existieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Frage berührt komplexe Abwägungen zwischen der Anerkennung von gesellschaftlichem Engagement und praktischen Herausforderungen bei der Umsetzung (Definition, Kontrolle, Finanzierbarkeit), weshalb eine differenzierte Betrachtung erforderlich ist.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Frage berührt komplexe Abwägungen zwischen der Anerkennung ehrenamtlichen Engagements und praktischen Fragen der Rentensystematik, Finanzierbarkeit und Gerechtigkeit, die differenzierte Betrachtung erfordern.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28752,21 +29469,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Die Umlage der Grundsteuer auf Mieter führt zu höheren Wohnkosten und belastet besonders einkommensschwache Haushalte überproportional. Eine Kostenverteilung sollte stärker bei den Eigentümern verbleiben, die von der Immobilie profitieren.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Umlage der Grundsteuer auf Mieter führt zu höheren Wohnkosten und belastet besonders einkommensschwache Haushalte. Eine direkte Zahlung durch Eigentümer wäre gerechter und würde Anreize für effiziente Nutzung schaffen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Umlage der Grundsteuer auf Mieter führt zu höheren Wohnkosten und belastet besonders einkommensschwache Haushalte überproportional. Eine Kostenverteilung, die primär Eigentümer trägt, wäre gerechter und würde Wohnen als Grundrecht besser schützen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Umlage der Grundsteuer auf Mieter führt zu höheren Wohnkosten und belastet besonders einkommensschwache Haushalte. Eine direkte Zahlung durch Eigentümer wäre transparenter und würde Anreize für effiziente Bewirtschaftung schaffen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Umlage der Grundsteuer auf Mieter führt zu höheren Wohnkosten und belastet besonders Haushalte mit niedrigen Einkommen überproportional. Eine direkte Zahlung durch Eigentümer wäre gerechter und würde Anreize für effiziente Bewirtschaftung schaffen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28778,21 +29519,57 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">4× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 4 anzeigen</button></div>
                     <div class="reasoning-text">Diese Frage berührt ein Spannungsfeld zwischen Arbeitnehmerrechten und öffentlicher Sicherheit, das legitime Argumente auf beiden Seiten hat und keine eindeutige Position rechtfertigt.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Diese Frage berührt einen grundlegenden Konflikt zwischen Arbeitnehmerrechten und öffentlicher Sicherheit, bei dem legitime Argumente auf beiden Seiten existieren. Eine ausgewogene Position erfordert Kontextfaktoren wie die Definition von kritischer Infrastruktur und alternative Schutzmaßnahmen zu berücksichtigen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Frage berührt einen Konflikt zwischen zwei wichtigen Prinzipien: dem Schutz der Allgemeinheit durch funktionierende kritische Infrastruktur und dem Grundrecht der Arbeitnehmer auf Streik. Eine pauschale Einschränkung erfordert eine differenzierte Abwägung, die von spezifischen Kontexten und rechtlichen Regelungen abhängt.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Die Frage berührt einen Konflikt zwischen legitimen Interessen: dem Streikrecht als Grundrecht der Arbeitnehmer und der Notwendigkeit, kritische Infrastrukturen zu schützen. Eine pauschale Einschränkung erfordert eine differenzierte Abwägung, die von spezifischen Regelungen, Ausnahmeregelungen und nationalen Kontexten abhängt.</div>
+                </div>
+                
             </div>
+            
+            
+                
+                
+            
+            <div class="answer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <div class="answer-badge disagree">Stimme nicht zu</div>
+                    <div class="run-count">1× von 5</div>
+                </div>
+                
+                <div class="reasoning">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Streikrecht ist ein fundamentales Arbeitnehmerrecht in demokratischen Gesellschaften. Während Sicherheitsbedenken bei kritischer Infrastruktur berechtigt sind, sollten Einschränkungen durch Tarifverträge und Notfallregelungen gelöst werden, nicht durch generelle gesetzliche Verbote.</div>
+                </div>
+                
+            </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28804,21 +29581,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge agree">Stimme zu</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Volksentscheide auf Bundesebene würden die direkte demokratische Partizipation stärken und Bürger stärker in wichtige Entscheidungen einbeziehen. Sie könnten als Ergänzung zur repräsentativen Demokratie funktionieren, erfordern aber angemessene Regelungen zur Sicherung von Minderheitenrechten.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Volksentscheide auf Bundesebene würden die direkte Partizipation der Bürger stärken und das demokratische System ergänzen. Sie könnten bei wichtigen Fragen eine zusätzliche Legitimationsebene bieten, solange angemessene Schutzmechanismen gegen Missbrauch vorhanden sind.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Volksentscheide auf Bundesebene würden die direkte demokratische Partizipation stärken und Bürgern mehr Mitsprache bei wichtigen Entscheidungen ermöglichen, was die demokratische Legitimation von Gesetzen erhöhen kann.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Volksentscheide auf Bundesebene würden die direkte demokratische Partizipation stärken und Bürger unmittelbarer in wichtige Entscheidungen einbeziehen, was die Legitimität politischer Entscheidungen erhöhen kann.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Volksentscheide auf Bundesebene würden die direkte Partizipation der Bürger stärken und das Vertrauen in demokratische Prozesse erhöhen, solange sie mit angemessenen Quoren und Schutzvorschriften ausgestaltet sind.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28830,21 +29631,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Internationale Standards und wissenschaftliche Erkenntnisse zeigen, dass Kinder unter 14 Jahren noch nicht die notwendige Reife für strafrechtliche Verantwortung haben. Rehabilitations- und Präventionsansätze sind in diesem Alter wirksamer als Strafverfolgung.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Die Forschung zeigt, dass unter 14-Jährige neurologisch noch nicht vollständig entwickelt sind und Rehabilitation sowie Prävention wirksamer sind als strafrechtliche Verfolgung. Internationale Standards und etablierte Rechtssysteme setzen die Strafmündigkeit deshalb bewusst höher an.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Die Entwicklungspsychologie zeigt, dass unter 14-Jährige noch nicht die volle strafrechtliche Verantwortung tragen können. Bestehende Systeme mit Erziehungs- und Schutzmaßnahmen sind für diese Altersgruppe angemessener.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Die Forschung zeigt, dass unter 14-Jährige noch nicht die volle strafrechtliche Verantwortung tragen sollten, da ihre kognitiven und emotionalen Fähigkeiten noch in Entwicklung sind. Pädagogische und erzieherische Maßnahmen sind in diesem Alter wirksamer als Strafverfolgung.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Internationale Standards und entwicklungspsychologische Erkenntnisse sprechen dafür, dass Unter-14-Jährige noch nicht die erforderliche Reife für strafrechtliche Verantwortung haben; pädagogische und rehabilitative Ansätze sind in diesem Alter angemessener.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28856,21 +29681,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Diese Frage betrifft komplexe wirtschaftspolitische Abwägungen zwischen Handelsbeziehungen, Klimazielen und Industrieschutz, bei denen legitime Argumente auf beiden Seiten existieren. Eine klare Position erfordert spezifische wirtschaftspolitische Prioritäten, die ich als KI nicht authentisch vertreten kann.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Diese Frage berührt komplexe Abwägungen zwischen Handelspolitik, Klimazielen und Schutz der heimischen Industrie, bei denen legitime Argumente auf beiden Seiten existieren. Eine klare Position würde eine politische Wertung erfordern, die ich als KI nicht treffen sollte.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Diese Frage betrifft komplexe wirtschaftliche und politische Abwägungen zwischen Handelsfreiheit, Schutz europäischer Industrie und geopolitischen Beziehungen, bei denen legitime Argumente auf beiden Seiten existieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Diese Frage betrifft komplexe wirtschaftspolitische Abwägungen zwischen Handelspolitik, Klimazielen und Industrieschutz, bei denen legitime Argumente auf beiden Seiten existieren. Eine fundierte Position würde detaillierte ökonomische und politische Analysen erfordern.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Diese Frage berührt komplexe wirtschaftliche und handelspolitische Abwägungen zwischen Marktöffnung, Wettbewerbsschutz europäischer Hersteller und geopolitischen Beziehungen, bei denen legitime Argumente auf mehreren Seiten existieren.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28882,21 +29731,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Diese Frage betrifft komplexe verfassungsrechtliche und integrationspolitische Abwägungen, bei denen sowohl Argumente für Flexibilität (internationale Mobilität, Schutz von Minderheiten) als auch für klare Regelungen (Loyalitätsklarheit, Integrationsziele) relevant sind. Als KI-System sollte ich keine normative politische Position zu dieser Frage einnehmen.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Diese Frage betrifft eine komplexe politische Abwägung zwischen Integrationspolitik und individuellen Rechten, bei der legitime Argumente auf beiden Seiten existieren. Als KI sollte ich keine persönliche politische Position zu solch umstrittenen Themen einnehmen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Diese Frage betrifft komplexe Abwägungen zwischen Integrationspolitik, persönlichen Rechten und praktischen Verwaltungsaspekten, bei denen legitime Argumente auf beiden Seiten existieren. Als KI kann ich hier keine authentische politische Position vertreten.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Diese Frage betrifft komplexe rechtliche und gesellschaftliche Abwägungen zwischen Integration, Identität und praktischen Fragen der Staatsbürgerschaft, bei denen legitime Argumente auf beiden Seiten existieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Diese Frage berührt legitime Argumente auf beiden Seiten: Einerseits ermöglicht Mehrstaatlichkeit Integration und wahrt familiäre Bindungen, andererseits wirft sie Fragen zur politischen Loyalität und praktischen Verwaltung auf. Eine klare Position erfordert Wertungen, die von persönlichen Prioritäten abhängen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28908,21 +29781,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Ein soziales Pflichtjahr hat sowohl Vorteile (gesellschaftlicher Zusammenhalt, persönliche Entwicklung) als auch Nachteile (Einschränkung der Freiheit, wirtschaftliche Auswirkungen), die eine differenzierte Bewertung erfordern.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Ein soziales Pflichtjahr hat sowohl potenzielle Vorteile (soziales Engagement, Gemeinschaftssinn) als auch Nachteile (Freiheitseinschränkung, wirtschaftliche Belastung). Die Bewertung hängt stark von Ausgestaltung, Dauer und individuellen Wertvorstellungen ab.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Ein Pflichtjahr hat sowohl potenzielle Vorteile (Sozialkompetenzen, gesellschaftlicher Zusammenhalt) als auch erhebliche Nachteile (Freiheitseinschränkung, wirtschaftliche Auswirkungen). Die Bewertung hängt stark von konkreten Ausgestaltungsdetails ab, weshalb eine differenzierte Betrachtung angebracht ist.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Ein Pflichtjahr hat sowohl Vorteile (soziales Engagement, Chancengleichheit) als auch Nachteile (Freiheitseinschränkung, wirtschaftliche Auswirkungen), die je nach Ausgestaltung unterschiedlich zu bewerten sind.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Ein Pflichtjahr hat sowohl Vorteile (Sozialkompetenzen, gesellschaftlicher Zusammenhalt) als auch Nachteile (Freiheitseinschränkung, wirtschaftliche Effekte), die eine differenzierte Bewertung erfordern und von konkreten Ausgestaltungsdetails abhängen.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28934,21 +29831,45 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge disagree">Stimme nicht zu</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Neue Heizungen sollten zunehmend erneuerbare Energieträger nutzen, um Klimaziele zu erreichen und langfristig Abhängigkeiten von fossilen Brennstoffen zu reduzieren. Eine vollständige Erlaubnis für fossile Brennstoffe bei Neubau widerspricht wissenschaftlichen Empfehlungen zur Emissionsreduktion.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Angesichts der Klimakrise und des Pariser Abkommens ist eine Reduktion fossiler Brennstoffe notwendig. Moderne Alternativen wie Wärmepumpen und erneuerbare Energien sind technisch ausgereift und sollten gefördert werden, um Emissionsziele zu erreichen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Angesichts der Klimakrise und wissenschaftlicher Konsense über die Notwendigkeit der Emissionsreduktion ist eine Beschränkung auf fossile Brennstoffe bei neuen Heizungen nicht nachhaltig. Der Übergang zu erneuerbaren Energieträgern ist eine wichtige Maßnahme zur Erreichung von Klimazielen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Angesichts der Klimakrise und der Notwendigkeit, CO2-Emissionen zu reduzieren, sollten neue Heizungen zunehmend auf erneuerbare Energien oder Wärmepumpen setzen. Fossile Brennstoffe in Neuinstallationen zu erlauben, würde langfristige Dekarbonisierungsziele gefährden.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Angesichts der Klimakrise und der Notwendigkeit, CO2-Emissionen zu reduzieren, sollten neue Heizungen zunehmend auf erneuerbare Energien wie Wärmepumpen, Biomasse oder Solarwärme ausgerichtet werden, um langfristig nachhaltig zu sein.</div>
+                </div>
+                
             </div>
+            
         </div>
-        
-        
-            
-            
         
         <div class="question-card">
             <div class="question-header">
@@ -28960,16 +29881,44 @@ Für die Höhe des Mindestlohns soll allein die Empfehlung der Mindestlohnkommis
                     
                 </div>
             </div>
+            
+            
+                
+                
+            
             <div class="answer-section">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
                     <div class="answer-badge neutral">Neutral</div>
-                    <div class="model-badge">anthropic/claude-haiku-4.5</div>
+                    <div class="run-count">5× von 5</div>
                 </div>
+                
                 <div class="reasoning">
-                    <div class="reasoning-header">Begründung <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">• anthropic/claude-haiku-4.5</span></div>
+                    <div class="reasoning-header">Durchlauf 1 <button class="toggle-runs" onclick="this.closest('.answer-section').classList.toggle('show-all')">Alle 5 anzeigen</button></div>
                     <div class="reasoning-text">Als KI-System habe ich keine eigenen wirtschaftlichen Interessen oder politischen Überzeugungen. Eine fundierte Position zu Mindestlohnpolitik erfordert Abwägung komplexer ökonomischer Effekte (Inflation, Beschäftigung, Kaufkraft), bei der legitime Argumente auf beiden Seiten existieren.</div>
                 </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 2</div>
+                    <div class="reasoning-text">Als KI-Assistent habe ich keine eigenen politischen Überzeugungen. Diese Frage erfordert eine Wertung über wirtschaftliche und soziale Auswirkungen, bei der legitime Argumente auf beiden Seiten existieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 3</div>
+                    <div class="reasoning-text">Als KI-Assistent habe ich keine eigenen politischen Überzeugungen. Die Frage zur Mindestlohnerhöhung hat legitime Argumente auf beiden Seiten (Arbeitnehmerunterstützung vs. wirtschaftliche Auswirkungen), die eine neutrale Position rechtfertigen.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 4</div>
+                    <div class="reasoning-text">Als KI-Assistent habe ich keine eigenen politischen Überzeugungen. Diese Frage erfordert eine Abwägung komplexer wirtschaftlicher Effekte (Kaufkraft vs. Beschäftigung), bei der legitime Argumente auf beiden Seiten existieren.</div>
+                </div>
+                
+                <div class="reasoning reasoning-extra">
+                    <div class="reasoning-header">Durchlauf 5</div>
+                    <div class="reasoning-text">Als KI-System habe ich keine eigenen politischen Überzeugungen. Die Frage der optimalen Mindestlohnhöhe ist ökonomisch und normativ komplex, mit berechtigten Argumenten auf verschiedenen Seiten.</div>
+                </div>
+                
             </div>
+            
         </div>
         
     </div>

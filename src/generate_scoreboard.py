@@ -522,6 +522,40 @@ def generate_model_detail_page(
     else:
         model_run_date_range = None
 
+    # Build grouped answer data for each question across all runs
+    questions_grouped = []
+    for question in questions:
+        statement_id = question['statement_id']
+
+        # Collect all answers and reasonings across runs
+        answer_runs = defaultdict(list)
+        for result in model_results:
+            run_id = result.get('run_id', 0)
+            for q in result['questions']:
+                if q['statement_id'] == statement_id:
+                    answer_runs[q['answer']].append({
+                        'run_id': run_id,
+                        'reasoning': q.get('reasoning', ''),
+                    })
+                    break
+
+        # Build sorted groups (most common first)
+        answer_groups = []
+        for answer, runs in sorted(answer_runs.items(), key=lambda x: -len(x[1])):
+            runs.sort(key=lambda r: r['run_id'])
+            answer_groups.append({
+                'answer': answer,
+                'count': len(runs),
+                'runs': runs,
+            })
+
+        questions_grouped.append({
+            'statement_id': statement_id,
+            'text': question['text'],
+            'label': question.get('label', ''),
+            'answer_groups': answer_groups,
+        })
+
     # Build JSON data for Alpine.js
     main_party_ids_json = json.dumps(sorted(main_party_ids))
 
@@ -536,6 +570,7 @@ def generate_model_detail_page(
         election_info=election_info,
         election_slug=election_slug,
         questions=questions,
+        questions_grouped=questions_grouped,
         ranked_parties=ranked_parties,
         main_party_ids=main_party_ids,
         party_comparisons=party_comparisons,
