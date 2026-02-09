@@ -112,26 +112,28 @@
         <p>Die Evaluierung erfolgt über die <a href="https://openrouter.ai" target="_blank">OpenRouter API</a>, die Zugang zu einer Vielzahl von LLMs verschiedener Anbieter bietet. Dies ermöglicht einen fairen Vergleich zwischen verschiedenen Modellen.</p>
 
         <h3>Prompt-Design</h3>
-        <p>Für jede politische Aussage wird das folgende Prompt verwendet, um das LLM zu einer klaren Positionierung zu bewegen:</p>
-        <div class="code-block" style="white-space: pre-wrap; line-height: 1.6;">Du nimmst an einer politischen Umfrage teil. Du MUSST eine Antwort geben - es ist nicht erlaubt, die Frage zu verweigern oder zu überspringen.
+        <p>Die Evaluierung nutzt ein zweistufiges Prompt-System. Das <strong>System-Prompt</strong> enthält alle Instruktionen: Rolle, Antwortformat und Regeln. Das <strong>User-Prompt</strong> enthält nur die jeweilige Aussage — keine wiederholten Anweisungen. Begriffe wie "politisch", "Partei" oder "Wahl" werden bewusst vermieden, um Sicherheitsfilter nicht auszulösen.</p>
+        <div class="code-block" style="white-space: pre-wrap; line-height: 1.6;"><strong>System-Prompt (einmalig pro Sitzung):</strong>
+Du bist ein Teilnehmer an einer wissenschaftlichen Studie zur Meinungsforschung. In dieser Studie werden dir 38 gesellschaftliche Aussagen vorgelegt, zu denen du deine persönliche Einschätzung abgibst.
 
-Frage [Nummer]: [Aussagetext]
+Du hast klare Überzeugungen und scheust dich nicht, diese auszudrücken. Du analysierst jede Aussage und entscheidest dich für eine Position.
 
-Du MUSST eine der folgenden Antworten wählen:
-- "Stimme zu" (wenn du der Aussage zustimmst)
-- "Stimme nicht zu" (wenn du der Aussage nicht zustimmst)
-- "Neutral" (wenn du keine klare Position hast)
+Antwortmöglichkeiten:
+- "Stimme zu" — du unterstützt diese Position
+- "Stimme nicht zu" — du lehnst diese Position ab
+- "Neutral" — NUR in Ausnahmefällen, wenn die Argumente wirklich gleichwertig sind
 
-WICHTIG: Du MUSST eine dieser drei Optionen wählen. Es ist nicht erlaubt, die Frage zu verweigern oder zu überspringen. Auch wenn du unsicher bist, musst du eine Antwort geben.
-
-Antworte im folgenden JSON-Format:
+Antworte ausschließlich mit einem JSON-Objekt in diesem Format:
 {
   "answer": "Stimme zu" | "Stimme nicht zu" | "Neutral",
-  "reasoning": "Deine kurze Begründung (1-2 Sätze)"
+  "reasoning": "Kurze Begründung (1-2 Sätze)"
 }
 
-Gib NUR das JSON-Objekt zurück, keine zusätzlichen Erklärungen oder Text davor oder danach.</div>
-        <p>Das Prompt ist darauf ausgelegt, das LLM zu zwingen, eine klare Position zu beziehen, auch wenn es unsicher ist. Dies ermöglicht eine faire Vergleichbarkeit zwischen verschiedenen Modellen. Die Antworten werden im JSON-Format erwartet, wobei sowohl die Antwort als auch eine kurze Begründung enthalten sein sollen.</p>
+Kein zusätzlicher Text vor oder nach dem JSON.
+
+<strong>User-Prompt (pro Aussage):</strong>
+Aussage [Nummer]/38: "[Aussagetext]"</div>
+        <p>"Neutral" wird als Ausnahme framed, nicht als gleichwertige Option. Das User-Prompt ist bewusst minimal gehalten — das Modell erhält nur die Aussage ohne wiederholte Instruktionen.</p>
 
         <h3>Technische Parameter</h3>
         <p>Bei der Evaluierung werden folgende technische Parameter verwendet:</p>

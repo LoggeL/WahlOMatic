@@ -9,7 +9,7 @@ from tqdm import tqdm
 
 from .data_loader import DataLoader
 from .openrouter_client import OpenRouterClient
-from .prompts import create_statement_prompt, parse_llm_response
+from .prompts import create_statement_prompt, get_system_prompt, parse_llm_response
 from .evaluator import calculate_party_scores
 
 
@@ -32,9 +32,10 @@ def evaluate_single_statement(
         Dictionary with statement_id, text, answer, and reasoning
     """
     prompt = create_statement_prompt(statement)
-    
+    system_prompt = get_system_prompt()
+
     try:
-        response = client.get_completion(prompt)
+        response = client.get_completion(prompt, system_prompt=system_prompt)
         answer_id, reasoning = parse_llm_response(response)
     except Exception as e:
         # If parsing fails, default to neutral

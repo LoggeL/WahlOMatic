@@ -1,0 +1,444 @@
+{
+  "model": "nousresearch/hermes-3-llama-3.1-405b:free",
+  "election": "bundestagswahl2025",
+  "timestamp": "2026-02-09T02:52:04.545611",
+  "run_id": 1,
+  "questions": [
+    {
+      "statement_id": 0,
+      "text": "Deutschland soll die Ukraine weiterhin militärisch unterstützen.",
+      "label": "Unterstützung der Ukraine",
+      "answer": 0,
+      "reasoning": "Die Ukraine verteidigt sich gegen einen völkerrechtswidrigen Angriffskrieg Russlands. Deutschland sollte solidarisch sein und der Ukraine helfen, ihre Souveränität und territoriale Integrität zu verteidigen."
+    },
+    {
+      "statement_id": 1,
+      "text": "Der Ausbau erneuerbarer Energien soll weiterhin vom Staat finanziell gefördert werden.",
+      "label": "Erneuerbare Energien",
+      "answer": 0,
+      "reasoning": "Erneuerbare Energien sind wichtig für den Umweltschutz und die Reduktion von CO2-Emissionen. Staatliche Förderung kann den Ausbau beschleunigen und die Umstellung auf umweltfreundliche Energiequellen vorantreiben."
+    },
+    {
+      "statement_id": 2,
+      "text": "Das Bürgergeld soll denjenigen gestrichen werden, die wiederholt Stellenangebote ablehnen.",
+      "label": "Streichung des Bürgergelds",
+      "answer": 0,
+      "reasoning": "Das Bürgergeld soll einen Anreiz bieten, wieder in den Arbeitsmarkt einzusteigen. Wenn jemand wiederholt Stellenangebote ablehnt, zeigt das eine mangelnde Bereitschaft, sich um eine Arbeitsstelle zu bemühen."
+    },
+    {
+      "statement_id": 3,
+      "text": "Auf allen Autobahnen soll ein generelles Tempolimit gelten.",
+      "label": "Tempolimit auf Autobahnen",
+      "answer": 0,
+      "reasoning": "Ein generelles Tempolimit auf Autobahnen würde die Verkehrssicherheit erhöhen und den Kraftstoffverbrauch reduzieren, was auch gut für die Umwelt wäre."
+    },
+    {
+      "statement_id": 4,
+      "text": "Asylsuchende, die über einen anderen EU-Staat eingereist sind, sollen an den deutschen Grenzen abgewiesen werden.",
+      "label": "Abweisung Asylsuchender",
+      "answer": 1,
+      "reasoning": "Das Recht auf Asyl ist ein grundlegendes Menschenrecht. Asylsuchende haben oft keine Wahl, über welchen Staat sie einreisen. Sie sollten nicht abgewiesen werden, sondern ein faires Asylverfahren erhalten."
+    },
+    {
+      "statement_id": 5,
+      "text": "Bei Neuvermietungen sollen die Mietpreise weiterhin gesetzlich begrenzt werden.",
+      "label": "Begrenzung der Mietpreise",
+      "answer": 0,
+      "reasoning": "Mietpreisbegrenzungen sind notwendig, um bezahlbaren Wohnraum zu sichern und soziale Verdrängung zu verhindern, insbesondere in Ballungszentren mit angespannten Wohnungsmärkten."
+    },
+    {
+      "statement_id": 6,
+      "text": "An Bahnhöfen soll die Bundespolizei Software zur automatisierten Gesichtserkennung einsetzen dürfen.",
+      "label": "Automatisierte Gesichtserkennung",
+      "answer": 1,
+      "reasoning": "Automatisierte Gesichtserkennung birgt die Gefahr von Datenschutzverletzungen und Überwachung. Der Einsatz sollte streng limitiert werden, um die Privatsphäre und Grundrechte der Bürger zu schützen."
+    },
+    {
+      "statement_id": 7,
+      "text": "Energieintensive Unternehmen sollen vom Staat einen finanziellen Ausgleich für ihre Stromkosten erhalten.",
+      "label": "Energieintensive Unternehmen",
+      "answer": 1,
+      "reasoning": "Energieintensive Unternehmen sollten eher dazu angehalten werden, in erneuerbare Energien und Energieeffizienz zu investieren, anstatt vom Staat subventioniert zu werden. Eine Subvention würde falsche Anreize setzen und die Umweltbelastung erhöhen."
+    },
+    {
+      "statement_id": 8,
+      "text": "Alle Beschäftigten sollen bereits nach 40 Beitragsjahren ohne Abschläge in Rente gehen können.",
+      "label": "Rente nach 40 Beitragsjahren",
+      "answer": 0,
+      "reasoning": "Menschen, die über einen langen Zeitraum in die Rentenkassen eingezahlt haben, sollten die Möglichkeit haben, ohne finanzielle Einbußen früher in den Ruhestand zu gehen. Dies belohnt ihre jahrelangen Beiträge."
+    },
+    {
+      "statement_id": 9,
+      "text": "Im einleitenden Satz des Grundgesetzes soll weiterhin die Formulierung „Verantwortung vor Gott“ stehen.",
+      "label": "Grundgesetz",
+      "answer": 0,
+      "reasoning": "Die Formulierung 'Verantwortung vor Gott' im Grundgesetz betont die Bedeutung von ethischen und moralischen Prinzipien, die für eine gerechte und funktionierende Gesellschaft wichtig sind, unabhängig von der persönlichen Religiosität."
+    },
+    {
+      "statement_id": 10,
+      "text": "Deutschland soll weiterhin die Anwerbung von Fachkräften aus dem Ausland fördern.",
+      "label": "Anwerbung von Fachkräften",
+      "answer": 0,
+      "reasoning": "Die Anwerbung von Fachkräften aus dem Ausland ist wichtig, um den Fachkräftemangel in bestimmten Branchen zu bekämpfen und die Wirtschaft zu stärken. Gleichzeitig profitieren die Fachkräfte von guten Arbeitsbedingungen und Perspektiven in Deutschland."
+    },
+    {
+      "statement_id": 11,
+      "text": "Für die Stromerzeugung soll Deutschland wieder Kernenergie nutzen.",
+      "label": "Nutzung der Kernenergie",
+      "answer": 1,
+      "reasoning": "Kernenergie birgt erhebliche Risiken wie Atomunfälle und das Problem der Endlagerung radioaktiver Abfälle. Erneuerbare Energien sind eine sicherere und nachhaltigere Alternative."
+    },
+    {
+      "statement_id": 12,
+      "text": "Bei der Besteuerung von Einkommen soll der Spitzensteuersatz angehoben werden.",
+      "label": "Anhebung des Spitzensteuersatzes",
+      "answer": 0,
+      "reasoning": "Eine Anhebung des Spitzensteuersatzes ermöglicht eine gerechtere Verteilung der Steuerlast. Höhere Einkommen sollten einen höheren Beitrag leisten."
+    },
+    {
+      "statement_id": 13,
+      "text": "Der Bund soll mehr Kompetenzen in der Schulpolitik erhalten.",
+      "label": "Kompetenzen in der Schulpolitik",
+      "answer": 0,
+      "reasoning": "Eine stärkere Beteiligung des Bundes an der Schulpolitik kann zu mehr Einheitlichkeit und Verbesserungen im Bildungssystem führen."
+    },
+    {
+      "statement_id": 14,
+      "text": "Aus Deutschland sollen weiterhin Rüstungsgüter nach Israel exportiert werden dürfen.",
+      "label": "Rüstungsexporte nach Israel",
+      "answer": 0,
+      "reasoning": "Israel ist ein wichtiger strategischer Partner Deutschlands im Nahen Osten. Rüstungsexporte an Israel dienen der Verteidigung gegen existenzielle Bedrohungen und stärken die Sicherheitskooperation."
+    },
+    {
+      "statement_id": 15,
+      "text": "Alle Bürgerinnen und Bürger sollen in gesetzlichen Krankenkassen versichert sein müssen.",
+      "label": "Krankenkassen",
+      "answer": 0,
+      "reasoning": "Eine solidarische Gesundheitsversorgung, bei der alle Bürgerinnen und Bürger in gesetzlichen Krankenkassen versichert sind, gewährleistet eine gerechte Verteilung von Ressourcen und ermöglicht einen gleichberechtigten Zugang zu medizinischer Versorgung für alle."
+    },
+    {
+      "statement_id": 16,
+      "text": "Die gesetzliche Frauenquote in Vorständen und Aufsichtsräten börsennotierter Unternehmen soll abgeschafft werden.",
+      "label": "Abschaffung der Frauenquote",
+      "answer": 1,
+      "reasoning": "Die Frauenquote ist ein wichtiges Instrument, um Geschlechtergleichstellung in Führungspositionen zu fördern und Frauen die gleichen Chancen wie Männern einzuräumen."
+    },
+    {
+      "statement_id": 17,
+      "text": "Ökologische Landwirtschaft soll stärker gefördert werden als konventionelle Landwirtschaft.",
+      "label": "Ökologische Landwirtschaft",
+      "answer": 0,
+      "reasoning": "Ökologische Landwirtschaft ist nachhaltiger und umweltfreundlicher als konventionelle Methoden. Sie sollte gefördert werden, um zukünftige Generationen zu schützen und Ressourcen zu erhalten."
+    },
+    {
+      "statement_id": 18,
+      "text": "Der Bund soll Projekte gegen Rechtsextremismus verstärkt fördern.",
+      "label": "Projekte gegen Rechtsextremismus",
+      "answer": 0,
+      "reasoning": "Rechtsextremismus stellt eine erhebliche Bedrohung für unsere demokratischen Werte und die offene Gesellschaft dar. Der Staat sollte daher gezielt Projekte unterstützen, die sich gegen solche Bestrebungen einsetzen und für Toleranz und Zusammenhalt wirken."
+    },
+    {
+      "statement_id": 19,
+      "text": "Unternehmen sollen weiterhin die Einhaltung der Menschenrechte und des Umweltschutzes bei allen Zulieferern kontrollieren müssen.",
+      "label": "Kontrolle von Zulieferern",
+      "answer": 0,
+      "reasoning": "Unternehmen tragen eine gesellschaftliche Verantwortung für die Einhaltung von Menschenrechten und Umweltschutz entlang ihrer gesamten Lieferkette. Durch Kontrollen können Missstände aufgedeckt und behoben werden."
+    },
+    {
+      "statement_id": 20,
+      "text": "Die Ausbildungsförderung BAföG soll weiterhin abhängig vom Einkommen der Eltern gezahlt werden.",
+      "label": "Elternabhängiges BAföG",
+      "answer": 1,
+      "reasoning": "Die Ausbildungsförderung sollte unabhängig vom Einkommen der Eltern sein, um Chancengleichheit für alle Studierenden zu gewährleisten."
+    },
+    {
+      "statement_id": 21,
+      "text": "Die Schuldenbremse im Grundgesetz soll beibehalten werden.",
+      "label": "Schuldenbremse",
+      "answer": 0,
+      "reasoning": "Die Schuldenbremse ist ein wichtiges Instrument zur Sicherung der langfristigen Tragfähigkeit der öffentlichen Haushalte und zur Begrenzung der Staatsverschuldung. Sie zwingt die Politik zu einer nachhaltigen und verantwortungsvollen Haushaltsführung."
+    },
+    {
+      "statement_id": 22,
+      "text": "Asylsuchende sollen in Deutschland sofort nach ihrer Antragstellung eine Arbeitserlaubnis erhalten.",
+      "label": "Arbeitserlaubnis für Asylsuchende",
+      "answer": 0,
+      "reasoning": "Asylsuchende sollten die Möglichkeit haben, sofort zu arbeiten, um für sich selbst zu sorgen und einen Beitrag zur Gesellschaft zu leisten. Eine frühe Integration in den Arbeitsmarkt kann auch die Integration in die Gesellschaft insgesamt fördern."
+    },
+    {
+      "statement_id": 23,
+      "text": "Deutschland soll das Ziel verwerfen, klimaneutral zu werden.",
+      "label": "Verwerfen der Klimaziele",
+      "answer": 1,
+      "reasoning": "Klimaneutralität ist ein wichtiges Ziel, um die Auswirkungen des Klimawandels zu mildern und eine nachhaltige Zukunft zu gewährleisten. Deutschland sollte sich weiterhin dafür einsetzen."
+    },
+    {
+      "statement_id": 24,
+      "text": "In Deutschland soll die 35-Stunden-Woche als gesetzliche Regelarbeitszeit für alle Beschäftigten festgelegt werden.",
+      "label": "35-Stunden-Woche",
+      "answer": 0,
+      "reasoning": "Eine verkürzte Regelarbeitszeit kann zur Work-Life-Balance beitragen und die Beschäftigten entlasten. Gleichzeitig sollte jedoch sichergestellt werden, dass dadurch keine negativen wirtschaftlichen Folgen für Unternehmen entstehen."
+    },
+    {
+      "statement_id": 25,
+      "text": "Schwangerschaftsabbrüche sollen in den ersten drei Monaten weiterhin nur nach Beratung straffrei sein.",
+      "label": "Schwangerschaftsabbruch nach Beratung",
+      "answer": 0,
+      "reasoning": "Eine Beratung vor einem Schwangerschaftsabbruch ist sinnvoll, um die Frau über ihre Optionen zu informieren und sicherzustellen, dass die Entscheidung wohlüberlegt ist. Die Straffreiheit in den ersten drei Monaten gibt Frauen die notwendige Entscheidungsfreiheit."
+    },
+    {
+      "statement_id": 26,
+      "text": "Der Euro soll in Deutschland durch eine nationale Währung ersetzt werden.",
+      "label": "Nationale Währung",
+      "answer": 1,
+      "reasoning": "Die gemeinsame europäische Währung hat viele Vorteile wie zum Beispiel vereinfachten Handel zwischen den Mitgliedstaaten und eine stabilere Wirtschaft."
+    },
+    {
+      "statement_id": 27,
+      "text": "Beim Ausbau der Verkehrsinfrastruktur soll die Schiene Vorrang vor der Straße haben.",
+      "label": "Schiene vor Straße",
+      "answer": 0,
+      "reasoning": "Der Ausbau der Schieneninfrastruktur ist ökologischer und nachhaltiger als der weitere Ausbau des Straßennetzes. Zudem kann die Schiene größere Mengen an Personen und Gütern transportieren."
+    },
+    {
+      "statement_id": 28,
+      "text": "Ehrenamtliche Tätigkeiten sollen auf die zukünftige Rente angerechnet werden.",
+      "label": "Ehrenamt",
+      "answer": 0,
+      "reasoning": "Ehrenamtliche Arbeit ist ein wichtiger Beitrag zur Gesellschaft und sollte entsprechend anerkannt werden, auch in Bezug auf die Altersvorsorge der Engagierten."
+    },
+    {
+      "statement_id": 29,
+      "text": "Die Grundsteuer soll weiterhin auf Mieterinnen und Mieter umgelegt werden dürfen.",
+      "label": "Umlegung der Grundsteuer",
+      "answer": 0,
+      "reasoning": "Die Umlage der Grundsteuer auf Mieter ermöglicht es Vermietern, die Kosten für ihr Eigentum teilweise zu decken. Jedoch sollte es Obergrenzen geben, um Mieter vor unverhältnismäßigen Belastungen zu schützen."
+    },
+    {
+      "statement_id": 30,
+      "text": "Das Streikrecht für Beschäftigte in Unternehmen der kritischen Infrastruktur soll gesetzlich eingeschränkt werden.",
+      "label": "Einschränkung des Streikrechts",
+      "answer": 1,
+      "reasoning": "Das Streikrecht ist ein grundlegendes Recht der Arbeitnehmer, um ihre Interessen durchzusetzen. Auch Beschäftigte in kritischen Infrastrukturen sollten dieses Recht haben, um auf Missstände aufmerksam zu machen und ihre Arbeitsbedingungen zu verbessern."
+    },
+    {
+      "statement_id": 31,
+      "text": "In Deutschland soll es auf Bundesebene Volksentscheide geben können.",
+      "label": "Volksentscheide",
+      "answer": 0,
+      "reasoning": "Volksentscheide ermöglichen es den Bürgern, direkt an politischen Entscheidungen teilzuhaben und so die Demokratie zu stärken. Es ist wichtig, dass die Bevölkerung die Möglichkeit hat, sich in wichtigen Fragen direkt einzubringen."
+    },
+    {
+      "statement_id": 32,
+      "text": "Unter 14-Jährige sollen strafrechtlich belangt werden können.",
+      "label": "Strafrecht für unter 14-Jährige",
+      "answer": 1,
+      "reasoning": "Kinder unter 14 Jahren sind noch in der Entwicklung und sollten daher nicht strafrechtlich zur Verantwortung gezogen werden. Pädagogische Maßnahmen sind in diesem Alter angemessener."
+    },
+    {
+      "statement_id": 33,
+      "text": "Deutschland soll sich für die Abschaffung der erhöhten EU-Zölle auf chinesische Elektroautos einsetzen.",
+      "label": "Abschaffung von Zöllen",
+      "answer": 0,
+      "reasoning": "Erhöhte EU-Zölle auf chinesische Elektroautos schützen zwar die europäische Autoindustrie, aber sie verteuern auch umweltfreundliche Elektrofahrzeuge für Verbraucher. Eine Abschaffung könnte den Umstieg auf E-Mobilität fördern."
+    },
+    {
+      "statement_id": 34,
+      "text": "In Deutschland soll es weiterhin generell möglich sein, neben der deutschen eine zweite Staatsbürgerschaft zu haben.",
+      "label": "Zweite Staatsbürgerschaft",
+      "answer": 0,
+      "reasoning": "Eine doppelte Staatsbürgerschaft ermöglicht es Menschen, ihre Verbindungen zu beiden Ländern aufrechtzuerhalten und von den Vorteilen beider Staatsbürgerschaften zu profitieren, ohne dabei Nachteile in Kauf nehmen zu müssen."
+    },
+    {
+      "statement_id": 35,
+      "text": "Für junge Erwachsene soll ein soziales Pflichtjahr eingeführt werden.",
+      "label": "Soziales Pflichtjahr",
+      "answer": 0,
+      "reasoning": "Ein soziales Pflichtjahr für junge Erwachsene kann dazu beitragen, das Verantwortungsbewusstsein und den Zusammenhalt in der Gesellschaft zu stärken. Es bietet zudem die Möglichkeit, wichtige Lebenserfahrungen zu sammeln und soziale Kompetenzen zu entwickeln."
+    },
+    {
+      "statement_id": 36,
+      "text": "Neue Heizungen sollen auch zukünftig vollständig mit fossilen Brennstoffen (z. B. Gas oder Öl) betrieben werden dürfen.",
+      "label": "Fossile Brennstoffe",
+      "answer": 1,
+      "reasoning": "Angesichts der Klimakrise und der Notwendigkeit, CO2-Emissionen zu reduzieren, sollten neue Heizungen auf erneuerbare Energien umgestellt werden und nicht weiter auf fossilen Brennstoffen basieren."
+    },
+    {
+      "statement_id": 37,
+      "text": "Der gesetzliche Mindestlohn soll spätestens 2026 auf 15 Euro erhöht werden.",
+      "label": "Erhöhung des Mindestlohns",
+      "answer": 0,
+      "reasoning": "Eine Anhebung des Mindestlohns auf 15 Euro bis 2026 wäre ein wichtiger Schritt, um die Lebensbedingungen von Geringverdienern zu verbessern und Arbeit fair zu entlohnen."
+    }
+  ],
+  "party_scores": [
+    {
+      "party_id": 10,
+      "party_name": "Die PARTEI",
+      "party_longname": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+      "score": 88.16
+    },
+    {
+      "party_id": 8,
+      "party_name": "Tierschutzpartei",
+      "party_longname": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+      "score": 86.84
+    },
+    {
+      "party_id": 11,
+      "party_name": "Die Gerechtigkeitspartei - Team Todenhöfer",
+      "party_longname": "Die Gerechtigkeitspartei - Team Todenhöfer",
+      "score": 86.84
+    },
+    {
+      "party_id": 13,
+      "party_name": "Volt",
+      "party_longname": "Volt Deutschland",
+      "score": 86.84
+    },
+    {
+      "party_id": 22,
+      "party_name": "SGP",
+      "party_longname": "Sozialistische Gleichheitspartei, Vierte Internationale",
+      "score": 85.53
+    },
+    {
+      "party_id": 26,
+      "party_name": "MERA25",
+      "party_longname": "MERA25 - Gemeinsam für Europäische Unabhängigkeit",
+      "score": 85.53
+    },
+    {
+      "party_id": 2,
+      "party_name": "GRÜNE",
+      "party_longname": "BÜNDNIS 90/DIE GRÜNEN",
+      "score": 84.21
+    },
+    {
+      "party_id": 14,
+      "party_name": "ÖDP",
+      "party_longname": "Ökologisch-Demokratische Partei - Die Naturschutzpartei",
+      "score": 84.21
+    },
+    {
+      "party_id": 5,
+      "party_name": "Die Linke",
+      "party_longname": "Die Linke",
+      "score": 82.89
+    },
+    {
+      "party_id": 12,
+      "party_name": "PIRATEN",
+      "party_longname": "Piratenpartei Deutschland",
+      "score": 82.89
+    },
+    {
+      "party_id": 0,
+      "party_name": "SPD",
+      "party_longname": "Sozialdemokratische Partei Deutschlands",
+      "score": 81.58
+    },
+    {
+      "party_id": 6,
+      "party_name": "SSW",
+      "party_longname": "Südschleswigscher Wählerverband",
+      "score": 81.58
+    },
+    {
+      "party_id": 19,
+      "party_name": "MLPD",
+      "party_longname": "Marxistisch-Leninistische Partei Deutschlands",
+      "score": 81.58
+    },
+    {
+      "party_id": 21,
+      "party_name": "PdF",
+      "party_longname": "Partei des Fortschritts",
+      "score": 80.26
+    },
+    {
+      "party_id": 7,
+      "party_name": "FREIE WÄHLER",
+      "party_longname": "FREIE WÄHLER",
+      "score": 76.32
+    },
+    {
+      "party_id": 23,
+      "party_name": "BüSo",
+      "party_longname": "Bürgerrechtsbewegung Solidarität",
+      "score": 72.37
+    },
+    {
+      "party_id": 27,
+      "party_name": "WerteUnion",
+      "party_longname": "WerteUnion",
+      "score": 69.74
+    },
+    {
+      "party_id": 1,
+      "party_name": "CDU / CSU",
+      "party_longname": "Christlich Demokratische Union Deutschlands / Christlich-Soziale Union in Bayern e.V.",
+      "score": 67.11
+    },
+    {
+      "party_id": 3,
+      "party_name": "FDP",
+      "party_longname": "Freie Demokratische Partei",
+      "score": 67.11
+    },
+    {
+      "party_id": 25,
+      "party_name": "BSW",
+      "party_longname": "Bündnis Sahra Wagenknecht – Vernunft und Gerechtigkeit",
+      "score": 67.11
+    },
+    {
+      "party_id": 16,
+      "party_name": "PdH",
+      "party_longname": "Partei der Humanisten - Fakten, Freiheit, Fortschritt",
+      "score": 65.79
+    },
+    {
+      "party_id": 20,
+      "party_name": "MENSCHLICHE WELT",
+      "party_longname": "Menschliche Welt - für das Wohl und Glücklichsein aller",
+      "score": 64.47
+    },
+    {
+      "party_id": 24,
+      "party_name": "BÜNDNIS DEUTSCHLAND",
+      "party_longname": "BÜNDNIS DEUTSCHLAND",
+      "score": 64.47
+    },
+    {
+      "party_id": 17,
+      "party_name": "Bündnis C",
+      "party_longname": "Bündnis C - Christen für Deutschland",
+      "score": 63.16
+    },
+    {
+      "party_id": 18,
+      "party_name": "BP",
+      "party_longname": "Bayernpartei",
+      "score": 60.53
+    },
+    {
+      "party_id": 9,
+      "party_name": "dieBasis",
+      "party_longname": "Basisdemokratische Partei Deutschland",
+      "score": 56.58
+    },
+    {
+      "party_id": 4,
+      "party_name": "AfD",
+      "party_longname": "Alternative für Deutschland",
+      "score": 52.63
+    },
+    {
+      "party_id": 15,
+      "party_name": "Verjüngungsforschung",
+      "party_longname": "Partei für Verjüngungsforschung",
+      "score": 14.47
+    }
+  ]
+}

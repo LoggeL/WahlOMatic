@@ -1,6 +1,7 @@
 """OpenRouter API client for LLM evaluation."""
 import os
 import time
+import random
 import requests
 from typing import Optional, Dict, Any
 from dotenv import load_dotenv
@@ -26,8 +27,8 @@ class OpenRouterClient:
         
         self.model = model or 'openai/gpt-4o'
         self.base_url = "https://openrouter.ai/api/v1/chat/completions"
-        self.max_retries = 3
-        self.retry_delay = 2  # seconds
+        self.max_retries = 7
+        self.base_delay = 2  # seconds, doubles each retry with jitter
         
     def _make_request(
         self,
@@ -69,14 +70,19 @@ class OpenRouterClient:
                     self.base_url,
                     headers=headers,
                     json=payload,
-                    timeout=60
+                    timeout=120
                 )
                 response.raise_for_status()
                 return response.json()
             except requests.exceptions.RequestException as e:
                 if attempt < self.max_retries - 1:
-                    wait_time = self.retry_delay * (attempt + 1)
-                    print(f"Request failed, retrying in {wait_time}s... (attempt {attempt + 1}/{self.max_retries})")
+                    # Exponential backoff with jitter: 2s, 4s, 8s, 16s, 32s, 64s
+                    wait_time = self.base_delay * (2 ** attempt) + random.uniform(0, 1)
+                    status = getattr(getattr(e, 'response', None), 'status_code', None)
+                    if status == 429:
+                        # Extra delay for rate limits
+                        wait_time = max(wait_time, 10 * (attempt + 1)) + random.uniform(0, 5)
+                    print(f"Request failed ({status or 'network'}), retrying in {wait_time:.0f}s... (attempt {attempt + 1}/{self.max_retries})")
                     time.sleep(wait_time)
                 else:
                     raise Exception(f"API request failed after {self.max_retries} attempts: {e}")
